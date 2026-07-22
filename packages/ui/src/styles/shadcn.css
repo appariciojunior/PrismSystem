@@ -19,6 +19,10 @@
   --font-sans: var(--font-sans);
   --font-heading: var(--font-heading);
   --font-mono: var(--font-mono);
+  --font-weight-heading: var(--font-weight-heading);
+  --font-weight-body: var(--font-weight-body);
+  --leading-normal: var(--leading);
+  --tracking-normal: var(--tracking);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);

@@ -326,6 +326,11 @@ export function writeShadcnTheme(brand, system) {
   --font-sans: ${font(brand.bodyFont)};
   --font-heading: ${font(brand.headingFont)};
   --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --font-weight-heading: ${brand.headingWeight || 700};
+  --font-weight-body: ${brand.bodyWeight || 400};
+  --type-scale: ${brand.typeScale || 1.25};
+  --leading: ${({ tight: 1.3, normal: 1.5, loose: 1.72 })[brand.lineHeight || 'normal']};
+  --tracking: ${({ tight: '-0.012em', normal: '0em', wide: '0.03em' })[brand.letterSpacing || 'normal']};
   --shadow-2xs: ${shadow(0.5, 0.5)};
   --shadow-xs: ${shadow(0.7, 0.7)};
   --shadow-sm: ${shadow(0.85)};
