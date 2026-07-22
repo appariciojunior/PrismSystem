@@ -4,84 +4,84 @@
     "version": "1"
   },
   "ramp.blue.50": {
-    "light": "#FAFAFD",
-    "dark": "#010B0D"
+    "light": "#F6FBFF",
+    "dark": "#000002"
   },
   "ramp.blue.100": {
-    "light": "#F4F7FA",
-    "dark": "#05121D"
+    "light": "#DFF1FF",
+    "dark": "#001422"
   },
   "ramp.blue.150": {
-    "light": "#EFF2F5",
-    "dark": "#041D2A"
+    "light": "#C8E7FF",
+    "dark": "#033551"
   },
   "ramp.blue.200": {
-    "light": "#E6F0F3",
-    "dark": "#072437"
+    "light": "#B3DDFC",
+    "dark": "#27597A"
   },
   "ramp.blue.250": {
-    "light": "#DCE6EE",
-    "dark": "#042F44"
+    "light": "#9BD3FC",
+    "dark": "#4A80A5"
   },
   "ramp.blue.300": {
-    "light": "#D1DEE9",
-    "dark": "#083654"
+    "light": "#86C9F8",
+    "dark": "#4D87AF"
   },
   "ramp.blue.350": {
-    "light": "#C6D7E2",
-    "dark": "#034161"
+    "light": "#78BDEE",
+    "dark": "#528EB8"
   },
   "ramp.blue.400": {
-    "light": "#AEC5D5",
-    "dark": "#07496E"
+    "light": "#6AB2E4",
+    "dark": "#5796C1"
   },
   "ramp.blue.450": {
-    "light": "#98B6CC",
-    "dark": "#00537B"
+    "light": "#5EA7D9",
+    "dark": "#5D9DCA"
   },
   "ramp.blue.500": {
-    "light": "#7FA7BF",
-    "dark": "#005C8A"
+    "light": "#529CCE",
+    "dark": "#64A4D2"
   },
   "ramp.blue.550": {
-    "light": "#6695B3",
-    "dark": "#176590"
+    "light": "#4891C2",
+    "dark": "#6CACD9"
   },
   "ramp.blue.600": {
-    "light": "#4F86A6",
-    "dark": "#266D95"
+    "light": "#3F86B5",
+    "dark": "#74B3E0"
   },
   "ramp.blue.650": {
-    "light": "#3E799F",
-    "dark": "#38749D"
+    "light": "#367BA8",
+    "dark": "#7EBAE6"
   },
   "ramp.blue.700": {
-    "light": "#266D95",
-    "dark": "#447CA2"
+    "light": "#2F709B",
+    "dark": "#88C2EB"
   },
   "ramp.blue.750": {
-    "light": "#176590",
-    "dark": "#4F86A6"
+    "light": "#29668D",
+    "dark": "#93C9F0"
   },
   "ramp.blue.800": {
     "light": "#005C8A",
-    "dark": "#5B8EAE"
+    "dark": "#9ED0F5"
   },
   "ramp.blue.850": {
-    "light": "#084E76",
-    "dark": "#6695B3"
+    "light": "#124564",
+    "dark": "#A9D7F9"
   },
   "ramp.blue.900": {
-    "light": "#034666",
-    "dark": "#759DBA"
+    "light": "#012F49",
+    "dark": "#B6DEFD"
   },
   "ramp.blue.950": {
-    "light": "#083C5C",
-    "dark": "#7FA7BF"
+    "light": "#011B2C",
+    "dark": "#C5E5FD"
   },
   "ramp.blue.1000": {
-    "light": "#05344C",
-    "dark": "#8AAEC4"
+    "light": "#000812",
+    "dark": "#D3ECFE"
   },
   "ramp.overlay.dark.50": {
     "light": "#000000",
@@ -164,404 +164,404 @@
     "dark": "#000000"
   },
   "ramp.messaging.info.50": {
-    "light": "#FAFAFD",
-    "dark": "#0A1F45"
+    "light": "#F6FAFF",
+    "dark": "#000006"
   },
   "ramp.messaging.info.100": {
-    "light": "#F5F5FA",
-    "dark": "#07244D"
+    "light": "#D8E7FE",
+    "dark": "#000313"
   },
   "ramp.messaging.info.150": {
-    "light": "#EFF2F8",
-    "dark": "#08295A"
+    "light": "#B8D3FF",
+    "dark": "#000B27"
   },
   "ramp.messaging.info.200": {
-    "light": "#E2E8F3",
-    "dark": "#0B2C62"
+    "light": "#97BFFF",
+    "dark": "#01173E"
   },
   "ramp.messaging.info.250": {
-    "light": "#D8DEEF",
-    "dark": "#0C316A"
+    "light": "#76ABFE",
+    "dark": "#042355"
   },
   "ramp.messaging.info.300": {
-    "light": "#C5D2E8",
-    "dark": "#0D3674"
+    "light": "#6097ED",
+    "dark": "#012F73"
   },
   "ramp.messaging.info.350": {
-    "light": "#AFC0DE",
-    "dark": "#0B397F"
+    "light": "#4C83DC",
+    "dark": "#0E3E87"
   },
   "ramp.messaging.info.400": {
-    "light": "#97AED7",
-    "dark": "#0C3E89"
+    "light": "#3770C9",
+    "dark": "#1D4E9A"
   },
   "ramp.messaging.info.450": {
-    "light": "#7F9CCE",
-    "dark": "#0D4391"
+    "light": "#245DB6",
+    "dark": "#2C5EAD"
   },
   "ramp.messaging.info.500": {
-    "light": "#6788C4",
-    "dark": "#0F4AA2"
+    "light": "#0F4AA2",
+    "dark": "#3B6EC0"
   },
   "ramp.messaging.info.550": {
-    "light": "#5176BA",
-    "dark": "#2053A6"
+    "light": "#044198",
+    "dark": "#4C7FD1"
   },
   "ramp.messaging.info.600": {
-    "light": "#3865B0",
-    "dark": "#325FAE"
+    "light": "#083B85",
+    "dark": "#588BDC"
   },
   "ramp.messaging.info.650": {
-    "light": "#2658A9",
-    "dark": "#466FB5"
+    "light": "#023379",
+    "dark": "#6496E6"
   },
   "ramp.messaging.info.700": {
-    "light": "#0F4AA2",
-    "dark": "#5C81BF"
+    "light": "#052C67",
+    "dark": "#72A2EF"
   },
   "ramp.messaging.info.750": {
-    "light": "#0D4391",
-    "dark": "#6F8DC6"
+    "light": "#02255B",
+    "dark": "#80AEF7"
   },
   "ramp.messaging.info.800": {
-    "light": "#0E3C82",
-    "dark": "#7F9CCE"
+    "light": "#001E4F",
+    "dark": "#8FBAFE"
   },
   "ramp.messaging.info.850": {
-    "light": "#0A3472",
-    "dark": "#92A9D5"
+    "light": "#02183F",
+    "dark": "#A2C6FE"
   },
   "ramp.messaging.info.900": {
-    "light": "#0B2C62",
-    "dark": "#AABBDC"
+    "light": "#011133",
+    "dark": "#B7D2FB"
   },
   "ramp.messaging.info.950": {
-    "light": "#0B2452",
-    "dark": "#BACAE3"
+    "light": "#000B27",
+    "dark": "#C8DDFE"
   },
   "ramp.messaging.info.1000": {
-    "light": "#071D42",
-    "dark": "#CDD7EA"
+    "light": "#00061C",
+    "dark": "#DCE9FD"
   },
   "ramp.messaging.error.50": {
-    "light": "#FFFAFA",
-    "dark": "#410805"
+    "light": "#FFF6F4",
+    "dark": "#020000"
   },
   "ramp.messaging.error.100": {
-    "light": "#FFF4F5",
-    "dark": "#540A08"
+    "light": "#FDE5E1",
+    "dark": "#0A0000"
   },
   "ramp.messaging.error.150": {
-    "light": "#FFEFEF",
-    "dark": "#670909"
+    "light": "#FDD0CA",
+    "dark": "#170000"
   },
   "ramp.messaging.error.200": {
-    "light": "#FFE4E2",
-    "dark": "#800A07"
+    "light": "#FDBBB2",
+    "dark": "#260000"
   },
   "ramp.messaging.error.250": {
-    "light": "#FFDAD8",
-    "dark": "#940C07"
+    "light": "#FBA69B",
+    "dark": "#350102"
   },
   "ramp.messaging.error.300": {
-    "light": "#FFCAC5",
-    "dark": "#A70806"
+    "light": "#FB8E81",
+    "dark": "#450303"
   },
   "ramp.messaging.error.350": {
-    "light": "#FFB4B0",
-    "dark": "#BA0B05"
+    "light": "#FC7264",
+    "dark": "#560505"
   },
   "ramp.messaging.error.400": {
-    "light": "#FF9F98",
-    "dark": "#CB0705"
+    "light": "#F6584C",
+    "dark": "#680607"
   },
   "ramp.messaging.error.450": {
-    "light": "#FF8883",
-    "dark": "#E70300"
+    "light": "#F03731",
+    "dark": "#7B0709"
   },
   "ramp.messaging.error.500": {
-    "light": "#FF7268",
-    "dark": "#FF0000"
+    "light": "#E02020",
+    "dark": "#8E080C"
   },
   "ramp.messaging.error.550": {
-    "light": "#FF5A51",
-    "dark": "#FF2019"
+    "light": "#C72320",
+    "dark": "#A10A0E"
   },
   "ramp.messaging.error.600": {
-    "light": "#FF403A",
-    "dark": "#FF3933"
+    "light": "#B50D12",
+    "dark": "#B91617"
   },
   "ramp.messaging.error.650": {
-    "light": "#FF2922",
-    "dark": "#FF4E46"
+    "light": "#9C1514",
+    "dark": "#CA342D"
   },
   "ramp.messaging.error.700": {
-    "light": "#FF0000",
-    "dark": "#FF605A"
+    "light": "#8A0308",
+    "dark": "#DA4C41"
   },
   "ramp.messaging.error.750": {
-    "light": "#E70300",
-    "dark": "#FF7268"
+    "light": "#730A0A",
+    "dark": "#E86256"
   },
   "ramp.messaging.error.800": {
-    "light": "#CB0705",
-    "dark": "#FF7D75"
+    "light": "#5D0B0A",
+    "dark": "#F6786B"
   },
   "ramp.messaging.error.850": {
-    "light": "#B20908",
-    "dark": "#FF8E88"
+    "light": "#4C0304",
+    "dark": "#FB9386"
   },
   "ramp.messaging.error.900": {
-    "light": "#990A06",
-    "dark": "#FF9F98"
+    "light": "#390303",
+    "dark": "#FCAEA4"
   },
   "ramp.messaging.error.950": {
-    "light": "#800A07",
-    "dark": "#FFAFAB"
+    "light": "#270202",
+    "dark": "#FFC7BF"
   },
   "ramp.messaging.error.1000": {
-    "light": "#670909",
-    "dark": "#FFBFBB"
+    "light": "#170000",
+    "dark": "#FDE0DC"
   },
   "ramp.messaging.warning.50": {
-    "light": "#FFFCFA",
-    "dark": "#412809"
+    "light": "#FFF9F1",
+    "dark": "#020000"
   },
   "ramp.messaging.warning.100": {
-    "light": "#FFFAF4",
-    "dark": "#54340B"
+    "light": "#FFF0E0",
+    "dark": "#040100"
   },
   "ramp.messaging.warning.150": {
-    "light": "#FFF7EF",
-    "dark": "#664109"
+    "light": "#FEE8D0",
+    "dark": "#090300"
   },
   "ramp.messaging.warning.200": {
-    "light": "#FEF4E4",
-    "dark": "#7E520D"
+    "light": "#FFDEBA",
+    "dark": "#110700"
   },
   "ramp.messaging.warning.250": {
-    "light": "#FFEFDC",
-    "dark": "#945F08"
+    "light": "#FDD6AB",
+    "dark": "#190C01"
   },
   "ramp.messaging.warning.300": {
-    "light": "#FFE7CB",
-    "dark": "#A76B09"
+    "light": "#FECC93",
+    "dark": "#211202"
   },
   "ramp.messaging.warning.350": {
-    "light": "#FFDFB5",
-    "dark": "#B9770A"
+    "light": "#FDC380",
+    "dark": "#2B1802"
   },
   "ramp.messaging.warning.400": {
-    "light": "#FFD79E",
-    "dark": "#CC8103"
+    "light": "#FBB96B",
+    "dark": "#341F03"
   },
   "ramp.messaging.warning.450": {
-    "light": "#FFCD8B",
-    "dark": "#E49307"
+    "light": "#FAB053",
+    "dark": "#3E2503"
   },
   "ramp.messaging.warning.500": {
-    "light": "#FFC274",
-    "dark": "#FFA300"
+    "light": "#FFA300",
+    "dark": "#482C03"
   },
   "ramp.messaging.warning.550": {
-    "light": "#FFBA5B",
-    "dark": "#FFA722"
+    "light": "#E29114",
+    "dark": "#523204"
   },
   "ramp.messaging.warning.600": {
-    "light": "#FFB243",
-    "dark": "#FFAF3C"
+    "light": "#C5801B",
+    "dark": "#6A4103"
   },
   "ramp.messaging.warning.650": {
-    "light": "#FFAA2B",
-    "dark": "#FFB44E"
+    "light": "#AA6F1E",
+    "dark": "#7F5213"
   },
   "ramp.messaging.warning.700": {
-    "light": "#FFA300",
-    "dark": "#FFBD61"
+    "light": "#935D06",
+    "dark": "#996211"
   },
   "ramp.messaging.warning.750": {
-    "light": "#E49307",
-    "dark": "#FFC274"
+    "light": "#794D0B",
+    "dark": "#B47206"
   },
   "ramp.messaging.warning.800": {
-    "light": "#CC8103",
-    "dark": "#FFC77F"
+    "light": "#613D0A",
+    "dark": "#C58737"
   },
   "ramp.messaging.warning.850": {
-    "light": "#B17308",
-    "dark": "#FFCF91"
+    "light": "#4A2E07",
+    "dark": "#D69D58"
   },
   "ramp.messaging.warning.900": {
-    "light": "#99610C",
-    "dark": "#FFD79E"
+    "light": "#341F03",
+    "dark": "#E7B377"
   },
   "ramp.messaging.warning.950": {
-    "light": "#7E520D",
-    "dark": "#FFDDB0"
+    "light": "#211101",
+    "dark": "#F8C995"
   },
   "ramp.messaging.warning.1000": {
-    "light": "#664109",
-    "dark": "#FEE5C0"
+    "light": "#0E0500",
+    "dark": "#FDE3C6"
   },
   "ramp.messaging.success.50": {
-    "light": "#F9FDFC",
-    "dark": "#153928"
+    "light": "#EFFFF5",
+    "dark": "#000100"
   },
   "ramp.messaging.success.100": {
-    "light": "#F7FAF7",
-    "dark": "#16462F"
+    "light": "#C1FEDB",
+    "dark": "#000301"
   },
   "ramp.messaging.success.150": {
-    "light": "#F1F8F5",
-    "dark": "#1B5339"
+    "light": "#A9F5CA",
+    "dark": "#000803"
   },
   "ramp.messaging.success.200": {
-    "light": "#E9F3ED",
-    "dark": "#1B5B3E"
+    "light": "#96EABB",
+    "dark": "#011007"
   },
   "ramp.messaging.success.250": {
-    "light": "#DDF0E5",
-    "dark": "#206745"
+    "light": "#84DFAD",
+    "dark": "#02180C"
   },
   "ramp.messaging.success.300": {
-    "light": "#CFE9DA",
-    "dark": "#22724F"
+    "light": "#72D3A0",
+    "dark": "#032112"
   },
   "ramp.messaging.success.350": {
-    "light": "#BEDFCD",
-    "dark": "#257C53"
+    "light": "#61C893",
+    "dark": "#042A19"
   },
   "ramp.messaging.success.400": {
-    "light": "#A9D8BE",
-    "dark": "#2C865B"
+    "light": "#51BC86",
+    "dark": "#06331F"
   },
   "ramp.messaging.success.450": {
-    "light": "#95CEB1",
-    "dark": "#2C9365"
+    "light": "#41B07A",
+    "dark": "#073D26"
   },
   "ramp.messaging.success.500": {
-    "light": "#80C4A1",
-    "dark": "#31A46F"
+    "light": "#31A46F",
+    "dark": "#09472D"
   },
   "ramp.messaging.success.550": {
-    "light": "#6DBC94",
-    "dark": "#41A877"
+    "light": "#1A9460",
+    "dark": "#0A5233"
   },
   "ramp.messaging.success.600": {
-    "light": "#56B284",
-    "dark": "#53B081"
+    "light": "#1E8256",
+    "dark": "#04653F"
   },
   "ramp.messaging.success.650": {
-    "light": "#44AB79",
-    "dark": "#63B78C"
+    "light": "#097248",
+    "dark": "#16784E"
   },
   "ramp.messaging.success.700": {
-    "light": "#31A46F",
-    "dark": "#74BC96"
+    "light": "#0F613E",
+    "dark": "#358A60"
   },
   "ramp.messaging.success.750": {
-    "light": "#2C9365",
-    "dark": "#80C4A1"
+    "light": "#005232",
+    "dark": "#4E9B73"
   },
   "ramp.messaging.success.800": {
-    "light": "#298458",
-    "dark": "#95CEB1"
+    "light": "#044228",
+    "dark": "#67AD86"
   },
   "ramp.messaging.success.850": {
-    "light": "#22724F",
-    "dark": "#A3D5BB"
+    "light": "#05331E",
+    "dark": "#7FBE9B"
   },
   "ramp.messaging.success.900": {
-    "light": "#1F6242",
-    "dark": "#B2DAC6"
+    "light": "#032415",
+    "dark": "#97D0AF"
   },
   "ramp.messaging.success.950": {
-    "light": "#1B5339",
-    "dark": "#C1E1D0"
+    "light": "#01170B",
+    "dark": "#B0E2C5"
   },
   "ramp.messaging.success.1000": {
-    "light": "#15412C",
-    "dark": "#CFE9DA"
+    "light": "#000A04",
+    "dark": "#CAF4DB"
   },
   "ramp.neutral.50": {
     "light": "#FFFFFF",
     "dark": "#000000"
   },
   "ramp.neutral.100": {
-    "light": "#F2F2F2",
-    "dark": "#0D0D0D"
+    "light": "#EBEBEB",
+    "dark": "#030303"
   },
   "ramp.neutral.150": {
-    "light": "#E6E6E6",
-    "dark": "#1A1A1A"
+    "light": "#DCDCDC",
+    "dark": "#0A0A0A"
   },
   "ramp.neutral.200": {
-    "light": "#D9D9D9",
-    "dark": "#262626"
+    "light": "#CECECE",
+    "dark": "#131313"
   },
   "ramp.neutral.250": {
-    "light": "#CCCCCC",
-    "dark": "#333333"
+    "light": "#BFBFBF",
+    "dark": "#1E1E1E"
   },
   "ramp.neutral.300": {
-    "light": "#BFBFBF",
-    "dark": "#404040"
+    "light": "#B1B1B1",
+    "dark": "#292929"
   },
   "ramp.neutral.350": {
-    "light": "#B3B3B3",
-    "dark": "#4D4D4D"
+    "light": "#A3A3A3",
+    "dark": "#353535"
   },
   "ramp.neutral.400": {
-    "light": "#A8A8A8",
-    "dark": "#575757"
+    "light": "#959595",
+    "dark": "#414141"
   },
   "ramp.neutral.450": {
-    "light": "#999999",
-    "dark": "#666666"
+    "light": "#878787",
+    "dark": "#4D4D4D"
   },
   "ramp.neutral.500": {
-    "light": "#8C8C8C",
-    "dark": "#737373"
+    "light": "#7A7A7A",
+    "dark": "#5A5A5A"
   },
   "ramp.neutral.550": {
-    "light": "#808080",
-    "dark": "#808080"
+    "light": "#6D6D6D",
+    "dark": "#676767"
   },
   "ramp.neutral.600": {
-    "light": "#737373",
-    "dark": "#8C8C8C"
+    "light": "#606060",
+    "dark": "#747474"
   },
   "ramp.neutral.650": {
-    "light": "#666666",
-    "dark": "#999999"
+    "light": "#545454",
+    "dark": "#828282"
   },
   "ramp.neutral.700": {
-    "light": "#595959",
-    "dark": "#A6A6A6"
+    "light": "#484848",
+    "dark": "#909090"
   },
   "ramp.neutral.750": {
-    "light": "#4D4D4D",
-    "dark": "#B3B3B3"
+    "light": "#3C3C3C",
+    "dark": "#9E9E9E"
   },
   "ramp.neutral.800": {
-    "light": "#404040",
-    "dark": "#BFBFBF"
+    "light": "#303030",
+    "dark": "#ACACAC"
   },
   "ramp.neutral.850": {
-    "light": "#333333",
-    "dark": "#CCCCCC"
+    "light": "#252525",
+    "dark": "#BBBBBB"
   },
   "ramp.neutral.900": {
-    "light": "#262626",
-    "dark": "#D9D9D9"
+    "light": "#1B1B1B",
+    "dark": "#C9C9C9"
   },
   "ramp.neutral.950": {
-    "light": "#1A1A1A",
-    "dark": "#E6E6E6"
+    "light": "#101010",
+    "dark": "#D8D8D8"
   },
   "ramp.neutral.1000": {
-    "light": "#000000",
-    "dark": "#FFFFFF"
+    "light": "#070707",
+    "dark": "#E8E8E8"
   },
   "base.puzzle": {
     "light": "#DF7334",
@@ -656,404 +656,404 @@
     "dark": "#FFEC39"
   },
   "ramp.darkBlue.50": {
-    "light": "#FAFAFA",
-    "dark": "#050808"
+    "light": "#F4FBFF",
+    "dark": "#000101"
   },
   "ramp.darkBlue.100": {
-    "light": "#F5F5F8",
-    "dark": "#060D10"
+    "light": "#CAE9FA",
+    "dark": "#00060B"
   },
   "ramp.darkBlue.150": {
-    "light": "#F0F0F2",
-    "dark": "#0B1517"
+    "light": "#B1D3E5",
+    "dark": "#00131D"
   },
   "ramp.darkBlue.200": {
-    "light": "#E5E8E8",
-    "dark": "#101A1F"
+    "light": "#98BDD1",
+    "dark": "#04212F"
   },
   "ramp.darkBlue.250": {
-    "light": "#D8DEE1",
-    "dark": "#14222A"
+    "light": "#81A7BC",
+    "dark": "#113140"
   },
   "ramp.darkBlue.300": {
-    "light": "#C8CFD4",
-    "dark": "#162731"
+    "light": "#6A92A8",
+    "dark": "#1F4152"
   },
   "ramp.darkBlue.350": {
-    "light": "#B3BDC2",
-    "dark": "#1A2E39"
+    "light": "#547E94",
+    "dark": "#2E5265"
   },
   "ramp.darkBlue.400": {
-    "light": "#9EABB1",
-    "dark": "#1F3441"
+    "light": "#3F6A80",
+    "dark": "#3E6477"
   },
   "ramp.darkBlue.450": {
-    "light": "#87979F",
-    "dark": "#203B49"
+    "light": "#2B566C",
+    "dark": "#4F768A"
   },
   "ramp.darkBlue.500": {
-    "light": "#72838D",
-    "dark": "#254251"
+    "light": "#254251",
+    "dark": "#61889D"
   },
   "ramp.darkBlue.550": {
-    "light": "#5D717C",
-    "dark": "#304B5B"
+    "light": "#103D51",
+    "dark": "#739BB0"
   },
   "ramp.darkBlue.600": {
-    "light": "#485F6A",
-    "dark": "#3A5562"
+    "light": "#09374A",
+    "dark": "#7DA4B9"
   },
   "ramp.darkBlue.650": {
-    "light": "#35505D",
-    "dark": "#485F6A"
+    "light": "#043143",
+    "dark": "#87ACC1"
   },
   "ramp.darkBlue.700": {
-    "light": "#254251",
-    "dark": "#536774"
+    "light": "#012A3C",
+    "dark": "#91B5C9"
   },
   "ramp.darkBlue.750": {
-    "light": "#203B49",
-    "dark": "#5D717C"
+    "light": "#002435",
+    "dark": "#9CBED1"
   },
   "ramp.darkBlue.800": {
-    "light": "#1F3441",
-    "dark": "#677B86"
+    "light": "#021E2C",
+    "dark": "#A8C7D9"
   },
   "ramp.darkBlue.850": {
-    "light": "#1A2E39",
-    "dark": "#72838D"
+    "light": "#011924",
+    "dark": "#B3D0E1"
   },
   "ramp.darkBlue.900": {
-    "light": "#162731",
-    "dark": "#7C8D98"
+    "light": "#01131D",
+    "dark": "#BFD9E8"
   },
   "ramp.darkBlue.950": {
-    "light": "#14222A",
-    "dark": "#87979F"
+    "light": "#000E16",
+    "dark": "#CBE2EF"
   },
   "ramp.darkBlue.1000": {
-    "light": "#101A1F",
-    "dark": "#94A1A9"
+    "light": "#000910",
+    "dark": "#D8EBF6"
   },
   "ramp.yellow.50": {
-    "light": "#FFFCFA",
-    "dark": "#151206"
+    "light": "#FFFAEF",
+    "dark": "#020000"
   },
   "ramp.yellow.100": {
-    "light": "#FDFAF4",
-    "dark": "#2D2308"
+    "light": "#FEF1D6",
+    "dark": "#030100"
   },
   "ramp.yellow.150": {
-    "light": "#FDFAF1",
-    "dark": "#42320E"
+    "light": "#FFE8B9",
+    "dark": "#070400"
   },
   "ramp.yellow.200": {
-    "light": "#FBF5E7",
-    "dark": "#5A4412"
+    "light": "#FEDE9F",
+    "dark": "#0E0800"
   },
   "ramp.yellow.250": {
-    "light": "#F9EFDC",
-    "dark": "#6F5617"
+    "light": "#FED57D",
+    "dark": "#160E01"
   },
   "ramp.yellow.300": {
-    "light": "#F7EACE",
-    "dark": "#876717"
+    "light": "#FCCB60",
+    "dark": "#1E1401"
   },
   "ramp.yellow.350": {
-    "light": "#F6E2B8",
-    "dark": "#9C791C"
+    "light": "#F6C350",
+    "dark": "#271B02"
   },
   "ramp.yellow.400": {
-    "light": "#F1DBA5",
-    "dark": "#B48821"
+    "light": "#EFBB41",
+    "dark": "#2F2202"
   },
   "ramp.yellow.450": {
-    "light": "#F0D091",
-    "dark": "#C99A21"
+    "light": "#E8B333",
+    "dark": "#392802"
   },
   "ramp.yellow.500": {
-    "light": "#EBC87A",
-    "dark": "#E0AB26"
+    "light": "#E0AB26",
+    "dark": "#423002"
   },
   "ramp.yellow.550": {
-    "light": "#E7C065",
-    "dark": "#E1AE37"
+    "light": "#C79828",
+    "dark": "#4C3702"
   },
   "ramp.yellow.600": {
-    "light": "#E5B84F",
-    "dark": "#E3B341"
+    "light": "#B18508",
+    "dark": "#5F4810"
   },
   "ramp.yellow.650": {
-    "light": "#E3B13E",
-    "dark": "#E5B84F"
+    "light": "#997313",
+    "dark": "#755810"
   },
   "ramp.yellow.700": {
-    "light": "#E0AB26",
-    "dark": "#E7BB5C"
+    "light": "#816215",
+    "dark": "#8D690B"
   },
   "ramp.yellow.750": {
-    "light": "#C99A21",
-    "dark": "#E7C065"
+    "light": "#6D5002",
+    "dark": "#A27C21"
   },
   "ramp.yellow.800": {
-    "light": "#B48821",
-    "dark": "#E9C671"
+    "light": "#574005",
+    "dark": "#B49043"
   },
   "ramp.yellow.850": {
-    "light": "#9C791C",
-    "dark": "#EBC87A"
+    "light": "#423004",
+    "dark": "#C6A561"
   },
   "ramp.yellow.900": {
-    "light": "#876717",
-    "dark": "#EDCD85"
+    "light": "#2F2102",
+    "dark": "#D8BA7E"
   },
   "ramp.yellow.950": {
-    "light": "#6F5617",
-    "dark": "#F0D091"
+    "light": "#1D1300",
+    "dark": "#EAD09B"
   },
   "ramp.yellow.1000": {
-    "light": "#5A4412",
-    "dark": "#EFD59C"
+    "light": "#0C0600",
+    "dark": "#FCE5B8"
   },
   "ramp.lightBlue.50": {
-    "light": "#FCFCFF",
-    "dark": "#0B1217"
+    "light": "#F6FBFF",
+    "dark": "#000002"
   },
   "ramp.lightBlue.100": {
-    "light": "#FAFAFD",
-    "dark": "#17242C"
+    "light": "#E5F3FE",
+    "dark": "#000205"
   },
   "ramp.lightBlue.150": {
-    "light": "#F4FAFD",
-    "dark": "#223644"
+    "light": "#D4ECFE",
+    "dark": "#00050C"
   },
   "ramp.lightBlue.200": {
-    "light": "#EFF5FA",
-    "dark": "#2D4858"
+    "light": "#C1E4FF",
+    "dark": "#000A14"
   },
   "ramp.lightBlue.250": {
-    "light": "#E6F3F8",
-    "dark": "#3C5A70"
+    "light": "#B2DCFC",
+    "dark": "#01111E"
   },
   "ramp.lightBlue.300": {
-    "light": "#DEEBF6",
-    "dark": "#476C84"
+    "light": "#9CD5FD",
+    "dark": "#011827"
   },
   "ramp.lightBlue.350": {
-    "light": "#D0E4F4",
-    "dark": "#537B9C"
+    "light": "#92CCF6",
+    "dark": "#021F32"
   },
   "ramp.lightBlue.400": {
-    "light": "#C2DCEF",
-    "dark": "#5E8EB1"
+    "light": "#87C3EE",
+    "dark": "#02273D"
   },
   "ramp.lightBlue.450": {
-    "light": "#B4D5ED",
-    "dark": "#69A0C8"
+    "light": "#7EBBE6",
+    "dark": "#022F48"
   },
   "ramp.lightBlue.500": {
-    "light": "#A5CDE8",
-    "dark": "#75B2DD"
+    "light": "#75B2DD",
+    "dark": "#023753"
   },
   "ramp.lightBlue.550": {
-    "light": "#97C6E6",
-    "dark": "#7DB7DF"
+    "light": "#639FC9",
+    "dark": "#023F5F"
   },
   "ramp.lightBlue.600": {
-    "light": "#8CBEE1",
-    "dark": "#83B9E2"
+    "light": "#528CB4",
+    "dark": "#1C5071"
   },
   "ramp.lightBlue.650": {
-    "light": "#81B7DF",
-    "dark": "#8CBEE1"
+    "light": "#427A9F",
+    "dark": "#326383"
   },
   "ramp.lightBlue.700": {
-    "light": "#75B2DD",
-    "dark": "#92C1E4"
+    "light": "#33678B",
+    "dark": "#477595"
   },
   "ramp.lightBlue.750": {
-    "light": "#69A0C8",
-    "dark": "#97C6E6"
+    "light": "#255676",
+    "dark": "#5C88A7"
   },
   "ramp.lightBlue.800": {
-    "light": "#5E8EB1",
-    "dark": "#A0C8E9"
+    "light": "#174562",
+    "dark": "#739CB9"
   },
   "ramp.lightBlue.850": {
-    "light": "#537B9C",
-    "dark": "#A5CDE8"
+    "light": "#0A344E",
+    "dark": "#8AAFCB"
   },
   "ramp.lightBlue.900": {
-    "light": "#476C84",
-    "dark": "#AED2EB"
+    "light": "#01253A",
+    "dark": "#A1C3DC"
   },
   "ramp.lightBlue.950": {
-    "light": "#3C5A70",
-    "dark": "#B4D5ED"
+    "light": "#021624",
+    "dark": "#B9D7EE"
   },
   "ramp.lightBlue.1000": {
-    "light": "#2D4858",
-    "dark": "#BCDAEF"
+    "light": "#000812",
+    "dark": "#D2ECFF"
   },
   "ramp.orange.50": {
-    "light": "#FFFCFA",
-    "dark": "#190C07"
+    "light": "#FFF8F3",
+    "dark": "#020000"
   },
   "ramp.orange.100": {
-    "light": "#FDFAF4",
-    "dark": "#31180A"
+    "light": "#FFECE1",
+    "dark": "#050100"
   },
   "ramp.orange.150": {
-    "light": "#FEF4EF",
-    "dark": "#4A2710"
+    "light": "#FFDFCD",
+    "dark": "#0B0200"
   },
   "ramp.orange.200": {
-    "light": "#FFEFE7",
-    "dark": "#623316"
+    "light": "#FDD2BA",
+    "dark": "#150400"
   },
   "ramp.orange.250": {
-    "light": "#FDEADC",
-    "dark": "#7B3F18"
+    "light": "#FDC5A5",
+    "dark": "#1E0800"
   },
   "ramp.orange.300": {
-    "light": "#FCDFCF",
-    "dark": "#934B1E"
+    "light": "#FEB68D",
+    "dark": "#270E02"
   },
   "ramp.orange.350": {
-    "light": "#FBD2B9",
-    "dark": "#AB5A1F"
+    "light": "#FCA979",
+    "dark": "#311402"
   },
   "ramp.orange.400": {
-    "light": "#FBC5A7",
-    "dark": "#C16626"
+    "light": "#F99C64",
+    "dark": "#3B1903"
   },
   "ramp.orange.450": {
-    "light": "#F9BA93",
-    "dark": "#DA722C"
+    "light": "#FD893B",
+    "dark": "#461F03"
   },
   "ramp.orange.500": {
-    "light": "#F8AD7D",
-    "dark": "#F37F2F"
+    "light": "#F37F2F",
+    "dark": "#522404"
   },
   "ramp.orange.550": {
-    "light": "#F79F69",
-    "dark": "#F4873B"
+    "light": "#DE6D15",
+    "dark": "#5D2A04"
   },
   "ramp.orange.600": {
-    "light": "#F69252",
-    "dark": "#F48C49"
+    "light": "#C2611A",
+    "dark": "#773603"
   },
   "ramp.orange.650": {
-    "light": "#F48A42",
-    "dark": "#F69252"
+    "light": "#AD5100",
+    "dark": "#8F4714"
   },
   "ramp.orange.700": {
-    "light": "#F37F2F",
-    "dark": "#F59A5E"
+    "light": "#924509",
+    "dark": "#AB5411"
   },
   "ramp.orange.750": {
-    "light": "#DA722C",
-    "dark": "#F79F69"
+    "light": "#793A0C",
+    "dark": "#BE6933"
   },
   "ramp.orange.800": {
-    "light": "#C16626",
-    "dark": "#F9A771"
+    "light": "#642C00",
+    "dark": "#CF7F4F"
   },
   "ramp.orange.850": {
-    "light": "#AB5A1F",
-    "dark": "#F8AD7D"
+    "light": "#4D2101",
+    "dark": "#E0956A"
   },
   "ramp.orange.900": {
-    "light": "#934B1E",
-    "dark": "#FBB288"
+    "light": "#381601",
+    "dark": "#F1AC85"
   },
   "ramp.orange.950": {
-    "light": "#7B3F18",
-    "dark": "#F9BA93"
+    "light": "#240B00",
+    "dark": "#FCC5A6"
   },
   "ramp.orange.1000": {
-    "light": "#623316",
-    "dark": "#FCBF9B"
+    "light": "#110400",
+    "dark": "#FEE1D2"
   },
   "ramp.teal.50": {
-    "light": "#F9FDFC",
-    "dark": "#06100F"
+    "light": "#F2FCFF",
+    "dark": "#000101"
   },
   "ramp.teal.100": {
-    "light": "#F7FAFA",
-    "dark": "#0B1C22"
+    "light": "#CBF5FF",
+    "dark": "#000304"
   },
   "ramp.teal.150": {
-    "light": "#F1F8F7",
-    "dark": "#0F2C31"
+    "light": "#AAEBFB",
+    "dark": "#00080B"
   },
   "ramp.teal.200": {
-    "light": "#E6F3F5",
-    "dark": "#133C43"
+    "light": "#98DEEF",
+    "dark": "#011014"
   },
   "ramp.teal.250": {
-    "light": "#DEEBF0",
-    "dark": "#194853"
+    "light": "#85D2E4",
+    "dark": "#00191F"
   },
   "ramp.teal.300": {
-    "light": "#D0E4E9",
-    "dark": "#1D5862"
+    "light": "#73C5D8",
+    "dark": "#012229"
   },
   "ramp.teal.350": {
-    "light": "#BCDADF",
-    "dark": "#256774"
+    "light": "#62B8CC",
+    "dark": "#012C34"
   },
   "ramp.teal.400": {
-    "light": "#A9CDD8",
-    "dark": "#2B7484"
+    "light": "#52ACC0",
+    "dark": "#013640"
   },
   "ramp.teal.450": {
-    "light": "#95C3CE",
-    "dark": "#2E8496"
+    "light": "#429FB3",
+    "dark": "#01404C"
   },
   "ramp.teal.500": {
-    "light": "#81B7C4",
-    "dark": "#3292A6"
+    "light": "#3292A6",
+    "dark": "#004B58"
   },
   "ramp.teal.550": {
-    "light": "#6CADBC",
-    "dark": "#3D98AB"
+    "light": "#1F8397",
+    "dark": "#135562"
   },
   "ramp.teal.600": {
-    "light": "#55A2B2",
-    "dark": "#4C9DB0"
+    "light": "#087587",
+    "dark": "#0C6778"
   },
   "ramp.teal.650": {
-    "light": "#459BAD",
-    "dark": "#55A2B2"
+    "light": "#116575",
+    "dark": "#2A7788"
   },
   "ramp.teal.700": {
-    "light": "#3292A6",
-    "dark": "#63A7B7"
+    "light": "#135663",
+    "dark": "#428898"
   },
   "ramp.teal.750": {
-    "light": "#2E8496",
-    "dark": "#6CADBC"
+    "light": "#064855",
+    "dark": "#5899A8"
   },
   "ramp.teal.800": {
-    "light": "#2B7484",
-    "dark": "#77B4C1"
+    "light": "#083A44",
+    "dark": "#6EAAB8"
   },
   "ramp.teal.850": {
-    "light": "#256774",
-    "dark": "#81B7C4"
+    "light": "#012D36",
+    "dark": "#85BBC8"
   },
   "ramp.teal.900": {
-    "light": "#1D5862",
-    "dark": "#88BEC9"
+    "light": "#012127",
+    "dark": "#9CCCD8"
   },
   "ramp.teal.950": {
-    "light": "#194853",
-    "dark": "#95C3CE"
+    "light": "#011419",
+    "dark": "#B4DEE8"
   },
   "ramp.teal.1000": {
-    "light": "#133C43",
-    "dark": "#9DC8D3"
+    "light": "#00090D",
+    "dark": "#CCEFF8"
   },
   "ramp.purple.50": {
     "light": "#FAFAFA",
@@ -1528,10 +1528,10 @@
     "dark": "#FFFFFF"
   },
   "surface.undercanvas.core.light": {
-    "hex": "#F2F2F2"
+    "hex": "#EBEBEB"
   },
   "surface.undercanvas.core.dark": {
-    "hex": "#E6E6E6"
+    "hex": "#0A0A0A"
   },
   "surface.undercanvas.comment.light": {
     "hex": "#F2F2F2"
@@ -1615,7 +1615,7 @@
     "hex": "#FFFFFF"
   },
   "surface.canvas.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "surface.canvas.comment.light": {
     "hex": "#FFFFFF"
@@ -1699,7 +1699,7 @@
     "hex": "#FFFFFF"
   },
   "surface.level-1.core.dark": {
-    "hex": "#F2F2F2"
+    "hex": "#030303"
   },
   "surface.level-1.comment.light": {
     "hex": "#FFFFFF"
@@ -1783,7 +1783,7 @@
     "hex": "#FFFFFF"
   },
   "surface.level-2.core.dark": {
-    "hex": "#E6E6E6"
+    "hex": "#0A0A0A"
   },
   "surface.level-2.comment.light": {
     "hex": "#FFFFFF"
@@ -1867,7 +1867,7 @@
     "hex": "#FFFFFF"
   },
   "surface.level-3.core.dark": {
-    "hex": "#D9D9D9"
+    "hex": "#131313"
   },
   "surface.level-3.comment.light": {
     "hex": "#FFFFFF"
@@ -1951,7 +1951,7 @@
     "hex": "#FFFFFF"
   },
   "surface.level-4.core.dark": {
-    "hex": "#E6E6E6"
+    "hex": "#0A0A0A"
   },
   "surface.level-4.comment.light": {
     "hex": "#FFFFFF"
@@ -2284,10 +2284,10 @@
     "hex": "#95A9A6"
   },
   "text.primary.core.light": {
-    "hex": "#1A1A1A"
+    "hex": "#101010"
   },
   "text.primary.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "text.primary.comment.light": {
     "hex": "#1A1A1A"
@@ -2368,10 +2368,10 @@
     "hex": "#000000"
   },
   "text.secondary.core.light": {
-    "hex": "#404040"
+    "hex": "#303030"
   },
   "text.secondary.core.dark": {
-    "hex": "#262626"
+    "hex": "#C9C9C9"
   },
   "text.secondary.comment.light": {
     "hex": "#404040"
@@ -2452,10 +2452,10 @@
     "hex": "#262626"
   },
   "text.tertiary.core.light": {
-    "hex": "#737373"
+    "hex": "#606060"
   },
   "text.tertiary.core.dark": {
-    "hex": "#595959"
+    "hex": "#909090"
   },
   "text.tertiary.comment.light": {
     "hex": "#737373"
@@ -3124,10 +3124,10 @@
     "hex": "#4D6F68"
   },
   "border.primary.core.light": {
-    "hex": "#B3B3B3"
+    "hex": "#A3A3A3"
   },
   "border.primary.core.dark": {
-    "hex": "#A8A8A8"
+    "hex": "#414141"
   },
   "border.primary.comment.light": {
     "hex": "#B3B3B3"
@@ -3208,10 +3208,10 @@
     "hex": "#A8A8A8"
   },
   "border.secondary.core.light": {
-    "hex": "#CCCCCC"
+    "hex": "#BFBFBF"
   },
   "border.secondary.core.dark": {
-    "hex": "#CCCCCC"
+    "hex": "#1E1E1E"
   },
   "border.secondary.comment.light": {
     "hex": "#CCCCCC"
@@ -3292,10 +3292,10 @@
     "hex": "#CCCCCC"
   },
   "border.tertiary.core.light": {
-    "hex": "#E6E6E6"
+    "hex": "#DCDCDC"
   },
   "border.tertiary.core.dark": {
-    "hex": "#E6E6E6"
+    "hex": "#0A0A0A"
   },
   "border.tertiary.comment.light": {
     "hex": "#E6E6E6"
@@ -3628,10 +3628,10 @@
     "hex": "#E2E6E6"
   },
   "border.elevation.core.light": {
-    "hex": "#E6E6E6"
+    "hex": "#DCDCDC"
   },
   "border.elevation.core.dark": {
-    "hex": "#CCCCCC"
+    "hex": "#1E1E1E"
   },
   "border.elevation.comment.light": {
     "hex": "#E6E6E6"
@@ -3715,7 +3715,7 @@
     "hex": "#FFFFFF"
   },
   "input.fill.default.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "input.fill.default.comment.light": {
     "hex": "#FFFFFF"
@@ -3796,10 +3796,10 @@
     "hex": "#FFFFFF"
   },
   "input.fill.error.core.light": {
-    "hex": "#FFEFEF"
+    "hex": "#FDD0CA"
   },
   "input.fill.error.core.dark": {
-    "hex": "#FFEFEF"
+    "hex": "#170000"
   },
   "input.fill.error.comment.light": {
     "hex": "#FFEFEF"
@@ -3880,10 +3880,10 @@
     "hex": "#FFEFEF"
   },
   "input.fill.hover.core.light": {
-    "hex": "#F2F2F2"
+    "hex": "#EBEBEB"
   },
   "input.fill.hover.core.dark": {
-    "hex": "#F2F2F2"
+    "hex": "#030303"
   },
   "input.fill.hover.comment.light": {
     "hex": "#F2F2F2"
@@ -3967,7 +3967,7 @@
     "hex": "#FFFFFF"
   },
   "input.fill.active.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "input.fill.active.comment.light": {
     "hex": "#FFFFFF"
@@ -4051,7 +4051,7 @@
     "hex": "#FFFFFF"
   },
   "input.fill.completed.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "input.fill.completed.comment.light": {
     "hex": "#FFFFFF"
@@ -4132,10 +4132,10 @@
     "hex": "#FFFFFF"
   },
   "input.fill.success.core.light": {
-    "hex": "#E9F3ED"
+    "hex": "#96EABB"
   },
   "input.fill.success.core.dark": {
-    "hex": "#F1F8F5"
+    "hex": "#000803"
   },
   "input.fill.success.comment.light": {
     "hex": "#E9F3ED"
@@ -4216,10 +4216,10 @@
     "hex": "#F1F8F5"
   },
   "input.fill.warning.core.light": {
-    "hex": "#FFF7EF"
+    "hex": "#FEE8D0"
   },
   "input.fill.warning.core.dark": {
-    "hex": "#FFF7EF"
+    "hex": "#090300"
   },
   "input.fill.warning.comment.light": {
     "hex": "#FFF7EF"
@@ -4300,10 +4300,10 @@
     "hex": "#FFF7EF"
   },
   "input.fill.info.core.light": {
-    "hex": "#EFF2F8"
+    "hex": "#B8D3FF"
   },
   "input.fill.info.core.dark": {
-    "hex": "#EFF2F8"
+    "hex": "#000B27"
   },
   "input.fill.info.comment.light": {
     "hex": "#EFF2F8"
@@ -4384,10 +4384,10 @@
     "hex": "#EFF2F8"
   },
   "input.border.default.core.light": {
-    "hex": "#8C8C8C"
+    "hex": "#7A7A7A"
   },
   "input.border.default.core.dark": {
-    "hex": "#8C8C8C"
+    "hex": "#5A5A5A"
   },
   "input.border.default.comment.light": {
     "hex": "#8C8C8C"
@@ -4468,10 +4468,10 @@
     "hex": "#8C8C8C"
   },
   "input.border.error.core.light": {
-    "hex": "#B20908"
+    "hex": "#4C0304"
   },
   "input.border.error.core.dark": {
-    "hex": "#E70300"
+    "hex": "#E86256"
   },
   "input.border.error.comment.light": {
     "hex": "#B20908"
@@ -4555,7 +4555,7 @@
     "hex": "#6D6D6D"
   },
   "input.border.hover.core.dark": {
-    "hex": "#6D6D6D"
+    "hex": "#676767"
   },
   "input.border.hover.comment.light": {
     "hex": "#6D6D6D"
@@ -4636,10 +4636,10 @@
     "hex": "#6D6D6D"
   },
   "input.border.active.core.light": {
-    "hex": "#595959"
+    "hex": "#484848"
   },
   "input.border.active.core.dark": {
-    "hex": "#595959"
+    "hex": "#909090"
   },
   "input.border.active.comment.light": {
     "hex": "#595959"
@@ -4720,10 +4720,10 @@
     "hex": "#595959"
   },
   "input.border.completed.core.light": {
-    "hex": "#262626"
+    "hex": "#1B1B1B"
   },
   "input.border.completed.core.dark": {
-    "hex": "#262626"
+    "hex": "#C9C9C9"
   },
   "input.border.completed.comment.light": {
     "hex": "#262626"
@@ -4804,10 +4804,10 @@
     "hex": "#262626"
   },
   "input.border.success.core.light": {
-    "hex": "#298458"
+    "hex": "#044228"
   },
   "input.border.success.core.dark": {
-    "hex": "#2C9365"
+    "hex": "#4E9B73"
   },
   "input.border.success.comment.light": {
     "hex": "#298458"
@@ -4888,10 +4888,10 @@
     "hex": "#2C9365"
   },
   "input.border.warning.core.light": {
-    "hex": "#CC8103"
+    "hex": "#613D0A"
   },
   "input.border.warning.core.dark": {
-    "hex": "#CC8103"
+    "hex": "#C58737"
   },
   "input.border.warning.comment.light": {
     "hex": "#CC8103"
@@ -4972,10 +4972,10 @@
     "hex": "#CC8103"
   },
   "input.border.info.core.light": {
-    "hex": "#2658A9"
+    "hex": "#023379"
   },
   "input.border.info.core.dark": {
-    "hex": "#2658A9"
+    "hex": "#6496E6"
   },
   "input.border.info.comment.light": {
     "hex": "#2658A9"
@@ -6400,10 +6400,10 @@
     "hex": "#2658A9"
   },
   "messaging.fill.error.core.light": {
-    "hex": "#FFEFEF"
+    "hex": "#FDD0CA"
   },
   "messaging.fill.error.core.dark": {
-    "hex": "#FFEFEF"
+    "hex": "#170000"
   },
   "messaging.fill.error.comment.light": {
     "hex": "#FFEFEF"
@@ -6484,10 +6484,10 @@
     "hex": "#FFEFEF"
   },
   "messaging.fill.success.core.light": {
-    "hex": "#E9F3ED"
+    "hex": "#96EABB"
   },
   "messaging.fill.success.core.dark": {
-    "hex": "#F1F8F5"
+    "hex": "#000803"
   },
   "messaging.fill.success.comment.light": {
     "hex": "#E9F3ED"
@@ -6568,10 +6568,10 @@
     "hex": "#F1F8F5"
   },
   "messaging.fill.warning.core.light": {
-    "hex": "#FFF7EF"
+    "hex": "#FEE8D0"
   },
   "messaging.fill.warning.core.dark": {
-    "hex": "#FFF7EF"
+    "hex": "#090300"
   },
   "messaging.fill.warning.comment.light": {
     "hex": "#FFF7EF"
@@ -6652,10 +6652,10 @@
     "hex": "#FFF7EF"
   },
   "messaging.fill.info.core.light": {
-    "hex": "#EFF2F8"
+    "hex": "#B8D3FF"
   },
   "messaging.fill.info.core.dark": {
-    "hex": "#EFF2F8"
+    "hex": "#000B27"
   },
   "messaging.fill.info.comment.light": {
     "hex": "#EFF2F8"
@@ -6736,10 +6736,10 @@
     "hex": "#EFF2F8"
   },
   "messaging.border.error.core.light": {
-    "hex": "#B20908"
+    "hex": "#4C0304"
   },
   "messaging.border.error.core.dark": {
-    "hex": "#E70300"
+    "hex": "#E86256"
   },
   "messaging.border.error.comment.light": {
     "hex": "#B20908"
@@ -6820,10 +6820,10 @@
     "hex": "#E70300"
   },
   "messaging.border.success.core.light": {
-    "hex": "#298458"
+    "hex": "#044228"
   },
   "messaging.border.success.core.dark": {
-    "hex": "#2C9365"
+    "hex": "#4E9B73"
   },
   "messaging.border.success.comment.light": {
     "hex": "#298458"
@@ -6904,10 +6904,10 @@
     "hex": "#2C9365"
   },
   "messaging.border.warning.core.light": {
-    "hex": "#E49307"
+    "hex": "#794D0B"
   },
   "messaging.border.warning.core.dark": {
-    "hex": "#FFBA5B"
+    "hex": "#523204"
   },
   "messaging.border.warning.comment.light": {
     "hex": "#E49307"
@@ -6988,10 +6988,10 @@
     "hex": "#FFBA5B"
   },
   "messaging.border.info.core.light": {
-    "hex": "#0F4AA2"
+    "hex": "#052C67"
   },
   "messaging.border.info.core.dark": {
-    "hex": "#0D4391"
+    "hex": "#80AEF7"
   },
   "messaging.border.info.comment.light": {
     "hex": "#0F4AA2"
@@ -7075,7 +7075,7 @@
     "hex": "#005C8A"
   },
   "interactive.primary.fill.default.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "interactive.primary.fill.default.comment.light": {
     "hex": "#005C8A"
@@ -7327,7 +7327,7 @@
     "hex": "#FFFFFF"
   },
   "interactive.primary.text.default.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "interactive.primary.text.default.comment.light": {
     "hex": "#FFFFFF"
@@ -8080,10 +8080,10 @@
     "hex": "#333333"
   },
   "interactive.secondary.border.default.core.light": {
-    "hex": "#8C8C8C"
+    "hex": "#7A7A7A"
   },
   "interactive.secondary.border.default.core.dark": {
-    "hex": "#737373"
+    "hex": "#747474"
   },
   "interactive.secondary.border.default.comment.light": {
     "hex": "#8C8C8C"
@@ -8836,10 +8836,10 @@
     "hex": "#FFFFFF"
   },
   "interactive.disabled.a.core.light": {
-    "hex": "#D9D9D9"
+    "hex": "#CECECE"
   },
   "interactive.disabled.a.core.dark": {
-    "hex": "#D9D9D9"
+    "hex": "#131313"
   },
   "interactive.disabled.a.comment.light": {
     "hex": "#D9D9D9"
@@ -8920,10 +8920,10 @@
     "hex": "#D9D9D9"
   },
   "interactive.disabled.b.core.light": {
-    "hex": "#BFBFBF"
+    "hex": "#B1B1B1"
   },
   "interactive.disabled.b.core.dark": {
-    "hex": "#BFBFBF"
+    "hex": "#292929"
   },
   "interactive.disabled.b.comment.light": {
     "hex": "#BFBFBF"
@@ -9004,10 +9004,10 @@
     "hex": "#BFBFBF"
   },
   "interactive.disabled.c.core.light": {
-    "hex": "#A8A8A8"
+    "hex": "#959595"
   },
   "interactive.disabled.c.core.dark": {
-    "hex": "#A8A8A8"
+    "hex": "#414141"
   },
   "interactive.disabled.c.comment.light": {
     "hex": "#A8A8A8"
@@ -9088,10 +9088,10 @@
     "hex": "#A8A8A8"
   },
   "focus.border.core.light": {
-    "hex": "#737373"
+    "hex": "#606060"
   },
   "focus.border.core.dark": {
-    "hex": "#737373"
+    "hex": "#747474"
   },
   "focus.border.comment.light": {
     "hex": "#737373"
@@ -9172,10 +9172,10 @@
     "hex": "#737373"
   },
   "active.fill.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "active.fill.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "active.fill.comment.light": {
     "hex": "#000000"
@@ -9259,7 +9259,7 @@
     "hex": "#FFFFFF"
   },
   "active.text.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "active.text.comment.light": {
     "hex": "#FFFFFF"
@@ -9343,7 +9343,7 @@
     "hex": "#000000"
   },
   "active.border.core.dark": {
-    "hex": "#737373"
+    "hex": "#747474"
   },
   "active.border.comment.light": {
     "hex": "#000000"
@@ -9427,7 +9427,7 @@
     "hex": "#FFFFFF"
   },
   "active.icon.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "active.icon.comment.light": {
     "hex": "#FFFFFF"
@@ -9508,10 +9508,10 @@
     "hex": "#FFFFFF"
   },
   "surface.static.dark.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "surface.static.dark.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "surface.static.dark.comment.light": {
     "hex": "#000000"
@@ -9595,7 +9595,7 @@
     "hex": "#FFFFFF"
   },
   "surface.static.light.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "surface.static.light.comment.light": {
     "hex": "#FFFFFF"
@@ -9676,10 +9676,10 @@
     "hex": "#000000"
   },
   "text.static.dark.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "text.static.dark.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "text.static.dark.comment.light": {
     "hex": "#000000"
@@ -9763,7 +9763,7 @@
     "hex": "#FFFFFF"
   },
   "text.static.light.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "text.static.light.comment.light": {
     "hex": "#FFFFFF"
@@ -9844,10 +9844,10 @@
     "hex": "#000000"
   },
   "border.static.dark.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "border.static.dark.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "border.static.dark.comment.light": {
     "hex": "#000000"
@@ -9931,7 +9931,7 @@
     "hex": "#FFFFFF"
   },
   "border.static.light.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "border.static.light.comment.light": {
     "hex": "#FFFFFF"
@@ -10012,10 +10012,10 @@
     "hex": "#000000"
   },
   "messaging.icon.error.core.light": {
-    "hex": "#CB0705"
+    "hex": "#5D0B0A"
   },
   "messaging.icon.error.core.dark": {
-    "hex": "#E70300"
+    "hex": "#E86256"
   },
   "messaging.icon.error.comment.light": {
     "hex": "#CB0705"
@@ -10096,10 +10096,10 @@
     "hex": "#E70300"
   },
   "messaging.icon.success.core.light": {
-    "hex": "#31A46F"
+    "hex": "#0F613E"
   },
   "messaging.icon.success.core.dark": {
-    "hex": "#2C9365"
+    "hex": "#4E9B73"
   },
   "messaging.icon.success.comment.light": {
     "hex": "#31A46F"
@@ -10180,10 +10180,10 @@
     "hex": "#2C9365"
   },
   "messaging.icon.warning.core.light": {
-    "hex": "#E49307"
+    "hex": "#794D0B"
   },
   "messaging.icon.warning.core.dark": {
-    "hex": "#FFBA5B"
+    "hex": "#523204"
   },
   "messaging.icon.warning.comment.light": {
     "hex": "#E49307"
@@ -10264,10 +10264,10 @@
     "hex": "#FFBA5B"
   },
   "messaging.icon.info.core.light": {
-    "hex": "#0F4AA2"
+    "hex": "#052C67"
   },
   "messaging.icon.info.core.dark": {
-    "hex": "#0D4391"
+    "hex": "#80AEF7"
   },
   "messaging.icon.info.comment.light": {
     "hex": "#0F4AA2"
@@ -10351,7 +10351,7 @@
     "hex": "#FFFFFF"
   },
   "interactive.negative.fill.default.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "interactive.negative.fill.default.comment.light": {
     "hex": "#FFFFFF"
@@ -10600,10 +10600,10 @@
     "hex": "#000000"
   },
   "interactive.negative.border.default.core.light": {
-    "hex": "#CB0705"
+    "hex": "#5D0B0A"
   },
   "interactive.negative.border.default.core.dark": {
-    "hex": "#FF403A"
+    "hex": "#B91617"
   },
   "interactive.negative.border.default.comment.light": {
     "hex": "#CB0705"
@@ -10852,10 +10852,10 @@
     "hex": "#B90200"
   },
   "interactive.negative.text.default.core.light": {
-    "hex": "#CB0705"
+    "hex": "#5D0B0A"
   },
   "interactive.negative.text.default.core.dark": {
-    "hex": "#FF403A"
+    "hex": "#B91617"
   },
   "interactive.negative.text.default.comment.light": {
     "hex": "#CB0705"
@@ -11860,7 +11860,7 @@
     "hex": "#707070"
   },
   "interactive.link.primary.text.default.core.light": {
-    "hex": "#266D95"
+    "hex": "#2F709B"
   },
   "interactive.link.primary.text.default.core.dark": {
     "hex": "#000000"
@@ -12115,7 +12115,7 @@
     "hex": "#1A1A1A"
   },
   "interactive.link.secondary.text.default.core.dark": {
-    "hex": "#8C8C8C"
+    "hex": "#5A5A5A"
   },
   "interactive.link.secondary.text.default.comment.light": {
     "hex": "#1A1A1A"
@@ -13204,10 +13204,10 @@
     "hex": "#244B48"
   },
   "flag.primary.fill.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "flag.primary.fill.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "flag.primary.fill.comment.light": {
     "hex": "#000000"
@@ -13288,10 +13288,10 @@
     "hex": "#000000"
   },
   "flag.primary.text.core.light": {
-    "hex": "#F2F2F2"
+    "hex": "#EBEBEB"
   },
   "flag.primary.text.core.dark": {
-    "hex": "#F2F2F2"
+    "hex": "#030303"
   },
   "flag.primary.text.comment.light": {
     "hex": "#F2F2F2"
@@ -15052,7 +15052,7 @@
     "hex": "#000000"
   },
   "interactive.chip.primary.off.fill.default.core.light": {
-    "hex": "#F2F2F2"
+    "hex": "#EBEBEB"
   },
   "interactive.chip.primary.off.fill.default.core.dark": {
     "hex": "#FFFFFF"
@@ -16063,7 +16063,7 @@
     "hex": "#FFFFFF"
   },
   "interactive.chip.secondary.on.fill.default.core.dark": {
-    "hex": "#D9D9D9"
+    "hex": "#131313"
   },
   "interactive.chip.secondary.on.fill.default.comment.light": {
     "hex": "#FFFFFF"
@@ -16816,7 +16816,7 @@
     "hex": "#CCCCCC"
   },
   "interactive.chip.secondary.off.fill.default.core.light": {
-    "hex": "#F2F2F2"
+    "hex": "#EBEBEB"
   },
   "interactive.chip.secondary.off.fill.default.core.dark": {
     "hex": "#D9D9D9"
@@ -21688,10 +21688,10 @@
     "hex": "#0A1717"
   },
   "flag.callout.fill.core.light": {
-    "hex": "#B20908"
+    "hex": "#4C0304"
   },
   "flag.callout.fill.core.dark": {
-    "hex": "#FF403A"
+    "hex": "#B91617"
   },
   "flag.callout.fill.comment.light": {
     "hex": "#B20908"
@@ -22024,10 +22024,10 @@
     "hex": "#FF403A"
   },
   "toast.fill.info.core.light": {
-    "hex": "#0A3472"
+    "hex": "#02183F"
   },
   "toast.fill.info.core.dark": {
-    "hex": "#6788C4"
+    "hex": "#3B6EC0"
   },
   "toast.fill.info.comment.light": {
     "hex": "#0A3472"
@@ -22108,10 +22108,10 @@
     "hex": "#6788C4"
   },
   "toast.fill.success.core.light": {
-    "hex": "#22724F"
+    "hex": "#05331E"
   },
   "toast.fill.success.core.dark": {
-    "hex": "#A9D8BE"
+    "hex": "#06331F"
   },
   "toast.fill.success.comment.light": {
     "hex": "#22724F"
@@ -22192,10 +22192,10 @@
     "hex": "#A9D8BE"
   },
   "toast.fill.warning.core.light": {
-    "hex": "#E49307"
+    "hex": "#794D0B"
   },
   "toast.fill.warning.core.dark": {
-    "hex": "#FFCD8B"
+    "hex": "#3E2503"
   },
   "toast.fill.warning.comment.light": {
     "hex": "#E49307"
@@ -22276,10 +22276,10 @@
     "hex": "#FFCD8B"
   },
   "toast.fill.error.core.light": {
-    "hex": "#CB0705"
+    "hex": "#5D0B0A"
   },
   "toast.fill.error.core.dark": {
-    "hex": "#FF9F98"
+    "hex": "#680607"
   },
   "toast.fill.error.comment.light": {
     "hex": "#CB0705"
@@ -22360,10 +22360,10 @@
     "hex": "#FF9F98"
   },
   "toast.icon.info.core.light": {
-    "hex": "#97AED7"
+    "hex": "#3770C9"
   },
   "toast.icon.info.core.dark": {
-    "hex": "#0B2C62"
+    "hex": "#B7D2FB"
   },
   "toast.icon.info.comment.light": {
     "hex": "#97AED7"
@@ -22444,10 +22444,10 @@
     "hex": "#0B2C62"
   },
   "toast.icon.success.core.light": {
-    "hex": "#A9D8BE"
+    "hex": "#51BC86"
   },
   "toast.icon.success.core.dark": {
-    "hex": "#1B5339"
+    "hex": "#B0E2C5"
   },
   "toast.icon.success.comment.light": {
     "hex": "#A9D8BE"
@@ -22528,10 +22528,10 @@
     "hex": "#1B5339"
   },
   "toast.icon.warning.core.light": {
-    "hex": "#FFDFB5"
+    "hex": "#FDC380"
   },
   "toast.icon.warning.core.dark": {
-    "hex": "#7E520D"
+    "hex": "#F8C995"
   },
   "toast.icon.warning.comment.light": {
     "hex": "#FFDFB5"
@@ -22612,10 +22612,10 @@
     "hex": "#7E520D"
   },
   "toast.icon.error.core.light": {
-    "hex": "#FFB4B0"
+    "hex": "#FC7264"
   },
   "toast.icon.error.core.dark": {
-    "hex": "#670909"
+    "hex": "#FDE0DC"
   },
   "toast.icon.error.comment.light": {
     "hex": "#FFB4B0"
@@ -22699,7 +22699,7 @@
     "hex": "#FFFFFF"
   },
   "toast.text.info.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "toast.text.info.comment.light": {
     "hex": "#FFFFFF"
@@ -22783,7 +22783,7 @@
     "hex": "#FFFFFF"
   },
   "toast.text.success.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "toast.text.success.comment.light": {
     "hex": "#FFFFFF"
@@ -22867,7 +22867,7 @@
     "hex": "#FFFFFF"
   },
   "toast.text.error.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "toast.text.error.comment.light": {
     "hex": "#FFFFFF"
@@ -22948,10 +22948,10 @@
     "hex": "#000000"
   },
   "toast.text.warning.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "toast.text.warning.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "toast.text.warning.comment.light": {
     "hex": "#000000"
@@ -23035,7 +23035,7 @@
     "hex": "#FFFFFF"
   },
   "toast.link.info.default.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "toast.link.info.default.comment.light": {
     "hex": "#FFFFFF"
@@ -23788,10 +23788,10 @@
     "hex": "#CCCCCC"
   },
   "toast.link.warning.default.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "toast.link.warning.default.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "toast.link.warning.default.comment.light": {
     "hex": "#000000"
@@ -24040,10 +24040,10 @@
     "hex": "#000000"
   },
   "surface.inverse.core.light": {
-    "hex": "#000000"
+    "hex": "#070707"
   },
   "surface.inverse.core.dark": {
-    "hex": "#000000"
+    "hex": "#E8E8E8"
   },
   "surface.inverse.comment.light": {
     "hex": "#000000"
@@ -24127,7 +24127,7 @@
     "hex": "#FFFFFF"
   },
   "text.inverse.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "text.inverse.comment.light": {
     "hex": "#FFFFFF"
@@ -24211,7 +24211,7 @@
     "hex": "#FFFFFF"
   },
   "icon.inverse.core.dark": {
-    "hex": "#FFFFFF"
+    "hex": "#000000"
   },
   "icon.inverse.comment.light": {
     "hex": "#FFFFFF"

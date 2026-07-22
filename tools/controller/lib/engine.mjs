@@ -182,6 +182,12 @@ export function applySystem(brand, system) {
   const bdir = path.join(ROOT, 'tools/controller/backups', stamp);
   fs.mkdirSync(bdir, { recursive: true });
   for (const f of [TOKENS, HEXES]) fs.copyFileSync(f, path.join(bdir, path.basename(f)));
+  if (fs.existsSync(BRAND)) fs.copyFileSync(BRAND, path.join(bdir, 'brand.json'));
+  fs.writeFileSync(path.join(bdir, 'meta.json'), JSON.stringify({
+    at: new Date().toISOString(),
+    label: (brand.presetSlug || 'custom') + (brand.identity?.name ? ` · ${brand.identity.name}` : ''),
+    primary: brand.primary
+  }));
 
   const hexes = readJson(HEXES);
   const tokens = readJson(TOKENS);
@@ -233,7 +239,7 @@ export function applySystem(brand, system) {
       if (k.toLowerCase().includes('fontfamil') && v && typeof v === 'object') {
         for (const fv of Object.values(v)) {
           if (fv && typeof fv === 'object' && typeof fv.value === 'string') {
-            fv.value = `'${brand.bodyFont}', system-ui, -apple-system, sans-serif`;
+            fv.value = `'${brand.bodyFont}', system-ui, sans-serif`;
           }
         }
         if (typeof v.value === 'string') v.value = `'${brand.bodyFont}', system-ui, sans-serif`;
@@ -277,7 +283,7 @@ export function writeShadcnTheme(brand, system) {
   const dir = path.join(ROOT, 'packages/ui/src/styles');
   if (!fs.existsSync(path.join(ROOT, 'packages/ui'))) return;
   fs.mkdirSync(dir, { recursive: true });
-  const font = (f) => `'${f}', system-ui, -apple-system, sans-serif`;
+  const font = (f) => `'${f}', system-ui, sans-serif`;
   const block = (mode) => {
     const t = system.theme[mode];
     const m = (k) => t[k];

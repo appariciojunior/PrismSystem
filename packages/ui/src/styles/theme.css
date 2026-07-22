@@ -4,8 +4,8 @@
   --radius: 0.625rem;
   --spacing: 0.2500rem;
   --border-width: 1px;
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-heading: 'Inter', system-ui, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
   --shadow-2xs: 0 1px 4px rgba(0,0,0,0.050);
   --shadow-xs: 0 1px 6px rgba(0,0,0,0.070);

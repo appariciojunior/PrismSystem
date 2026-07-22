@@ -38,5 +38,5 @@
     "values": [],
     "directives": ""
   },
-  "guidelines": ""
+  "guidelines": "# Brand Guidelines\n\n## Visual rules\n- Lead with the primary colour, use the tertiary sparingly for accents.\n- Prefer whitespace over decoration. One idea per surface.\n- Corners and spacing follow the token scale, never hand-picked values.\n\n## Writing rules\n- Sentence case everywhere, including buttons and headings.\n- Short sentences. Cut every word that does not earn its place.\n- Speak to the reader as \"you\", refer to the product by name."
 }
