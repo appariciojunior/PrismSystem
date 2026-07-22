@@ -1,0 +1,42 @@
+{
+  "primary": "#005c8a",
+  "neutralTint": "#8c8c8c",
+  "tertiary": "#3292a6",
+  "info": "#0f4aa2",
+  "success": "#31a46f",
+  "warning": "#ffa300",
+  "error": "#e02020",
+  "charts": [
+    "#254251",
+    "#e0ab26",
+    "#75b2dd",
+    "#f37f2f",
+    "#3292a6"
+  ],
+  "headingFont": "Inter",
+  "bodyFont": "Inter",
+  "typeScale": 1.25,
+  "radius": 1,
+  "spacing": 1,
+  "borderWidth": 1,
+  "shadow": {
+    "preset": "soft",
+    "blur": 8,
+    "y": 2,
+    "op": 10
+  },
+  "headingWeight": 600,
+  "bodyWeight": 400,
+  "identity": {
+    "name": "",
+    "industry": "",
+    "tagline": "",
+    "description": "",
+    "website": "",
+    "audience": "",
+    "voice": "",
+    "values": [],
+    "directives": ""
+  },
+  "guidelines": ""
+}

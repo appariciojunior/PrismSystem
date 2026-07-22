@@ -11,6 +11,7 @@ import {
 } from './lib/engine.mjs';
 
 const PORT = process.env.PORT || 4400;
+const BUILD = 12;
 const PUB = path.join(path.dirname(new URL(import.meta.url).pathname), 'public');
 const CORPUS_INBOX = path.join(ROOT, 'design-corpus/raw/inbox');
 
@@ -34,6 +35,52 @@ const readBody = (req) =>
 
 let building = false;
 let lastBuild = { ok: null, log: '', at: null };
+
+// ---- Versioning: factory snapshot + save history ----
+const TOKENS_F = path.join(ROOT, 'packages/tokens/src/tokens.json');
+const HEXES_F = path.join(ROOT, 'packages/tokens/data/resolved-hexes.json');
+const BRAND_F = path.join(ROOT, 'tools/controller/brand.json');
+const FACTORY = path.join(ROOT, 'tools/controller/factory');
+const BACKUPS = path.join(ROOT, 'tools/controller/backups');
+
+// On first boot, freeze the current clean state as the factory baseline
+if (!fs.existsSync(path.join(FACTORY, 'tokens.json'))) {
+  try {
+    fs.mkdirSync(FACTORY, { recursive: true });
+    fs.copyFileSync(TOKENS_F, path.join(FACTORY, 'tokens.json'));
+    fs.copyFileSync(HEXES_F, path.join(FACTORY, 'resolved-hexes.json'));
+    fs.writeFileSync(path.join(FACTORY, 'meta.json'),
+      JSON.stringify({ at: new Date().toISOString(), label: 'Factory baseline' }));
+    console.log('  ◆ Factory baseline captured');
+  } catch (e) { console.log('  ! could not capture factory baseline:', e.message); }
+}
+
+function listVersions() {
+  const out = [{ id: 'factory', label: 'Factory baseline', at: null }];
+  try {
+    for (const d of fs.readdirSync(BACKUPS).sort()) {
+      const meta = path.join(BACKUPS, d, 'meta.json');
+      let m = {};
+      try { m = JSON.parse(fs.readFileSync(meta, 'utf8')); } catch {}
+      out.push({ id: d, label: m.label || 'save', at: m.at || d, primary: m.primary });
+    }
+  } catch {}
+  return out.map((v, i) => ({ ...v, name: i === 0 ? 'v0' : 'v' + i }));
+}
+
+function restoreVersion(id) {
+  const dir = id === 'factory' ? FACTORY : path.join(BACKUPS, id);
+  const tok = path.join(dir, 'tokens.json');
+  const hex = path.join(dir, 'resolved-hexes.json');
+  if (!fs.existsSync(tok) || !fs.existsSync(hex)) throw new Error('version not found: ' + id);
+  fs.copyFileSync(tok, TOKENS_F);
+  fs.copyFileSync(hex, HEXES_F);
+  const b = path.join(dir, 'brand.json');
+  if (fs.existsSync(b)) fs.copyFileSync(b, BRAND_F);
+  else if (id === 'factory') {
+    try { fs.writeFileSync(BRAND_F, JSON.stringify(DEFAULT_BRAND, null, 2)); } catch {}
+  }
+}
 
 function runBuild() {
   return new Promise((resolve) => {
@@ -187,6 +234,21 @@ const server = http.createServer(async (req, res) => {
         }
       });
     }
+    if (url.pathname === '/api/ping') {
+      return json(res, 200, { build: BUILD });
+    }
+    if (url.pathname === '/api/versions') {
+      return json(res, 200, { versions: listVersions() });
+    }
+    if (url.pathname === '/api/restore' && req.method === 'POST') {
+      if (building) return json(res, 409, { error: 'build already running' });
+      const { id } = await readBody(req);
+      restoreVersion(id);
+      const build = await runBuild();
+      const brand = loadBrand();
+      const system = computeSystem(brand);
+      return json(res, 200, { restored: id, build, brand, theme: system.theme, audits: system.audits });
+    }
     if (url.pathname === '/api/upload' && req.method === 'POST') {
       const { name, dataUrl, note } = await readBody(req);
       const m = /^data:(image\/\w+);base64,(.+)$/.exec(dataUrl || '');
@@ -220,6 +282,14 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
+server.on('error', (e) => {
+  if (e.code === 'EADDRINUSE') {
+    console.error(`\n  ✗ Port ${PORT} is already in use — an older controller is still running.`);
+    console.error(`    Kill it and retry:\n      lsof -ti :${PORT} | xargs kill -9\n      npm run controller\n`);
+    process.exit(1);
+  }
+  throw e;
+});
 server.listen(PORT, () => {
-  console.log(`\n  ▲ Prism Controller\n  → http://localhost:${PORT}\n`);
+  console.log(`\n  ▲ Prism Controller (build ${BUILD})\n  → http://localhost:${PORT}\n`);
 });

@@ -2,9 +2,19 @@
    Regenerated on every Save & apply from the brand tokens. */
 :root {
   --radius: 0.625rem;
+  --spacing: 0.2500rem;
+  --border-width: 1px;
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-heading: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+  --shadow-2xs: 0 1px 4px rgba(0,0,0,0.050);
+  --shadow-xs: 0 1px 6px rgba(0,0,0,0.070);
+  --shadow-sm: 0 2px 7px rgba(0,0,0,0.100);
+  --shadow: 0 2px 8px rgba(0,0,0,0.100);
+  --shadow-md: 0 3px 10px rgba(0,0,0,0.100);
+  --shadow-lg: 0 3px 13px rgba(0,0,0,0.100);
+  --shadow-xl: 0 4px 17px rgba(0,0,0,0.100);
+  --shadow-2xl: 0 6px 22px rgba(0,0,0,0.140);
   --background: #ffffff;
   --foreground: #101010;
   --card: #ebebeb;

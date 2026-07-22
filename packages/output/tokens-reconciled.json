@@ -186,19 +186,19 @@
       "description": "Black"
     },
     "fontFamily010": {
-      "value": "'Inter', system-ui, -apple-system, sans-serif",
+      "value": "'Inter', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontFamily020": {
-      "value": "'Inter', system-ui, -apple-system, sans-serif",
+      "value": "'Inter', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontFamily030": {
-      "value": "'Inter', system-ui, -apple-system, sans-serif",
+      "value": "'Inter', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontFamily040": {
-      "value": "'Inter', system-ui, -apple-system, sans-serif",
+      "value": "'Inter', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontLineHeight010": {
@@ -377,7 +377,7 @@
   "light/ core": {
     "surface": {
       "undercanvas": {
-        "value": "#F2F2F2",
+        "value": "#EBEBEB",
         "type": "color",
         "description": "Level -1. Deepest background, beneath canvas. Fill only."
       },
@@ -412,7 +412,7 @@
         "description": "Level 4. Pair with shadow.elevation.level-4 and surface.overlay."
       },
       "inverse": {
-        "value": "#000000",
+        "value": "#070707",
         "type": "color",
         "description": "Fixed dark surface in light mode. Does not respond to dark mode."
       },
@@ -423,7 +423,7 @@
       },
       "static": {
         "dark": {
-          "value": "#000000",
+          "value": "#070707",
           "type": "color",
           "description": "Fixed dark surface. Always black regardless of mode."
         },
@@ -436,7 +436,7 @@
     },
     "text": {
       "primary": {
-        "value": "#1A1A1A",
+        "value": "#101010",
         "type": "color",
         "description": "Primary text token for labels and badges."
       },
@@ -446,18 +446,18 @@
         "description": "Inverse text token for content placed on inverse (dark) surfaces in light mode contexts."
       },
       "secondary": {
-        "value": "#404040",
+        "value": "#303030",
         "type": "color",
         "description": "Supporting text, captions, and metadata on canvas. Mid-tone neutral."
       },
       "tertiary": {
-        "value": "#737373",
+        "value": "#606060",
         "type": "color",
         "description": "Tertiary text for supporting captions and disabled states."
       },
       "static": {
         "dark": {
-          "value": "#000000",
+          "value": "#070707",
           "type": "color",
           "description": "Fixed dark text. Always black regardless of mode."
         },
@@ -492,28 +492,28 @@
     },
     "border": {
       "primary": {
-        "value": "#B3B3B3",
+        "value": "#A3A3A3",
         "type": "color",
         "description": "Default border for dividers and structural UI elements."
       },
       "secondary": {
-        "value": "#CCCCCC",
+        "value": "#BFBFBF",
         "type": "color",
         "description": "Subtle border for secondary dividers and light separation."
       },
       "tertiary": {
-        "value": "#E6E6E6",
+        "value": "#DCDCDC",
         "type": "color",
         "description": "Delicate border for near-invisible dividers and minimal emphasis."
       },
       "elevation": {
-        "value": "#E6E6E6",
+        "value": "#DCDCDC",
         "type": "color",
         "description": "Edge definition for Level 1 surfaces. Use instead of shadow at the lowest elevation."
       },
       "static": {
         "dark": {
-          "value": "#000000",
+          "value": "#070707",
           "type": "color",
           "description": "Fixed dark border. Always black regardless of mode."
         },
@@ -532,12 +532,12 @@
           "description": "Form input background at placeholder/rest state."
         },
         "error": {
-          "value": "#FFEFEF",
+          "value": "#FDD0CA",
           "type": "color",
           "description": "Form input background in error state. Uses messaging error fill semantics."
         },
         "hover": {
-          "value": "#F2F2F2",
+          "value": "#EBEBEB",
           "type": "color",
           "description": "Form input background on hover. Indicates the field is interactive."
         },
@@ -552,29 +552,29 @@
           "description": "Form input background after completion."
         },
         "success": {
-          "value": "#E9F3ED",
+          "value": "#96EABB",
           "type": "color",
           "description": "Form input background in success state. Uses messaging success fill semantics."
         },
         "warning": {
-          "value": "#FFF7EF",
+          "value": "#FEE8D0",
           "type": "color",
           "description": "Form input background in warning state. Uses messaging warning fill semantics."
         },
         "info": {
-          "value": "#EFF2F8",
+          "value": "#B8D3FF",
           "type": "color",
           "description": "Form input background in info state. Uses messaging info fill semantics."
         }
       },
       "border": {
         "default": {
-          "value": "#8C8C8C",
+          "value": "#7A7A7A",
           "type": "color",
           "description": "Form input border at rest. Defines field boundary with neutral contrast."
         },
         "error": {
-          "value": "#B20908",
+          "value": "#4C0304",
           "type": "color",
           "description": "Form input border in error state. Uses messaging error border semantics."
         },
@@ -584,27 +584,27 @@
           "description": "Form input border on hover. Increased contrast for interactivity."
         },
         "active": {
-          "value": "#595959",
+          "value": "#484848",
           "type": "color",
           "description": "Form input border on focus/active edit. Focus ring is provided by focus.border."
         },
         "completed": {
-          "value": "#262626",
+          "value": "#1B1B1B",
           "type": "color",
           "description": "Form input border after completion."
         },
         "success": {
-          "value": "#298458",
+          "value": "#044228",
           "type": "color",
           "description": "Form input border in success state. Uses messaging success border semantics."
         },
         "warning": {
-          "value": "#CC8103",
+          "value": "#613D0A",
           "type": "color",
           "description": "Form input border in warning state. Uses messaging warning border semantics."
         },
         "info": {
-          "value": "#2658A9",
+          "value": "#023379",
           "type": "color",
           "description": "Form input border in info state. Uses messaging info border semantics."
         }
@@ -697,66 +697,66 @@
     "messaging": {
       "fill": {
         "error": {
-          "value": "#FFEFEF",
+          "value": "#FDD0CA",
           "type": "color",
           "description": "Error message background. Signals critical issue, validation failure, or danger."
         },
         "success": {
-          "value": "#E9F3ED",
+          "value": "#96EABB",
           "type": "color",
           "description": "Success message background. Signals positive completion or confirmation."
         },
         "warning": {
-          "value": "#FFF7EF",
+          "value": "#FEE8D0",
           "type": "color",
           "description": "Warning message background. Signals caution, blocked action, or attention need."
         },
         "info": {
-          "value": "#EFF2F8",
+          "value": "#B8D3FF",
           "type": "color",
           "description": "Info message background. Signals neutral information or helpful guidance."
         }
       },
       "border": {
         "error": {
-          "value": "#B20908",
+          "value": "#4C0304",
           "type": "color",
           "description": "Error message border. Reinforces error intent with colour accent."
         },
         "success": {
-          "value": "#298458",
+          "value": "#044228",
           "type": "color",
           "description": "Success message border. Reinforces success intent with colour accent."
         },
         "warning": {
-          "value": "#E49307",
+          "value": "#794D0B",
           "type": "color",
           "description": "Warning message border. Reinforces warning intent with colour accent."
         },
         "info": {
-          "value": "#0F4AA2",
+          "value": "#052C67",
           "type": "color",
           "description": "Info message border. Reinforces info intent with colour accent."
         }
       },
       "icon": {
         "error": {
-          "value": "#CB0705",
+          "value": "#5D0B0A",
           "type": "color",
           "description": "Status icon used within error messaging surfaces."
         },
         "success": {
-          "value": "#31A46F",
+          "value": "#0F613E",
           "type": "color",
           "description": "Status icon used within success messaging surfaces."
         },
         "warning": {
-          "value": "#E49307",
+          "value": "#794D0B",
           "type": "color",
           "description": "Status icon used within warning messaging surfaces."
         },
         "info": {
-          "value": "#0F4AA2",
+          "value": "#052C67",
           "type": "color",
           "description": "Status icon used within informational messaging surfaces."
         }
@@ -904,7 +904,7 @@
         },
         "border": {
           "default": {
-            "value": "#8C8C8C",
+            "value": "#7A7A7A",
             "type": "color",
             "description": "Border for secondary buttons. Defines button edge without fill."
           },
@@ -956,17 +956,17 @@
       },
       "disabled": {
         "a": {
-          "value": "#D9D9D9",
+          "value": "#CECECE",
           "type": "color",
           "description": "Disabled button fill (type A). Low contrast to signal unavailability."
         },
         "b": {
-          "value": "#BFBFBF",
+          "value": "#B1B1B1",
           "type": "color",
           "description": "Disabled text/link (type B). Reduced contrast for disabled text content."
         },
         "c": {
-          "value": "#A8A8A8",
+          "value": "#959595",
           "type": "color",
           "description": "Disabled border (type C). Subtle border for disabled inputs/fields."
         }
@@ -991,7 +991,7 @@
         },
         "border": {
           "default": {
-            "value": "#CB0705",
+            "value": "#5D0B0A",
             "type": "color",
             "description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation."
           },
@@ -1008,7 +1008,7 @@
         },
         "text": {
           "default": {
-            "value": "#CB0705",
+            "value": "#5D0B0A",
             "type": "color",
             "description": "Text for destructive action buttons. High contrast ensures readability and signals danger."
           },
@@ -1045,7 +1045,7 @@
         "primary": {
           "text": {
             "default": {
-              "value": "#266D95",
+              "value": "#2F709B",
               "type": "color",
               "description": "Standalone primary link text. Used in prose and navigation. Brand colour."
             },
@@ -1237,7 +1237,7 @@
           "off": {
             "fill": {
               "default": {
-                "value": "#F2F2F2",
+                "value": "#EBEBEB",
                 "type": "color",
                 "description": "Primary solid chip fill in unselected state."
               },
@@ -1379,7 +1379,7 @@
           "off": {
             "fill": {
               "default": {
-                "value": "#F2F2F2",
+                "value": "#EBEBEB",
                 "type": "color",
                 "description": "Secondary outline chip fill in unselected state."
               },
@@ -1434,7 +1434,7 @@
     },
     "active": {
       "fill": {
-        "value": "#000000",
+        "value": "#070707",
         "type": "color",
         "description": "Background for elements in a latched active state (e.g., current tab) no longer interactive."
       },
@@ -1456,7 +1456,7 @@
     },
     "focus": {
       "border": {
-        "value": "#737373",
+        "value": "#606060",
         "type": "color",
         "description": "Focus indicator border in light mode. Passes 4.5:1 contrast on white canvas."
       }
@@ -1481,12 +1481,12 @@
     "flag": {
       "primary": {
         "fill": {
-          "value": "#000000",
+          "value": "#070707",
           "type": "color",
           "description": "Fill token for primary Flag."
         },
         "text": {
-          "value": "#F2F2F2",
+          "value": "#EBEBEB",
           "type": "color",
           "description": "Text token for primary Flag."
         },
@@ -1510,7 +1510,7 @@
       },
       "callout": {
         "fill": {
-          "value": "#B20908",
+          "value": "#4C0304",
           "type": "color",
           "description": "Fill token for LIVE Flag."
         },
@@ -1529,44 +1529,44 @@
     "toast": {
       "fill": {
         "info": {
-          "value": "#0A3472",
+          "value": "#02183F",
           "type": "color",
           "description": "Info toast background."
         },
         "success": {
-          "value": "#22724F",
+          "value": "#05331E",
           "type": "color",
           "description": "Success toast background."
         },
         "warning": {
-          "value": "#E49307",
+          "value": "#794D0B",
           "type": "color",
           "description": "Warning toast background."
         },
         "error": {
-          "value": "#CB0705",
+          "value": "#5D0B0A",
           "type": "color",
           "description": "Error toast background."
         }
       },
       "icon": {
         "info": {
-          "value": "#97AED7",
+          "value": "#3770C9",
           "type": "color",
           "description": "Icon on info toast."
         },
         "success": {
-          "value": "#A9D8BE",
+          "value": "#51BC86",
           "type": "color",
           "description": "Icon on success toast."
         },
         "warning": {
-          "value": "#FFDFB5",
+          "value": "#FDC380",
           "type": "color",
           "description": "Icon on warning toast."
         },
         "error": {
-          "value": "#FFB4B0",
+          "value": "#FC7264",
           "type": "color",
           "description": "Icon on error toast."
         }
@@ -1588,7 +1588,7 @@
           "description": "Text on error toast."
         },
         "warning": {
-          "value": "#000000",
+          "value": "#070707",
           "type": "color",
           "description": "Text on warning toast."
         }
@@ -1647,7 +1647,7 @@
         },
         "warning": {
           "default": {
-            "value": "#000000",
+            "value": "#070707",
             "type": "color",
             "description": "Link on warning toast, default state."
           },
@@ -1688,17 +1688,17 @@
         "description": "App/page base surface."
       },
       "foreground": {
-        "value": "#1a1a1a",
+        "value": "#101010",
         "type": "color",
         "description": "Default text on background."
       },
       "card": {
-        "value": "#f2f2f2",
+        "value": "#ebebeb",
         "type": "color",
         "description": "Card surface."
       },
       "card-foreground": {
-        "value": "#1a1a1a",
+        "value": "#101010",
         "type": "color",
         "description": "Text on card."
       },
@@ -1708,7 +1708,7 @@
         "description": "Popover/menu surface."
       },
       "popover-foreground": {
-        "value": "#1a1a1a",
+        "value": "#101010",
         "type": "color",
         "description": "Text on popover."
       },
@@ -1723,17 +1723,17 @@
         "description": "Text/icon on primary."
       },
       "secondary": {
-        "value": "#d9d9d9",
+        "value": "#cecece",
         "type": "color",
         "description": "Secondary tier."
       },
       "secondary-foreground": {
-        "value": "#1a1a1a",
+        "value": "#101010",
         "type": "color",
         "description": "Text/icon on secondary."
       },
       "tertiary": {
-        "value": "#81b7c4",
+        "value": "#3292a6",
         "type": "color",
         "description": "Tertiary accent tier."
       },
@@ -1743,32 +1743,32 @@
         "description": "Text/icon on tertiary."
       },
       "muted": {
-        "value": "#e6e6e6",
+        "value": "#dcdcdc",
         "type": "color",
         "description": "Muted surface."
       },
       "muted-foreground": {
-        "value": "#737373",
+        "value": "#606060",
         "type": "color",
         "description": "Muted/secondary text."
       },
       "border": {
-        "value": "#bfbfbf",
+        "value": "#b1b1b1",
         "type": "color",
         "description": "Default border colour."
       },
       "input": {
-        "value": "#bfbfbf",
+        "value": "#b1b1b1",
         "type": "color",
         "description": "Form input border."
       },
       "ring": {
-        "value": "#737373",
+        "value": "#606060",
         "type": "color",
         "description": "Focus ring."
       },
       "info": {
-        "value": "#6788c4",
+        "value": "#0f4aa2",
         "type": "color",
         "description": "Informational feedback."
       },
@@ -1778,7 +1778,7 @@
         "description": "Text on info."
       },
       "success": {
-        "value": "#80c4a1",
+        "value": "#31a46f",
         "type": "color",
         "description": "Success feedback."
       },
@@ -1788,17 +1788,17 @@
         "description": "Text on success."
       },
       "warning": {
-        "value": "#ffc274",
+        "value": "#ffa300",
         "type": "color",
         "description": "Warning feedback."
       },
       "warning-foreground": {
-        "value": "#1a1a1a",
+        "value": "#101010",
         "type": "color",
         "description": "Text on warning."
       },
       "error": {
-        "value": "#ff7268",
+        "value": "#e02020",
         "type": "color",
         "description": "Error feedback."
       },
@@ -1808,7 +1808,7 @@
         "description": "Text on error."
       },
       "destructive": {
-        "value": "#ff7268",
+        "value": "#e02020",
         "type": "color",
         "description": "Destructive action."
       },
@@ -1818,27 +1818,27 @@
         "description": "Text on destructive."
       },
       "chart-1": {
-        "value": "#72838d",
+        "value": "#254251",
         "type": "color",
         "description": "Data-vis series 1."
       },
       "chart-2": {
-        "value": "#ebc87a",
+        "value": "#e0ab26",
         "type": "color",
         "description": "Data-vis series 2."
       },
       "chart-3": {
-        "value": "#a5cde8",
+        "value": "#75b2dd",
         "type": "color",
         "description": "Data-vis series 3."
       },
       "chart-4": {
-        "value": "#f8ad7d",
+        "value": "#f37f2f",
         "type": "color",
         "description": "Data-vis series 4."
       },
       "chart-5": {
-        "value": "#81b7c4",
+        "value": "#3292a6",
         "type": "color",
         "description": "Data-vis series 5."
       }
@@ -1847,12 +1847,12 @@
   "dark/ core": {
     "surface": {
       "undercanvas": {
-        "value": "#E6E6E6",
+        "value": "#0A0A0A",
         "type": "color",
         "description": "Deepest background beneath canvas. Rarely visible; used for special contexts."
       },
       "canvas": {
-        "value": "#FFFFFF",
+        "value": "#000000",
         "type": "color",
         "description": "Primary background layer. Page/application base."
       },
@@ -1862,27 +1862,27 @@
         "description": "Transparent variant of surface.canvas. Use as gradient endpoint to fade into the page base."
       },
       "level-1": {
-        "value": "#F2F2F2",
+        "value": "#030303",
         "type": "color",
         "description": "First elevation above canvas. Subtle lift for cards and contained components."
       },
       "level-2": {
-        "value": "#E6E6E6",
+        "value": "#0A0A0A",
         "type": "color",
         "description": "Second elevation. Modest lift for grouped content and secondary panels."
       },
       "level-3": {
-        "value": "#D9D9D9",
+        "value": "#131313",
         "type": "color",
         "description": "Third elevation. Prominent lift for popovers and tertiary containers."
       },
       "level-4": {
-        "value": "#E6E6E6",
+        "value": "#0A0A0A",
         "type": "color",
         "description": "Fourth elevation. Highest lift for modals, dropdowns, and overlays."
       },
       "inverse": {
-        "value": "#000000",
+        "value": "#E8E8E8",
         "type": "color",
         "description": "Inverse surface token for fixed dark surfaces in dark mode contexts when switching mode is not possible."
       },
@@ -1893,12 +1893,12 @@
       },
       "static": {
         "dark": {
-          "value": "#FFFFFF",
+          "value": "#000000",
           "type": "color",
           "description": "Static dark surface - always black (#000000) regardless of mode"
         },
         "light": {
-          "value": "#000000",
+          "value": "#E8E8E8",
           "type": "color",
           "description": "Static light surface - always white (#ffffff) regardless of mode"
         }
@@ -1906,33 +1906,33 @@
     },
     "text": {
       "primary": {
-        "value": "#000000",
+        "value": "#E8E8E8",
         "type": "color",
         "description": "Primary text token for labels and badges."
       },
       "inverse": {
-        "value": "#FFFFFF",
+        "value": "#000000",
         "type": "color",
         "description": "Inverse text token for content placed on inverse (dark) surfaces in dark mode contexts."
       },
       "secondary": {
-        "value": "#262626",
+        "value": "#C9C9C9",
         "type": "color",
         "description": "Supporting text, captions, and metadata on canvas. Mid-tone neutral."
       },
       "tertiary": {
-        "value": "#595959",
+        "value": "#909090",
         "type": "color",
         "description": "Secondary text token for labels and badges."
       },
       "static": {
         "dark": {
-          "value": "#FFFFFF",
+          "value": "#000000",
           "type": "color",
           "description": "Static dark text - always black (#000000) regardless of mode"
         },
         "light": {
-          "value": "#000000",
+          "value": "#E8E8E8",
           "type": "color",
           "description": "Static light text - always white (#ffffff) regardless of mode"
         }
@@ -1945,7 +1945,7 @@
         "description": "Primary icon colour. Highest contrast for primary iconography."
       },
       "inverse": {
-        "value": "#FFFFFF",
+        "value": "#000000",
         "type": "color",
         "description": "Inverse icon token for iconography placed on inverse (dark) surfaces in dark mode contexts."
       },
@@ -1962,33 +1962,33 @@
     },
     "border": {
       "primary": {
-        "value": "#A8A8A8",
+        "value": "#414141",
         "type": "color",
         "description": "Standard UI borders and dividers."
       },
       "secondary": {
-        "value": "#CCCCCC",
+        "value": "#1E1E1E",
         "type": "color",
         "description": "Subtle borders and light dividers."
       },
       "tertiary": {
-        "value": "#E6E6E6",
+        "value": "#0A0A0A",
         "type": "color",
         "description": "Very subtle borders and dividers. Minimal emphasis."
       },
       "elevation": {
-        "value": "#CCCCCC",
+        "value": "#1E1E1E",
         "type": "color",
         "description": "Borders for elevated surfaces and cards. Defines depth and separation."
       },
       "static": {
         "dark": {
-          "value": "#FFFFFF",
+          "value": "#000000",
           "type": "color",
           "description": "Static dark border - always black (#000000) regardless of mode"
         },
         "light": {
-          "value": "#000000",
+          "value": "#E8E8E8",
           "type": "color",
           "description": "Static light border - always white (#ffffff) regardless of mode"
         }
@@ -1997,84 +1997,84 @@
     "input": {
       "fill": {
         "default": {
-          "value": "#FFFFFF",
+          "value": "#000000",
           "type": "color",
           "description": "Form input background at placeholder/rest state."
         },
         "error": {
-          "value": "#FFEFEF",
+          "value": "#170000",
           "type": "color",
           "description": "Form input background in error state. Uses messaging error fill semantics."
         },
         "hover": {
-          "value": "#F2F2F2",
+          "value": "#030303",
           "type": "color",
           "description": "Form input background on hover. Indicates the field is interactive."
         },
         "active": {
-          "value": "#FFFFFF",
+          "value": "#000000",
           "type": "color",
           "description": "Form input background on focus/active edit. Matches hover treatment."
         },
         "completed": {
-          "value": "#FFFFFF",
+          "value": "#000000",
           "type": "color",
           "description": "Form input background after completion."
         },
         "success": {
-          "value": "#F1F8F5",
+          "value": "#000803",
           "type": "color",
           "description": "Form input background in success state. Uses messaging success fill semantics."
         },
         "warning": {
-          "value": "#FFF7EF",
+          "value": "#090300",
           "type": "color",
           "description": "Form input background in warning state. Uses messaging warning fill semantics."
         },
         "info": {
-          "value": "#EFF2F8",
+          "value": "#000B27",
           "type": "color",
           "description": "Form input background in info state. Uses messaging info fill semantics."
         }
       },
       "border": {
         "default": {
-          "value": "#8C8C8C",
+          "value": "#5A5A5A",
           "type": "color",
           "description": "Form input border at rest. Defines field boundary with neutral contrast."
         },
         "error": {
-          "value": "#E70300",
+          "value": "#E86256",
           "type": "color",
           "description": "Form input border in error state. Uses messaging error border semantics."
         },
         "hover": {
-          "value": "#6D6D6D",
+          "value": "#676767",
           "type": "color",
           "description": "Form input border on hover. Increased contrast for interactivity."
         },
         "active": {
-          "value": "#595959",
+          "value": "#909090",
           "type": "color",
           "description": "Form input border on focus/active edit. Focus ring is provided by focus.border."
         },
         "completed": {
-          "value": "#262626",
+          "value": "#C9C9C9",
           "type": "color",
           "description": "Form input border after completion."
         },
         "success": {
-          "value": "#2C9365",
+          "value": "#4E9B73",
           "type": "color",
           "description": "Form input border in success state. Uses messaging success border semantics."
         },
         "warning": {
-          "value": "#CC8103",
+          "value": "#C58737",
           "type": "color",
           "description": "Form input border in warning state. Uses messaging warning border semantics."
         },
         "info": {
-          "value": "#2658A9",
+          "value": "#6496E6",
           "type": "color",
           "description": "Form input border in info state. Uses messaging info border semantics."
         }
@@ -2167,66 +2167,66 @@
     "messaging": {
       "fill": {
         "error": {
-          "value": "#FFEFEF",
+          "value": "#170000",
           "type": "color",
           "description": "Error message background. Signals critical issue, validation failure, or danger."
         },
         "success": {
-          "value": "#F1F8F5",
+          "value": "#000803",
           "type": "color",
           "description": "Success message background. Signals positive completion or confirmation."
         },
         "warning": {
-          "value": "#FFF7EF",
+          "value": "#090300",
           "type": "color",
           "description": "Warning message background. Signals caution, blocked action, or attention need."
         },
         "info": {
-          "value": "#EFF2F8",
+          "value": "#000B27",
           "type": "color",
           "description": "Info message background. Signals neutral information or helpful guidance."
         }
       },
       "border": {
         "error": {
-          "value": "#E70300",
+          "value": "#E86256",
           "type": "color",
           "description": "Error message border. Reinforces error intent with colour accent."
         },
         "success": {
-          "value": "#2C9365",
+          "value": "#4E9B73",
           "type": "color",
           "description": "Success message border. Reinforces success intent with colour accent."
         },
         "warning": {
-          "value": "#FFBA5B",
+          "value": "#523204",
           "type": "color",
           "description": "Warning message border. Reinforces warning intent with colour accent."
         },
         "info": {
-          "value": "#0D4391",
+          "value": "#80AEF7",
           "type": "color",
           "description": "Info message border. Reinforces info intent with colour accent."
         }
       },
       "icon": {
         "error": {
-          "value": "#E70300",
+          "value": "#E86256",
           "type": "color",
           "description": "Status icon used within error messaging surfaces."
         },
         "success": {
-          "value": "#2C9365",
+          "value": "#4E9B73",
           "type": "color",
           "description": "Status icon used within success messaging surfaces."
         },
         "warning": {
-          "value": "#FFBA5B",
+          "value": "#523204",
           "type": "color",
           "description": "Status icon used within warning messaging surfaces."
         },
         "info": {
-          "value": "#0D4391",
+          "value": "#80AEF7",
           "type": "color",
           "description": "Status icon used within informational messaging surfaces."
         }
@@ -2304,7 +2304,7 @@
       "primary": {
         "fill": {
           "default": {
-            "value": "#000000",
+            "value": "#E8E8E8",
             "type": "color",
             "description": "High-emphasis button background. Primary action colour used for main CTAs."
           },
@@ -2321,7 +2321,7 @@
         },
         "text": {
           "default": {
-            "value": "#FFFFFF",
+            "value": "#000000",
             "type": "color",
             "description": "Text/icon on primary fills. Ensures contrast on primary background."
           },
@@ -2374,7 +2374,7 @@
         },
         "border": {
           "default": {
-            "value": "#737373",
+            "value": "#747474",
             "type": "color",
             "description": "Border for secondary buttons. Defines button edge without fill."
           },
@@ -2426,17 +2426,17 @@
       },
       "disabled": {
         "a": {
-          "value": "#D9D9D9",
+          "value": "#131313",
           "type": "color",
           "description": "Disabled button fill (type A). Low contrast to signal unavailability."
         },
         "b": {
-          "value": "#BFBFBF",
+          "value": "#292929",
           "type": "color",
           "description": "Disabled text/link (type B). Reduced contrast for disabled text content."
         },
         "c": {
-          "value": "#A8A8A8",
+          "value": "#414141",
           "type": "color",
           "description": "Disabled border (type C). Subtle border for disabled inputs/fields."
         }
@@ -2444,7 +2444,7 @@
       "negative": {
         "fill": {
           "default": {
-            "value": "#FFFFFF",
+            "value": "#000000",
             "type": "color",
             "description": "Background for destructive action buttons. Medium-emphasis visual treatment for actions requiring user confirmation."
           },
@@ -2461,7 +2461,7 @@
         },
         "border": {
           "default": {
-            "value": "#FF403A",
+            "value": "#B91617",
             "type": "color",
             "description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation."
           },
@@ -2478,7 +2478,7 @@
         },
         "text": {
           "default": {
-            "value": "#FF403A",
+            "value": "#B91617",
             "type": "color",
             "description": "Text for destructive action buttons. High contrast ensures readability and signals danger."
           },
@@ -2515,7 +2515,7 @@
         "secondary": {
           "text": {
             "default": {
-              "value": "#8C8C8C",
+              "value": "#5A5A5A",
               "type": "color",
               "description": "Standalone primary link text. Used in prose and navigation. Brand colour."
             },
@@ -2796,7 +2796,7 @@
             },
             "fill": {
               "default": {
-                "value": "#D9D9D9",
+                "value": "#131313",
                 "type": "color",
                 "description": "Secondary outline chip fill in selected state."
               },
@@ -2904,29 +2904,29 @@
     },
     "active": {
       "fill": {
-        "value": "#000000",
+        "value": "#E8E8E8",
         "type": "color",
         "description": "Background for active, non-interactive elements in dark mode. White (neutral.1000 = #ffffff in dark mode) for high visual distinction."
       },
       "text": {
-        "value": "#FFFFFF",
+        "value": "#000000",
         "type": "color",
         "description": "Text on active elements in dark mode. Black (neutral.50 = #000000 in dark mode) for contrast on white fill."
       },
       "border": {
-        "value": "#737373",
+        "value": "#747474",
         "type": "color",
         "description": "Border for active elements in dark mode. Passes 5.32:1 contrast on black canvas."
       },
       "icon": {
-        "value": "#FFFFFF",
+        "value": "#000000",
         "type": "color",
         "description": "Icons on active elements in dark mode. Black for contrast on white fill."
       }
     },
     "focus": {
       "border": {
-        "value": "#737373",
+        "value": "#747474",
         "type": "color",
         "description": "Focus indicator border in dark mode. Passes 4.5:1 contrast on black canvas (neutral.600 = #808080)."
       }
@@ -2951,12 +2951,12 @@
     "flag": {
       "primary": {
         "fill": {
-          "value": "#000000",
+          "value": "#E8E8E8",
           "type": "color",
           "description": "Fill token for primary Flag."
         },
         "text": {
-          "value": "#F2F2F2",
+          "value": "#030303",
           "type": "color",
           "description": "Text token for primary Flag."
         },
@@ -2980,7 +2980,7 @@
       },
       "callout": {
         "fill": {
-          "value": "#FF403A",
+          "value": "#B91617",
           "type": "color",
           "description": "Fill token for LIVE Flag."
         },
@@ -2999,62 +2999,62 @@
     "toast": {
       "fill": {
         "info": {
-          "value": "#6788C4",
+          "value": "#3B6EC0",
           "type": "color"
         },
         "success": {
-          "value": "#A9D8BE",
+          "value": "#06331F",
           "type": "color"
         },
         "warning": {
-          "value": "#FFCD8B",
+          "value": "#3E2503",
           "type": "color"
         },
         "error": {
-          "value": "#FF9F98",
+          "value": "#680607",
           "type": "color"
         }
       },
       "icon": {
         "info": {
-          "value": "#0B2C62",
+          "value": "#B7D2FB",
           "type": "color"
         },
         "success": {
-          "value": "#1B5339",
+          "value": "#B0E2C5",
           "type": "color"
         },
         "warning": {
-          "value": "#7E520D",
+          "value": "#F8C995",
           "type": "color"
         },
         "error": {
-          "value": "#670909",
+          "value": "#FDE0DC",
           "type": "color"
         }
       },
       "text": {
         "info": {
-          "value": "#000000",
+          "value": "#E8E8E8",
           "type": "color"
         },
         "success": {
-          "value": "#000000",
+          "value": "#E8E8E8",
           "type": "color"
         },
         "error": {
-          "value": "#000000",
+          "value": "#E8E8E8",
           "type": "color"
         },
         "warning": {
-          "value": "#FFFFFF",
+          "value": "#000000",
           "type": "color"
         }
       },
       "link": {
         "info": {
           "default": {
-            "value": "#000000",
+            "value": "#E8E8E8",
             "type": "color"
           },
           "hover": {
@@ -3096,7 +3096,7 @@
         },
         "warning": {
           "default": {
-            "value": "#FFFFFF",
+            "value": "#000000",
             "type": "color"
           },
           "hover": {
@@ -3131,17 +3131,17 @@
         "description": "App/page base surface."
       },
       "foreground": {
-        "value": "#e6e6e6",
+        "value": "#d8d8d8",
         "type": "color",
         "description": "Default text on background."
       },
       "card": {
-        "value": "#0d0d0d",
+        "value": "#030303",
         "type": "color",
         "description": "Card surface."
       },
       "card-foreground": {
-        "value": "#e6e6e6",
+        "value": "#d8d8d8",
         "type": "color",
         "description": "Text on card."
       },
@@ -3151,12 +3151,12 @@
         "description": "Popover/menu surface."
       },
       "popover-foreground": {
-        "value": "#e6e6e6",
+        "value": "#d8d8d8",
         "type": "color",
         "description": "Text on popover."
       },
       "primary": {
-        "value": "#5b8eae",
+        "value": "#9ed0f5",
         "type": "color",
         "description": "Primary brand tier. Main CTAs."
       },
@@ -3166,17 +3166,17 @@
         "description": "Text/icon on primary."
       },
       "secondary": {
-        "value": "#262626",
+        "value": "#131313",
         "type": "color",
         "description": "Secondary tier."
       },
       "secondary-foreground": {
-        "value": "#e6e6e6",
+        "value": "#d8d8d8",
         "type": "color",
         "description": "Text/icon on secondary."
       },
       "tertiary": {
-        "value": "#3292a6",
+        "value": "#004b58",
         "type": "color",
         "description": "Tertiary accent tier."
       },
@@ -3186,32 +3186,32 @@
         "description": "Text/icon on tertiary."
       },
       "muted": {
-        "value": "#1a1a1a",
+        "value": "#0a0a0a",
         "type": "color",
         "description": "Muted surface."
       },
       "muted-foreground": {
-        "value": "#8c8c8c",
+        "value": "#747474",
         "type": "color",
         "description": "Muted/secondary text."
       },
       "border": {
-        "value": "#404040",
+        "value": "#292929",
         "type": "color",
         "description": "Default border colour."
       },
       "input": {
-        "value": "#404040",
+        "value": "#292929",
         "type": "color",
         "description": "Form input border."
       },
       "ring": {
-        "value": "#8c8c8c",
+        "value": "#747474",
         "type": "color",
         "description": "Focus ring."
       },
       "info": {
-        "value": "#0f4aa2",
+        "value": "#3b6ec0",
         "type": "color",
         "description": "Informational feedback."
       },
@@ -3221,7 +3221,7 @@
         "description": "Text on info."
       },
       "success": {
-        "value": "#31a46f",
+        "value": "#09472d",
         "type": "color",
         "description": "Success feedback."
       },
@@ -3231,17 +3231,17 @@
         "description": "Text on success."
       },
       "warning": {
-        "value": "#ffa300",
+        "value": "#482c03",
         "type": "color",
         "description": "Warning feedback."
       },
       "warning-foreground": {
-        "value": "#e6e6e6",
+        "value": "#d8d8d8",
         "type": "color",
         "description": "Text on warning."
       },
       "error": {
-        "value": "#ff0000",
+        "value": "#8e080c",
         "type": "color",
         "description": "Error feedback."
       },
@@ -3251,7 +3251,7 @@
         "description": "Text on error."
       },
       "destructive": {
-        "value": "#ff0000",
+        "value": "#8e080c",
         "type": "color",
         "description": "Destructive action."
       },
@@ -3261,27 +3261,27 @@
         "description": "Text on destructive."
       },
       "chart-1": {
-        "value": "#254251",
+        "value": "#61889d",
         "type": "color",
         "description": "Data-vis series 1."
       },
       "chart-2": {
-        "value": "#e0ab26",
+        "value": "#423002",
         "type": "color",
         "description": "Data-vis series 2."
       },
       "chart-3": {
-        "value": "#75b2dd",
+        "value": "#023753",
         "type": "color",
         "description": "Data-vis series 3."
       },
       "chart-4": {
-        "value": "#f37f2f",
+        "value": "#522404",
         "type": "color",
         "description": "Data-vis series 4."
       },
       "chart-5": {
-        "value": "#3292a6",
+        "value": "#004b58",
         "type": "color",
         "description": "Data-vis series 5."
       }
