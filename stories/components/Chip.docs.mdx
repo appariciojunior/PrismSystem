@@ -1,0 +1,26 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as ChipStories from './Chip.stories.tsx';
+import chipDocRaw from '../../packages/tokens/docs/components/chip/Chip.md?raw';
+import chipChangelogRaw from '../../packages/tokens/docs/components/chip/chip-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={ChipStories} />
+<Title />
+<Canvas of={ChipStories.Primary} />
+<Controls of={ChipStories.Primary} />
+<Markdown>
+  {getStorybookComponentDoc(chipDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{chipChangelogRaw}</Markdown>
+<Stories includePrimary={false} />

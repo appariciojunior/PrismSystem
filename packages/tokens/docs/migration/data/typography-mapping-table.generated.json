@@ -1,0 +1,6301 @@
+{
+  "metadata": {
+    "generatedAt": "2026-05-08T14:57:04.887Z",
+    "source": {
+      "nkTokens": "packages/tokens/docs/migration/legacy-tokens.json",
+      "tdsTokens": "packages/tokens/src/tokens.json"
+    },
+    "totalPresets": 103,
+    "groups": [
+      "editorial-bold",
+      "editorial-regular",
+      "editorial-light",
+      "utility"
+    ]
+  },
+  "rows": [
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay001",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.black.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.1875rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.bold.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay002",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.black.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.0625rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.bold.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay003",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.black.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.030",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.bold.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay004",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.black.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.bold.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay005",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.black.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.050",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.bold.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay006",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.25rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.black.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.060",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.bold.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay007",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.5rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.black.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.light.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay008",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.75rem",
+        "fontWeight": "800",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.black.080",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.080",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.black.070",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.25rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay010",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "3.5rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.bold.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.light.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay020",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "4rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.display.bold.010",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "4.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.25rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.bold.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-2.8125rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.bold.xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-2.75rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialDisplay030",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "5rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.8125rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.bold.xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.75rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.bold.small",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.5rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline010",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.subheading.bold.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.bold.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.static.bold.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.0625rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline015",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.1875rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.bold.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline020",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.25rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.020",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.bold.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline025",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.375rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.bold.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.125rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.bold.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.125rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline030",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.030",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.bold.xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline040",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.black.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline050",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.050",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.black.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline060",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.25rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.060",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.black.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline070",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.5rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.bold.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.light.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialHeadline080",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "3rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.bold.090",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.black.090",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.bold.080",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialSubheadline010",
+      "description": "Used for sub headline text content such as for cards",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.1875rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialSubheadline020",
+      "description": "Used for sub headline text content such as for cards",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.25rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.020",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialSubheadline030",
+      "description": "Used for sub headline text content such as for cards",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.030",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialSubheadline040",
+      "description": "Used for sub headline text content such as for cards",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialSubheadline050",
+      "description": "Used for sub headline text content such as for cards",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.050",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialParagraph010",
+      "description": "Used for body text content such as for article text",
+      "nkProperties": {
+        "fontFamily": "fontFamily020",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.linkInline.brand.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.linkStandalone.brand.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.paragraph.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialParagraph020",
+      "description": "Used for body text content such as for article text",
+      "nkProperties": {
+        "fontFamily": "fontFamily020",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.paragraph.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.linkInline.brand.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.linkStandalone.brand.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialParagraph030",
+      "description": "Used for body text content such as for article text",
+      "nkProperties": {
+        "fontFamily": "fontFamily020",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.linkInline.brand.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.linkStandalone.brand.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.paragraph.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily020",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.0625rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "-0.0625rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialQuote010",
+      "description": "Used for quotes in body text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.375rem",
+        "fontWeight": "700",
+        "lineHeight": "125%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.bold.xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.125rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.bold.small",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.125rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialQuote020",
+      "description": "Used for quotes in body text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "700",
+        "lineHeight": "125%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.bold.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.bold.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.black.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "800",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialCaption010",
+      "description": "Used for captions such as for the image with caption.",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.75rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.byline.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialCaption020",
+      "description": "Used for captions such as for the image with caption.",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.byline.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialCredit010",
+      "description": "Used for image accreditation.",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.625rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.625rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          },
+          {
+            "token": "utility.body.bold.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.625rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialLabel010",
+      "description": "Used for non-interactive identifiers that are often defined by an editor, for example the author label in a card",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.subheading.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.standfirst.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.light.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialLabel020",
+      "description": "Used for non-interactive identifiers that are often defined by an editor, for example the author label in a card",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.1875rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-bold",
+      "legacyToken": "editorialLabel030",
+      "description": "Used for non-interactive identifiers that are often defined by an editor, for example the author label in a card",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.subheading.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.static.regular.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.0625rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay001",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.1875rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay002",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.subheading.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.static.regular.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.0625rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay003",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.030",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay004",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay005",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.050",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay006",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.25rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.060",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay007",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.5rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.regular.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.bold.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay008",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.75rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.regular.080",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.080",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.regular.070",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.25rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay010",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "3.5rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.regular.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.bold.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay020",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "4rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.display.regular.010",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "4.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.25rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-2.8125rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.regular.xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-2.75rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularDisplay030",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "5rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.8125rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.regular.xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.75rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.regular.small",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.5rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline010",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.subheading.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.static.regular.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.0625rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline015",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.1875rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline020",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.25rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.020",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline025",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.375rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.125rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.125rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline030",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.030",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.regular.xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline040",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline050",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.050",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline060",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.25rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.regular.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.060",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline070",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.5rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.regular.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.bold.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-regular",
+      "legacyToken": "editorialRegularHeadline080",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "3rem",
+        "fontWeight": "400",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.regular.090",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.090",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.regular.080",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay001",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.1875rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.light.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay002",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.subheading.light.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.light.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.static.light.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.0625rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay003",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.030",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.light.xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay004",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay005",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.050",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay006",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.25rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.060",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.regular.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay007",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.5rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.light.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.bold.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay008",
+      "description": "Used for large pieces of text content and story headlines",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.75rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.light.080",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.080",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.light.070",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.25rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay010",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "3.5rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.light.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.bold.100",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay020",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "4rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.display.light.010",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "4.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.25rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.light.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-2.8125rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.light.xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-2.75rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightDisplay030",
+      "description": "Used for large pieces of text content",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "5rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.2xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.8125rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.light.xsmall",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.75rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.light.small",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-3.5rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline010",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.subheading.light.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.light.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.static.light.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0.0625rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline015",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.1875rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.010",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.light.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.0625rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline020",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.25rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.020",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.light.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline025",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.375rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.2xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.1875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.1875rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.fluid.light.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "-0.125rem",
+            "note": "Responsive: scales with viewport"
+          },
+          {
+            "token": "brand.heading.fluid.light.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0.125rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline030",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.030",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.subheading.light.xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline040",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.75rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.040",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline050",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.050",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline060",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.25rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.fluid.light.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.light.060",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.fluid.regular.2xlarge",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.25rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": true
+            },
+            "delta": "+0rem",
+            "note": "Responsive: scales with viewport"
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline070",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "2.5rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.light.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.bold.070",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.5rem",
+              "fontWeight": "700",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "editorial-light",
+      "legacyToken": "editorialLightHeadline080",
+      "description": "Used for headline text content such as for cards and title bars",
+      "nkProperties": {
+        "fontFamily": "fontFamily010",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "3rem",
+        "fontWeight": "300",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.heading.static.light.090",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.heading.static.regular.090",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "3rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.heading.static.light.080",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily010",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "2.875rem",
+              "fontWeight": "300",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityHeading010",
+      "description": "Used for heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.bold.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.linkInline.utility.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.linkStandalone.utility.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityHeading020",
+      "description": "Used for heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.heading.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.bold.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.linkInline.utility.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityHeading030",
+      "description": "Used for heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.25rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.subheading.large",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.heading.small",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          },
+          {
+            "token": "utility.body.bold.large",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityHeading040",
+      "description": "Used for heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.375rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.heading.medium",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.heading.small",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "-0.25rem",
+            "note": null
+          },
+          {
+            "token": "utility.heading.large",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0.375rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityHeading050",
+      "description": "Used for heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.5rem",
+        "fontWeight": "700",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.heading.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.5rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.heading.small",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "-0.375rem",
+            "note": null
+          },
+          {
+            "token": "utility.heading.large",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.75rem",
+              "fontWeight": "700",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0.25rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilitySubheading010",
+      "description": "Used for sub heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "500",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.label.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.byline.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.subheading.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilitySubheading020",
+      "description": "Used for sub heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "500",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.label.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.subheading.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.button.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilitySubheading030",
+      "description": "Used for sub heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "500",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.label.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.button.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.label.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilitySubheading040",
+      "description": "Used for sub heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.25rem",
+        "fontWeight": "500",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.subheading.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.label.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          },
+          {
+            "token": "utility.button.large",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilitySubheading050",
+      "description": "Used for sub heading utility text such as for modals and drawers",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.375rem",
+        "fontWeight": "500",
+        "lineHeight": "112.5%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.subheading.large",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.25rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.label.medium",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.375rem",
+            "note": null
+          },
+          {
+            "token": "utility.label.large",
+            "score": "M",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "-0.25rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityBody010",
+      "description": "Used for text inputs and banners",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.byline.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityBody020",
+      "description": "Used for text inputs and banners",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          },
+          {
+            "token": "utility.body.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityBody030",
+      "description": "Used for text inputs and banners",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          },
+          {
+            "token": "utility.button.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityLabel005",
+      "description": "Used for labels: Expirable Flag, Article Label, Article Content Type",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.75rem",
+        "fontWeight": "700",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.bold.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.linkInline.utility.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.linkStandalone.utility.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "700",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityLabel010",
+      "description": "Used for text labels such as for menus and lists",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "500",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.subheading.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityLabel020",
+      "description": "Used for text labels such as for menus and lists",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "500",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.subheading.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.button.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityLabel030",
+      "description": "Used for text labels such as for menus and lists",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "500",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.button.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.label.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityButton005",
+      "description": "Used for label: Category Label",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.75rem",
+        "fontWeight": "500",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.subheading.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.button.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityButton010",
+      "description": "Used for button text and standalone links",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "500",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.subheading.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityButton020",
+      "description": "Used for button text and standalone links",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "500",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.subheading.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "125.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.button.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityButton030",
+      "description": "Used for button text and standalone links",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1.125rem",
+        "fontWeight": "500",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.button.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "100%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "utility.label.large",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1.125rem",
+              "fontWeight": "500",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityMeta005",
+      "description": "Used for time stamp",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.75rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.xsmall",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.byline.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.75rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityMeta010",
+      "description": "Used for bylines and date time",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "0.875rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "utility.body.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          },
+          {
+            "token": "brand.byline.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "112.5%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    },
+    {
+      "group": "utility",
+      "legacyToken": "utilityMeta020",
+      "description": "Used for bylines and date time",
+      "nkProperties": {
+        "fontFamily": "fontFamily030",
+        "fontFamilyLabel": "Inter",
+        "fontSizeRem": "1rem",
+        "fontWeight": "400",
+        "lineHeight": "150%"
+      },
+      "matches": {
+        "canonical": [
+          {
+            "token": "utility.body.regular.medium",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "1rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "+0rem",
+            "note": null
+          }
+        ],
+        "synthetic": [
+          {
+            "token": "brand.caption",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          },
+          {
+            "token": "utility.body.regular.small",
+            "score": "H",
+            "tdsProperties": {
+              "fontFamily": "fontFamily040",
+              "fontFamilyLabel": "Inter",
+              "fontSizeRem": "0.875rem",
+              "fontWeight": "400",
+              "lineHeight": "150.0%",
+              "isFluid": false
+            },
+            "delta": "-0.125rem",
+            "note": null
+          }
+        ]
+      },
+      "orphanNote": null
+    }
+  ]
+}

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to use — The Design System Skills Portal</title>
+<style>
+  /* Inter font from the repo */
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  html { font-size: 62.5%; } /* 1rem = 10px so DS font-size tokens map 1:1 */
+
+  :root {
+    /* DS typography tokens (mirrored from packages/theme-css/src/variables.css) */
+    --fontFamily010: 'Inter', system-ui, -apple-system, sans-serif;
+    --fontFamily020: 'Inter', system-ui, -apple-system, sans-serif;
+    --fontFamily030: 'Inter', system-ui, -apple-system, sans-serif;
+    --fontFamily040: 'Inter', system-ui, -apple-system, sans-serif;
+
+    --fontWeight040: 400;
+    --fontWeight050: 500;
+    --fontWeight060: 600;
+    --fontWeight070: 700;
+
+    --fontSize005: 1.0rem;
+    --fontSize010: 1.2rem;
+    --fontSize020: 1.4rem;
+    --fontSize025: 1.5rem;
+    --fontSize030: 1.6rem;
+    --fontSize035: 1.7rem;
+    --fontSize040: 1.8rem;
+    --fontSize050: 2.0rem;
+    --fontSize060: 2.2rem;
+    --fontSize070: 2.4rem;
+    --fontSize080: 2.8rem;
+    --fontSize090: 3.2rem;
+    --fontSize100: 3.6rem;
+    --fontSize130: 4.8rem;
+    --fontSize150: 6.4rem;
+
+    --fontLineHeight010: 1;
+    --fontLineHeight020: 1.125;
+    --fontLineHeight030: 1.25;
+    --fontLineHeight040: 1.5;
+
+    --tm: var(--fontFamily010);
+    --td: var(--fontFamily020);
+    --rs: var(--fontFamily040);
+    --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+    --ink: #1A1A1A;
+    --ink-soft: #424242;
+    --ink-faint: #767676;
+    --rule: #DDDDDD;
+    --rule-faint: #EFEFEF;
+    --paper: #FFFFFF;
+    --paper-tint: #FAFAFA;
+    --paper-deep: #F5F4F0;
+    --red: #B11116;
+    --red-on-dark: #F26561;
+    --accent: var(--red);
+
+    --motion-instant: 50ms;
+    --motion-fast: 120ms;
+    --motion-easing: linear;
+  }
+
+  :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0ms !important;
+      animation-duration: 0ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: var(--fontFamily040);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: var(--fontLineHeight040);
+    font-size: var(--fontSize030);
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1280px; margin: 0 auto; padding: 24px 40px 80px; }
+
+  /* Masthead */
+  .masthead { text-align: center; padding-bottom: 16px; border-bottom: 1px solid var(--ink); }
+  .date-strip { font-family: var(--fontFamily020); font-size: var(--fontSize020); color: var(--ink-soft); margin-bottom: 16px; }
+  .masthead-logo-link {
+    display: block; width: fit-content; margin: 0 auto;
+    line-height: 0;
+    transition: opacity var(--motion-instant) var(--motion-easing);
+  }
+  .masthead-logo-link:hover { opacity: 0.7; }
+  .masthead-logo-link:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
+  .masthead-logo { display: block; height: 40px; width: auto; max-width: 100%; margin: 0 auto; }
+  .masthead-channels {
+    display: inline-flex; gap: 4px; margin-top: 12px; padding: 6px 16px;
+    border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  }
+  .masthead-channels span { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .masthead-sub { font-family: var(--fontFamily020); font-size: var(--fontSize030); color: var(--ink-soft); margin-top: 16px; }
+
+  /* Nav (sticky to top while user scrolls) */
+  nav.channel-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px;
+    padding: 12px 40px;
+    display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+    box-shadow: 0 1px 0 var(--rule);
+  }
+  nav.channel-nav a {
+    display: inline-flex; align-items: baseline; gap: 6px;
+    font-family: var(--fontFamily040); font-size: var(--fontSize020); font-weight: var(--fontWeight050);
+    color: var(--ink); text-decoration: none;
+    padding: 10px 0 8px;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--motion-instant) var(--motion-easing),
+                color var(--motion-instant) var(--motion-easing);
+  }
+  nav.channel-nav a:hover { border-bottom-color: var(--ink); }
+  nav.channel-nav a:focus-visible {
+    outline: 2px solid var(--red); outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  nav.channel-nav a.active { border-bottom-color: var(--ink); font-weight: var(--fontWeight070); }
+  nav.channel-nav a .nav-step {
+    font-family: var(--mono); font-size: var(--fontSize005); font-weight: var(--fontWeight060);
+    color: var(--ink-faint); letter-spacing: 0.04em; text-transform: uppercase;
+  }
+  nav.channel-nav a .nav-bullet { color: var(--ink-faint); font-size: var(--fontSize005); }
+  nav.channel-nav a:hover .nav-step,
+  nav.channel-nav a:hover .nav-bullet { color: var(--ink-soft); }
+  nav.channel-nav a.active .nav-step,
+  nav.channel-nav a.active .nav-bullet { color: var(--red); }
+  nav.channel-nav a:hover { border-bottom-color: var(--ink); }
+  nav.channel-nav a:focus-visible {
+    outline: 2px solid var(--red); outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  nav.channel-nav a.active { border-bottom-color: var(--ink); font-weight: var(--fontWeight070); }
+  nav.channel-nav a.download-link-nav {
+    display: inline-flex; align-items: center; gap: 5px; color: var(--ink-soft);
+  }
+  nav.channel-nav a.download-link-nav:hover { color: var(--ink); }
+  nav.channel-nav a.download-link-nav svg {
+    width: 12px; height: 12px; stroke: currentColor; flex-shrink: 0;
+  }
+
+  /* Page hero */
+  .page-hero { margin-top: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--rule); }
+  .label {
+    display: inline-block; background: var(--red); color: white;
+    font-family: var(--fontFamily040); font-size: var(--fontSize005); font-weight: var(--fontWeight070); letter-spacing: 0.08em;
+    padding: 3px 7px; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .page-hero h1 {
+    font-family: var(--fontFamily010); font-weight: var(--fontWeight070);
+    font-size: var(--fontSize150); line-height: var(--fontLineHeight020); letter-spacing: -0.015em;
+    margin: 6px 0 16px;
+  }
+  .page-hero .lede {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize050); line-height: var(--fontLineHeight040); color: var(--ink-soft);
+    max-width: 760px;
+  }
+  /* Back-to-home affordance */
+  .back-home {
+    display: flex; align-items: center; gap: 6px;
+    width: fit-content;
+    font-family: var(--fontFamily040); font-size: var(--fontSize020);
+    color: var(--ink-soft); text-decoration: none;
+    margin-bottom: 24px;
+    transition: color var(--motion-instant) var(--motion-easing);
+  }
+  .back-home:hover { color: var(--ink); }
+  .back-home:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+  .back-home svg { width: 14px; height: 14px; stroke: currentColor; flex-shrink: 0; }
+
+  /* Content layout: TOC sidebar + article body */
+  .layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 64px;
+    margin-top: 56px;
+  }
+  @media (max-width: 980px) { .layout { grid-template-columns: 1fr; gap: 32px; } }
+
+  /* TOC */
+  .toc {
+    position: sticky; top: 24px;
+    align-self: start;
+  }
+  @media (max-width: 980px) {
+    .toc { position: static; padding: 16px; background: var(--paper-tint); border: 1px solid var(--rule); }
+  }
+  .toc h4 {
+    font-family: var(--fontFamily040); font-size: var(--fontSize005); font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 12px;
+  }
+  .toc ol {
+    list-style: none; counter-reset: toc-counter;
+  }
+  .toc ol li {
+    counter-increment: toc-counter;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--rule-faint);
+  }
+  .toc ol li:last-child { border-bottom: none; }
+  .toc ol li a {
+    font-family: var(--fontFamily020); font-size: var(--fontSize025); color: var(--ink);
+    text-decoration: none; display: flex; gap: 10px;
+    transition: color var(--motion-instant) var(--motion-easing);
+  }
+  .toc ol li a::before {
+    content: counter(toc-counter, decimal-leading-zero);
+    font-family: var(--mono); font-size: var(--fontSize005); color: var(--ink-faint);
+    padding-top: 3px;
+  }
+  .toc ol li a:hover { color: var(--red); }
+
+  /* Article body */
+  article { max-width: 720px; }
+  article section { margin-bottom: 56px; }
+  article h2 {
+    font-family: var(--fontFamily010); font-weight: var(--fontWeight070);
+    font-size: var(--fontSize100); line-height: var(--fontLineHeight020); letter-spacing: -0.01em;
+    margin-bottom: 12px;
+  }
+  article h2 .step-num {
+    font-family: var(--mono); font-weight: var(--fontWeight040); font-size: var(--fontSize020);
+    color: var(--red); letter-spacing: 0.06em;
+    display: block; margin-bottom: 6px;
+  }
+  article .section-lede {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize040); line-height: var(--fontLineHeight040); color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  article p {
+    font-family: var(--fontFamily020); font-size: var(--fontSize035); line-height: var(--fontLineHeight040);
+    color: var(--ink); margin-bottom: 16px;
+  }
+  article p.small {
+    font-family: var(--fontFamily020); font-size: var(--fontSize020); color: var(--ink-soft);
+  }
+  article ul, article ol { margin: 16px 0 16px 24px; }
+  article ul li, article ol li {
+    font-family: var(--fontFamily020); font-size: var(--fontSize035); line-height: var(--fontLineHeight040);
+    color: var(--ink); margin-bottom: 8px;
+  }
+  article code {
+    font-family: var(--mono); font-size: 0.88em;
+    background: var(--paper-tint); padding: 2px 6px;
+    border: 1px solid var(--rule);
+  }
+  article a {
+    color: var(--ink); text-decoration: underline;
+    text-decoration-color: var(--red);
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+    transition: text-decoration-color var(--motion-instant) var(--motion-easing);
+  }
+  article a:hover { text-decoration-color: var(--ink); }
+
+  /* Pull quote / callout */
+  .callout {
+    background: var(--paper-tint);
+    border-left: 3px solid var(--red);
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .callout h4 {
+    font-family: var(--fontFamily040); font-size: var(--fontSize005); font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--red); margin-bottom: 8px;
+  }
+  .callout p { font-family: var(--fontFamily020); font-size: var(--fontSize025); margin-bottom: 0; }
+
+  /* Code block */
+  pre.code-block {
+    background: var(--ink); color: #F0F0F0;
+    padding: 20px;
+    overflow-x: auto;
+    font-family: var(--mono); font-size: var(--fontSize020); line-height: var(--fontLineHeight040);
+    margin: 16px 0;
+    border-left: 3px solid var(--red);
+  }
+
+  /* Pillar (used for skill vs agent compare) */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 24px 0;
+  }
+  @media (max-width: 580px) { .compare { grid-template-columns: 1fr; } }
+  .compare-card {
+    padding: 24px;
+    border-top: 3px solid var(--ink);
+    background: var(--paper-tint);
+  }
+  .compare-card.agent { border-top-color: var(--red); }
+  .compare-card h3 {
+    font-family: var(--fontFamily010); font-weight: var(--fontWeight070);
+    font-size: var(--fontSize060); margin-bottom: 8px;
+  }
+  .compare-card .tag {
+    font-family: var(--fontFamily040); font-size: var(--fontSize005); font-weight: var(--fontWeight070);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint); margin-bottom: 12px;
+  }
+  .compare-card p {
+    font-family: var(--fontFamily020); font-size: var(--fontSize025); line-height: var(--fontLineHeight040);
+    color: var(--ink-soft); margin-bottom: 8px;
+  }
+  .compare-card ul li { font-size: var(--fontSize020); }
+
+  /* Prompt example */
+  .prompt-example {
+    background: var(--ink); color: #F0F0F0;
+    padding: 18px 22px;
+    margin: 16px 0;
+    font-family: var(--mono); font-size: var(--fontSize020);
+    line-height: var(--fontLineHeight040);
+    position: relative;
+  }
+  .prompt-example::before {
+    content: 'YOU TYPE';
+    position: absolute; top: -10px; left: 16px;
+    background: var(--red); color: white;
+    font-family: var(--fontFamily040); font-size: var(--fontSize005); font-weight: var(--fontWeight070);
+    letter-spacing: 0.1em; padding: 2px 8px;
+  }
+  .agent-response {
+    background: var(--paper-tint);
+    border: 1px solid var(--rule);
+    padding: 18px 22px;
+    margin: 8px 0 24px;
+    font-family: var(--fontFamily020); font-size: var(--fontSize025);
+    line-height: var(--fontLineHeight040); color: var(--ink-soft);
+    position: relative;
+  }
+  .agent-response::before {
+    content: 'AGENT REPLIES';
+    position: absolute; top: -10px; left: 16px;
+    background: var(--ink); color: white;
+    font-family: var(--fontFamily040); font-size: var(--fontSize005); font-weight: var(--fontWeight070);
+    letter-spacing: 0.1em; padding: 2px 8px;
+  }
+
+  /* Steps list */
+  .steps {
+    counter-reset: step-count;
+    list-style: none;
+    margin: 16px 0 16px 0;
+  }
+  .steps li {
+    counter-increment: step-count;
+    padding: 16px 16px 16px 56px;
+    position: relative;
+    border-left: 1px solid var(--rule);
+    margin-bottom: 0;
+    font-family: var(--fontFamily020); font-size: var(--fontSize030); line-height: var(--fontLineHeight040);
+    color: var(--ink);
+  }
+  .steps li::before {
+    content: counter(step-count);
+    position: absolute; left: -18px; top: 16px;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--paper); color: var(--ink);
+    border: 1px solid var(--ink);
+    font-family: var(--fontFamily010); font-weight: var(--fontWeight070); font-size: var(--fontSize040);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .steps li code { font-size: 0.9em; }
+
+  /* Footer */
+  footer {
+    margin-top: 96px; padding-top: 32px;
+    border-top: 2px solid var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px; flex-wrap: wrap;
+  }
+  footer .footer-text { font-family: var(--fontFamily020); font-size: var(--fontSize020); color: var(--ink-soft); line-height: var(--fontLineHeight040); }
+  footer .footer-channels { display: flex; gap: 6px; }
+  footer .footer-channels span { width: 14px; height: 14px; border-radius: 50%; }
+  footer .footer-meta { font-family: var(--mono); font-size: var(--fontSize005); color: var(--ink-faint); letter-spacing: 0.04em; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+</style>
+</head>
+<body>
+<h1 class="sr-only">How to use the Design System skills and agents: a tutorial covering MCP setup, what skills and agents are, and using them day to day.</h1>
+
+<div class="container">
+
+  <!-- Masthead -->
+  <div class="masthead">
+    <div class="date-strip" id="date-strip">Tuesday May 26 2026</div>
+    <a href="index.html" class="masthead-logo-link" aria-label="Back to home"><span class="masthead-logo masthead-wordmark" style="display:inline-block; font-family: Georgia, 'Brand New Roman', serif; font-weight:700; font-size:34px; letter-spacing:0.5px; line-height:1;">Design System</span></a>
+    <div class="masthead-channels" aria-label="Accent tiers">
+      <span style="background:#3B82F6" title="primary"></span>
+      <span style="background:#64748B" title="secondary"></span>
+      <span style="background:#8B5CF6" title="tertiary"></span>
+      <span style="background:#22C55E" title="success"></span>
+      <span style="background:#F59E0B" title="warning"></span>
+      <span style="background:#EF4444" title="error"></span>
+    </div>
+    <div class="masthead-sub">Design System &middot; Skills Portal &middot; for designers, design engineers, PMs and QA</div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="channel-nav">
+    <a href="index.html#dna"><span class="nav-step">Step 01</span><span class="nav-bullet">&bull;</span>Start</a>
+    <a href="index.html#agents"><span class="nav-step">Step 02</span><span class="nav-bullet">&bull;</span>Pick</a>
+    <a href="index.html#workflow"><span class="nav-step">Step 03</span><span class="nav-bullet">&bull;</span>Flow</a>
+    <a href="index.html#skills"><span class="nav-step">Step 04</span><span class="nav-bullet">&bull;</span>Skills</a>
+    <a href="index.html#quick"><span class="nav-step">Step 05</span><span class="nav-bullet">&bull;</span>Prompts</a>
+    <a href="how-to-use.html" class="active"><span class="nav-step">Step 06</span><span class="nav-bullet">&bull;</span>Learn</a>
+    <a href="../GUIDE.md" class="download-link-nav" download="GUIDE.md" title="Download GUIDE.md">
+      Onboarding
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 12l6 6 6-6"/><path d="M5 20h14"/></svg>
+    </a>
+    <a href="../README.md" class="download-link-nav" download="README.md" title="Download the design suite README">
+      Proposal
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 12l6 6 6-6"/><path d="M5 20h14"/></svg>
+    </a>
+  </nav>
+
+  <!-- Page hero -->
+  <div class="page-hero">
+    <a href="index.html" class="back-home">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      Back to home
+    </a>
+    <span class="label">Guide</span>
+    <h1>How to use the skills.</h1>
+    <p class="lede">A practical guide for designers, design engineers, PMs and QA. Set up the Figma connection once, learn what skills and agents are, then use them day to day. Aim: be productive in fifteen minutes.</p>
+  </div>
+
+  <div class="layout">
+
+    <!-- TOC -->
+    <aside class="toc">
+      <h4>In this guide</h4>
+      <ol>
+        <li><a href="#what">What you're looking at</a></li>
+        <li><a href="#setup">Set up the Figma connection</a></li>
+        <li><a href="#concepts">Skills, agents and the DNA</a></li>
+        <li><a href="#using">Using them day to day</a></li>
+        <li><a href="#outputs">Reading the outputs</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#next">Where to go next</a></li>
+      </ol>
+    </aside>
+
+    <article>
+
+      <!-- 1. What -->
+      <section id="what">
+        <h2><span class="step-num">Step 00</span>What you're looking at</h2>
+        <p class="section-lede">A set of helpers built into your editor that bridge Figma and the design system. You use them by typing natural sentences. They produce Markdown reports.</p>
+
+        <p>The portal has three kinds of thing in it, and they relate like this:</p>
+
+        <div class="compare">
+          <div class="compare-card">
+            <div class="tag">The building block</div>
+            <h3>Skill</h3>
+            <p>A focused file that does one job. Twelve of these. Examples: <code>token-mapping-audit</code> finds every value in a Figma frame and maps it to a token. <code>a11y-check</code> runs an accessibility audit on a frame.</p>
+            <p>You can call a skill on its own when you want surgical control over one specific check.</p>
+          </div>
+          <div class="compare-card agent">
+            <div class="tag">The entry point</div>
+            <h3>Agent</h3>
+            <p>A bundle that calls multiple skills in the right order for a real job. Four of these. Examples: <code>handoff-agent</code> runs eight or nine skills to turn a design into an engineering packet. <code>critique-agent</code> runs four checks in parallel.</p>
+            <p>Most days, you call agents. Skills are the plumbing underneath.</p>
+          </div>
+        </div>
+
+        <p>And underneath everything sits one foundation file, the <code>design-dna</code>, which captures who your brand is, the eleven channels, the token architecture, voice rules, motion philosophy. Every agent loads it before doing anything else, so every output is grounded in how we design.</p>
+      </section>
+
+      <!-- 2. Setup -->
+      <section id="setup">
+        <h2><span class="step-num">Step 01</span>Set up the Figma connection</h2>
+        <p class="section-lede">One-time setup per machine. Takes about ten minutes. After this, every skill that touches Figma will work.</p>
+
+        <p>The skills talk to Figma through two Model Context Protocol (MCP) servers, plus a third for the design tokens. You install once, configure once, and after that they boot up with your editor automatically.</p>
+
+        <div class="callout">
+          <h4>Before you start</h4>
+          <p>You need: Figma Desktop installed, Node.js 18 or newer, a Figma personal access token, and your editor (VS Code, Cursor, Codex or similar) opened on the <code>ds</code> repo.</p>
+        </div>
+
+        <ol class="steps">
+          <li><strong>Install the Figma Desktop app.</strong> If you don't have it, get it from figma.com. The setup needs the desktop app, not just the browser.</li>
+          <li><strong>Get a Figma personal access token.</strong> In Figma desktop, open Settings, scroll to Personal access tokens, generate one with read access (or read + write if you'll be running the build agent later). Copy the token — it starts with <code>figd_</code>.</li>
+          <li><strong>Create the env file.</strong> In your home directory, make a file called <code>.figma-console-mcp.env</code> and paste in:
+            <pre class="code-block">FIGMA_ACCESS_TOKEN=figd_xxx</pre>
+            Replace <code>figd_xxx</code> with your real token. Note: it's <code>FIGMA_ACCESS_TOKEN</code>, not <code>FIGMA_API_KEY</code>.
+          </li>
+          <li><strong>Enable Desktop MCP Server in Figma.</strong> Open any Figma file, switch to Dev Mode (top right), open Preferences, and turn on Desktop MCP Server. You'll see the indicator light up.</li>
+          <li><strong>Open the repo in your editor.</strong> The repo includes <code>.vscode/mcp.json</code> with the right MCP server configuration baked in, so when you open the project the servers boot automatically. Three of them: <code>figma-console</code>, <code>figma-desktop</code>, and <code>ds-tokens-mcp</code>.</li>
+          <li><strong>Verify it works.</strong> Open the AI panel in your editor (Claude, Cursor, Copilot Chat, etc.) and ask: <em>"Check Figma status."</em> You should get back a status report showing the MCPs are connected.</li>
+        </ol>
+
+        <div class="callout">
+          <h4>The one rule you'll hit every time</h4>
+          <p>Whenever an agent is about to touch a Figma URL, it will ask: <em>"Is the Figma Desktop Bridge plugin currently running in that file?"</em> Answer honestly — if it isn't, open Figma, open the file, run the Desktop Bridge plugin, then tell the agent to continue. This gate is mandatory and exists to stop the agent guessing about file state.</p>
+        </div>
+
+        <p>That's the whole setup. Future sessions need only the env file to be present and Figma Desktop to be running.</p>
+      </section>
+
+      <!-- 3. Concepts -->
+      <section id="concepts">
+        <h2><span class="step-num">Step 02</span>Skills, agents and the DNA</h2>
+        <p class="section-lede">A two-minute mental model. Stick this in the back of your head and the rest makes sense.</p>
+
+        <p>Three layers, top to bottom.</p>
+
+        <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">The agents are what you call.</h3>
+        <p>Four of them. They're how you actually talk to the system. Each agent owns a moment in the design lifecycle:</p>
+        <ul>
+          <li><code>prototyping-agent</code> — early. You're exploring an idea, want a sanity-check on tokens or motion, want to think out loud.</li>
+          <li><code>critique-agent</code> — middle. You have something on the page and want to know if it's any good before showing it to engineering.</li>
+          <li><code>handoff-agent</code> — late. The design is done. Produce the engineering packet.</li>
+          <li><code>build-agent</code> — after handoff. You're the design engineer scaffolding the component.</li>
+        </ul>
+
+        <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">The skills are the plumbing.</h3>
+        <p>Twelve files. Each does one specific job. You usually don't call them directly. They run inside agents. But you can call one on its own if you want a single check (e.g., just run <code>a11y-check</code>, skip the rest).</p>
+
+        <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">The DNA is the ground truth.</h3>
+        <p>One file: <code>design-dna</code>. The brand, the eleven channels, the token architecture, the voice rules, the motion philosophy, the anti-patterns. Every agent loads it as a preamble before doing its work. That's why an output from <code>critique-agent</code> sounds like your brand and not like a generic design review.</p>
+
+        <div class="callout">
+          <h4>If you remember one thing</h4>
+          <p>Call agents, not skills. Skills exist; you can read them; but agents are designed for the way you actually work. The portal index page shows the four agents at the top for that reason.</p>
+        </div>
+      </section>
+
+      <!-- 4. Using them -->
+      <section id="using">
+        <h2><span class="step-num">Step 03</span>Using them day to day</h2>
+        <p class="section-lede">You type a natural sentence in Claude, Cursor, Copilot or whichever AI tool you've got open. The system picks the right agent or skill and runs it.</p>
+
+        <p>No special syntax. No magic commands. You can name the agent if you want exactness, or you can just describe what you want.</p>
+
+        <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">Example 1: thinking out loud</h3>
+
+        <div class="prompt-example">I'm prototyping a callout card for the Comment section. What surface token should I use?</div>
+        <div class="agent-response"><em>Loads the DNA…</em> For Comment, the channel-aware surface is <code>light/ comment/ surface/ primary</code> for the card body, with <code>light/ comment/ text/ primary</code> for the heading. If the callout is opinionated, <code>light/ comment/ accent/ primary</code> on the left border works. Don't reach for <code>product.channel.comment</code> directly — let the channel scope at section level do the work.</div>
+
+        <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">Example 2: critiquing</h3>
+
+        <div class="prompt-example">Critique the design at https://figma.com/design/abc123?node-id=42-1024</div>
+        <div class="agent-response"><em>Mandatory gate:</em> Is the Figma Desktop Bridge plugin currently running in that file? <strong>(You answer yes.)</strong> <em>Running design-critique, a11y-check, content-style-check in parallel… done.</em> 2 errors, 9 warnings. Top three fixes: contrast on the secondary button label (3.9 needs 4.5), em dash in the headline, three off-scale spacing values (13px, 18px, 22px). Full report at <code>.design/comments-modal/CRITIQUE_REPORT.md</code>.</div>
+
+        <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">Example 3: full handoff</h3>
+
+        <div class="prompt-example">Hand off the comments-modal feature, Figma light at &lt;url&gt;, dark at &lt;url&gt;, channel comment, ticket COM-412</div>
+        <div class="agent-response"><em>Loading DNA. Running preflight. Bridge running?</em> <strong>(yes)</strong> <em>Running token audit on light frame… 23 tokens captured, 21 semantic, 2 unmapped. Pause: do you want to fix those before I continue, or flag them in the packet?</em> <strong>(continue)</strong> <em>…</em> Final output: <code>.design/comments-modal/PACKET.md</code> plus the full feature folder. Attach to COM-412.</div>
+
+        <p>All three examples follow the same pattern: you describe what you want, the agent loads the DNA, runs the right skills, pauses when something needs your input, produces a report.</p>
+      </section>
+
+      <!-- 5. Outputs -->
+      <section id="outputs">
+        <h2><span class="step-num">Step 04</span>Reading the outputs</h2>
+        <p class="section-lede">Every output is a Markdown file in a predictable place. Open it in VS Code or any Markdown viewer.</p>
+
+        <p>The portal's <a href="index.html#skills">Skills section</a> lists every file each skill produces. The shape:</p>
+
+        <ul>
+          <li>Each feature you work on gets a folder: <code>.design/&lt;feature-name&gt;/</code>. Created automatically the first time you run anything against it.</li>
+          <li>Inside, files are predictable: <code>SPEC.md</code> for the developer spec, <code>TOKEN_AUDIT_LIGHT.md</code> for the token audit, <code>CRITIQUE_REPORT.md</code> for critique findings, <code>A11Y_CHECK.md</code> for accessibility, and so on.</li>
+          <li>The final artefact you attach to an engineering ticket is always <code>PACKET.md</code>.</li>
+          <li>Each report has a Summary table at the top — read that first. The detail is below if you want to dig in.</li>
+          <li>Every report ends with a Provenance section: which Figma node it was run against, the tokens snapshot SHA, the skill version. That's your audit trail.</li>
+        </ul>
+
+        <div class="callout">
+          <h4>What outputs are not</h4>
+          <p>Reports are evidence, not verdicts. If a finding doesn't make sense in your context, push back. The skills are direct on purpose — they say "contrast 3.9 vs threshold 4.5" rather than "the contrast might be a bit low" — but they're not infallible. Your judgement still matters.</p>
+        </div>
+      </section>
+
+      <!-- 6. Troubleshooting -->
+      <section id="troubleshooting">
+        <h2><span class="step-num">Step 05</span>Troubleshooting</h2>
+        <p class="section-lede">The common things that go wrong, and how to fix them.</p>
+
+        <h3 style="font-family: var(--tm); font-size: 20px; margin-top: 20px; margin-bottom: 6px;">"The agent says Desktop Bridge isn't running"</h3>
+        <p>Open Figma Desktop, open the file the URL points to, then run the Desktop Bridge plugin from the Plugins menu. Once the indicator confirms it's running, tell the agent "yes, continue".</p>
+
+        <h3 style="font-family: var(--tm); font-size: 20px; margin-top: 20px; margin-bottom: 6px;">"It says the Figma URL can't be fetched"</h3>
+        <p>Usually means the env file is missing or the token is wrong. Check <code>~/.figma-console-mcp.env</code> exists and contains a valid <code>FIGMA_ACCESS_TOKEN</code>. Then restart your editor so the MCP server picks up the env.</p>
+
+        <h3 style="font-family: var(--tm); font-size: 20px; margin-top: 20px; margin-bottom: 6px;">"Token MCP returns nothing"</h3>
+        <p>Means the Design System Tokens MCP server isn't running. Check that the workspace <code>.vscode/mcp.json</code> is loaded. Restart your editor. If it still doesn't work, ask in the design-systems channel.</p>
+
+        <h3 style="font-family: var(--tm); font-size: 20px; margin-top: 20px; margin-bottom: 6px;">"It produced a report but a column is empty"</h3>
+        <p>Open the report, scroll to the Provenance section at the bottom. If it says "Token MCP cache stale" or "extraction returned partial", re-run the same skill with the same input. The retry sequence is designed to recover from these.</p>
+
+        <h3 style="font-family: var(--tm); font-size: 20px; margin-top: 20px; margin-bottom: 6px;">"I asked for a critique and got code"</h3>
+        <p>The wrong agent picked up the request. Be explicit: name the agent ("Use critique-agent to…"). Or rephrase to be unambiguous. The agents have polite redirects when they detect a mismatch, but they can't always tell.</p>
+      </section>
+
+      <!-- 7. Next -->
+      <section id="next">
+        <h2><span class="step-num">Step 06</span>Where to go next</h2>
+        <p class="section-lede">Pick the right starting point for your role and go.</p>
+
+        <ul>
+          <li><strong>If you're a designer:</strong> open the <a href="index.html#agents">Agents</a> section on the main page, click the prototyping-agent card, copy one of its example prompts, try it on a Figma frame you know.</li>
+          <li><strong>If you're a design engineer:</strong> read the <a href="index.html#dna">Design DNA</a> first (it's the foundation), then try the build-agent on your next component.</li>
+          <li><strong>If you're a PM or content reviewer:</strong> ask a designer to share their next <code>PACKET.md</code>. Notice you don't need Figma to understand it.</li>
+          <li><strong>If you're QA:</strong> try the visual-vs-built check on a component that just landed in Storybook. It surfaces the gaps between design and implementation.</li>
+        </ul>
+
+        <p>Download the full <a href="../GUIDE.md" download="GUIDE.md">guide</a> or <a href="../README.md" download="README.md">proposal</a> if you want the longer reads. They cover the same ground in more depth, plus the rationale for why the system is shaped this way.</p>
+
+        <div class="callout">
+          <h4>One last thing</h4>
+          <p>The system gets better the more it's used. Every report feeds the monthly audit, which surfaces system-level patterns, which improve the rules, which improve the next report. If something feels wrong or generic, raise it in the design-systems channel. The DNA is a living file.</p>
+        </div>
+      </section>
+
+    </article>
+
+  </div>
+
+  <footer>
+    <div class="footer-text">
+      <strong>The Design System</strong><br>
+      Design Skills Portal &middot; v0.1 &middot; Built for designers, design engineers, PMs and QA.
+    </div>
+    <div class="footer-channels" title="The eleven channels">
+      <span style="background:#135DCB" title="home"></span>
+      <span style="background:#00787C" title="world"></span>
+      <span style="background:#58A385" title="money"></span>
+      <span style="background:#9B1F45" title="comment"></span>
+      <span style="background:#21709C" title="business"></span>
+      <span style="background:#007A3F" title="sport"></span>
+      <span style="background:#2c79ad" title="travel"></span>
+      <span style="background:#DF7334" title="puzzle"></span>
+      <span style="background:#942364" title="culture"></span>
+      <span style="background:#6c6c69" title="obituaries"></span>
+      <span style="background:#0f3d38" title="ireland"></span>
+    </div>
+    <div class="footer-meta">4 AGENTS &middot; 19 SKILLS &middot; v0.1</div>
+  </footer>
+
+</div>
+
+<script>
+  const today = new Date();
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dateEl = document.getElementById('date-strip');
+  if (dateEl) dateEl.textContent = `${days[today.getDay()]} ${months[today.getMonth()]} ${today.getDate()} ${today.getFullYear()}`;
+</script>
+</body>
+</html>

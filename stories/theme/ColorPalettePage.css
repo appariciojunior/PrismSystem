@@ -1,0 +1,129 @@
+/* Swatch grid and card layout */
+.swatch-section {
+  margin-bottom: 2.5rem;
+}
+
+.swatch-section-heading {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a191a;
+  margin: 0 0 12px 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.swatch-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.swatch-card {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 12px;
+}
+
+.swatch-color-block {
+  height: 80px;
+  border-radius: 8px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.swatch-hex-chip {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+  border-radius: 4px;
+  background: rgba(167, 167, 167, 0.6);
+  mix-blend-mode: normal;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  line-height: 1;
+}
+
+.swatch-hex-text {
+  font-family: ui-monospace, 'SFMono-Regular', 'SF Mono', Monaco, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.swatch-copy-icon {
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: #000;
+}
+
+.swatch-base-badge {
+  position: absolute;
+  top: 52px;
+  left: 8px;
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swatch-base-text {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  color: #fff;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.swatch-token-name {
+  background: #d9d9d9;
+  padding: 4px;
+  border-radius: 4px;
+  font-family: ui-monospace, 'SFMono-Regular', 'SF Mono', Monaco, monospace;
+  font-size: 12px;
+  color: #000;
+  line-height: 1.4;
+  word-break: break-all;
+}
+
+/* Tab nav */
+.palette-tab-nav {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #d9d9d9;
+  margin-bottom: 2rem;
+}
+
+.palette-tab-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  color: #737373;
+  margin-bottom: -1px;
+  font-weight: 400;
+}
+
+.palette-tab-btn.active {
+  color: #000;
+  border-bottom-color: #000;
+  font-weight: 600;
+}

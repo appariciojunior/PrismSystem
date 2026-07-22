@@ -1,0 +1,337 @@
+.checkout-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--color-background, #ffffff);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: var(--dimension-500, 16px);
+}
+
+.checkout-page {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-fluid-lg, 20px);
+  background-color: var(--color-background, #ffffff);
+}
+
+/* Header Section */
+.checkout-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.checkout-title {
+  font: var(--brand-heading-fluid-bold-medium);
+  color: var(--text-primary, #1a1a1a);
+  margin: 0;
+}
+
+.checkout-step {
+  font: var(--utility-body-regular-small);
+  color: var(--text-secondary, #333333);
+  margin: 0;
+}
+
+/* Login Section */
+.checkout-login-section {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-08, 16px);
+}
+
+.checkout-login-text {
+  font: var(--utility-body-regular-medium);
+  color: var(--text-secondary, #333333);
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Form Section */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08, 16px);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-02, 4px);
+  width: 100%;
+}
+
+.password-hint {
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize020, 14px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary, #333333);
+  margin: 0;
+  padding-top: var(--spacing-02, 4px);
+}
+
+/* Support Section */
+.checkout-support-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08, 16px);
+  width: 100%;
+  padding: var(--spacing-08, 16px) 0;
+  border-top: 1px solid var(--border-secondary, #b3b3b3);
+  border-bottom: 1px solid var(--border-secondary, #b3b3b3);
+}
+
+.checkout-support-section--standalone {
+  border-top: none;
+  border-bottom: none;
+  gap: var(--spacing-fluid-lg, 20px);
+  padding: var(--spacing-fluid-lg, 20px) 0 0 0;
+}
+
+.support-help-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-02, 4px);
+}
+
+.support-help-label {
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize020, 14px);
+  font-weight: 500;
+  line-height: 1.125;
+  color: var(--text-secondary, #333333);
+  margin: 0;
+}
+
+.support-phone {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-02, 4px);
+}
+
+.support-phone-label {
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize020, 14px);
+  font-weight: 500;
+  line-height: 1.125;
+  color: var(--text-secondary, #333333);
+  margin: 0;
+}
+
+.support-phone-hours {
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize020, 14px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0;
+}
+
+/* Privacy Notice */
+.checkout-privacy-notice {
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize030, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary, #333333);
+  margin: 0;
+}
+
+/* Button Styles */
+.checkout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-fluid-sm, 8px);
+  width: 100%;
+  padding: var(--spacing-fluid-md, 12px) var(--spacing-fluid-lg, 20px);
+  background-color: var(--interactive-primary-fill-default, #005c8a);
+  color: var(--interactive-primary-text-default, #ffffff);
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize030, 16px);
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.checkout-button:hover:not(:disabled) {
+  background-color: var(--interactive-primary-fill-hover, #004568);
+}
+
+.checkout-button:active:not(:disabled) {
+  background-color: var(--interactive-primary-fill-active, #003d52);
+}
+
+.checkout-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.checkout-button--success {
+  background-color: var(--interactive-primary-fill-default, #005c8a);
+}
+
+.checkout-button--success:hover {
+  background-color: var(--interactive-primary-fill-hover, #004568);
+}
+
+.button-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Success State */
+.checkout-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-fluid-lg, 20px);
+  padding: var(--dimension-600, 24px) 0;
+  text-align: center;
+}
+
+.success-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--spacing-08, 16px);
+}
+
+.success-title {
+  font-family: var(--fontFamily030, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize070, 24px);
+  font-weight: 700;
+  line-height: 1.125;
+  color: var(--text-primary, #1a1a1a);
+  margin: 0;
+}
+
+.success-message {
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize030, 16px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary, #333333);
+  margin: 0;
+  max-width: 400px;
+}
+
+/* Progress Indicator */
+.checkout-progress {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: var(--dimension-600, 24px);
+  padding: var(--dimension-500, 16px) 0;
+  border-bottom: 1px solid var(--border-primary, #999999);
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-04, 8px);
+}
+
+.progress-step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-background-secondary, #f5f5f5);
+  border: 2px solid var(--border-primary, #999999);
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize030, 16px);
+  font-weight: 500;
+  color: var(--text-primary, #1a1a1a);
+  transition: all 0.2s ease;
+}
+
+.progress-step--active .progress-step-circle {
+  background-color: var(--interactive-primary-fill-default, #005c8a);
+  border-color: var(--interactive-primary-fill-default, #005c8a);
+  color: var(--interactive-primary-text-default, #ffffff);
+}
+
+.progress-step--completed .progress-step-circle {
+  background-color: var(--interactive-primary-fill-default, #005c8a);
+  border-color: var(--interactive-primary-fill-default, #005c8a);
+  color: var(--interactive-primary-text-default, #ffffff);
+}
+
+.progress-step-label {
+  font-family: var(--fontFamily040, 'Inter', system-ui, -apple-system, sans-serif);
+  font-size: var(--fontSize020, 14px);
+  font-weight: 500;
+  line-height: 1.125;
+  color: var(--text-secondary, #333333);
+  margin: 0;
+  transition: all 0.2s ease;
+}
+
+.progress-step--active .progress-step-label {
+  color: var(--interactive-primary-fill-default, #005c8a);
+  font-weight: 600;
+}
+
+.progress-step--completed .progress-step-label {
+  color: var(--interactive-primary-fill-default, #005c8a);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .checkout-page {
+    max-width: 100%;
+  }
+
+  .checkout-title {
+    font-size: var(--fontSize060, 20px);
+  }
+
+  .checkout-progress {
+    padding: var(--dimension-400, 12px) 0;
+  }
+
+  .checkout-support-section {
+    margin-inline: calc(var(--dimension-400, 12px) * -1);
+  }
+  .progress-step {
+    gap: var(--spacing-02, 4px);
+  }
+
+  .progress-step-circle {
+    width: 28px;
+    height: 28px;
+    font-size: var(--fontSize020, 14px);
+  }
+
+  .progress-step-label {
+    font-size: var(--fontSize010, 12px);
+  }
+}
+
+@media (max-width: 480px) {
+  .checkout-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-04, 8px);
+  }
+
+  .checkout-button {
+    padding: var(--spacing-fluid-sm, 8px) var(--spacing-fluid-md, 12px);
+  }
+}

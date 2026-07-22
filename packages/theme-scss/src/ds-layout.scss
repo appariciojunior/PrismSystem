@@ -1,0 +1,81 @@
+:root {
+--grid-columns: 4;
+--grid-gutter: 24px;
+--grid-margin: 20px;
+--grid-viewport: 433px;
+--grid-max-width: 767px;
+--grid-content-area: 393px;
+}
+@media (min-width: 440px) {
+:root {
+--grid-columns: 12;
+--grid-gutter: 32px;
+--grid-margin: 24px;
+--grid-viewport: 816px;
+--grid-max-width: 1023px;
+--grid-content-area: 768px;
+}}
+@media (min-width: 1024px) {
+:root {
+--grid-columns: 12;
+--grid-gutter: 32px;
+--grid-margin: 24px;
+--grid-viewport: 1072px;
+--grid-max-width: 1439px;
+--grid-content-area: 1024px;
+}}
+@media (min-width: 1440px) {
+:root {
+--grid-columns: 12;
+--grid-gutter: 32px;
+--grid-margin: 24px;
+--grid-viewport: 1440px;
+--grid-max-width: 1920px;
+--grid-content-area: 1144px;
+}}
+
+$spacing-10: 18px;
+$spacing-11: 20px;
+$spacing-12: 23px;
+$spacing-13: 24px;
+$spacing-14: 28px;
+$spacing-15: 32px;
+$spacing-16: 36px;
+$spacing-17: 40px;
+$spacing-18: 48px;
+$spacing-19: 56px;
+$spacing-20: 64px;
+$spacing-21: 80px;
+$spacing-01: 2px;
+$spacing-02: 3px;
+$spacing-03: 4px;
+$spacing-04: 6px;
+$spacing-05: 8px;
+$spacing-06: 10px;
+$spacing-07: 12px;
+$spacing-08: 14px;
+$spacing-09: 16px;
+$grid-columns: var(--grid-columns);
+$grid-gutter: var(--grid-gutter);
+$grid-margin: var(--grid-margin);
+$grid-viewport: var(--grid-viewport);
+$grid-max-width: var(--grid-max-width);
+$grid-content-area: var(--grid-content-area);
+$shadow-elevation-down-level-2: 0px 4px 8px 0px rgba(0,0,0,0.08);
+$shadow-elevation-down-level-3: 0px 16px 24px 0px rgba(0,0,0,0.08);
+$shadow-elevation-down-level-4: 0px 20px 32px 0px rgba(0,0,0,0.08);
+$shadow-elevation-up-level-2: 0px -4px 8px 0px rgba(0,0,0,0.08);
+$shadow-elevation-up-level-3: 0px -16px 24px 0px rgba(0,0,0,0.08);
+$shadow-elevation-up-level-4: 0px -20px 32px 0px rgba(0,0,0,0.08);
+$border-radius-50: 2px;
+$border-radius-100: 4px;
+$border-radius-150: 6px;
+$border-radius-200: 8px;
+$border-radius-300: 12px;
+$border-radius-400: 16px;
+$border-radius-full: 9999px;
+$breakpoint-small: 0px;
+$breakpoint-medium: 440px;
+$breakpoint-large: 1024px;
+$breakpoint-xLarge: 1440px;
+    

@@ -1,0 +1,28 @@
+index:
+  provider: sqlite
+  db_path: .docmancer/docmancer.db
+  extracted_dir: .docmancer/extracted
+query:
+  default_budget: 2400
+  default_limit: 8
+  default_expand: adjacent
+web_fetch:
+  workers: 8
+  default_page_cap: 500
+  browser_fallback: false
+bench:
+  datasets_dir: .docmancer/bench/datasets
+  runs_dir: .docmancer/bench/runs
+  judge_provider: ''
+  backends:
+    k_retrieve: 10
+    k_answer: 5
+    timeout_s_fts: 60.0
+    timeout_s_qdrant: 60.0
+    timeout_s_rlm: 300.0
+    rlm_provider: ''
+    rlm_model: ''
+    rlm_max_chars: 120000
+    rlm_max_iterations: 6
+    rlm_verbose: false
+    rlm_log_dir: ''

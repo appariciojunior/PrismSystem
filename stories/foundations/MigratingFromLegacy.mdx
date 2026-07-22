@@ -1,0 +1,112 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import { MappingTable } from './MappingTable.jsx';
+import { DimensionMappingTable } from './DimensionMappingTable.jsx';
+import { TypographyMappingTable } from './TypographyMappingTable.jsx';
+import rawDoc from '../../packages/tokens/docs/archive/strategy-and-bridge-logic.md?raw';
+import borderRadiusData from '../../packages/tokens/docs/migration/data/border-radius-mapping.json';
+import spacingData from '../../packages/tokens/docs/migration/data/spacing-mapping.json';
+
+<Meta title="Foundations/Migrating from a Legacy System" />
+
+<Markdown>{(() => {
+  const to = rawDoc.indexOf('\n## Design System Token Architecture');
+  return to >= 0 ? rawDoc.slice(0, to) : '';
+})()}</Markdown>
+
+---
+
+[Colour](#colour) ・ [Typography](#typography) ・ [Spacing](#spacing) ・ [Border Radius](#border-radius)
+
+---
+
+<Markdown>{(() => {
+  const s = rawDoc.indexOf('\n## Design System Token Architecture');
+  const e = rawDoc.indexOf('\n<!-- figma:architecture -->');
+  const from = s >= 0 ? s + 1 : 0;
+  const to = e >= 0 ? e : rawDoc.length;
+  return rawDoc.slice(from, to);
+})()}</Markdown>
+
+<iframe
+  style={{ border: '1px solid #e0e0e0', borderRadius: '8px', width: '100%', display: 'block', marginBottom: '1.5rem' }}
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FYOUR-FIGMA-FILE-KEY%2FToken-Library---Design-System%3Fnode-id%3D9557-498"
+  allowFullScreen
+/>
+
+<Markdown>{(() => {
+  const s = rawDoc.indexOf('\n<!-- figma:architecture -->');
+  const e = rawDoc.indexOf('\n<!-- figma:token-naming-anatomy -->');
+  const from = s >= 0 ? rawDoc.indexOf('\n', s + 1) + 1 : 0;
+  const to = e >= 0 ? e : rawDoc.length;
+  return rawDoc.slice(from, to);
+})()}</Markdown>
+
+<Markdown>{(() => {
+  const s = rawDoc.indexOf('\n<!-- figma:token-naming-anatomy -->');
+  const e = rawDoc.indexOf('\n<!-- figma:platform-outputs -->');
+  const from = s >= 0 ? rawDoc.indexOf('\n', s + 1) + 1 : 0;
+  const to = e >= 0 ? e : rawDoc.length;
+  return rawDoc.slice(from, to);
+})()}</Markdown>
+
+<iframe
+  style={{ border: '1px solid #e0e0e0', borderRadius: '8px', width: '100%', display: 'block', marginBottom: '1.5rem' }}
+  height="450"
+  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FYOUR-FIGMA-FILE-KEY%2FToken-Library---Design-System%3Fnode-id%3D3754-41849"
+  allowFullScreen
+/>
+
+<Markdown>{(() => {
+  const s = rawDoc.indexOf('\n<!-- figma:platform-outputs -->');
+  const e = rawDoc.indexOf('\n## Colour');
+  const from = s >= 0 ? rawDoc.indexOf('\n', s + 1) + 1 : 0;
+  const to = e >= 0 ? e : rawDoc.length;
+  return rawDoc.slice(from, to);
+})()}</Markdown>
+
+---
+
+## Colour
+
+Colour tokens cover surfaces, text, icons, borders, inputs, and status messaging. Select by semantic intent—not by hue—so your implementation stays stable as palette values evolve.
+
+<MappingTable />
+
+---
+
+## Typography
+
+Typography tokens define font family, size, weight, line-height, and fluid scaling. DS uses a fluid responsive model where a single token scales smoothly between viewports using CSS `clamp()`.
+
+### How fluid typography tokens work
+
+Instead of multiple per-viewport tokens, a single `brand.heading.fluid.*` token scales smoothly between the Small (≤768px) and XLarge (≥1440px) viewports. Use the **Specimen viewport** toggle in the table below to preview how each fluid token renders at different screen sizes.
+
+### Font family note
+
+The legacy `fontFamily030` (Inter) maps to DS `fontFamily040`. DS `fontFamily030` is the bold serif family, used for bold editorial tokens only.
+
+### Known gaps
+
+- **Letter spacing** — DS omits this property; remove declarations for now.
+- **editorialQuote** — No DS equivalent yet; map to nearest heading token.
+- **Display sizes above 3.5rem** — Fluid tokens cap at 3.5rem; use `brand.heading.static.*` for larger sizes.
+
+<TypographyMappingTable />
+
+---
+
+## Spacing
+
+Spacing tokens control padding, margins, and gaps between elements. DS uses a consistent scale (`spacing.01` through `spacing.12`) that maps predictably to pixel values.
+
+<DimensionMappingTable data={spacingData} previewType="spacing" />
+
+---
+
+## Border Radius
+
+Border radius tokens define corner rounding for cards, buttons, inputs, and other UI surfaces. DS provides a graduated scale from sharp (`radius.01`) to fully rounded (`radius.round`).
+
+<DimensionMappingTable data={borderRadiusData} previewType="borderRadius" />

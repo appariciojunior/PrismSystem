@@ -1,0 +1,457 @@
+<link rel="stylesheet" type="text/css" href="/variables.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+<style>
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(./static/fonts/Inter-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(./static/fonts/Inter-Italic.woff2) format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(./static/fonts/Inter-Medium.woff2) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(./static/fonts/Inter-SemiBold.woff2) format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(./static/fonts/Inter-Bold.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 62.5%;
+  }
+
+  #storybook-root {
+    width: 100%;
+    padding-bottom: 40px;
+  }
+
+  /* ── Docs heading hierarchy ── */
+
+  /* H1: Inter Bold, 3rem, tight tracking */
+  .sbdocs h1,
+  .sbdocs-h1,
+  h1 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 3rem !important;
+    letter-spacing: -0.03rem !important;
+    line-height: 112.5% !important;
+    text-wrap: balance;
+  }
+
+  /* H2: Inter, 1.75rem, tight tracking */
+  .sbdocs h2,
+  .sbdocs-h2,
+  h2 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.75rem !important;
+    letter-spacing: -0.01rem !important;
+    line-height: 112.5% !important;
+  }
+
+  /* H3: Inter, 1.375rem, tight tracking */
+  .sbdocs h3,
+  .sbdocs-h3,
+  h3 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.375rem !important;
+    letter-spacing: -0.01rem !important;
+    line-height: 112.5% !important;
+  }
+
+  /* H4: Inter, 1.125rem */
+  .sbdocs h4,
+  h4 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.125rem !important;
+    line-height: 112.5% !important;
+  }
+
+  /* H5–H6: Inter (fallback sizes) */
+  .sbdocs h5,
+  .sbdocs h6,
+  h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    line-height: 112.5% !important;
+  }
+
+  /* ── Docs theme tokens (light/dark) ── */
+  :root {
+    --ds-storybook-canvas: var(--surface-canvas, #ffffff);
+    --ds-storybook-text-primary: var(--text-primary, #1a1a1a);
+    --ds-storybook-text-secondary: var(--text-secondary, #404040);
+    --ds-storybook-link: var(--interactive-link-primary-default, #005C8A);
+    --ds-storybook-docs-surface: var(--surface-level-1, #ffffff);
+    --ds-storybook-docs-surface-muted: var(--surface-level-2, #f2f2f2);
+    --ds-storybook-docs-border: var(--border-secondary, #d9d9d9);
+    --ds-storybook-docs-control-bg: var(--surface-canvas, #ffffff);
+    --ds-storybook-docs-control-text: var(--text-primary, #1a1a1a);
+    --ds-storybook-code-snippet-bg: #FAFAFD;
+    --ds-storybook-code-snippet-border: #C5D2E8;
+    --ds-storybook-code-snippet-text: #071D42;
+    --ds-storybook-code-block-bg: #010810;
+    --ds-storybook-code-block-border: #0B2C62;
+    --ds-storybook-code-block-text: #8DA4D2;
+  }
+
+  html,
+  body,
+  .sbdocs,
+  .sbdocs-wrapper,
+  .sbdocs-content {
+    background: var(--ds-storybook-canvas) !important;
+  }
+
+  .sbdocs h1,
+  .sbdocs h2,
+  .sbdocs h3,
+  .sbdocs h4,
+  .sbdocs h5,
+  .sbdocs h6,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--ds-storybook-text-primary);
+  }
+
+  /* ── Links: Inter, 1rem, thicker underline with smooth hover ── */
+  /* :not(.ds-link) excludes component <a> elements so they keep their own font */
+  .sbdocs a:not(.ds-link) {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1rem;
+    color: var(--ds-storybook-link);
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition:
+      color 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      text-decoration-color 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      text-decoration-thickness 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .sbdocs a:not(.ds-link):hover {
+    text-decoration-thickness: 3px !important;
+  }
+
+  /* Storybook fallback: enforce latest Link underline behavior for component links */
+  .sbdocs .ds-link,
+  #storybook-root .ds-link {
+    text-decoration-skip-ink: auto !important;
+    text-underline-offset: 4px !important;
+    text-decoration-thickness: 2px !important;
+    transition:
+      color 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      text-decoration-color 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      text-decoration-thickness 0.36s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  .sbdocs .ds-link:hover,
+  #storybook-root .ds-link:hover {
+    text-decoration-thickness: 3px !important;
+  }
+
+  /* Storybook state-color fallback: keep Link state previews visible when token
+   * state values resolve to the same color in the active theme.
+   */
+  .sbdocs .ds-link:hover:not(.ds-link--is-disabled),
+  #storybook-root .ds-link:hover:not(.ds-link--is-disabled),
+  .sbdocs .ds-link.ds-link--state-hover:not(.ds-link--is-disabled),
+  #storybook-root .ds-link.ds-link--state-hover:not(.ds-link--is-disabled) {
+    color: color-mix(in srgb, var(--link-color-default) 86%, #000 14%) !important;
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--ds-link-underline-default) 86%,
+      #000 14%
+    ) !important;
+  }
+
+  .sbdocs .ds-link:active:not(.ds-link--is-disabled),
+  #storybook-root .ds-link:active:not(.ds-link--is-disabled),
+  .sbdocs .ds-link.ds-link--state-pressed:not(.ds-link--is-disabled),
+  #storybook-root .ds-link.ds-link--state-pressed:not(.ds-link--is-disabled) {
+    color: color-mix(in srgb, var(--link-color-default) 72%, #000 28%) !important;
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--ds-link-underline-default) 72%,
+      #000 28%
+    ) !important;
+  }
+
+  .sbdocs .ds-link:visited:not(.ds-link--is-disabled),
+  #storybook-root .ds-link:visited:not(.ds-link--is-disabled),
+  .sbdocs .ds-link.ds-link--state-visited:not(.ds-link--is-disabled),
+  #storybook-root .ds-link.ds-link--state-visited:not(.ds-link--is-disabled) {
+    color: color-mix(in srgb, var(--link-color-default) 82%, #fff 18%) !important;
+    text-decoration-color: color-mix(
+      in srgb,
+      var(--ds-link-underline-default) 82%,
+      #fff 18%
+    ) !important;
+  }
+
+  /* ── Labels: Inter, 1rem ── */
+  .sbdocs label,
+  label,
+  button,
+  [role="tab"] {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1rem;
+  }
+
+  /* ── Body-copy container base: ensure plain text defaults to 1rem ── */
+  .sbdocs,
+  .sbdocs-wrapper,
+  .sbdocs-content,
+  #storybook-root {
+    font-size: 1rem;
+  }
+
+  /* ── Body: Inter, text.secondary #404040, 150% line-height ── */
+  .sbdocs p,
+  .sbdocs li,
+  .sbdocs td,
+  .sbdocs th,
+  #storybook-root,
+  .sbdocs-wrapper,
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    color: var(--ds-storybook-text-secondary);
+    line-height: 150%;
+  }
+
+  /* ── Paragraph spacing: 0.8 × corresponding line-height ── */
+  .sbdocs p + p,
+  #storybook-root p + p {
+    margin-block-start: 0.8lh;
+  }
+
+  .sbdocs strong,
+  .sbdocs b,
+  strong, b {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    color: var(--ds-storybook-text-primary);
+  }
+  .sbdocs em,
+  .sbdocs i,
+  em, i {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-style: italic !important;
+    color: var(--ds-storybook-text-secondary);
+  }
+
+  .sbdocs code {
+    font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    font-size: 1rem !important;
+    color: var(--ds-storybook-code-snippet-text);
+    background: var(--ds-storybook-code-snippet-bg);
+    border: 1px solid var(--ds-storybook-code-snippet-border);
+    border-radius: 0.25rem;
+  }
+
+  /* ── Code blocks: 1rem text, +2px padding on all sides ── */
+  .sbdocs pre,
+  .sbdocs .docblock-source,
+  #storybook-root pre {
+    background: var(--ds-storybook-code-block-bg) !important;
+    border: 1px solid var(--ds-storybook-code-block-border) !important;
+    border-radius: 0.25rem !important;
+    color: var(--ds-storybook-code-block-text) !important;
+    padding: calc(1rem + 2px) !important;
+  }
+
+  .sbdocs pre code,
+  .sbdocs .docblock-source code,
+  #storybook-root pre code {
+    font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    font-size: 1rem !important;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    color: var(--ds-storybook-code-block-text) !important;
+    padding: 0 !important;
+  }
+
+  /* ── Docs controls + arg tables mode parity ── */
+  .sbdocs .sb-bar,
+  .sbdocs .sbdocs-preview {
+    background: var(--ds-storybook-docs-surface) !important;
+    border-color: var(--ds-storybook-docs-border) !important;
+  }
+
+  .sbdocs .docblock-argstable,
+  .sbdocs .docblock-argstable thead,
+  .sbdocs .docblock-argstable tbody,
+  .sbdocs .docblock-argstable tr,
+  .sbdocs .docblock-argstable td,
+  .sbdocs .docblock-argstable th {
+    background: var(--ds-storybook-docs-surface) !important;
+    border-color: var(--ds-storybook-docs-border) !important;
+    color: var(--ds-storybook-text-secondary) !important;
+  }
+
+  .sbdocs .docblock-argstable thead th {
+    background: var(--ds-storybook-docs-surface-muted) !important;
+    color: var(--ds-storybook-text-primary) !important;
+  }
+
+  .sbdocs .docblock-argstable select,
+  .sbdocs .docblock-argstable textarea,
+  .sbdocs .docblock-argstable input:not([type="checkbox"]),
+  .sbdocs .docblock-argstable button {
+    background: var(--ds-storybook-docs-control-bg) !important;
+    border-color: var(--ds-storybook-docs-border) !important;
+    color: var(--ds-storybook-docs-control-text) !important;
+  }
+
+  /* Explicitly reset checkboxes to be visible */
+  .sbdocs .docblock-argstable input[type="checkbox"] {
+    background: transparent !important;
+    border-color: inherit !important;
+    color: inherit !important;
+  }
+
+  .sbdocs .docblock-argstable input[type="checkbox"] {
+    background: transparent !important;
+    color: inherit !important;
+  }
+
+  .sbdocs .docblock-argstable svg,
+  .sbdocs .sb-bar svg {
+    color: var(--ds-storybook-text-secondary) !important;
+    fill: currentColor !important;
+  }
+
+  .sbdocs .docblock-argstable span.css-1bitfia {
+    font-family: 'IBM Plex Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace !important;
+    background: var(--ds-storybook-code-snippet-bg) !important;
+    border: 1px solid var(--ds-storybook-code-snippet-border) !important;
+    color: var(--ds-storybook-code-snippet-text) !important;
+    border-radius: 0.25rem !important;
+    padding: 2px 5px !important;
+  }
+
+  /* ── Component docs: Do / Don't cards ── */
+  .sbdocs .ds-dos-donts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 20px 0 28px;
+  }
+
+  .sbdocs .ds-dos-donts-card {
+    border-radius: 8px;
+    border: 1px solid var(--ds-storybook-docs-border);
+    background: var(--ds-storybook-docs-surface);
+    padding: 16px;
+  }
+
+  .sbdocs .ds-dos-donts-card h4 {
+    margin: 0 0 10px;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .sbdocs .ds-dos-donts-card ul {
+    margin: 0;
+    padding-left: 18px;
+  }
+
+  .sbdocs .ds-dos-donts-card li {
+    margin: 0 0 6px;
+  }
+
+  .sbdocs .ds-dos-donts-card--do {
+    border-left: 4px solid #0a7a36;
+    background: color-mix(in srgb, var(--ds-storybook-docs-surface) 88%, #e9f7ef 12%);
+  }
+
+  .sbdocs .ds-dos-donts-card--do h4 {
+    color: #0a7a36;
+  }
+
+  .sbdocs .ds-dos-donts-card--dont {
+    border-left: 4px solid #b42318;
+    background: color-mix(in srgb, var(--ds-storybook-docs-surface) 88%, #fdecea 12%);
+  }
+
+  .sbdocs .ds-dos-donts-card--dont h4 {
+    color: #b42318;
+  }
+
+  @media (max-width: 768px) {
+    .sbdocs .ds-dos-donts {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ── Global: Storybook Docs Layout Overrides ── */
+  .sbdocs-wrapper {
+    padding: 40px var(--ds-spacing-static-11) 40px !important;
+  }
+  .sbdocs-content {
+    max-width: 1000px !important;
+  }
+
+  :root[data-color-mode="dark"] img[src$="logo.svg"],
+  :root[data-color-mode="dark"] img[src*="/logo.svg"],
+  body[data-color-mode="dark"] img[src$="logo.svg"],
+  body[data-color-mode="dark"] img[src*="/logo.svg"] {
+    filter: invert(1) brightness(1.05) !important;
+  }
+</style>
+
+<script>
+  (function () {
+    var MODE_ATTR = 'data-color-mode';
+    document.documentElement.setAttribute(MODE_ATTR, 'light');
+    if (document.body) {
+      document.body.setAttribute(MODE_ATTR, 'light');
+    }
+  })();
+</script>

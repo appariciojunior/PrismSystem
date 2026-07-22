@@ -1,0 +1,26 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as LinkStories from './Link.stories.jsx';
+import linkDocRaw from '../../packages/tokens/docs/components/link/Link.md?raw';
+import linkChangelogRaw from '../../packages/tokens/docs/components/link/link-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={LinkStories} />
+<Title />
+<Canvas of={LinkStories.Default} />
+<Controls of={LinkStories.Default} />
+<Markdown>
+  {getStorybookComponentDoc(linkDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{linkChangelogRaw}</Markdown>
+<Stories includePrimary={false} />

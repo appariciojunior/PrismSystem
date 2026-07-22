@@ -1,0 +1,67 @@
+.ds-label-preview {
+  --ds-label-preview-color: var(--ds-light-core-label-primary, #1a191a);
+
+  display: inline-flex;
+  align-items: center;
+  color: var(--ds-label-preview-color);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.ds-label-preview--size-medium {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.ds-label-preview--size-small {
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.ds-label-preview--intent-primary {
+  --ds-label-preview-color: var(--ds-light-core-label-primary, #1a191a);
+}
+
+.ds-label-preview--intent-secondary {
+  --ds-label-preview-color: var(--ds-light-core-label-secondary, #737373);
+}
+
+.ds-label-preview--intent-channel {
+  --ds-label-preview-color: var(--ds-light-core-label-channel, #595959);
+}
+
+.ds-label-preview--intent-callout {
+  --ds-label-preview-color: var(
+    --ds-light-core-label-callout,
+    var(--ds-light-core-label-highlight, #800a07)
+  );
+}
+
+:root[data-color-mode='dark'] .ds-label-preview--intent-primary,
+body[data-color-mode='dark'] .ds-label-preview--intent-primary,
+[data-color-mode='dark'] .ds-label-preview--intent-primary {
+  --ds-label-preview-color: var(--ds-dark-core-label-primary, #ffffff);
+}
+
+:root[data-color-mode='dark'] .ds-label-preview--intent-secondary,
+body[data-color-mode='dark'] .ds-label-preview--intent-secondary,
+[data-color-mode='dark'] .ds-label-preview--intent-secondary {
+  --ds-label-preview-color: var(--ds-dark-core-label-secondary, #a6a6a6);
+}
+
+:root[data-color-mode='dark'] .ds-label-preview--intent-channel,
+body[data-color-mode='dark'] .ds-label-preview--intent-channel,
+[data-color-mode='dark'] .ds-label-preview--intent-channel {
+  --ds-label-preview-color: var(--ds-dark-core-label-channel, #3e75d3);
+}
+
+:root[data-color-mode='dark'] .ds-label-preview--intent-callout,
+body[data-color-mode='dark'] .ds-label-preview--intent-callout,
+[data-color-mode='dark'] .ds-label-preview--intent-callout {
+  --ds-label-preview-color: var(
+    --ds-dark-core-label-callout,
+    var(--ds-dark-core-label-highlight, #ff5a53)
+  );
+}

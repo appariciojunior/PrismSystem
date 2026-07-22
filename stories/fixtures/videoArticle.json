@@ -1,0 +1,493 @@
+{
+  "backgroundColour": {
+    "__typename": "Colour",
+    "rgba": {
+      "__typename": "RGBA",
+      "alpha": 1,
+      "blue": 255,
+      "green": 255,
+      "red": 255
+    }
+  },
+  "bylines": [
+    {
+      "__typename": "TextByline",
+      "byline": [
+        {
+          "name": "inline",
+          "attributes": {},
+          "children": [
+            {
+              "name": "text",
+              "attributes": {
+                "value": "Sample Author"
+              },
+              "children": []
+            }
+          ]
+        }
+      ],
+      "image": {
+        "__typename": "Image",
+        "caption": "some caption",
+        "credits": "some credits",
+        "crop": {
+          "ratio": "1:1",
+          "url": "https://www.example.com/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F8c1333a8-1aa2-11e9-944c-54b267eb465b.jpg?crop=1037%2C1037%2C448%2C38",
+          "relativeHeight": 0.4,
+          "relativeHorizontalOffset": 0.16666666666666666,
+          "relativeVerticalOffset": 0.2,
+          "relativeWidth": 0.5
+        },
+        "id": "372bc095-34c4-47e4-8b1e-d352f5641ee5",
+        "title": "some title"
+      }
+    }
+  ],
+  "categoryConnection": {
+    "nodes": [
+      {
+        "categoryType": "SECONDARY",
+        "slug": "business",
+        "title": "Business",
+        "parent": null
+      },
+      {
+        "categoryType": "PRIMARY",
+        "slug": "sport",
+        "title": "Sport",
+        "parent": null
+      },
+      {
+        "categoryType": "SECONDARY",
+        "slug": "lifestyle",
+        "title": "Lifestyle",
+        "parent": null
+      },
+      {
+        "categoryType": "SECONDARY",
+        "slug": "culture",
+        "title": "Culture",
+        "parent": null
+      }
+    ]
+  },
+  "commentsEnabled": false,
+  "descriptionMarkup": [
+    {
+      "name": "paragraph",
+      "children": [
+        {
+          "name": "text",
+          "attributes": {
+            "value": "Sample paragraph used as placeholder body text for Storybook stories."
+          },
+          "children": []
+        }
+      ]
+    }
+  ],
+  "dropcapsDisabled": false,
+  "paywalledContent": [
+    {
+      "name": "paragraph",
+      "attributes": {},
+      "children": [
+        {
+          "name": "text",
+          "attributes": {
+            "value": "Sample body paragraph used as placeholder content for Storybook stories. It stands in for real article copy so components can be previewed without any brand content."
+          },
+          "children": []
+        }
+      ]
+    }
+  ],
+  "content": [
+    {
+      "name": "paragraph",
+      "attributes": {
+        "id": "U123456789101112131415"
+      },
+      "children": [
+        {
+          "name": "text",
+          "attributes": {
+            "value": "Sample body paragraph used as placeholder content for Storybook stories. It stands in for real article copy so components can be previewed without any brand content."
+          },
+          "children": []
+        }
+      ]
+    }
+  ],
+  "expirableFlags": [
+    {
+      "type": "BREAKING",
+      "expiryTime": "2030-03-13T13:00:00.000Z"
+    },
+    {
+      "type": "NEW",
+      "expiryTime": "2030-03-13T15:00:00.000Z"
+    },
+    {
+      "type": "UPDATED",
+      "expiryTime": "2030-03-13T15:00:00.000Z"
+    },
+    {
+      "type": "EXCLUSIVE",
+      "expiryTime": "2030-03-13T15:00:00.000Z"
+    },
+    {
+      "type": "SPONSORED",
+      "expiryTime": "2030-03-13T13:00:00.000Z"
+    },
+    {
+      "type": "LIVE",
+      "expiryTime": "2030-03-13T13:00:00.000Z"
+    }
+  ],
+  "hasVideo": true,
+  "headline": "Sample video article headline for placeholder content",
+  "keywords": ["Supplement", "In", "Depth", "Template", "Style"],
+  "label": "Random label",
+  "leadAsset": {
+    "__typename": "Video",
+    "id": "c80017b1-f7f1-44d9-9519-70976de55b14",
+    "caption": null,
+    "duration": 902000,
+    "brightcovePolicyKey": "BCpkADawqM0NK0Rq8n6sEQyWykemrqeSmIQqqVt3XBrdpl8TYlvqN3hwKphBJRnkPgx6WAbozCW_VgTOBCNf1AQRh8KnmXSXfveQalRc5-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+    "brightcovePlayerId": "default",
+    "brightcoveVideoId": "5831024132001",
+    "brightcoveAccountId": "5436121857001",
+    "paidOnly": false,
+    "skySports": false,
+    "is360": null,
+    "posterImage": {
+      "id": "a037039c-2853-46b6-ad85-c332a1220798",
+      "crop32": {
+        "ratio": "3:2",
+        "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+      },
+      "crop169": {
+        "ratio": "16:9",
+        "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+      },
+      "caption": "tiger stripe cat on white background"
+    }
+  },
+  "listingAsset": {
+    "caption": "Sample listing caption",
+    "credits": "Sample Credit",
+    "crop169": {
+      "ratio": "16:9",
+      "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960",
+      "relativeHeight": 0.4,
+      "relativeHorizontalOffset": 0.16666666666666666,
+      "relativeVerticalOffset": 0.2,
+      "relativeWidth": 0.5
+    },
+    "crop32": {
+      "ratio": "3:2",
+      "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960",
+      "relativeHeight": 0.4,
+      "relativeHorizontalOffset": 0.16666666666666666,
+      "relativeVerticalOffset": 0.2,
+      "relativeWidth": 0.5
+    },
+    "id": "363b03a1-2ce6-4b94-b053-0d35316548c5",
+    "title": "Sample listing caption",
+    "__typename": "Image"
+  },
+  "longRead": false,
+  "publicationName": "SAMPLE",
+  "publishedTime": "2015-03-13T18:54:58.000Z",
+  "updatedTime": "2022-02-24T09:00:00.000Z",
+  "savingEnabled": true,
+  "sharingEnabled": true,
+  "section": "business",
+  "shortHeadline": "Sample short headline",
+  "shortIdentifier": "37b27qd2s",
+  "slug": "sample-article",
+  "standfirst": "Sample standfirst text used as placeholder content for Storybook stories.",
+  "template": "mainvideo",
+  "textColour": {
+    "rgba": {
+      "alpha": 1,
+      "blue": 0,
+      "green": 0,
+      "red": 0
+    }
+  },
+  "tiles": [
+    {
+      "__typename": "Tile",
+      "slices": [
+        {
+          "__typename": "SecondaryFourSlice",
+          "sections": [
+            {
+              "__typename": "StandardSection",
+              "title": "Comment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "__typename": "Tile",
+      "slices": [
+        {
+          "__typename": "StandardSlice",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "__typename": "Tile",
+      "slices": [
+        {
+          "__typename": "StandardSlice",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "__typename": "Tile",
+      "slices": [
+        {
+          "__typename": "LeadTwoNoPicAndTwoSlice",
+          "sections": [
+            {
+              "__typename": "StandardSection",
+              "title": "News"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "name": "Islington",
+      "slug": "islington"
+    },
+    {
+      "name": "Chelsea",
+      "slug": "chelsea"
+    }
+  ],
+  "categoryPath": "/news/sample-article-37b27qd2s",
+  "url": "https://www.example.com/edition/news/sample-article-37b27qd2s",
+  "relatedArticleSlice": {
+    "__typename": "StandardSlice",
+    "items": [
+      {
+        "article": {
+          "id": "7c22c534-8f80-43d8-9154-6de0e303fb1e",
+          "publishedTime": "2025-02-25T14:26:46.000Z",
+          "headline": "Related Article 1",
+          "url": "https://www.example.com/article/related-article-1-b76fh95mt",
+          "leadAsset": {
+            "id": "01264c94-b66e-435d-9db6-4e4d11b7bda8",
+            "caption": null,
+            "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+            "brightcovePlayerId": "default",
+            "brightcoveVideoId": "6369289615112",
+            "brightcoveAccountId": "5436121856001",
+            "paidOnly": false,
+            "skySports": false,
+            "is360": null,
+            "posterImage": {
+              "id": "396c7eed-55d6-44fc-88df-656010f3fccc",
+              "crops": [
+                {
+                  "ratio": "3:2",
+                  "url": "https://www.example.com/imageserver/image/%2Fc4ec2450-ff38-49bb-abfd-1efd2e06631f.jpg?crop=1080%2C720%2C100%2C0"
+                },
+                {
+                  "ratio": "16:9",
+                  "url": "https://www.example.com/imageserver/image/%2Fc4ec2450-ff38-49bb-abfd-1efd2e06631f.jpg?crop=1280%2C720%2C0%2C0"
+                },
+                {
+                  "ratio": "1:1",
+                  "url": "https://www.example.com/imageserver/image/%2Fc4ec2450-ff38-49bb-abfd-1efd2e06631f.jpg?crop=720%2C720%2C280%2C0"
+                },
+                {
+                  "ratio": "2:3",
+                  "url": "https://www.example.com/imageserver/image/%2Fc4ec2450-ff38-49bb-abfd-1efd2e06631f.jpg?crop=480%2C720%2C400%2C0"
+                },
+                {
+                  "ratio": "4:5",
+                  "url": "https://www.example.com/imageserver/image/%2Fc4ec2450-ff38-49bb-abfd-1efd2e06631f.jpg?crop=576%2C720%2C352%2C0"
+                },
+                {
+                  "ratio": "5:4",
+                  "url": "https://www.example.com/imageserver/image/%2Fc4ec2450-ff38-49bb-abfd-1efd2e06631f.jpg?crop=900%2C720%2C190%2C0"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "article": {
+          "id": "e566f92b-0f73-4758-86f1-4acdb7a82c59",
+          "publishedTime": "2025-02-25T14:27:25.000Z",
+          "headline": "Related Article 2",
+          "url": "https://www.example.com/article/related-article-2-8wv8sxtsv",
+          "leadAsset": {
+            "id": "8dc1df1f-f8d1-4ce7-99d0-bae68a4cd9a5",
+            "caption": null,
+            "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+            "brightcovePlayerId": "default",
+            "brightcoveVideoId": "6369216014112",
+            "brightcoveAccountId": "5436121856001",
+            "paidOnly": false,
+            "skySports": false,
+            "is360": null,
+            "posterImage": {
+              "id": "6daf70f1-991b-401c-830e-cdf8851c8ab8",
+              "crop32": {
+                "ratio": "3:2",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              },
+              "crop169": {
+                "ratio": "16:9",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "upNext": {
+    "__typename": "StandardSlice",
+    "items": [
+      {
+        "article": {
+          "id": "7c22c534-8f80-43d8-9154-6de0e303fb1e",
+          "publishedTime": "2025-02-25T14:26:46.000Z",
+          "headline": "Up Next Article 1",
+          "url": "https://www.example.com/article/related-article-1-b76fh95mt",
+          "leadAsset": {
+            "id": "01264c94-b66e-435d-9db6-4e4d11b7bda8",
+            "caption": null,
+            "duration": null,
+            "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+            "brightcovePlayerId": "default",
+            "brightcoveVideoId": "6369289615112",
+            "brightcoveAccountId": "5436121856001",
+            "paidOnly": false,
+            "skySports": false,
+            "is360": null,
+            "posterImage": {
+              "id": "396c7eed-55d6-44fc-88df-656010f3fccc",
+              "crop32": {
+                "ratio": "3:2",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              },
+              "crop169": {
+                "ratio": "16:9",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              }
+            }
+          }
+        }
+      },
+      {
+        "article": {
+          "id": "7c22c534-8f80-43d8-9154-6de0e303fb1f",
+          "publishedTime": "2025-02-25T14:26:46.000Z",
+          "headline": "Up Next Article 2",
+          "url": "https://www.example.com/article/related-article-1-b76fh95mt",
+          "leadAsset": {
+            "id": "01264c94-b66e-435d-9db6-4e4d11b7bda8",
+            "caption": null,
+            "duration": 902000,
+            "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+            "brightcovePlayerId": "default",
+            "brightcoveVideoId": "6369289615112",
+            "brightcoveAccountId": "5436121856001",
+            "paidOnly": false,
+            "skySports": false,
+            "is360": null,
+            "posterImage": {
+              "id": "396c7eed-55d6-44fc-88df-656010f3fccc",
+              "crop32": {
+                "ratio": "3:2",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              },
+              "crop169": {
+                "ratio": "16:9",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              }
+            }
+          }
+        }
+      },
+      {
+        "article": {
+          "id": "e566f92b-0f73-4758-86f1-4acdb7a82c59",
+          "publishedTime": "2025-02-25T14:27:25.000Z",
+          "headline": "Up Next Article 3",
+          "url": "https://www.example.com/article/related-article-2-8wv8sxtsv",
+          "leadAsset": {
+            "id": "8dc1df1f-f8d1-4ce7-99d0-bae68a4cd9a5",
+            "caption": null,
+            "duration": 902000,
+            "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+            "brightcovePlayerId": "default",
+            "brightcoveVideoId": "6369216014112",
+            "brightcoveAccountId": "5436121856001",
+            "paidOnly": false,
+            "skySports": false,
+            "is360": null,
+            "posterImage": {
+              "id": "6daf70f1-991b-401c-830e-cdf8851c8ab8",
+              "crop32": {
+                "ratio": "3:2",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              },
+              "crop169": {
+                "ratio": "16:9",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              }
+            }
+          }
+        }
+      },
+      {
+        "article": {
+          "id": "e566f92b-0f73-4758-86f1-4acdb7a82c60",
+          "publishedTime": "2025-02-25T14:27:25.000Z",
+          "headline": "Up Next Article 4",
+          "url": "https://www.example.com/article/related-article-2-8wv8sxtsv",
+          "leadAsset": {
+            "id": "8dc1df1f-f8d1-4ce7-99d0-bae68a4cd9a5",
+            "caption": null,
+            "duration": 902000,
+            "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+            "brightcovePlayerId": "default",
+            "brightcoveVideoId": "6369216014112",
+            "brightcoveAccountId": "5436121856001",
+            "paidOnly": false,
+            "skySports": false,
+            "is360": null,
+            "posterImage": {
+              "id": "6daf70f1-991b-401c-830e-cdf8851c8ab8",
+              "crop32": {
+                "ratio": "3:2",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              },
+              "crop169": {
+                "ratio": "16:9",
+                "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

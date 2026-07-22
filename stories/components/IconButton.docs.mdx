@@ -1,0 +1,26 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as IconButtonStories from './IconButton.stories.tsx';
+import iconButtonDocRaw from '../../packages/tokens/docs/components/icon-button/IconButton.md?raw';
+import iconButtonChangelogRaw from '../../packages/tokens/docs/components/icon-button/icon-button-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={IconButtonStories} />
+<Title />
+<Canvas of={IconButtonStories.Primary} />
+<Controls of={IconButtonStories.Primary} />
+<Markdown>
+  {getStorybookComponentDoc(iconButtonDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{iconButtonChangelogRaw}</Markdown>
+<Stories includePrimary={false} />

@@ -1,0 +1,233 @@
+.ds-chip {
+  --ds-chip-bg: var(--interactive-chip-primary-on-fill-default, #005c8a);
+  --ds-chip-bg-hover: var(--interactive-chip-primary-on-fill-hover, #004e75);
+  --ds-chip-bg-pressed: var(--interactive-chip-primary-on-fill-pressed, #00496e);
+  --ds-chip-fg: var(--interactive-chip-primary-on-text-default, #ffffff);
+  --ds-chip-fg-hover: var(--interactive-chip-primary-on-text-hover, #d9d9d9);
+  --ds-chip-fg-pressed: var(--interactive-chip-primary-on-text-pressed, #cccccc);
+  --ds-chip-icon: var(--interactive-chip-primary-on-icon-default, #ffffff);
+  --ds-chip-icon-hover: var(--interactive-chip-primary-on-icon-hover, #d9d9d9);
+  --ds-chip-icon-pressed: var(--interactive-chip-primary-on-icon-pressed, #cccccc);
+  --ds-chip-border: transparent;
+  --ds-chip-border-hover: transparent;
+  --ds-chip-border-pressed: transparent;
+  --ds-chip-focus-ring: var(--ds-focus-border, #737373);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-03);
+  border: 1px solid var(--ds-chip-border);
+  border-radius: calc(var(--ds-border-radius-full, 9999) * 1px);
+  background-color: var(--ds-chip-bg);
+  color: var(--ds-chip-fg);
+  font-family: var(--fontFamily040, sans-serif);
+  font-weight: var(--fontWeight050, 500);
+  line-height: var(--fontLineHeight010, 1);
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.ds-chip:hover:not(:disabled) {
+  background-color: var(--ds-chip-bg-hover);
+  border-color: var(--ds-chip-border-hover);
+  color: var(--ds-chip-fg-hover);
+}
+
+.ds-chip:active:not(:disabled) {
+  background-color: var(--ds-chip-bg-pressed);
+  border-color: var(--ds-chip-border-pressed);
+  color: var(--ds-chip-fg-pressed);
+}
+
+.ds-chip:focus-visible {
+  outline: none;
+  background-color: var(--ds-chip-bg-hover);
+  border-color: var(--ds-chip-border-hover);
+  color: var(--ds-chip-fg-hover);
+}
+
+.ds-chip:focus-visible::after {
+  content: '';
+  position: absolute;
+  inset: calc(var(--spacing-03) * -1);
+  border: var(--spacing-01) solid var(--ds-chip-focus-ring);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.ds-chip:disabled {
+  background-color: var(--interactive-disabled-b, #bfbfbf);
+  border-color: transparent;
+  color: var(--interactive-disabled-a, #d9d9d9);
+  cursor: not-allowed;
+}
+
+.ds-chip--size-small {
+  min-height: var(--spacing-16, 32px);
+  padding: 0 var(--spacing-07);
+  font-size: var(--fontSize020, 0.875rem);
+}
+
+.ds-chip--size-large {
+  min-height: var(--spacing-18, 40px);
+  padding: 0 var(--spacing-09);
+  font-size: var(--fontSize030, 1rem);
+}
+
+.ds-chip--intent-primary.ds-chip--toggle-on {
+  --ds-chip-bg: var(--interactive-chip-primary-on-fill-default, #005c8a);
+  --ds-chip-bg-hover: var(--interactive-chip-primary-on-fill-hover, #004e75);
+  --ds-chip-bg-pressed: var(--interactive-chip-primary-on-fill-pressed, #00496e);
+  --ds-chip-fg: var(--interactive-chip-primary-on-text-default, #ffffff);
+  --ds-chip-fg-hover: var(--interactive-chip-primary-on-text-hover, #d9d9d9);
+  --ds-chip-fg-pressed: var(--interactive-chip-primary-on-text-pressed, #cccccc);
+  --ds-chip-icon: var(--interactive-chip-primary-on-icon-default, #ffffff);
+  --ds-chip-icon-hover: var(--interactive-chip-primary-on-icon-hover, #d9d9d9);
+  --ds-chip-icon-pressed: var(--interactive-chip-primary-on-icon-pressed, #cccccc);
+}
+
+.ds-chip--intent-primary.ds-chip--toggle-off {
+  --ds-chip-bg: var(--interactive-chip-primary-off-fill-default, #f2f2f2);
+  --ds-chip-bg-hover: var(--interactive-chip-primary-off-fill-hover, #cecece);
+  --ds-chip-bg-pressed: var(--interactive-chip-primary-off-fill-pressed, #c2c2c2);
+  --ds-chip-fg: var(--interactive-chip-primary-off-text-default, #005c8a);
+  --ds-chip-fg-hover: var(--interactive-chip-primary-off-text-hover, #004e75);
+  --ds-chip-fg-pressed: var(--interactive-chip-primary-off-text-pressed, #00496e);
+  --ds-chip-icon: var(--interactive-chip-primary-off-icon-default, #005c8a);
+  --ds-chip-icon-hover: var(--interactive-chip-primary-off-icon-hover, #004e75);
+  --ds-chip-icon-pressed: var(--interactive-chip-primary-off-icon-pressed, #00496e);
+  --ds-chip-border: var(--interactive-chip-primary-off-border-default, #005c8a);
+  --ds-chip-border-hover: var(--interactive-chip-primary-off-border-hover, #004e75);
+  --ds-chip-border-pressed: var(--interactive-chip-primary-off-border-pressed, #00496e);
+}
+
+.ds-chip--intent-secondary.ds-chip--toggle-on {
+  --ds-chip-bg: var(--interactive-chip-secondary-on-fill-default, #ffffff);
+  --ds-chip-bg-hover: var(--interactive-chip-secondary-on-fill-hover, #d9d9d9);
+  --ds-chip-bg-pressed: var(--interactive-chip-secondary-on-fill-pressed, #cccccc);
+  --ds-chip-fg: var(--interactive-chip-secondary-on-text-default, #1a1a1a);
+  --ds-chip-fg-hover: var(--interactive-chip-secondary-on-text-hover, #161616);
+  --ds-chip-fg-pressed: var(--interactive-chip-secondary-on-text-pressed, #151515);
+  --ds-chip-icon: var(--interactive-chip-secondary-on-icon-default, #1a1a1a);
+  --ds-chip-icon-hover: var(--interactive-chip-secondary-on-icon-hover, #161616);
+  --ds-chip-icon-pressed: var(--interactive-chip-secondary-on-icon-pressed, #151515);
+  --ds-chip-border: var(--interactive-chip-secondary-on-border-default, #8c8c8c);
+  --ds-chip-border-hover: var(--interactive-chip-secondary-on-border-hover, #777777);
+  --ds-chip-border-pressed: var(--interactive-chip-secondary-on-border-pressed, #707070);
+}
+
+.ds-chip--intent-secondary.ds-chip--toggle-off {
+  --ds-chip-bg: var(--interactive-chip-secondary-off-fill-default, #f2f2f2);
+  --ds-chip-bg-hover: var(--interactive-chip-secondary-off-fill-hover, #cecece);
+  --ds-chip-bg-pressed: var(--interactive-chip-secondary-off-fill-pressed, #c2c2c2);
+  --ds-chip-fg: var(--interactive-chip-secondary-off-text-default, #404040);
+  --ds-chip-fg-hover: var(--interactive-chip-secondary-off-text-hover, #363636);
+  --ds-chip-fg-pressed: var(--interactive-chip-secondary-off-text-pressed, #333333);
+  --ds-chip-icon: var(--interactive-chip-secondary-off-icon-default, #404040);
+  --ds-chip-icon-hover: var(--interactive-chip-secondary-off-icon-hover, #363636);
+  --ds-chip-icon-pressed: var(--interactive-chip-secondary-off-icon-pressed, #333333);
+}
+
+.ds-chip--channel-true.ds-chip--toggle-on {
+  --ds-chip-bg: var(--interactive-chip-channel-on-fill-default, #737373);
+  --ds-chip-bg-hover: var(--interactive-chip-channel-on-fill-hover, #626262);
+  --ds-chip-bg-pressed: var(--interactive-chip-channel-on-fill-pressed, #5c5c5c);
+  --ds-chip-fg: var(--interactive-chip-channel-on-text-default, #ffffff);
+  --ds-chip-fg-hover: var(--interactive-chip-channel-on-text-hover, #d9d9d9);
+  --ds-chip-fg-pressed: var(--interactive-chip-channel-on-text-pressed, #cccccc);
+  --ds-chip-icon: var(--interactive-chip-channel-on-icon-default, #ffffff);
+  --ds-chip-icon-hover: var(--interactive-chip-channel-on-icon-hover, #d9d9d9);
+  --ds-chip-icon-pressed: var(--interactive-chip-channel-on-icon-pressed, #cccccc);
+  --ds-chip-border: transparent;
+  --ds-chip-border-hover: transparent;
+  --ds-chip-border-pressed: transparent;
+}
+
+.ds-chip--channel-true.ds-chip--toggle-off {
+  --ds-chip-bg: var(--interactive-chip-channel-off-fill-default, #e6e6e6);
+  --ds-chip-bg-hover: var(--interactive-chip-channel-off-fill-hover, #c4c4c4);
+  --ds-chip-bg-pressed: var(--interactive-chip-channel-off-fill-pressed, #b8b8b8);
+  --ds-chip-fg: var(--interactive-chip-channel-off-text-default, #262626);
+  --ds-chip-fg-hover: var(--interactive-chip-channel-off-text-hover, #202020);
+  --ds-chip-fg-pressed: var(--interactive-chip-channel-off-text-pressed, #1e1e1e);
+  --ds-chip-icon: var(--interactive-chip-channel-off-icon-default, #262626);
+  --ds-chip-icon-hover: var(--interactive-chip-channel-off-icon-hover, #202020);
+  --ds-chip-icon-pressed: var(--interactive-chip-channel-off-icon-pressed, #1e1e1e);
+  --ds-chip-border: var(--interactive-chip-channel-off-border-default, #a6a6a6);
+  --ds-chip-border-hover: var(--interactive-chip-channel-off-border-hover, #8f8f8f);
+  --ds-chip-border-pressed: var(--interactive-chip-channel-off-border-pressed, #868686);
+}
+
+/* Channel + secondary has distinct token values in Figma and cannot reuse primary channel values. */
+.ds-chip--channel-true.ds-chip--intent-secondary.ds-chip--toggle-on {
+  --ds-chip-bg: var(--interactive-chip-channel-secondary-on-fill-default, #ffffff);
+  --ds-chip-bg-hover: var(--interactive-chip-channel-secondary-on-fill-hover, #d9d9d9);
+  --ds-chip-bg-pressed: var(--interactive-chip-channel-secondary-on-fill-pressed, #cccccc);
+  --ds-chip-fg: var(--interactive-chip-channel-secondary-on-text-default, #737373);
+  --ds-chip-fg-hover: var(--interactive-chip-channel-secondary-on-text-hover, #626262);
+  --ds-chip-fg-pressed: var(--interactive-chip-channel-secondary-on-text-pressed, #5c5c5c);
+  --ds-chip-icon: var(--interactive-chip-channel-secondary-on-icon-default, #737373);
+  --ds-chip-icon-hover: var(--interactive-chip-channel-secondary-on-icon-hover, #626262);
+  --ds-chip-icon-pressed: var(--interactive-chip-channel-secondary-on-icon-pressed, #5c5c5c);
+  --ds-chip-border: var(--interactive-chip-channel-secondary-on-border-default, #737373);
+  --ds-chip-border-hover: var(--interactive-chip-channel-secondary-on-border-hover, #626262);
+  --ds-chip-border-pressed: var(--interactive-chip-channel-secondary-on-border-pressed, #5c5c5c);
+}
+
+.ds-chip--channel-true.ds-chip--intent-secondary.ds-chip--toggle-off {
+  --ds-chip-bg: var(--interactive-chip-channel-secondary-off-fill-default, #e6e6e6);
+  --ds-chip-bg-hover: var(--interactive-chip-channel-secondary-off-fill-hover, #c4c4c4);
+  --ds-chip-bg-pressed: var(--interactive-chip-channel-secondary-off-fill-pressed, #cccccc);
+  --ds-chip-fg: var(--interactive-chip-channel-secondary-off-text-default, #4d4d4d);
+  --ds-chip-fg-hover: var(--interactive-chip-channel-secondary-off-text-hover, #424242);
+  --ds-chip-fg-pressed: var(--interactive-chip-channel-secondary-off-text-pressed, #3e3e3e);
+  --ds-chip-icon: var(--interactive-chip-channel-secondary-off-icon-default, #4d4d4d);
+  --ds-chip-icon-hover: var(--interactive-chip-channel-secondary-off-icon-hover, #424242);
+  --ds-chip-icon-pressed: var(--interactive-chip-channel-secondary-off-icon-pressed, #3e3e3e);
+  --ds-chip-border: transparent;
+  --ds-chip-border-hover: transparent;
+  --ds-chip-border-pressed: transparent;
+}
+
+.ds-chip__label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ds-chip__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ds-chip-icon);
+}
+
+.ds-chip:hover:not(:disabled) .ds-chip__icon,
+.ds-chip:focus-visible .ds-chip__icon {
+  color: var(--ds-chip-icon-hover);
+}
+
+.ds-chip:active:not(:disabled) .ds-chip__icon {
+  color: var(--ds-chip-icon-pressed);
+}
+
+.ds-chip:disabled .ds-chip__icon {
+  color: var(--interactive-disabled-a, #d9d9d9);
+}
+
+.ds-chip--size-small .ds-chip__icon {
+  width: var(--spacing-09);
+  height: var(--spacing-09);
+}
+
+.ds-chip--size-large .ds-chip__icon {
+  width: var(--spacing-11);
+  height: var(--spacing-11);
+}

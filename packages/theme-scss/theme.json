@@ -1,0 +1,498 @@
+{
+  "version": 3,
+  "settings": {
+    "appearance": {
+      "blockGap": true
+    },
+    "border": {
+      "radius": true
+    },
+    "color": {
+      "background": true,
+      "custom": true,
+      "customDuotone": true,
+      "customGradient": true,
+      "defaultDuotones": true,
+      "defaultGradients": true,
+      "defaultPalette": false,
+      "duotone": [
+        {
+          "colors": [
+            "#1a1a1a",
+            "#ffffff"
+          ],
+          "name": "Default",
+          "slug": "default-duotone"
+        }
+      ],
+      "gradients": [],
+      "palette": [
+        {
+          "color": "#1a1a1a",
+          "name": "Text primary",
+          "slug": "text-primary"
+        },
+        {
+          "color": "#333333",
+          "name": "Text secondary",
+          "slug": "text-secondary"
+        },
+        {
+          "color": "#000000",
+          "name": "Text inverse primary",
+          "slug": "text-inverse-primary"
+        },
+        {
+          "color": "#000000",
+          "name": "Text inverse secondary",
+          "slug": "text-inverse-secondary"
+        },
+        {
+          "color": "#000000",
+          "name": "Text on accent primary",
+          "slug": "text-on-accent-primary"
+        },
+        {
+          "color": "#000000",
+          "name": "Text on accent secondary",
+          "slug": "text-on-accent-secondary"
+        },
+        {
+          "color": "#005c8a",
+          "name": "Interactive primary fill default",
+          "slug": "interactive-primary-fill-default"
+        },
+        {
+          "color": "#005c8a",
+          "name": "Interactive primary fill hover",
+          "slug": "interactive-primary-fill-hover"
+        },
+        {
+          "color": "#005c8a",
+          "name": "Interactive primary fill pressed",
+          "slug": "interactive-primary-fill-pressed"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive primary text default",
+          "slug": "interactive-primary-text-default"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive primary text hover",
+          "slug": "interactive-primary-text-hover"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive primary text pressed",
+          "slug": "interactive-primary-text-pressed"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive primary icon default",
+          "slug": "interactive-primary-icon-default"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive primary icon hover",
+          "slug": "interactive-primary-icon-hover"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive primary icon pressed",
+          "slug": "interactive-primary-icon-pressed"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary fill default",
+          "slug": "interactive-secondary-fill-default"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary fill hover",
+          "slug": "interactive-secondary-fill-hover"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary fill pressed",
+          "slug": "interactive-secondary-fill-pressed"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary border default",
+          "slug": "interactive-secondary-border-default"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary border hover",
+          "slug": "interactive-secondary-border-hover"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary border pressed",
+          "slug": "interactive-secondary-border-pressed"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary text default",
+          "slug": "interactive-secondary-text-default"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary text hover",
+          "slug": "interactive-secondary-text-hover"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary text pressed",
+          "slug": "interactive-secondary-text-pressed"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary icon default",
+          "slug": "interactive-secondary-icon-default"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary icon hover",
+          "slug": "interactive-secondary-icon-hover"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive secondary icon pressed",
+          "slug": "interactive-secondary-icon-pressed"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive disabled a",
+          "slug": "interactive-disabled-a"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive disabled b",
+          "slug": "interactive-disabled-b"
+        },
+        {
+          "color": "#000000",
+          "name": "Interactive disabled c",
+          "slug": "interactive-disabled-c"
+        },
+        {
+          "color": "#005c8a",
+          "name": "Interactive link primary default",
+          "slug": "interactive-link-primary-default"
+        },
+        {
+          "color": "#005c8a",
+          "name": "Interactive link primary hover",
+          "slug": "interactive-link-primary-hover"
+        },
+        {
+          "color": "#005c8a",
+          "name": "Interactive link primary pressed",
+          "slug": "interactive-link-primary-pressed"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Interactive link secondary default",
+          "slug": "interactive-link-secondary-default"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Interactive link secondary hover",
+          "slug": "interactive-link-secondary-hover"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Interactive link secondary pressed",
+          "slug": "interactive-link-secondary-pressed"
+        },
+        {
+          "color": "#f2f2f2",
+          "name": "Surface undercanvas",
+          "slug": "surface-undercanvas"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Surface canvas",
+          "slug": "surface-canvas"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Surface level 1",
+          "slug": "surface-level-1"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Surface level 2",
+          "slug": "surface-level-2"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Surface level 3",
+          "slug": "surface-level-3"
+        },
+        {
+          "color": "#ffffff",
+          "name": "Surface level 4",
+          "slug": "surface-level-4"
+        },
+        {
+          "color": "#000000",
+          "name": "Surface inverse",
+          "slug": "surface-inverse"
+        },
+        {
+          "color": "#e6e6e6",
+          "name": "Surface level accent low",
+          "slug": "surface-level-accent-low"
+        },
+        {
+          "color": "#bfbfbf",
+          "name": "Surface level accent medium",
+          "slug": "surface-level-accent-medium"
+        },
+        {
+          "color": "#4d4d4d",
+          "name": "Surface level accent high",
+          "slug": "surface-level-accent-high"
+        },
+        {
+          "color": "#00000073",
+          "name": "Surface overlay",
+          "slug": "surface-overlay"
+        },
+        {
+          "color": "#ff0000",
+          "name": "Feedback fill error",
+          "slug": "feedback-fill-error"
+        },
+        {
+          "color": "#31a46f",
+          "name": "Feedback fill success",
+          "slug": "feedback-fill-success"
+        },
+        {
+          "color": "#ffa300",
+          "name": "Feedback fill warning",
+          "slug": "feedback-fill-warning"
+        },
+        {
+          "color": "#0f4aa2",
+          "name": "Feedback fill info",
+          "slug": "feedback-fill-info"
+        },
+        {
+          "color": "#ff0000",
+          "name": "Feedback text error",
+          "slug": "feedback-text-error"
+        },
+        {
+          "color": "#31a46f",
+          "name": "Feedback text success",
+          "slug": "feedback-text-success"
+        },
+        {
+          "color": "#ffa300",
+          "name": "Feedback text warning",
+          "slug": "feedback-text-warning"
+        },
+        {
+          "color": "#0f4aa2",
+          "name": "Feedback text info",
+          "slug": "feedback-text-info"
+        },
+        {
+          "color": "#ff0000",
+          "name": "Feedback border error",
+          "slug": "feedback-border-error"
+        },
+        {
+          "color": "#31a46f",
+          "name": "Feedback border success",
+          "slug": "feedback-border-success"
+        },
+        {
+          "color": "#ffa300",
+          "name": "Feedback border warning",
+          "slug": "feedback-border-warning"
+        },
+        {
+          "color": "#0f4aa2",
+          "name": "Feedback border info",
+          "slug": "feedback-border-info"
+        }
+      ]
+    },
+    "dimensions": {
+      "aspectRatios": true,
+      "minHeight": true
+    },
+    "layout": {
+      "contentSize": "1200px",
+      "wideSize": "1400px"
+    },
+    "spacing": {
+      "blockGap": true,
+      "customSpacing": true,
+      "spacingSizes": [
+        {
+          "size": "2px",
+          "name": "Space 50",
+          "slug": "space-50"
+        },
+        {
+          "size": "4px",
+          "name": "Space 100",
+          "slug": "space-100"
+        },
+        {
+          "size": "5px",
+          "name": "Space 125",
+          "slug": "space-125"
+        },
+        {
+          "size": "6px",
+          "name": "Space 150",
+          "slug": "space-150"
+        },
+        {
+          "size": "8px",
+          "name": "Space 200",
+          "slug": "space-200"
+        },
+        {
+          "size": "10px",
+          "name": "Space 250",
+          "slug": "space-250"
+        },
+        {
+          "size": "12px",
+          "name": "Space 300",
+          "slug": "space-300"
+        },
+        {
+          "size": "14px",
+          "name": "Space 350",
+          "slug": "space-350"
+        },
+        {
+          "size": "16px",
+          "name": "Space 400",
+          "slug": "space-400"
+        },
+        {
+          "size": "18px",
+          "name": "Space 450",
+          "slug": "space-450"
+        },
+        {
+          "size": "20px",
+          "name": "Space 500",
+          "slug": "space-500"
+        },
+        {
+          "size": "22px",
+          "name": "Space 550",
+          "slug": "space-550"
+        },
+        {
+          "size": "24px",
+          "name": "Space 600",
+          "slug": "space-600"
+        },
+        {
+          "size": "26px",
+          "name": "Space 650",
+          "slug": "space-650"
+        },
+        {
+          "size": "28px",
+          "name": "Space 700",
+          "slug": "space-700"
+        }
+      ]
+    },
+    "typography": {
+      "customFontSize": true,
+      "dropCap": true,
+      "fontFamilies": [
+        {
+          "fontFamily": "\"Inter\", system-ui, -apple-system, sans-serif",
+          "name": "Inter",
+          "slug": "inter"
+        }
+      ],
+      "fontSizes": [
+        {
+          "size": "0.500rem",
+          "name": "Font Size 0025",
+          "slug": "fontsize0025"
+        },
+        {
+          "size": "0.625rem",
+          "name": "Font Size 005",
+          "slug": "fontsize005"
+        },
+        {
+          "size": "0.750rem",
+          "name": "Font Size 010",
+          "slug": "fontsize010"
+        },
+        {
+          "size": "0.875rem",
+          "name": "Font Size 020",
+          "slug": "fontsize020"
+        },
+        {
+          "size": "0.938rem",
+          "name": "Font Size 025",
+          "slug": "fontsize025"
+        },
+        {
+          "size": "1rem",
+          "name": "Font Size 030",
+          "slug": "fontsize030"
+        },
+        {
+          "size": "1.063rem",
+          "name": "Font Size 035",
+          "slug": "fontsize035"
+        },
+        {
+          "size": "1.125rem",
+          "name": "Font Size 040",
+          "slug": "fontsize040"
+        },
+        {
+          "size": "1.188rem",
+          "name": "Font Size 045",
+          "slug": "fontsize045"
+        },
+        {
+          "size": "1.250rem",
+          "name": "Font Size 050",
+          "slug": "fontsize050"
+        }
+      ],
+      "fontStyles": true,
+      "fontWeights": true,
+      "lineHeight": true,
+      "textDecoration": true,
+      "textTransform": true
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#ffffff",
+      "text": "#1a1a1a"
+    },
+    "elements": {},
+    "typography": {
+      "fontSize": "1rem",
+      "fontFamily": "\"Inter\", system-ui, -apple-system, sans-serif",
+      "lineHeight": "1.5"
+    },
+    "spacing": {}
+  }
+}

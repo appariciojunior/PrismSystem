@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "rowCount": 15,
+    "type": "spacing"
+  },
+  "groupMeta": {
+    "spacing": "Spacing tokens for margins, padding, and layout gaps. DS spacing values are viewport-invariant — identical across all breakpoints."
+  },
+  "rows": [
+    {
+      "group": "spacing",
+      "legacyToken": "space000",
+      "legacyValue": "0px",
+      "description": "Zero spacing. No DS token equivalent; use 0 directly.",
+      "matches": { "canonical": [], "synthetic": [] }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space010",
+      "legacyValue": "4px",
+      "description": "Micro spacing — tight gaps between inline elements.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.03", "score": "H", "resolvedValue": "4px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space020",
+      "legacyValue": "8px",
+      "description": "Small spacing — standard padding for compact UI components.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.05", "score": "H", "resolvedValue": "8px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space025",
+      "legacyValue": "10px",
+      "description": "Small-medium step — slight increment between space020 and space030.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.06", "score": "H", "resolvedValue": "10px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space030",
+      "legacyValue": "12px",
+      "description": "Medium-small spacing — internal padding for buttons and inputs.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.07", "score": "H", "resolvedValue": "12px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space040",
+      "legacyValue": "16px",
+      "description": "Base spacing unit — standard component padding and stack gaps.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.09", "score": "H", "resolvedValue": "16px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space045",
+      "legacyValue": "20px",
+      "description": "Medium spacing — comfortable padding for content areas.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.11", "score": "H", "resolvedValue": "20px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space050",
+      "legacyValue": "24px",
+      "description": "Large component spacing — section padding and content gaps.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.13", "score": "H", "resolvedValue": "24px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space060",
+      "legacyValue": "32px",
+      "description": "Section spacing — gaps between grouped UI blocks.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.15", "score": "H", "resolvedValue": "32px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space070",
+      "legacyValue": "40px",
+      "description": "Layout spacing — comfortable separation between major page sections.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.17", "score": "H", "resolvedValue": "40px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space080",
+      "legacyValue": "48px",
+      "description": "Large layout spacing — generous padding for hero and feature areas.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.18", "score": "H", "resolvedValue": "48px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space090",
+      "legacyValue": "64px",
+      "description": "Extra-large spacing — wide separation between page-level regions.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.20", "score": "H", "resolvedValue": "64px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space100",
+      "legacyValue": "80px",
+      "description": "Maximum standard spacing — page-level vertical rhythm.",
+      "matches": {
+        "canonical": [
+          { "token": "spacing.21", "score": "H", "resolvedValue": "80px" }
+        ],
+        "synthetic": []
+      }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space110",
+      "legacyValue": "120px",
+      "description": "Oversized spacing (120px). Beyond the DS spacing scale which ends at spacing.21 (80px). No equivalent; apply a custom value.",
+      "matches": { "canonical": [], "synthetic": [] }
+    },
+    {
+      "group": "spacing",
+      "legacyToken": "space120",
+      "legacyValue": "160px",
+      "description": "Maximum Legacy spacing (160px). Exceeds the DS spacing scale. No equivalent; apply a custom value.",
+      "matches": { "canonical": [], "synthetic": [] }
+    }
+  ]
+}

@@ -1,0 +1,590 @@
+import { Meta } from "@storybook/addon-docs/blocks";
+import GridOverlayDemo from "./GridOverlayDemo";
+
+<Meta title="Theme/Grid" />
+
+<style>
+  {`
+  :root {
+    --ds-grid-surface-card: var(--ds-light-core-surface-level-1, #ffffff);
+    --ds-grid-surface-note: var(--ds-light-core-feedback-fill-info, #f0f0f0);
+    --ds-grid-table-surface: var(--ds-light-core-surface-undercanvas, #f2f2f2);
+    --ds-grid-border-subtle: var(--ds-light-core-border-tertiary, #e6e6e6);
+    --ds-grid-border-strong: var(--ds-light-core-border-secondary, #cccccc);
+    --ds-grid-text-primary: var(--ds-light-core-text-primary, #1a1a1a);
+    --ds-grid-text-secondary: var(--ds-light-core-text-secondary, #404040);
+    --ds-grid-pill-bg: var(--ds-light-core-surface-static-dark, #000000);
+    --ds-grid-pill-text: var(--ds-light-core-surface-static-light, #ffffff);
+    --ds-grid-use-good-bg: var(--ds-light-core-feedback-fill-success, #f4fafc);
+    --ds-grid-use-good-border: var(--ds-light-core-feedback-border-success, #3db2c5);
+    --ds-grid-use-bad-bg: var(--ds-light-core-feedback-fill-error, #fff9f9);
+    --ds-grid-use-bad-border: var(--ds-light-core-feedback-border-error, #b30000);
+    --ds-grid-beta-bg: var(--ds-light-core-feedback-border-error, #b30000);
+    --ds-grid-beta-text: var(--ds-light-core-text-inverse-primary, #ffffff);
+    --ds-grid-overlay-column: color-mix(in srgb, var(--ds-light-core-interactive-link-primary-default, #005c8a) 18%, transparent);
+    --ds-grid-overlay-baseline: color-mix(in srgb, var(--ds-light-core-text-secondary, #404040) 22%, transparent);
+    --ds-grid-overlay-block: color-mix(in srgb, var(--ds-light-core-text-secondary, #404040) 8%, transparent);
+    --ds-grid-focus-ring: var(--ds-light-core-interactive-link-primary-default, #005c8a);
+  }
+
+  :root[data-color-mode="dark"],
+  body[data-color-mode="dark"] {
+    --ds-grid-surface-card: var(--ds-dark-core-surface-level-1, #0d0d0d);
+    --ds-grid-surface-note: var(--ds-dark-core-feedback-fill-info, #020202);
+    --ds-grid-table-surface: var(--ds-dark-core-surface-undercanvas, #1a1a1a);
+    --ds-grid-border-subtle: var(--ds-dark-core-border-tertiary, #1a1a1a);
+    --ds-grid-border-strong: var(--ds-dark-core-border-secondary, #333333);
+    --ds-grid-text-primary: var(--ds-dark-core-text-primary, #ffffff);
+    --ds-grid-text-secondary: var(--ds-dark-core-text-secondary, #d9d9d9);
+    --ds-grid-pill-bg: var(--ds-dark-core-surface-static-light, #ffffff);
+    --ds-grid-pill-text: var(--ds-dark-core-surface-static-dark, #000000);
+    --ds-grid-use-good-bg: var(--ds-dark-core-feedback-fill-success, #050f10);
+    --ds-grid-use-good-border: var(--ds-dark-core-feedback-border-success, #53bbcc);
+    --ds-grid-use-bad-bg: var(--ds-dark-core-feedback-fill-error, #1a0000);
+    --ds-grid-use-bad-border: var(--ds-dark-core-feedback-border-error, #ff4040);
+    --ds-grid-beta-bg: var(--ds-dark-core-feedback-border-error, #ff4040);
+    --ds-grid-beta-text: var(--ds-dark-core-text-static-dark, #000000);
+    --ds-grid-overlay-column: color-mix(in srgb, var(--ds-dark-core-feedback-border-success, #53bbcc) 20%, transparent);
+    --ds-grid-overlay-baseline: color-mix(in srgb, var(--ds-dark-core-text-secondary, #d9d9d9) 24%, transparent);
+    --ds-grid-overlay-block: color-mix(in srgb, var(--ds-dark-core-text-secondary, #d9d9d9) 12%, transparent);
+    --ds-grid-focus-ring: var(--ds-dark-core-feedback-border-success, #53bbcc);
+  }
+
+  .grid-page {
+    max-width: 960px;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    color: var(--ds-grid-text-secondary);
+  }
+
+  .grid-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .grid-title {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 2.25rem;
+    line-height: 1.125;
+    font-weight: 700;
+    color: var(--ds-grid-text-primary);
+  }
+
+  .grid-beta {
+    background: var(--ds-grid-beta-bg);
+    color: var(--ds-grid-beta-text);
+    border-radius: 999px;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    white-space: nowrap;
+  }
+
+  .grid-intro {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--ds-grid-text-secondary);
+  }
+
+  .grid-note {
+    background: var(--ds-grid-surface-note);
+    border: 1px solid var(--ds-grid-border-subtle);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--ds-grid-text-secondary);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  .grid-card {
+    border: 1px solid var(--ds-grid-border-subtle);
+    background: var(--ds-grid-surface-card);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .grid-card-title {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 1.25rem;
+    line-height: 1.125;
+    font-weight: 700;
+    color: var(--ds-grid-text-primary);
+  }
+
+  .grid-card-copy {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+  }
+
+  .grid-table-wrap {
+    background: var(--ds-grid-table-surface);
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+
+  .grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+
+  .grid-table th {
+    font-weight: 500;
+    font-size: 0.75rem;
+    color: var(--ds-grid-text-secondary);
+    border-bottom: 1px solid var(--ds-grid-border-strong);
+    border-right: 1px solid var(--ds-grid-border-strong);
+    padding: 0.5rem;
+    text-align: center;
+  }
+
+  .grid-table th:last-child,
+  .grid-table td:last-child {
+    border-right: none;
+  }
+
+  .grid-table td {
+    border-bottom: 1px dashed var(--ds-grid-border-strong);
+    border-right: 1px solid var(--ds-grid-border-strong);
+    padding: 0.75rem 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 500;
+    color: var(--ds-grid-text-primary);
+  }
+
+  .grid-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .grid-vp-tag {
+    display: inline-block;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    background: var(--ds-grid-pill-bg);
+    color: var(--ds-grid-pill-text);
+    font-size: 0.75rem;
+    line-height: 1;
+    font-weight: 500;
+  }
+
+  .grid-defs {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+  }
+
+  .grid-practical-list {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+  }
+
+  .grid-use-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .grid-use {
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .grid-use-good {
+    background: var(--ds-grid-use-good-bg);
+    border: 1px solid var(--ds-grid-use-good-border);
+  }
+
+  .grid-use-bad {
+    background: var(--ds-grid-use-bad-bg);
+    border: 1px solid var(--ds-grid-use-bad-border);
+  }
+
+  .grid-use p {
+    margin: 0 0 0.6rem;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 0.9375rem;
+    line-height: 1.45;
+    color: var(--ds-grid-text-secondary);
+  }
+
+  .grid-use p:last-child {
+    margin-bottom: 0;
+  }
+
+  .grid-use h4 {
+    margin: 0 0 0.75rem;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 1.125rem;
+    line-height: 1.2;
+    font-weight: 700;
+    color: var(--ds-grid-text-primary);
+  }
+
+  .grid-demo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .grid-demo-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .grid-demo-viewport {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .grid-demo-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .grid-demo-toggle {
+    display: inline-flex;
+    border: 1px solid var(--ds-grid-border-strong);
+    border-radius: 999px;
+    width: fit-content;
+    overflow: hidden;
+  }
+
+  .grid-demo-toggle-btn {
+    border: none;
+    border-right: 1px solid var(--ds-grid-border-strong);
+    background: transparent;
+    color: var(--ds-grid-text-secondary);
+    padding: 0.45rem 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    cursor: pointer;
+  }
+
+  .grid-demo-toggle-btn:last-child {
+    border-right: none;
+  }
+
+  .grid-demo-toggle-btn.is-active {
+    background: var(--ds-grid-pill-bg);
+    color: var(--ds-grid-pill-text);
+  }
+
+  .grid-demo-toggle-btn:focus-visible {
+    outline: 2px solid var(--ds-grid-focus-ring);
+    outline-offset: -2px;
+  }
+
+  .grid-demo-meta {
+    margin: 0;
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 0.8125rem;
+    color: var(--ds-grid-text-secondary);
+  }
+
+  .grid-demo-meta strong {
+    color: var(--ds-grid-text-primary);
+    font-weight: 600;
+  }
+
+  .grid-demo-meta-viewport {
+    margin-top: 0.1rem;
+  }
+
+  .grid-demo-frame {
+    border: 1px solid var(--ds-grid-border-strong);
+    border-radius: 0.875rem;
+    background: var(--ds-grid-table-surface);
+    width: var(--grid-viewport-limit);
+    padding: 1rem 0;
+    overflow: hidden;
+  }
+
+  .grid-demo-scroll {
+    overflow-x: auto;
+    padding-bottom: 0.25rem;
+  }
+
+  .grid-demo-margins {
+    display: grid;
+    grid-template-columns: var(--grid-margin) minmax(0, var(--grid-content-area)) var(--grid-margin);
+    margin-bottom: 0.5rem;
+  }
+
+  .grid-demo-margins::before,
+  .grid-demo-margins::after {
+    content: "";
+    background: color-mix(in srgb, var(--ds-grid-overlay-column) 55%, transparent);
+    border-top: 1px dashed var(--ds-grid-border-strong);
+    border-bottom: 1px dashed var(--ds-grid-border-strong);
+  }
+
+  .grid-demo-margin-label {
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 0.625rem;
+    font-weight: 600;
+    color: var(--ds-grid-text-secondary);
+  }
+
+  .grid-demo-margin-label:first-child {
+    grid-column: 1;
+  }
+
+  .grid-demo-margin-label:last-child {
+    grid-column: 3;
+  }
+
+  .grid-demo-content {
+    --grid-content-padding: 0.85rem;
+    position: relative;
+    width: var(--grid-content-area);
+    margin-inline: auto;
+    padding: var(--grid-content-padding);
+    background: var(--ds-grid-surface-card);
+    border: 1px solid var(--ds-grid-border-subtle);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .grid-demo-columns,
+  .grid-demo-baseline {
+    position: absolute;
+    inset: var(--grid-content-padding);
+    pointer-events: none;
+  }
+
+  .grid-demo-columns {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--grid-gutter);
+    z-index: 1;
+  }
+
+  .grid-demo-column {
+    background: var(--ds-grid-overlay-column);
+  }
+
+  .grid-demo-baseline {
+    z-index: 2;
+    background-image: linear-gradient(to bottom, var(--ds-grid-overlay-baseline) 1px, transparent 1px);
+    background-size: 100% 8px;
+  }
+
+  .grid-demo-layout {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+    gap: var(--grid-gutter);
+  }
+
+  .grid-demo-block {
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--ds-grid-border-subtle);
+    background: var(--ds-grid-overlay-block);
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    color: var(--ds-grid-text-primary);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .grid-demo-block.span-full {
+    grid-column: 1 / -1;
+  }
+
+  .grid-parity-note {
+    margin: 0;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 768px) {
+    .grid-use-columns {
+      grid-template-columns: 1fr;
+    }
+
+    .grid-table-wrap {
+      overflow-x: auto;
+    }
+
+    .grid-table {
+      min-width: 680px;
+    }
+
+    .grid-demo-content {
+      --grid-content-padding: 0.65rem;
+      width: 100%;
+    }
+
+    .grid-demo-toggle {
+      width: 100%;
+    }
+
+    .grid-demo-toggle-btn {
+      flex: 1;
+    }
+  }
+
+`}
+</style>
+
+<div className="grid-page">
+  <div className="grid-title-row">
+    <h1 className="grid-title">Grid</h1>
+    <span className="grid-beta">BETA</span>
+  </div>
+
+  <p className="grid-intro">
+    The Design System grid is responsive and token-aligned: small uses 4
+    columns, medium uses 12, large uses 12, and xlarge uses 12. The demo below
+    stacks each viewport and shows limits at 393px (small), 768px (medium),
+    1024px (large), and 1440px (xlarge viewport), including visible margin,
+    gutter, and column behavior.
+  </p>
+
+  <div className="grid-note">
+    The grid is currently marked <strong>BETA</strong> while web and app teams
+    converge on one implementation contract. Keep usage practical and verify
+    breakpoints in Storybook before shipping layouts.
+  </div>
+
+  <section className="grid-card">
+    <h3 className="grid-card-title">Try the Grid</h3>
+    <p className="grid-card-copy">
+      Toggle overlays to inspect column structure and baseline rhythm. Each
+      viewport example is stacked top-to-bottom and includes span examples from
+      1 column up to the full available column count.
+    </p>
+    <GridOverlayDemo />
+  </section>
+
+  <section className="grid-card">
+    <h3 className="grid-card-title">Grid Anatomy</h3>
+    <div className="grid-table-wrap">
+      <table className="grid-table">
+        <thead>
+          <tr>
+            <th>Viewport</th>
+            <th>Range (px)</th>
+            <th>Columns</th>
+            <th>Gutter</th>
+            <th>Margin</th>
+            <th>Content area</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span className="grid-vp-tag">small</span></td>
+            <td>&lt;768</td>
+            <td>4</td>
+            <td>24px</td>
+            <td>20px</td>
+            <td>393px</td>
+          </tr>
+          <tr>
+            <td><span className="grid-vp-tag">medium</span></td>
+            <td>768-1023</td>
+            <td>12</td>
+            <td>32px</td>
+            <td>24px</td>
+            <td>768px</td>
+          </tr>
+          <tr>
+            <td><span className="grid-vp-tag">large</span></td>
+            <td>1024-1439</td>
+            <td>12</td>
+            <td>32px</td>
+            <td>24px</td>
+            <td>1024px</td>
+          </tr>
+          <tr>
+            <td><span className="grid-vp-tag">xlarge</span></td>
+            <td>≥1440</td>
+            <td>12</td>
+            <td>32px</td>
+            <td>24px</td>
+            <td>1144px</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <ul className="grid-defs">
+      <li><strong>Columns:</strong> vertical divisions that organize layout spans.</li>
+      <li><strong>Gutters:</strong> horizontal spacing between columns.</li>
+      <li><strong>Margins:</strong> left/right viewport framing space.</li>
+      <li><strong>Content area:</strong> max width inside the frame at each breakpoint.</li>
+    </ul>
+  </section>
+
+  <section className="grid-card">
+    <h3 className="grid-card-title">Practical Layout Combinations</h3>
+    <ul className="grid-practical-list">
+      <li><strong>Full-width content (12/12):</strong> headlines, hero media, and lead story modules.</li>
+      <li><strong>Two-thirds + one-third:</strong> editorial body with related links or rail content.</li>
+      <li><strong>Half + half:</strong> balanced card grids and side-by-side modules.</li>
+      <li><strong>Large breakpoint detail:</strong> large aligns to 12 columns in this contract.</li>
+    </ul>
+  </section>
+
+  <section className="grid-card">
+    <h3 className="grid-card-title">When to Use / Don’t Use</h3>
+
+    <div className="grid-use-columns">
+      <div className="grid-use grid-use-good">
+        <h4>✅ Use the grid for</h4>
+        <p>Page-level layout structure and responsive content organization.</p>
+        <p>Horizontal alignment across modules and templates.</p>
+        <p>Consistent span-based hierarchy in editorial and marketing pages.</p>
+      </div>
+
+      <div className="grid-use grid-use-bad">
+        <h4>⚠️ Don&apos;t use the grid for</h4>
+        <p>Internal component spacing (use spacing tokens).</p>
+        <p>Vertical rhythm systems (use typography and spacing tokens).</p>
+        <p>Pixel-perfect micro-positioning inside components.</p>
+      </div>
+    </div>
+  </section>
+
+  <section className="grid-card">
+    <h3 className="grid-card-title">Figma → MCP → Storybook Parity</h3>
+    <p className="grid-parity-note">
+      This page demonstrates the same responsive grid contract used for design
+      handoff. Validate behavior in Storybook using the viewport presets and
+      both color modes to confirm parity before implementation.
+    </p>
+  </section>
+</div>

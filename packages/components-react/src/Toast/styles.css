@@ -1,0 +1,72 @@
+@import 'animate.css';
+
+.ds-toast {
+  --ds-toast-fill: var(--toast-fill-success, #22724f);
+  --ds-toast-text: var(--toast-text-success, #ffffff);
+  --ds-toast-link: var(--toast-link-success-default, #ffffff);
+  --animate-duration: 180ms;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-07);
+  width: 373px;
+  min-height: var(--spacing-18);
+  padding: var(--spacing-07) var(--spacing-09);
+  border-radius: 4px;
+  background: var(--ds-toast-fill);
+  color: var(--ds-toast-text);
+  box-shadow: 0 16px 24px 0 rgb(0 0 0 / 8%);
+  box-sizing: border-box;
+}
+
+.ds-toast__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  color: var(--ds-toast-text);
+}
+
+.ds-toast__label {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--fontFamily040, sans-serif);
+  font-size: var(--fontSize030, 1rem);
+  line-height: var(--fontLineHeight040, 1.5);
+  font-weight: var(--fontWeight040, 400);
+}
+
+.ds-toast__link {
+  flex: 0 0 auto;
+  font-family: var(--fontFamily040, sans-serif);
+  font-size: var(--fontSize030, 1rem);
+  line-height: var(--fontLineHeight040, 1.5);
+  font-weight: var(--fontWeight070, 700);
+  text-decoration: underline;
+  color: var(--ds-toast-link);
+  cursor: pointer;
+}
+
+.ds-toast--intent-success {
+  --ds-toast-fill: var(--toast-fill-success, #22724f);
+  --ds-toast-text: var(--toast-text-success, #ffffff);
+  --ds-toast-link: var(--toast-link-success-default, #ffffff);
+}
+
+.ds-toast--intent-info {
+  --ds-toast-fill: var(--toast-fill-info, #0a3472);
+  --ds-toast-text: var(--toast-text-info, #ffffff);
+  --ds-toast-link: var(--toast-link-info-default, #ffffff);
+}
+
+.ds-toast--intent-warning {
+  --ds-toast-fill: var(--toast-fill-warning, #e49307);
+  --ds-toast-text: var(--toast-text-warning, #000000);
+  --ds-toast-link: var(--toast-link-warning-default, #000000);
+}
+
+.ds-toast--intent-error {
+  --ds-toast-fill: var(--toast-fill-error, #cb0705);
+  --ds-toast-text: var(--toast-text-error, #ffffff);
+  --ds-toast-link: var(--toast-link-error-default, #ffffff);
+}

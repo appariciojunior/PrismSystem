@@ -1,0 +1,24 @@
+{
+  "servers": {
+    "figma-console": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "figma-console-mcp@latest"],
+      "envFile": "${env:HOME}/.figma-console-mcp.env"
+    },
+    "figma-desktop": {
+      "type": "http",
+      "url": "http://127.0.0.1:3845/mcp"
+    },
+    "ds-tokens-mcp": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["packages/tokens/mcp-server/index.js"],
+      "env": {}
+    },
+    "mobbin": {
+      "type": "http",
+      "url": "https://api.mobbin.com/mcp"
+    }
+  }
+}

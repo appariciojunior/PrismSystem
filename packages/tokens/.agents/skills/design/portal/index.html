@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Design System — Design Skills Portal</title>
+<style>
+  /* Inter font from the repo */
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Inter';
+    src: url('../../../../../fonts/Inter-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* DS typography tokens (mirrored from packages/theme-css/src/variables.css) */
+  html { font-size: 62.5%; } /* 1rem = 10px so DS font-size tokens map 1:1 */
+
+  :root {
+    /* Font families (DS fontFamily010-040) */
+    --fontFamily010: 'Inter', system-ui, -apple-system, sans-serif;
+    --fontFamily020: 'Inter', system-ui, -apple-system, sans-serif;
+    --fontFamily030: 'Inter', system-ui, -apple-system, sans-serif;
+    --fontFamily040: 'Inter', system-ui, -apple-system, sans-serif;
+
+    /* Font weights */
+    --fontWeight040: 400; /* regular */
+    --fontWeight050: 500; /* medium */
+    --fontWeight060: 600;
+    --fontWeight070: 700; /* bold */
+
+    /* Font sizes (rem-based; 1rem = 10px) */
+    --fontSize0025: 0.8rem;
+    --fontSize005:  1.0rem;
+    --fontSize010:  1.2rem;
+    --fontSize020:  1.4rem;
+    --fontSize025:  1.5rem;
+    --fontSize030:  1.6rem;
+    --fontSize035:  1.7rem;
+    --fontSize040:  1.8rem;
+    --fontSize045:  1.9rem;
+    --fontSize050:  2.0rem;
+    --fontSize060:  2.2rem;
+    --fontSize070:  2.4rem;
+    --fontSize080:  2.8rem;
+    --fontSize090:  3.2rem;
+    --fontSize100:  3.6rem;
+    --fontSize130:  4.8rem;
+    --fontSize150:  6.4rem;
+
+    /* Line heights */
+    --fontLineHeight010: 1;
+    --fontLineHeight020: 1.125;
+    --fontLineHeight030: 1.25;
+    --fontLineHeight040: 1.5;
+
+    /* Aliases used in this file (point to DS tokens above) */
+    --tm: var(--fontFamily010);
+    --td: var(--fontFamily020);
+    --rs: var(--fontFamily040);
+    --mono: ui-monospace, 'SF Mono', Menlo, monospace;
+
+    --ink: #1A1A1A;
+    --ink-soft: #424242;
+    --ink-faint: #767676;
+    --rule: #DDDDDD;
+    --rule-faint: #EFEFEF;
+    --paper: #FFFFFF;
+    --paper-tint: #FAFAFA;
+
+    --red: #B11116;
+    --red-on-dark: #F26561; /* WCAG AA 4.6:1 on var(--ink) — use on dark surfaces only */
+
+    --home: #135DCB;
+    --world: #00787C;
+    --money: #58A385;
+    --comment: #9B1F45;
+    --business: #21709C;
+    --sport: #007A3F;
+    --travel: #2c79ad;
+    --puzzle: #DF7334;
+    --culture: #942364;
+    --obituaries: #6c6c69;
+    --ireland: #0f3d38;
+
+    --agent-prototyping: #B45309;
+    --agent-prototyping-soft: #FEF3C7;
+    --agent-critique: #991B1B;
+    --agent-critique-soft: #FEE2E2;
+    --agent-handoff: #1E40AF;
+    --agent-handoff-soft: #DBEAFE;
+    --agent-build: #065F46;
+    --agent-build-soft: #D1FAE5;
+
+    /* Default accent so context-free buttons still hover correctly */
+    --accent: var(--red);
+
+    /* Brand motion standards (per foundation/design-dna) */
+    --motion-instant: 50ms;
+    --motion-fast: 120ms;
+    --motion-easing: linear;
+  }
+
+  /* Focus rings: visible on dark and light surfaces (a11y-check) */
+  :focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion: every transition becomes instant (DNA rule) */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0ms !important;
+      animation-duration: 0ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--fontFamily040);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: var(--fontLineHeight040);
+    font-size: var(--fontSize030); /* 16px */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 40px 80px;
+  }
+
+  /* ─── Masthead ─────────────────────────────────────── */
+  .masthead {
+    text-align: center;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .date-strip {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+  }
+  .masthead-logo-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    line-height: 0;
+    transition: opacity var(--motion-instant) var(--motion-easing);
+  }
+  .masthead-logo-link:hover { opacity: 0.7; }
+  .masthead-logo-link:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 4px;
+  }
+  .masthead-logo {
+    display: block;
+    height: 40px;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  .masthead-sub {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize030); /* 16px */
+    color: var(--ink-soft);
+    margin-top: 16px;
+  }
+  .masthead-channels {
+    display: inline-flex;
+    gap: 4px;
+    margin-top: 12px;
+    padding: 6px 16px;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+  }
+  .masthead-channels span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  @media (max-width: 780px) {
+    .masthead-logo { height: 32px; }
+    .masthead-sub { font-size: 15px; }
+  }
+
+  /* ─── Channel nav (like the homepage) ─────────────── */
+  nav.channel-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    margin: 0 -40px; /* break out of container padding so background spans full width */
+    padding: 12px 40px;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+    box-shadow: 0 1px 0 var(--rule);
+  }
+  nav.channel-nav a {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize020); /* 14px */
+    font-weight: var(--fontWeight050);
+    color: var(--ink);
+    text-decoration: none;
+    padding: 10px 0 8px;
+    border-bottom: 2px solid transparent;
+    transition: border-color var(--motion-instant) var(--motion-easing),
+                color var(--motion-instant) var(--motion-easing);
+  }
+  nav.channel-nav a:hover { border-bottom-color: var(--ink); }
+  nav.channel-nav a:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 2px;
+    border-bottom-color: transparent;
+  }
+  nav.channel-nav a.active {
+    border-bottom-color: var(--ink);
+    font-weight: var(--fontWeight070);
+  }
+  nav.channel-nav a .nav-step {
+    font-family: var(--mono);
+    font-size: var(--fontSize005); /* 10px */
+    font-weight: var(--fontWeight060);
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  nav.channel-nav a .nav-bullet {
+    color: var(--ink-faint);
+    font-size: var(--fontSize005);
+  }
+  nav.channel-nav a:hover .nav-step,
+  nav.channel-nav a:hover .nav-bullet { color: var(--ink-soft); }
+  nav.channel-nav a.active .nav-step,
+  nav.channel-nav a.active .nav-bullet { color: var(--red); }
+  nav.channel-nav a.download-link-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--ink-soft);
+  }
+  nav.channel-nav a.download-link-nav:hover { color: var(--ink); }
+  nav.channel-nav a.download-link-nav svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    flex-shrink: 0;
+  }
+
+  /* ─── Step sections ────────────────────────────────── */
+  section { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  section:first-of-type { border-top: none; padding-top: 0; }
+
+  .step-num {
+    display: block;
+    font-family: var(--mono);
+    font-size: var(--fontSize020);
+    color: var(--red);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  section h2 {
+    font-family: var(--fontFamily010);
+    font-weight: var(--fontWeight070);
+    font-size: var(--fontSize100); /* 36px */
+    line-height: var(--fontLineHeight020);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  section .section-lede {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize040); /* 18px */
+    line-height: var(--fontLineHeight040);
+    color: var(--ink-soft);
+    max-width: 720px;
+    margin-bottom: 24px;
+  }
+
+  /* ─── Buttons ─────────────────────────────────────── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    min-height: 44px;
+    background: var(--ink);
+    color: white;
+    text-decoration: none;
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize020);
+    font-weight: var(--fontWeight060);
+    transition: background-color var(--motion-instant) var(--motion-easing);
+  }
+  .btn:hover { background: var(--red); }
+  .btn:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+  .btn svg { width: 14px; height: 14px; stroke: currentColor; flex-shrink: 0; }
+  .btn.btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+  .btn.btn-ghost:hover { background: var(--ink); color: white; }
+
+  /* ─── Red label badges ─────────────────────────────── */
+  .label {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize005); /* 10px */
+    font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em;
+    padding: 3px 7px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .label.gray {
+    background: transparent;
+    color: var(--red);
+    padding: 0;
+    border: none;
+  }
+
+  /* ─── DNA step block (was hero, now smaller) ──────── */
+  .dna-step {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    margin-top: 16px;
+  }
+  @media (max-width: 780px) { .dna-step { grid-template-columns: 1fr; } }
+  .dna-step .dna-body p {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize035); /* 17px */
+    line-height: var(--fontLineHeight040);
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .dna-tags {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 16px 20px;
+    background: var(--paper-tint);
+    border-left: 3px solid var(--red);
+  }
+  .dna-tag-item h5 {
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize005);
+    font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 2px;
+  }
+  .dna-tag-item p {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize020);
+    color: var(--ink-soft);
+    margin: 0;
+    line-height: var(--fontLineHeight040);
+  }
+
+  /* ─── Timeline ─────────────────────────────────────── */
+  .timeline-wrap {
+    border: 1px solid var(--rule);
+    padding: 24px;
+    overflow-x: auto;
+    margin-top: 24px;
+    background: var(--paper);
+  }
+  .timeline-wrap svg { display: block; width: 100%; height: auto; min-width: 900px; }
+
+  /* ─── Agents (3-column news layout) ─────────────── */
+  .agents {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 24px;
+  }
+  @media (max-width: 980px) { .agents { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 580px) { .agents { grid-template-columns: 1fr; } }
+
+  .agent-card {
+    /* button reset */
+    appearance: none;
+    -webkit-appearance: none;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    /* layout */
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    cursor: pointer;
+    position: relative;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    transition: border-color var(--motion-instant) var(--motion-easing),
+                background-color var(--motion-instant) var(--motion-easing);
+  }
+  .agent-card:hover {
+    border-color: var(--ink);
+    border-top-color: var(--accent);
+    background: var(--paper-tint);
+  }
+  .agent-card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+  }
+  .agent-card-body {
+    flex: 1;
+    padding: 20px 20px 12px;
+  }
+  .agent-card-action {
+    border-top: 1px solid var(--rule);
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize020);
+    font-weight: var(--fontWeight070);
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    transition: background-color var(--motion-instant) var(--motion-easing),
+                color var(--motion-instant) var(--motion-easing);
+  }
+  .agent-card:hover .agent-card-action {
+    background: var(--accent);
+    color: white;
+  }
+  .agent-card.is-open .agent-card-action {
+    background: var(--accent);
+    color: white;
+  }
+  .agent-card-action svg {
+    width: 16px; height: 16px;
+    stroke: currentColor;
+    flex-shrink: 0;
+    transition: transform var(--motion-fast) var(--motion-easing);
+  }
+  .agent-card.is-open .agent-card-action svg {
+    transform: rotate(180deg);
+  }
+  .agent-card[data-accent="prototyping"] { --accent: var(--agent-prototyping); }
+  .agent-card[data-accent="critique"] { --accent: var(--agent-critique); }
+  .agent-card[data-accent="handoff"] { --accent: var(--agent-handoff); }
+  .agent-card[data-accent="build"] { --accent: var(--agent-build); }
+
+  .agent-card .agent-eyebrow {
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize005); /* 10px */
+    font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .agent-card .agent-headline {
+    font-family: var(--fontFamily010);
+    font-size: var(--fontSize070); /* 24px */
+    font-weight: var(--fontWeight070);
+    line-height: var(--fontLineHeight020);
+    letter-spacing: -0.01em;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .agent-card .agent-name {
+    font-family: var(--mono);
+    font-size: var(--fontSize010); /* 12px */
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+  .agent-card .agent-summary {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+    line-height: var(--fontLineHeight040);
+    margin: 0;
+  }
+  .agent-card .agent-expand:before { content: '→ '; }
+
+  /* Agent panel (expand on click) */
+  .agent-panel {
+    grid-column: 1 / -1;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    background: var(--paper-tint);
+    padding: 32px;
+    margin-top: 8px;
+    display: none;
+  }
+  .agent-panel.open { display: block; }
+  .agent-panel h3 {
+    font-family: var(--fontFamily010);
+    font-size: var(--fontSize080); /* 28px */
+    font-weight: var(--fontWeight070);
+    margin-bottom: 8px;
+  }
+  .agent-panel .panel-sub {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize030); /* 16px */
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .agent-panel h4 {
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize005); /* 10px */
+    font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 20px 0 8px 0;
+  }
+  .agent-panel ul { list-style: none; }
+  .agent-panel ul li {
+    font-family: var(--fontFamily020);
+    padding: 4px 0;
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+  }
+  .agent-panel ul li code {
+    font-family: var(--mono);
+    font-size: 12px;
+    background: white;
+    padding: 2px 6px;
+    border: 1px solid var(--rule);
+  }
+  .prompt-block {
+    background: var(--ink);
+    color: #F0F0F0;
+    padding: 16px;
+    margin: 8px 0;
+    font-family: var(--mono);
+    font-size: var(--fontSize020); /* 14px */
+    position: relative;
+    line-height: var(--fontLineHeight040);
+  }
+  .prompt-block .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #F0F0F0;
+    padding: 6px 12px;
+    font-size: 11px;
+    cursor: pointer;
+    font-family: var(--rs);
+    transition: background-color var(--motion-instant) var(--motion-easing);
+  }
+  .prompt-block .copy-btn:hover { background: rgba(255,255,255,0.2); }
+  .prompt-block .copy-btn:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 1px;
+  }
+  .prompt-block .copy-btn.copied { background: var(--agent-build); border-color: var(--agent-build); }
+  .download-link {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 20px;
+    min-height: 44px;
+    background: var(--ink);
+    color: white;
+    text-decoration: none;
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize020); /* 14px */
+    font-weight: var(--fontWeight050);
+    line-height: 20px;
+    transition: background-color var(--motion-instant) var(--motion-easing);
+  }
+  .download-link:hover { background: var(--accent); }
+  .download-link:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: 3px;
+  }
+
+  /* ─── Skills (editorial list) ─────────────────────── */
+  .pillars {
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--ink);
+  }
+  .pillar-tab {
+    background: none;
+    border: none;
+    padding: 12px 24px;
+    min-height: 44px;
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color var(--motion-instant) var(--motion-easing),
+                border-color var(--motion-instant) var(--motion-easing);
+  }
+  .pillar-tab:hover { color: var(--ink); }
+  .pillar-tab:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: -2px;
+  }
+  .pillar-tab.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+    font-weight: 700;
+  }
+  .pillar-tab .count {
+    font-family: var(--mono);
+    font-size: var(--fontSize005); /* 10px */
+    color: var(--ink-faint);
+    margin-left: 6px;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  @media (max-width: 780px) { .skills-grid { grid-template-columns: 1fr; } }
+
+  .skill-row {
+    border-bottom: 1px solid var(--rule);
+    padding: 16px 24px 16px 0;
+    cursor: pointer;
+    transition: background-color var(--motion-instant) var(--motion-easing);
+  }
+  .skill-row:nth-child(2n) { padding-right: 0; padding-left: 24px; border-left: 1px solid var(--rule); }
+  .skill-row:hover { background: var(--paper-tint); }
+  .skill-row:focus-visible {
+    outline: 2px solid var(--red);
+    outline-offset: -2px;
+  }
+  .skill-row.hidden { display: none; }
+  .skill-row .skill-row-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 4px;
+  }
+  .skill-row .skill-name {
+    font-family: var(--mono);
+    font-size: var(--fontSize020); /* 14px */
+    font-weight: var(--fontWeight060);
+    color: var(--ink);
+  }
+  .skill-row .cadence {
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize005); /* 10px */
+    font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    color: var(--ink-soft);
+    background: var(--rule-faint);
+    flex-shrink: 0;
+  }
+  .skill-row .cadence.daily { background: #EFF6FF; color: #1E40AF; }
+  .skill-row .cadence.weekly { background: #FEF3C7; color: #B45309; }
+  .skill-row .cadence.monthly { background: #FCE7F3; color: #9D174D; }
+  .skill-row .cadence.on-demand { background: var(--rule-faint); color: var(--ink-soft); }
+  .skill-row .cadence.always { background: var(--ink); color: white; }
+  .skill-row .skill-desc {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+    line-height: var(--fontLineHeight040);
+  }
+  .skill-row .skill-detail {
+    display: none;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--rule);
+  }
+  .skill-row.open .skill-detail { display: block; }
+  .skill-row .skill-detail h5 {
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize005); /* 10px */
+    font-weight: var(--fontWeight070);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 8px 0 4px 0;
+  }
+  .skill-row .skill-detail p {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .skill-row .skill-detail .download-link {
+    margin-top: 8px;
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+
+  /* ─── Quick routes ─────────────────────────────────── */
+  .quick-routes {
+    background: var(--paper-tint);
+    border: 1px solid var(--rule);
+    padding: 32px;
+  }
+  .quick-routes h3 {
+    font-family: var(--fontFamily010);
+    font-size: var(--fontSize080); /* 28px */
+    margin-bottom: 6px;
+  }
+  .quick-routes .qr-sub {
+    font-family: var(--fontFamily020);
+    color: var(--ink-soft);
+    font-size: var(--fontSize025); /* 15px */
+    margin-bottom: 24px;
+  }
+  .quick-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 780px) { .quick-list { grid-template-columns: 1fr; } }
+  .quick-item {
+    padding: 16px 20px;
+    border: 1px solid var(--rule);
+    background: white;
+  }
+  .quick-item .qi-want {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize030); /* 16px */
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .quick-item .qi-go {
+    font-family: var(--fontFamily040);
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+  }
+  .quick-item .qi-go code {
+    font-family: var(--mono);
+    background: var(--rule-faint);
+    padding: 1px 6px;
+    font-size: var(--fontSize010); /* 12px */
+  }
+
+  /* ─── Footer ───────────────────────────────────────── */
+  footer {
+    margin-top: 96px;
+    padding-top: 32px;
+    border-top: 2px solid var(--ink);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  footer .footer-text {
+    font-family: var(--fontFamily020);
+    font-size: var(--fontSize020); /* 14px */
+    color: var(--ink-soft);
+    line-height: var(--fontLineHeight040);
+  }
+  footer .footer-channels {
+    display: flex;
+    gap: 6px;
+  }
+  footer .footer-channels span {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+  }
+  footer .footer-meta {
+    font-family: var(--mono);
+    font-size: var(--fontSize005); /* 10px */
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+</style>
+</head>
+<body>
+<h1 class="sr-only">The Design System Design Skills Portal: catalogue and tutorial for the design skills and agents.</h1>
+
+<div class="container">
+
+  <!-- Masthead -->
+  <div class="masthead">
+    <div class="date-strip" id="date-strip">Tuesday May 26 2026</div>
+    <a href="index.html" class="masthead-logo-link" aria-label="Back to home"><span class="masthead-logo masthead-wordmark" style="display:inline-block; font-family: Georgia, 'Brand New Roman', serif; font-weight:700; font-size:34px; letter-spacing:0.5px; line-height:1;">Design System</span></a>
+    <div class="masthead-channels" aria-label="Accent tiers">
+      <span style="background:#3B82F6" title="primary"></span>
+      <span style="background:#64748B" title="secondary"></span>
+      <span style="background:#8B5CF6" title="tertiary"></span>
+      <span style="background:#22C55E" title="success"></span>
+      <span style="background:#F59E0B" title="warning"></span>
+      <span style="background:#EF4444" title="error"></span>
+    </div>
+    <div class="masthead-sub">Design System &middot; Skills Portal &middot; for designers, design engineers, PMs and QA</div>
+  </div>
+
+  <!-- Nav -->
+  <nav class="channel-nav">
+    <a href="#dna" class="active"><span class="nav-step">Step 01</span><span class="nav-bullet">&bull;</span>Start</a>
+    <a href="#agents"><span class="nav-step">Step 02</span><span class="nav-bullet">&bull;</span>Pick</a>
+    <a href="#workflow"><span class="nav-step">Step 03</span><span class="nav-bullet">&bull;</span>Flow</a>
+    <a href="#skills"><span class="nav-step">Step 04</span><span class="nav-bullet">&bull;</span>Skills</a>
+    <a href="#quick"><span class="nav-step">Step 05</span><span class="nav-bullet">&bull;</span>Prompts</a>
+    <a href="#learn-more"><span class="nav-step">Step 06</span><span class="nav-bullet">&bull;</span>Learn</a>
+    <a href="../GUIDE.md" class="download-link-nav" download="GUIDE.md" title="Download GUIDE.md">
+      Onboarding
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 12l6 6 6-6"/><path d="M5 20h14"/></svg>
+    </a>
+    <a href="../README.md" class="download-link-nav" download="README.md" title="Download the design suite README">
+      Proposal
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 12l6 6 6-6"/><path d="M5 20h14"/></svg>
+    </a>
+  </nav>
+
+  <!-- Step 01: DNA -->
+  <section id="dna">
+    <span class="step-num">Step 01 &middot; Start here</span>
+    <h2>Read the Design DNA.</h2>
+    <p class="section-lede">The foundation every agent loads first. Brand, channels, tokens, voice, motion. Ten minutes to read, gives every later output its grounding.</p>
+    <div class="dna-step">
+      <div class="dna-body">
+        <p>The DNA captures who your brand is in skill form. It is short enough to read in one sitting and acts as the preamble every other skill loads before producing anything. If a finding ever feels generic, it is because this file hasn't loaded.</p>
+        <a class="btn" href="../foundation/design-dna.md" download="design-dna.md">
+          Download the DNA
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v12"/><path d="M6 12l6 6 6-6"/><path d="M5 20h14"/></svg>
+        </a>
+      </div>
+      <div class="dna-tags">
+        <div class="dna-tag-item">
+          <h5>Voice</h5>
+          <p>British English, plain English, active voice. No em dashes.</p>
+        </div>
+        <div class="dna-tag-item">
+          <h5>Channels</h5>
+          <p>Eleven channels, set at section level. Never on a component.</p>
+        </div>
+        <div class="dna-tag-item">
+          <h5>Tokens</h5>
+          <p>Foundation &rarr; Palette &rarr; Semantic. Components consume semantic only.</p>
+        </div>
+        <div class="dna-tag-item">
+          <h5>Motion</h5>
+          <p>Fast, calm easings, reduced motion by default. No spring physics.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 02: Agents -->
+  <section id="agents">
+    <span class="step-num">Step 02 &middot; Pick your phase</span>
+    <h2>Choose an agent.</h2>
+    <p class="section-lede">Four entry points, ordered by where you are in the design lifecycle. Click a card to expand and see example prompts you can copy-paste straight into Claude, Cursor or Codex.</p>
+    <div class="agents" id="agents-grid"></div>
+  </section>
+
+  <!-- Step 03: Workflow timeline -->
+  <section id="workflow">
+    <span class="step-num">Step 03 &middot; See the full flow</span>
+    <h2>The workflow at a glance.</h2>
+    <p class="section-lede">Read it left to right. Each agent owns a moment in the lifecycle. The DNA sits underneath all of it.</p>
+    <div class="timeline-wrap" id="timeline-container"></div>
+  </section>
+
+  <!-- Step 04: Skills -->
+  <section id="skills">
+    <span class="step-num">Step 04 &middot; Browse the building blocks</span>
+    <h2>Look up a specific skill.</h2>
+    <p class="section-lede">Skills are the small, focused files each agent composes. Most of the time you call agents, not skills, but every skill is a real file you can read or call directly.</p>
+    <div class="pillars" id="pillars">
+      <button class="pillar-tab active" data-pillar="all">All <span class="count">(32)</span></button>
+      <button class="pillar-tab" data-pillar="foundation">Foundation <span class="count">(6)</span></button>
+      <button class="pillar-tab" data-pillar="ui">UI <span class="count">(10)</span></button>
+      <button class="pillar-tab" data-pillar="ux">UX <span class="count">(5)</span></button>
+      <button class="pillar-tab" data-pillar="handoff">Handoff <span class="count">(7)</span></button>
+      <button class="pillar-tab" data-pillar="motion">Motion <span class="count">(3)</span></button>
+      <button class="pillar-tab" data-pillar="corpus">Corpus <span class="count">(1)</span></button>
+    </div>
+    <div class="skills-grid" id="skills-grid"></div>
+  </section>
+
+  <!-- Step 05: Quick routes -->
+  <section id="quick">
+    <span class="step-num">Step 05 &middot; Common starting prompts</span>
+    <h2>"I want to..."</h2>
+    <p class="section-lede">Common starting points, mapped to the right agent and the right prompt.</p>
+    <div class="quick-list" id="quick-list"></div>
+  </section>
+
+  <!-- Step 06: How to use -->
+  <section id="learn-more">
+    <span class="step-num">Step 06 &middot; Learn more</span>
+    <h2>Read the full guide.</h2>
+    <p class="section-lede">Setting up the Figma MCP connection, what skills and agents really are, and how to use them day to day. Written for teammates who aren't AI-native.</p>
+    <a class="btn" href="how-to-use.html">
+      Read the guide
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>
+    </a>
+  </section>
+
+  <footer>
+    <div class="footer-text">
+      <strong>The Design System</strong><br>
+      Design Skills Portal &middot; v0.1 &middot; Built for designers, design engineers, PMs and QA.
+    </div>
+    <div class="footer-channels" title="The eleven channels">
+      <span style="background:#135DCB" title="home"></span>
+      <span style="background:#00787C" title="world"></span>
+      <span style="background:#58A385" title="money"></span>
+      <span style="background:#9B1F45" title="comment"></span>
+      <span style="background:#21709C" title="business"></span>
+      <span style="background:#007A3F" title="sport"></span>
+      <span style="background:#2c79ad" title="travel"></span>
+      <span style="background:#DF7334" title="puzzle"></span>
+      <span style="background:#942364" title="culture"></span>
+      <span style="background:#6c6c69" title="obituaries"></span>
+      <span style="background:#0f3d38" title="ireland"></span>
+    </div>
+    <div class="footer-meta">
+      4 AGENTS &middot; 19 SKILLS &middot; v0.1
+    </div>
+  </footer>
+
+</div>
+
+<script>
+// Set today's date in brand style
+const today = new Date();
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const dateEl = document.getElementById('date-strip');
+if (dateEl) dateEl.textContent = `${days[today.getDay()]} ${months[today.getMonth()]} ${today.getDate()} ${today.getFullYear()}`;
+
+const AGENTS = [
+  {
+    id: 'prototyping',
+    name: 'prototyping-agent',
+    eyebrow: 'Idea phase',
+    headline: '"Think out loud with me."',
+    summary: 'Fast and conversational. Loads the DNA, helps you sanity-check tokens, channels, motion. Read-only.',
+    mdPath: '../agents/prototyping-agent.md',
+    skills: ['foundation/design-dna', 'ui/token-mapping-audit', 'motion/motion-tokens', 'motion/interaction-patterns', 'ui/state-matrix'],
+    prompts: [
+      "I'm prototyping a callout card for the Comment section. What surface token should I use?",
+      "I want a hover effect on a story card. What's the standard?",
+      "I'm prototyping a redesign of the homepage hero. Quick thoughts?"
+    ],
+    output: 'Conversation only. Optionally PROTOTYPE_BRIEF.md if you ask.'
+  },
+  {
+    id: 'critique',
+    name: 'critique-agent',
+    eyebrow: 'Iterating phase',
+    headline: '"Is this any good?"',
+    summary: 'Runs visual, a11y, content and parity checks in parallel. Returns one consolidated report.',
+    mdPath: '../agents/critique-agent.md',
+    skills: ['foundation/design-dna', 'ui/design-critique', 'ui/a11y-check', 'ui/content-style-check', 'ui/light-dark-parity'],
+    prompts: [
+      "Critique the comments-modal design at <figma url>",
+      "Just check accessibility and content on this frame: <url>",
+      "Critique <feature> in light and dark"
+    ],
+    output: 'CRITIQUE_REPORT.md plus the four underlying check files. Read-only.'
+  },
+  {
+    id: 'handoff',
+    name: 'handoff-agent',
+    eyebrow: 'Ready to ship',
+    headline: '"Ready for engineering."',
+    summary: 'Drives the full pipeline. Pauses for confirmation. Ends with PACKET.md ready to attach to a ticket.',
+    mdPath: '../agents/handoff-agent.md',
+    skills: ['foundation/design-dna', 'ui/token-mapping-audit', 'ui/state-matrix', 'ui/channel-context', 'ui/a11y-check', 'ui/content-style-check', 'ui/light-dark-parity', 'handoff/frame-to-spec', 'handoff/spec-packet'],
+    prompts: [
+      "Hand off the comments-modal feature, Figma light at <url>, dark at <url>, channel comment, ticket COM-412",
+      "Run handoff for <feature>, light frame only",
+      "Re-run handoff for <feature>, skip critique this time"
+    ],
+    output: 'Full .design/<feature>/ folder ending in PACKET.md plus INDEX.md.'
+  },
+  {
+    id: 'build',
+    name: 'build-agent',
+    eyebrow: 'Build & verify',
+    headline: '"Now write the code."',
+    summary: 'The only agent that writes code. Three explicit gates. Dry-run by default. Refuses to overwrite.',
+    mdPath: '../agents/build-agent.md',
+    skills: ['foundation/design-dna', 'handoff/component-scaffold', 'handoff/code-connect-stub', 'ui/visual-vs-built'],
+    prompts: [
+      "Build the CommentsModal component from the comments-modal packet, Storybook at http://localhost:9001",
+      "Dry-run the scaffold for CommentsModal from comments-modal packet",
+      "Compare the Button Figma frame to the Storybook story at <url>"
+    ],
+    output: '7 scaffolded files + 1 .figma.tsx + diff + BUILD_REPORT.md.'
+  }
+];
+
+const SKILLS = [
+  { name: 'design-router', pillar: 'foundation', cadence: 'always', desc: 'The single /design entry point. Classifies intent and composes the right skills.', mdPath: '../design-router.md', usedBy: ['/design entry'] },
+  { name: 'design-dna', pillar: 'foundation', cadence: 'always', desc: 'Who your brand is, in skill form. Loaded by every agent before anything else.', mdPath: '../foundation/design-dna.md', usedBy: ['all agents'] },
+  { name: 'design-rules', pillar: 'foundation', cadence: 'daily', desc: 'The 56-rule DS rule set, 8 categories. Backs the 0-100 critique score.', mdPath: '../foundation/design-rules.md', usedBy: ['design-critique', 'monthly-audit'] },
+  { name: 'corpus-guide', pillar: 'foundation', cadence: 'on-demand', desc: 'Citation contract for the design corpus. Authority ladder and versioned evidence.', mdPath: '../foundation/corpus-guide.md', usedBy: ['ux skills', 'design-critique'] },
+  { name: 'sandbox-runs', pillar: 'foundation', cadence: 'always', desc: 'Every generation lands in its own immutable, dated run folder with a manifest.', mdPath: '../foundation/sandbox-runs.md', usedBy: ['all generating paths'] },
+  { name: 'brand-assets', pillar: 'foundation', cadence: 'always', desc: 'Your brand marks from brand-logos/. Always the file, never retype the wordmark.', mdPath: '../foundation/brand-assets.md', usedBy: ['all generating paths'] },
+  { name: 'design-critique', pillar: 'ui', cadence: 'daily', desc: 'Scored critique against the rule set. Rule IDs, 0-100 with per-category subscores.', mdPath: '../ui/design-critique.md', usedBy: ['critique-agent'] },
+  { name: 'a11y-check', pillar: 'ui', cadence: 'daily', desc: 'Design-time accessibility audit. Contrast, hit target, focus, alt text.', mdPath: '../ui/a11y-check.md', usedBy: ['critique-agent', 'handoff-agent'] },
+  { name: 'content-style-check', pillar: 'ui', cadence: 'daily', desc: 'Copy review against the content styleguide. Em dashes, brand names, voice.', mdPath: '../ui/content-style-check.md', usedBy: ['critique-agent', 'handoff-agent'] },
+  { name: 'token-mapping-audit', pillar: 'ui', cadence: 'daily', desc: 'List every value in a frame, map to tokens, flag unmapped and legacy bindings.', mdPath: '../ui/token-mapping-audit.md', usedBy: ['prototyping-agent', 'handoff-agent'] },
+  { name: 'state-matrix', pillar: 'ui', cadence: 'daily', desc: 'Full grid of interactive states with token differentiators.', mdPath: '../ui/state-matrix.md', usedBy: ['prototyping-agent', 'handoff-agent'] },
+  { name: 'channel-context', pillar: 'ui', cadence: 'on-demand', desc: 'Validate channel colour usage. Catches cross-channel mixing.', mdPath: '../ui/channel-context.md', usedBy: ['handoff-agent'] },
+  { name: 'light-dark-parity', pillar: 'ui', cadence: 'weekly', desc: 'Compare light and dark frames. Catches missing siblings and value drift.', mdPath: '../ui/light-dark-parity.md', usedBy: ['critique-agent', 'handoff-agent'] },
+  { name: 'motion-review', pillar: 'ui', cadence: 'weekly', desc: 'Score motion against DS standards. Durations, easings, reduced-motion.', mdPath: '../ui/motion-review.md', usedBy: ['critique-agent'] },
+  { name: 'visual-vs-built', pillar: 'ui', cadence: 'weekly', desc: 'Compare Figma frame to live Storybook story. Structured diff.', mdPath: '../ui/visual-vs-built.md', usedBy: ['build-agent'] },
+  { name: 'monthly-audit', pillar: 'ui', cadence: 'monthly', desc: 'Roll-up of every finding and score across the month. Trends and known drift.', mdPath: '../ui/monthly-audit.md', usedBy: ['cadence-agent (scheduled)'] },
+  { name: 'experience-principles', pillar: 'ux', cadence: 'daily', desc: 'Journey-level principles: modality, disclosure, states, subscription dignity.', mdPath: '../ux/experience-principles.md', usedBy: ['flow-design', 'pattern-library', 'page-templates'] },
+  { name: 'flow-design', pillar: 'ux', cadence: 'weekly', desc: 'Brief to designed flow: screens, states, decisions, grounded in prior art.', mdPath: '../ux/flow-design.md', usedBy: ['new-experience route'] },
+  { name: 'pattern-library', pillar: 'ux', cadence: 'weekly', desc: 'Brand experience patterns: lists, article anatomy, paywall, live-updating.', mdPath: '../ux/pattern-library.md', usedBy: ['flow-design'] },
+  { name: 'page-templates', pillar: 'ux', cadence: 'weekly', desc: 'Page layouts on the DS grid: article, section front, account, puzzle hub.', mdPath: '../ux/page-templates.md', usedBy: ['flow-design'] },
+  { name: 'microcopy', pillar: 'ux', cadence: 'weekly', desc: 'Author interface copy in the brand voice. Buttons, errors, empty states.', mdPath: '../ux/microcopy.md', usedBy: ['content-style-check'] },
+  { name: 'frame-to-spec', pillar: 'handoff', cadence: 'daily', desc: 'Figma frame to a complete developer spec. The flagship handoff skill.', mdPath: '../handoff/frame-to-spec.md', usedBy: ['handoff-agent'] },
+  { name: 'spec-packet', pillar: 'handoff', cadence: 'weekly', desc: 'Bundle every upstream output into one ticket-attachable PACKET.md.', mdPath: '../handoff/spec-packet.md', usedBy: ['handoff-agent'] },
+  { name: 'handoff-flow', pillar: 'handoff', cadence: 'on-demand', desc: 'The underlying orchestrator the handoff-agent drives.', mdPath: '../handoff/handoff-flow.md', usedBy: ['handoff-agent'] },
+  { name: 'component-scaffold', pillar: 'handoff', cadence: 'weekly', desc: 'Scaffold the React component, story, docs, changelog from a packet.', mdPath: '../handoff/component-scaffold.md', usedBy: ['build-agent'] },
+  { name: 'code-connect-stub', pillar: 'handoff', cadence: 'weekly', desc: 'Generate the .figma.tsx Code Connect file.', mdPath: '../handoff/code-connect-stub.md', usedBy: ['build-agent'] },
+  { name: 'stack-convert', pillar: 'handoff', cadence: 'on-demand', desc: 'Convert an AI prototype, HTML page, screenshot or frame into production code for one stack.', mdPath: '../handoff/stack-convert.md', usedBy: ['/engineer-start'] },
+  { name: 'dev-spec', pillar: 'handoff', cadence: 'always', desc: 'DEV-SPEC.html: the engineer quick view written beside every generated screen. Components, tokens, statuses, target surface.', mdPath: '../handoff/dev-spec.md', usedBy: ['all generating paths', '/engineer-start'] },
+  { name: 'motion-tokens', pillar: 'motion', cadence: 'daily', desc: 'Lookup for duration, easing and named transition tokens. Scaffolded.', mdPath: '../motion/motion-tokens.md', usedBy: ['prototyping-agent'] },
+  { name: 'interaction-patterns', pillar: 'motion', cadence: 'weekly', desc: 'Named patterns (modal-open, toast-appear, sheet-drag, etc). Scaffolded.', mdPath: '../motion/interaction-patterns.md', usedBy: ['prototyping-agent'] },
+  { name: 'prototype-spec', pillar: 'motion', cadence: 'on-demand', desc: 'Extract motion details from a Figma prototype with smart animate.', mdPath: '../motion/prototype-spec.md', usedBy: ['handoff-agent'] },
+  { name: 'distill-corpus', pillar: 'corpus', cadence: 'on-demand', desc: 'Turn product screenshots into versioned design knowledge and rule candidates.', mdPath: '../corpus/distill-corpus.md', usedBy: ['corpus route'] }
+];
+
+const QUICK_ROUTES = [
+  { want: 'sanity-check a token choice', go: 'Use <code>prototyping-agent</code>. "What surface token for a comment callout card?"' },
+  { want: 'see if my design is any good', go: 'Use <code>critique-agent</code>. "Critique the design at &lt;figma-url&gt;"' },
+  { want: 'hand a design to engineering', go: 'Use <code>handoff-agent</code>. "Hand off the &lt;feature&gt; feature, light &lt;url&gt;, dark &lt;url&gt;"' },
+  { want: 'just check accessibility', go: 'Use <code>critique-agent</code> with focus. "Check accessibility on &lt;url&gt;"' },
+  { want: 'just check copy and content', go: 'Use <code>critique-agent</code> with focus. "Check the copy in &lt;url&gt;"' },
+  { want: 'scaffold a new component', go: 'Use <code>build-agent</code>. "Build &lt;ComponentName&gt; from the &lt;feature&gt; packet"' },
+  { want: 'verify the built component matches Figma', go: 'Use <code>build-agent</code>. "Compare &lt;component&gt; Figma to Storybook story at &lt;url&gt;"' },
+  { want: 'design a new experience we do not have yet', go: 'Run <code>/design</code> and describe it. The router sends it to <code>flow-design</code> in the UX pillar.' },
+  { want: 'teach the system how your brand designs', go: 'Drop screenshots in <code>design-corpus/raw/inbox/</code>, then run <code>distill-corpus</code>.' },
+  { want: 'learn how your brand does design', go: 'Read the <code>design-dna</code> skill, or ask any agent "explain the Design DNA"' }
+];
+
+// Render agents
+const agentsGrid = document.getElementById('agents-grid');
+AGENTS.forEach(agent => {
+  const card = document.createElement('button');
+  card.type = 'button';
+  card.className = 'agent-card';
+  card.dataset.accent = agent.id;
+  card.dataset.agentId = agent.id;
+  card.setAttribute('aria-expanded', 'false');
+  card.innerHTML = `
+    <div class="agent-card-body">
+      <div class="agent-eyebrow">${agent.eyebrow}</div>
+      <div class="agent-headline">${agent.headline}</div>
+      <div class="agent-name">${agent.name}</div>
+      <div class="agent-summary">${agent.summary}</div>
+    </div>
+    <div class="agent-card-action">
+      <span>See prompts and details</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  `;
+  card.addEventListener('click', () => toggleAgent(agent.id));
+  agentsGrid.appendChild(card);
+});
+
+function toggleAgent(id) {
+  const allCards = document.querySelectorAll('.agent-card');
+  const existing = document.querySelector('.agent-panel');
+  const wasOpen = existing && existing.dataset.agentId === id;
+  if (existing) existing.remove();
+  allCards.forEach(c => { c.classList.remove('is-open'); c.setAttribute('aria-expanded', 'false'); });
+  if (wasOpen) return;
+  const clickedCard = document.querySelector(`.agent-card[data-agent-id="${id}"]`);
+  if (clickedCard) {
+    clickedCard.classList.add('is-open');
+    clickedCard.setAttribute('aria-expanded', 'true');
+  }
+
+  const agent = AGENTS.find(a => a.id === id);
+  const panel = document.createElement('div');
+  panel.className = 'agent-panel open';
+  panel.style.setProperty('--accent', `var(--agent-${id})`);
+  panel.style.borderLeftColor = `var(--agent-${id})`;
+  panel.dataset.agentId = id;
+
+  const skillsList = agent.skills.map(s => `<li><code>${s}</code></li>`).join('');
+  const promptsHtml = agent.prompts.map(p => `
+    <div class="prompt-block">
+      <span class="prompt-text">${escapeHtml(p)}</span>
+      <button class="copy-btn" data-prompt="${escapeHtml(p)}">Copy</button>
+    </div>
+  `).join('');
+
+  panel.innerHTML = `
+    <h3>${agent.name}</h3>
+    <p class="panel-sub">${agent.summary}</p>
+    <h4>Skills composed</h4>
+    <ul>${skillsList}</ul>
+    <h4>Example prompts</h4>
+    ${promptsHtml}
+    <h4>What you get</h4>
+    <p style="font-family:var(--td);font-size:14px;color:var(--ink-soft);margin-bottom:8px;">${agent.output}</p>
+    <a class="download-link" href="${agent.mdPath}" download>Download ${agent.name}.md</a>
+  `;
+
+  agentsGrid.appendChild(panel);
+
+  panel.querySelectorAll('.copy-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const text = btn.dataset.prompt;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+      });
+    });
+  });
+
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Render skills
+const skillsGrid = document.getElementById('skills-grid');
+function renderSkills(filter) {
+  skillsGrid.innerHTML = '';
+  const filtered = filter === 'all' ? SKILLS : SKILLS.filter(s => s.pillar === filter);
+  filtered.forEach(skill => {
+    const row = document.createElement('div');
+    row.className = 'skill-row';
+    row.dataset.name = skill.name.toLowerCase();
+    row.dataset.desc = skill.desc.toLowerCase();
+    const usedByHtml = skill.usedBy.map(u => `<code>${u}</code>`).join(', ');
+    row.innerHTML = `
+      <div class="skill-row-head">
+        <span class="skill-name">${skill.name}</span>
+        <span class="cadence ${skill.cadence}">${skill.cadence}</span>
+      </div>
+      <div class="skill-desc">${skill.desc}</div>
+      <div class="skill-detail">
+        <h5>Pillar</h5>
+        <p>${skill.pillar}</p>
+        <h5>Used by</h5>
+        <p>${usedByHtml}</p>
+        <a class="download-link" href="${skill.mdPath}" download>Download ${skill.name}.md</a>
+      </div>
+    `;
+    row.addEventListener('click', () => row.classList.toggle('open'));
+    skillsGrid.appendChild(row);
+  });
+}
+renderSkills('all');
+
+document.querySelectorAll('.pillar-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.pillar-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderSkills(tab.dataset.pillar);
+  });
+});
+
+const quickList = document.getElementById('quick-list');
+QUICK_ROUTES.forEach(qr => {
+  const item = document.createElement('div');
+  item.className = 'quick-item';
+  item.innerHTML = `
+    <div class="qi-want">"...${qr.want}"</div>
+    <div class="qi-go">${qr.go}</div>
+  `;
+  quickList.appendChild(item);
+});
+
+// Active nav state on scroll
+const navLinks = document.querySelectorAll('nav.channel-nav a[href^="#"]');
+const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+window.addEventListener('scroll', () => {
+  const scrollPos = window.scrollY + 150;
+  let active = sections[0];
+  sections.forEach(s => { if (s && s.offsetTop <= scrollPos) active = s; });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + (active && active.id)));
+});
+
+// Insert the timeline SVG
+const timelineContainer = document.getElementById('timeline-container');
+timelineContainer.innerHTML = `<svg viewBox="0 0 1100 600" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Workflow timeline">
+  <defs>
+    <marker id="p-ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9CA3AF"/></marker>
+  </defs>
+  <text x="60" y="40" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" fill="#1A1A1A">Design Workflow</text>
+  <text x="60" y="64" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="15" font-style="italic" fill="#767676">How to design in this system, in four moves.</text>
+  <line x1="290" y1="100" x2="290" y2="470" stroke="#F3F4F6" stroke-width="1"/>
+  <line x1="540" y1="100" x2="540" y2="470" stroke="#F3F4F6" stroke-width="1"/>
+  <line x1="790" y1="100" x2="790" y2="470" stroke="#F3F4F6" stroke-width="1"/>
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#9CA3AF" letter-spacing="0.1em">
+    <text x="60" y="125">WHEN</text>
+    <text x="60" y="195">AGENT</text>
+    <text x="60" y="320">WHY</text>
+    <text x="60" y="400">OUTPUT</text>
+    <text x="60" y="505">FOUNDATION</text>
+  </g>
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#4B5563">
+    <text x="200" y="125" text-anchor="middle">Idea</text>
+    <text x="415" y="125" text-anchor="middle">Iterating</text>
+    <text x="665" y="125" text-anchor="middle">Ready to ship</text>
+    <text x="915" y="125" text-anchor="middle">Build &amp; verify</text>
+  </g>
+  <line x1="170" y1="140" x2="1040" y2="140" stroke="#DDDDDD" stroke-width="1"/>
+  <circle cx="200" cy="140" r="3" fill="#D1D5DB"/>
+  <circle cx="415" cy="140" r="3" fill="#D1D5DB"/>
+  <circle cx="665" cy="140" r="3" fill="#D1D5DB"/>
+  <circle cx="915" cy="140" r="3" fill="#D1D5DB"/>
+  <rect x="135" y="170" width="130" height="58" rx="8" fill="#FFF4E6" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="200" y="195" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#92400E">prototyping</text>
+  <text x="200" y="213" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-style="italic" font-size="11" fill="#92400E">"think out loud"</text>
+  <rect x="350" y="170" width="130" height="58" rx="8" fill="#FEF3F2" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="415" y="195" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#991B1B">critique</text>
+  <text x="415" y="213" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-style="italic" font-size="11" fill="#991B1B">"is this good?"</text>
+  <rect x="600" y="170" width="130" height="58" rx="8" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="665" y="195" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#1E40AF">handoff</text>
+  <text x="665" y="213" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-style="italic" font-size="11" fill="#1E40AF">"ready for eng"</text>
+  <rect x="850" y="170" width="130" height="58" rx="8" fill="#ECFDF5" stroke="#10B981" stroke-width="1.5"/>
+  <text x="915" y="195" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" font-weight="700" fill="#065F46">build</text>
+  <text x="915" y="213" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-style="italic" font-size="11" fill="#065F46">"write the code"</text>
+  <line x1="270" y1="199" x2="345" y2="199" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#p-ar)"/>
+  <line x1="485" y1="199" x2="595" y2="199" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#p-ar)"/>
+  <line x1="735" y1="199" x2="845" y2="199" stroke="#9CA3AF" stroke-width="1.5" marker-end="url(#p-ar)"/>
+  <g font-family="Inter, system-ui, -apple-system, sans-serif" font-size="13" fill="#374151">
+    <text x="200" y="290" text-anchor="middle">Explore options</text>
+    <text x="200" y="308" text-anchor="middle">against DS rules.</text>
+    <text x="415" y="290" text-anchor="middle">Catch issues before</text>
+    <text x="415" y="308" text-anchor="middle">engineering sees it.</text>
+    <text x="665" y="290" text-anchor="middle">Package design into a</text>
+    <text x="665" y="308" text-anchor="middle">no-question spec.</text>
+    <text x="915" y="290" text-anchor="middle">Scaffold the code,</text>
+    <text x="915" y="308" text-anchor="middle">verify against Figma.</text>
+  </g>
+  <g font-family="ui-monospace, monospace" font-size="11" fill="#4B5563">
+    <rect x="140" y="378" width="120" height="32" rx="4" fill="white" stroke="#DDDDDD"/>
+    <text x="200" y="398" text-anchor="middle">conversation</text>
+    <rect x="355" y="378" width="120" height="32" rx="4" fill="white" stroke="#DDDDDD"/>
+    <text x="415" y="398" text-anchor="middle">CRITIQUE_REPORT.md</text>
+    <rect x="605" y="378" width="120" height="32" rx="4" fill="white" stroke="#DDDDDD"/>
+    <text x="665" y="398" text-anchor="middle">PACKET.md + folder</text>
+    <rect x="855" y="378" width="120" height="32" rx="4" fill="white" stroke="#DDDDDD"/>
+    <text x="915" y="398" text-anchor="middle">7 files + diff</text>
+  </g>
+  <g stroke="#DDDDDD" stroke-width="1" stroke-dasharray="2,3">
+    <line x1="200" y1="228" x2="200" y2="378"/>
+    <line x1="415" y1="228" x2="415" y2="378"/>
+    <line x1="665" y1="228" x2="665" y2="378"/>
+    <line x1="915" y1="228" x2="915" y2="378"/>
+  </g>
+  <rect x="135" y="465" width="845" height="60" rx="8" fill="#1A1A1A"/>
+  <text x="557" y="490" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">foundation/design-dna</text>
+  <text x="557" y="510" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-style="italic" font-size="13" fill="#D1D5DB">Brand, channels, tokens, voice, motion. Loaded by every agent.</text>
+  <text x="60" y="570" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="11" fill="#767676"><tspan font-weight="700">Also:</tspan> <tspan font-family="ui-monospace, monospace" font-size="10" fill="#1A1A1A">monthly-audit</tspan> runs on its own schedule (first working day of the month).</text>
+</svg>`;
+
+function escapeHtml(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+</script>
+</body>
+</html>

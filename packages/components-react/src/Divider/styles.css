@@ -1,0 +1,36 @@
+/* Divider component styles using design tokens */
+
+.ds-divider {
+  box-sizing: content-box;
+  border: 0;
+  border-top: 1px;
+  border-style: solid;
+  border-color: var(--border-primary);
+  flex-shrink: 0;
+  height: 0;
+  width: 100%;
+}
+
+.ds-divider.ds-divider--dashed {
+  border-style: dashed;
+}
+
+/* Vertical */
+.ds-divider--vertical {
+  width: 0;
+  height: 100%;
+  align-self: stretch;
+  border-top: none;
+  border-left: 1px;
+  border-style: solid;
+}
+
+/* Padding — gutter spacing around the line (mirrors Figma padding=true) */
+.ds-divider--horizontal.ds-divider--padding {
+  margin-block: var(--spacing-13);
+}
+
+.ds-divider--vertical.ds-divider--padding {
+  margin-inline: var(--spacing-13);
+  margin-block: 0;
+}

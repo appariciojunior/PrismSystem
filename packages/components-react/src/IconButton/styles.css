@@ -1,0 +1,21 @@
+.ds-icon-button--size-small {
+  width: var(--spacing-15);
+  height: var(--spacing-15);
+  padding: var(--spacing-04);
+}
+
+.ds-icon-button--size-medium {
+  width: var(--spacing-18);
+  height: var(--spacing-18);
+  padding: var(--spacing-07);
+}
+
+.ds-icon-button--size-large {
+  width: var(--spacing-20);
+  height: var(--spacing-20);
+  padding: var(--spacing-10);
+}
+
+.ds-icon-button--round.ds-button {
+  border-radius: calc(var(--border-radius-full, 9999) * 1px);
+}

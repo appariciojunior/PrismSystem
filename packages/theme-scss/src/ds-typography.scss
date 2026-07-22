@@ -1,0 +1,578 @@
+$fontSize0025: 0.8rem;
+$fontSize005: 1rem;
+$fontSize010: 1.2rem;
+$fontSize020: 1.4rem;
+$fontSize025: 1.5008rem;
+$fontSize030: 1.6rem;
+$fontSize035: 1.7008rem;
+$fontSize040: 1.8rem;
+$fontSize045: 1.9008rem;
+$fontSize050: 2rem;
+$fontSize060: 2.2rem;
+$fontSize070: 2.4rem;
+$fontSize080: 2.8rem;
+$fontSize090: 3.2rem;
+$fontSize095: 3.4rem;
+$fontSize100: 3.6rem;
+$fontSize105: 4.6rem;
+$fontSize110: 4rem;
+$fontSize120: 4.4rem;
+$fontSize125: 4.5008rem;
+$fontSize130: 4.8rem;
+$fontSize140: 5.6rem;
+$fontSize150: 6.4rem;
+$fontSize155: 7rem;
+$fontSize160: 8rem;
+$fontSize170: 9.4rem;
+$fontSize180: 12rem;
+$fontSize190: 14.5008rem;
+$fontSize200: 17.1008rem;
+$fontSize210: 19.7008rem;
+$fontSize220: 22.3008rem;
+$fontSize230: 24.8rem;
+$fontSize240: 27.4rem;
+$fontSize250: 30rem;
+$fontWeight010: 100;
+$fontWeight020: 200;
+$fontWeight030: 300;
+$fontWeight040: 400;
+$fontWeight050: 500;
+$fontWeight060: 600;
+$fontWeight070: 700;
+$fontWeight080: 800;
+$fontWeight090: 900;
+$fontFamily010: Inter, system-ui, -apple-system, sans-serif;
+$fontFamily020: Inter, system-ui, -apple-system, sans-serif;
+$fontFamily030: Inter, system-ui, -apple-system, sans-serif;
+$fontFamily040: Inter, system-ui, -apple-system, sans-serif;
+$fontLineHeight010: 1;
+$fontLineHeight020: 1.125;
+$fontLineHeight030: 1.25;
+$fontLineHeight040: 1.5;
+$fontLineHeight050: 1.75;
+$fontLineHeight060: 2;
+    
+@mixin brand-heading-fluid-light-2xsmall {
+  font: $fontWeight030 #{$fontSize045}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-light-xsmall {
+  font: $fontWeight030 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-light-small {
+  font: $fontWeight030 #{$fontSize070}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-light-medium {
+  font: $fontWeight030 #{$fontSize080}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-light-large {
+  font: $fontWeight030 #{$fontSize090}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-light-xlarge {
+  font: $fontWeight030 #{$fontSize095}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-light-2xlarge {
+  font: $fontWeight030 #{$fontSize100}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-regular-2xsmall {
+  font: $fontWeight040 #{$fontSize045}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-regular-xsmall {
+  font: $fontWeight040 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-regular-small {
+  font: $fontWeight040 #{$fontSize070}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-regular-medium {
+  font: $fontWeight040 #{$fontSize080}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-regular-large {
+  font: $fontWeight040 #{$fontSize090}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-regular-xlarge {
+  font: $fontWeight040 #{$fontSize095}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-regular-2xlarge {
+  font: $fontWeight040 #{$fontSize100}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-bold-2xsmall {
+  font: $fontWeight070 #{$fontSize045}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-bold-xsmall {
+  font: $fontWeight070 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-bold-small {
+  font: $fontWeight070 #{$fontSize070}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-bold-medium {
+  font: $fontWeight070 #{$fontSize080}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-bold-large {
+  font: $fontWeight070 #{$fontSize090}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-bold-xlarge {
+  font: $fontWeight070 #{$fontSize095}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-bold-2xlarge {
+  font: $fontWeight070 #{$fontSize100}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-black-2xsmall {
+  font: $fontWeight080 #{$fontSize045}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-black-xsmall {
+  font: $fontWeight080 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-black-small {
+  font: $fontWeight080 #{$fontSize070}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-black-medium {
+  font: $fontWeight080 #{$fontSize080}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-black-large {
+  font: $fontWeight080 #{$fontSize090}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-black-xlarge {
+  font: $fontWeight080 #{$fontSize095}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-fluid-black-2xlarge {
+  font: $fontWeight080 #{$fontSize100}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-100 {
+  font: $fontWeight030 56px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-010 {
+  font: $fontWeight030 19px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-020 {
+  font: $fontWeight030 20px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-030 {
+  font: $fontWeight030 24px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-040 {
+  font: $fontWeight030 28px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-050 {
+  font: $fontWeight030 32px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-060 {
+  font: $fontWeight030 36px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-070 {
+  font: $fontWeight030 40px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-080 {
+  font: $fontWeight030 46px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-light-090 {
+  font: $fontWeight030 48px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-100 {
+  font: $fontWeight040 56px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-010 {
+  font: $fontWeight040 19px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-020 {
+  font: $fontWeight040 20px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-030 {
+  font: $fontWeight040 24px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-040 {
+  font: $fontWeight040 28px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-050 {
+  font: $fontWeight040 32px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-060 {
+  font: $fontWeight040 36px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-070 {
+  font: $fontWeight040 40px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-080 {
+  font: $fontWeight040 46px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-regular-090 {
+  font: $fontWeight040 48px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-100 {
+  font: $fontWeight070 56px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-010 {
+  font: $fontWeight070 19px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-020 {
+  font: $fontWeight070 20px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-030 {
+  font: $fontWeight070 24px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-040 {
+  font: $fontWeight070 28px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-050 {
+  font: $fontWeight070 32px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-060 {
+  font: $fontWeight070 36px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-070 {
+  font: $fontWeight070 40px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-080 {
+  font: $fontWeight070 46px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-bold-090 {
+  font: $fontWeight070 48px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-100 {
+  font: $fontWeight080 56px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-010 {
+  font: $fontWeight080 19px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-020 {
+  font: $fontWeight080 20px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-030 {
+  font: $fontWeight080 24px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-040 {
+  font: $fontWeight080 28px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-050 {
+  font: $fontWeight080 32px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-060 {
+  font: $fontWeight080 36px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-070 {
+  font: $fontWeight080 40px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-080 {
+  font: $fontWeight080 46px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-heading-static-black-090 {
+  font: $fontWeight080 48px / #{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-light-small {
+  font: $fontWeight030 #{$fontSize020}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-light-medium {
+  font: $fontWeight030 #{$fontSize040}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-light-large {
+  font: $fontWeight030 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-light-xlarge {
+  font: $fontWeight030 #{$fontSize070}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-regular-small {
+  font: $fontWeight040 #{$fontSize020}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-regular-medium {
+  font: $fontWeight040 #{$fontSize040}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-regular-large {
+  font: $fontWeight040 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-regular-xlarge {
+  font: $fontWeight040 #{$fontSize070}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-bold-small {
+  font: $fontWeight070 #{$fontSize020}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-bold-medium {
+  font: $fontWeight070 #{$fontSize040}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-bold-large {
+  font: $fontWeight070 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-subheading-bold-xlarge {
+  font: $fontWeight070 #{$fontSize070}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-standfirst-large {
+  font: $fontWeight040 #{$fontSize050}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-standfirst-medium {
+  font: $fontWeight040 #{$fontSize020}/#{$fontLineHeight020} $fontFamily010;
+}
+
+@mixin brand-paragraph-regular-small {
+  font: #{$fontSize030}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin brand-paragraph-regular-medium {
+  font: #{$fontSize035}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin brand-paragraph-bold-small {
+  font: #{$fontSize030}/#{$fontLineHeight040} $fontFamily030;
+}
+
+@mixin brand-paragraph-bold-medium {
+  font: #{$fontSize035}/#{$fontLineHeight040} $fontFamily030;
+}
+
+@mixin brand-caption-medium {
+  font: $fontWeight040 #{$fontSize020}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin brand-caption-small {
+  font: $fontWeight040 #{$fontSize010}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin brand-byline-medium {
+  font: $fontWeight040 #{$fontSize020}/#{$fontLineHeight020} $fontFamily040;
+}
+
+@mixin brand-byline-small {
+  font: $fontWeight040 #{$fontSize010}/#{$fontLineHeight020} $fontFamily040;
+}
+
+@mixin utility-heading-small {
+  font: $fontWeight070 #{$fontSize040}/#{$fontLineHeight030} $fontFamily040;
+}
+
+@mixin utility-heading-medium {
+  font: $fontWeight070 #{$fontSize070}/#{$fontLineHeight030} $fontFamily040;
+}
+
+@mixin utility-heading-large {
+  font: $fontWeight070 #{$fontSize080}/#{$fontLineHeight030} $fontFamily040;
+}
+
+@mixin utility-subheading-xsmall {
+  font: $fontWeight050 #{$fontSize010}/#{$fontLineHeight030} $fontFamily040;
+}
+
+@mixin utility-subheading-small {
+  font: $fontWeight050 #{$fontSize020}/#{$fontLineHeight030} $fontFamily040;
+}
+
+@mixin utility-subheading-medium {
+  font: $fontWeight050 #{$fontSize030}/#{$fontLineHeight030} $fontFamily040;
+}
+
+@mixin utility-subheading-large {
+  font: $fontWeight050 #{$fontSize050}/#{$fontLineHeight030} $fontFamily040;
+}
+
+@mixin utility-body-regular-xsmall {
+  font: $fontWeight040 #{$fontSize010}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-regular-2xsmall {
+  font: $fontWeight040 #{$fontSize005}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-regular-small {
+  font: $fontWeight040 #{$fontSize020}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-regular-medium {
+  font: $fontWeight040 #{$fontSize030}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-regular-large {
+  font: $fontWeight040 #{$fontSize040}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-bold-2xsmall {
+  font: $fontWeight070 #{$fontSize005}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-bold-xsmall {
+  font: $fontWeight070 #{$fontSize010}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-bold-small {
+  font: $fontWeight070 #{$fontSize020}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-bold-medium {
+  font: $fontWeight070 #{$fontSize030}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-body-bold-large {
+  font: $fontWeight070 #{$fontSize040}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-button-xsmall {
+  font: $fontWeight050 #{$fontSize010}/#{$fontLineHeight010} $fontFamily040;
+}
+
+@mixin utility-button-small {
+  font: $fontWeight050 #{$fontSize020}/#{$fontLineHeight010} $fontFamily040;
+}
+
+@mixin utility-button-medium {
+  font: $fontWeight050 #{$fontSize030}/#{$fontLineHeight010} $fontFamily040;
+}
+
+@mixin utility-button-large {
+  font: $fontWeight050 #{$fontSize040}/#{$fontLineHeight010} $fontFamily040;
+}
+
+@mixin utility-label-xsmall {
+  font: $fontWeight050 #{$fontSize010}/#{$fontLineHeight020} $fontFamily040;
+}
+
+@mixin utility-label-small {
+  font: $fontWeight050 #{$fontSize020}/#{$fontLineHeight020} $fontFamily040;
+}
+
+@mixin utility-label-medium {
+  font: $fontWeight050 #{$fontSize030}/#{$fontLineHeight020} $fontFamily040;
+}
+
+@mixin utility-label-large {
+  font: $fontWeight050 #{$fontSize040}/#{$fontLineHeight020} $fontFamily040;
+}
+
+@mixin utility-link-inline-utility-xsmall {
+  font: $fontWeight070 #{$fontSize010}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-inline-utility-small {
+  font: $fontWeight070 #{$fontSize020}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-inline-utility-medium {
+  font: $fontWeight070 #{$fontSize030}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-inline-utility-large {
+  font: $fontWeight070 #{$fontSize040}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-inline-brand-xsmall {
+  font: $fontWeight040 #{$fontSize010}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin utility-link-inline-brand-small {
+  font: $fontWeight040 #{$fontSize020}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin utility-link-inline-brand-medium {
+  font: $fontWeight040 #{$fontSize030}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin utility-link-inline-brand-large {
+  font: $fontWeight040 #{$fontSize040}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin utility-link-standalone-utility-xsmall {
+  font: $fontWeight070 #{$fontSize010}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-standalone-utility-small {
+  font: $fontWeight070 #{$fontSize020}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-standalone-utility-medium {
+  font: $fontWeight070 #{$fontSize030}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-standalone-utility-large {
+  font: $fontWeight070 #{$fontSize040}/#{$fontLineHeight040} $fontFamily040;
+}
+
+@mixin utility-link-standalone-brand-xsmall {
+  font: $fontWeight040 #{$fontSize010}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin utility-link-standalone-brand-small {
+  font: $fontWeight040 #{$fontSize020}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin utility-link-standalone-brand-medium {
+  font: $fontWeight040 #{$fontSize030}/#{$fontLineHeight040} $fontFamily020;
+}
+
+@mixin utility-link-standalone-brand-large {
+  font: $fontWeight040 #{$fontSize040}/#{$fontLineHeight040} $fontFamily020;
+}
+    

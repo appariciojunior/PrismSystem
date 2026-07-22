@@ -1,0 +1,59 @@
+.ds-flag {
+  --ds-flag-bg: var(--flag-primary-fill, #000000);
+  --ds-flag-fg: var(--flag-primary-text, #f2f2f2);
+  --ds-flag-icon: var(--flag-primary-icon, var(--flag-fg));
+  --ds-flag-border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-03);
+  min-height: 19px;
+  min-width: 42px;
+  padding: 0 var(--spacing-01);
+  border-radius: var(--spacing-01);
+  border: 1px solid var(--ds-flag-border);
+  background-color: var(--ds-flag-bg);
+  color: var(--ds-flag-fg);
+  font-family: var(--fontFamily040, sans-serif);
+  font-size: var(--fontSize020);
+  font-weight: var(--fontWeight050, 500);
+  line-height: var(--fontLineHeight020, 1.125);
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.ds-flag--size-small {
+  font-size: var(--fontSize010, 0.75rem);
+}
+
+.ds-flag--intent-secondary {
+  --ds-flag-bg: transparent;
+  --ds-flag-fg: var(--flag-secondary-text, #1a1a1a);
+  --ds-flag-icon: var(--flag-secondary-icon, var(--ds-flag-fg));
+}
+
+.ds-flag--intent-callout {
+  --ds-flag-bg: var(--flag-callout-fill, #b20908);
+  --ds-flag-fg: var(--flag-callout-text, #ffffff);
+  --ds-flag-icon: var(--flag-callout-icon, var(--ds-flag-fg));
+}
+
+.ds-flag__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ds-flag__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ds-flag-icon);
+}
+
+.ds-flag__icon svg {
+  display: block;
+  width: var(--spacing-09);
+  height: var(--spacing-09);
+}

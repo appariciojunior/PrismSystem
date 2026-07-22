@@ -1,0 +1,25 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as ButtonStories from './Button.stories.tsx';
+import buttonDocRaw from '../../packages/tokens/docs/components/button/Button.md?raw';
+import buttonChangelogRaw from '../../packages/tokens/docs/components/button/button-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={ButtonStories} />
+<Title />
+<Canvas of={ButtonStories.Primary} />
+<Controls of={ButtonStories.Primary} />
+<Markdown>
+  {getStorybookComponentDoc(buttonDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{buttonChangelogRaw}</Markdown>

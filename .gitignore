@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+# builds
+dist/
+build/
+storybook-static/
+*.tsbuildinfo
+# controller state
+tools/controller/backups/
+tools/controller/.tmp/
+# archives & scratch
+_to_delete/
+.docmancer/
+# os / editor
+.DS_Store
+*.log
+.fuse_hidden*

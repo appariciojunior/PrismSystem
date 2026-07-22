@@ -1,0 +1,26 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as FlagStories from './Flag.stories.tsx';
+import flagDocRaw from '../../packages/tokens/docs/components/flag/Flag.md?raw';
+import flagChangelogRaw from '../../packages/tokens/docs/components/flag/flag-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={FlagStories} />
+<Title />
+<Canvas of={FlagStories.Primary} />
+<Controls of={FlagStories.Primary} />
+<Markdown>
+  {getStorybookComponentDoc(flagDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{flagChangelogRaw}</Markdown>
+<Stories includePrimary={false} />

@@ -1,0 +1,128 @@
+{ 
+  "upNextArticles": [
+    {
+      "article": {
+        "id": "7c22c534-8f80-43d8-9154-6de0e303fb1e",
+        "publishedTime": "2025-02-25T14:26:46.000Z",
+        "headline": "Up Next Article 1",
+        "url": "https://www.example.com/article/related-article-1-b76fh95mt",
+        "leadAsset": {
+          "id": "01264c94-b66e-435d-9db6-4e4d11b7bda8",
+          "caption": null,
+          "duration": null,
+          "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+          "brightcovePlayerId": "default",
+          "brightcoveVideoId": "6369289615112",
+          "brightcoveAccountId": "5436121856001",
+          "paidOnly": false,
+          "skySports": false,
+          "is360": null,
+          "posterImage": {
+            "id": "396c7eed-55d6-44fc-88df-656010f3fccc",
+            "crop32": {
+              "ratio": "3:2",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            },
+            "crop169": {
+              "ratio": "16:9",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            }
+          }
+        }
+      }
+    },
+    {
+      "article": {
+        "id": "7c22c534-8f80-43d8-9154-6de0e303fb1f",
+        "publishedTime": "2025-02-25T14:26:46.000Z",
+        "headline": "Up Next Article 2",
+        "url": "https://www.example.com/article/related-article-1-b76fh95mt",
+        "leadAsset": {
+          "id": "01264c94-b66e-435d-9db6-4e4d11b7bda8",
+          "caption": null,
+          "duration": 902000,
+          "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+          "brightcovePlayerId": "default",
+          "brightcoveVideoId": "6369289615112",
+          "brightcoveAccountId": "5436121856001",
+          "paidOnly": false,
+          "skySports": false,
+          "is360": null,
+          "posterImage": {
+            "id": "396c7eed-55d6-44fc-88df-656010f3fccc",
+            "crop32": {
+              "ratio": "3:2",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            },
+            "crop169": {
+              "ratio": "16:9",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            }
+          }
+        }
+      }
+    },
+    {
+      "article": {
+        "id": "e566f92b-0f73-4758-86f1-4acdb7a82c59",
+        "publishedTime": "2025-02-25T14:27:25.000Z",
+        "headline": "Up Next Article 3",
+        "url": "https://www.example.com/article/related-article-2-8wv8sxtsv",
+        "leadAsset": {
+          "id": "8dc1df1f-f8d1-4ce7-99d0-bae68a4cd9a5",
+          "caption": null,
+          "duration": 902000,
+          "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+          "brightcovePlayerId": "default",
+          "brightcoveVideoId": "6369216014112",
+          "brightcoveAccountId": "5436121856001",
+          "paidOnly": false,
+          "skySports": false,
+          "is360": null,
+          "posterImage": {
+            "id": "6daf70f1-991b-401c-830e-cdf8851c8ab8",
+            "crop32": {
+              "ratio": "3:2",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            },
+            "crop169": {
+              "ratio": "16:9",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            }
+          }
+        }
+      }
+    },
+    {
+      "article": {
+        "id": "e566f92b-0f73-4758-86f1-4acdb7a82c60",
+        "publishedTime": "2025-02-25T14:27:25.000Z",
+        "headline": "Up Next Article 4",
+        "url": "https://www.example.com/article/related-article-2-8wv8sxtsv",
+        "leadAsset": {
+          "id": "8dc1df1f-f8d1-4ce7-99d0-bae68a4cd9a5",
+          "caption": null,
+          "duration": 902000,
+          "brightcovePolicyKey": "BCpkADawqM1d6QTQTQZNvZeQPJoanIYcUVVRuuypZErRN3_-wE6wBEkRhk0JnCMFbIDR4pNtFoO6cbWqB_IL50zx9ZcSLdfMhcNAv46bQxrMyXybmBxe3BeueHE8n6I2qFRSbna8vguRIdZd",
+          "brightcovePlayerId": "default",
+          "brightcoveVideoId": "6369216014112",
+          "brightcoveAccountId": "5436121856001",
+          "paidOnly": false,
+          "skySports": false,
+          "is360": null,
+          "posterImage": {
+            "id": "6daf70f1-991b-401c-830e-cdf8851c8ab8",
+            "crop32": {
+              "ratio": "3:2",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            },
+            "crop169": {
+              "ratio": "16:9",
+              "url": "https://cf-images.eu-west-1.prod.boltdns.net/v1/static/5436121857001/5b0db6f6-a899-4ad8-b42f-4ab0af99505e/904aca55-79ca-4a4f-8d19-46c3a68c0700/1280x720/match/image.jpg?resize=960"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "@ds/tokens",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Design tokens source, docs and agent skills",
+  "license": "MIT"
+}

@@ -1,0 +1,5584 @@
+{
+  "$metadata": {
+    "collection": "Semantic",
+    "modes": [
+      "Light",
+      "Dark"
+    ]
+  },
+  "Light": {
+    "core": {
+      "surface": {
+        "undercanvas": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.100}",
+          "$description": "Level -1. Deepest background, beneath canvas. Fill only.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "canvas": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Level 0. Page base. Fill only.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-1": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Level 1. Pair with border.elevation for edge definition.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-2": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Level 2. Pair with shadow.elevation.level-2.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-3": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Level 3. Pair with shadow.elevation.level-3.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-4": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Level 4. Pair with shadow.elevation.level-4 and surface.overlay.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.1000}",
+          "$description": "Fixed dark surface in light mode. Does not respond to dark mode.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "overlay": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.overlay.dark.450}",
+          "$description": "Scrim for modals and Level 4 surfaces. Semi-transparent.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "static": {
+          "dark": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Fixed dark surface. Always black regardless of mode.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "light": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Fixed light surface. Always white regardless of mode.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "text": {
+        "primary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.950}",
+          "$description": "Primary text token for labels and badges.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Inverse text token for content placed on inverse (dark) surfaces in light mode contexts.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.800}",
+          "$description": "Supporting text, captions, and metadata on canvas. Mid-tone neutral.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.600}",
+          "$description": "Tertiary text for supporting captions and disabled states.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "static": {
+          "dark": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Fixed dark text. Always black regardless of mode.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "light": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Fixed light text. Always white regardless of mode.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "icon": {
+        "primary": {
+          "$type": "color",
+          "$value": "{text.primary}",
+          "$description": "Primary icon colour. Highest contrast for primary iconography.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{text.inverse}",
+          "$description": "Inverse icon token for iconography placed on inverse (dark) surfaces in light mode contexts.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{text.secondary}",
+          "$description": "Supporting icon colour. Reduced emphasis for secondary iconography.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{text.tertiary}",
+          "$description": "Tertiary icon colour for least-prominent iconography.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "border": {
+        "primary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.400}",
+          "$description": "Standard UI borders and dividers.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.250}",
+          "$description": "Subtle borders and light dividers.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.150}",
+          "$description": "Very subtle borders and dividers. Minimal emphasis.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "elevation": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.150}",
+          "$description": "Edge definition for Level 1 surfaces. Use instead of shadow at the lowest elevation.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "static": {
+          "dark": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Fixed dark border. Always black regardless of mode.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "light": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Fixed light border. Always white regardless of mode.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        }
+      },
+      "input": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Form input background at placeholder/rest state.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.150}",
+            "$description": "Form input background in error state. Uses messaging error fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.100}",
+            "$description": "Form input background on hover. Indicates the field is interactive.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Form input background on focus/active edit. Matches hover treatment.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Form input background after completion.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.200}",
+            "$description": "Form input background in success state. Uses messaging success fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.150}",
+            "$description": "Form input background in warning state. Uses messaging warning fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.150}",
+            "$description": "Form input background in info state. Uses messaging info fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.500}",
+            "$description": "Form input border at rest. Defines field boundary with neutral contrast.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.850}",
+            "$description": "Form input border in error state. Uses messaging error border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.650}",
+            "$description": "Form input border on hover. Increased contrast for interactivity.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.700}",
+            "$description": "Form input border on focus/active edit. Focus ring is provided by focus.border.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.900}",
+            "$description": "Form input border after completion.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.800}",
+            "$description": "Form input border in success state. Uses messaging success border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.800}",
+            "$description": "Form input border in warning state. Uses messaging warning border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.650}",
+            "$description": "Form input border in info state. Uses messaging info border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{text.tertiary}",
+            "$description": "Form input text at rest. Neutral tone for readability.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in error state. Remains neutral while border/icon carry feedback colour.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{text.secondary}",
+            "$description": "Form input text on hover. Maintains readability during interaction.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text on focus/active edit. Maintains readability while typing.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text after completion. Remains neutral for consistency.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in success state. Remains neutral while border/icon carry feedback colour.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in warning state. Remains neutral while border/icon carry feedback colour.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in info state. Remains neutral while border/icon carry feedback colour.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": "{input.border.default}",
+            "$description": "Form input icon at rest. Matches neutral input text tone.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{input.border.hover}",
+            "$description": "Form input icon on hover. Coordinates with input interaction state.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{input.border.active}",
+            "$description": "Form input icon on focus/active edit. Coordinates with active interaction state.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{input.border.completed}",
+            "$description": "Form input icon after completion.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{input.border.error}",
+            "$description": "Form input icon in error state. Uses messaging error icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{input.border.success}",
+            "$description": "Form input icon in success state. Uses messaging success icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{input.border.warning}",
+            "$description": "Form input icon in warning state. Uses messaging warning icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{input.border.info}",
+            "$description": "Form input icon in info state. Uses messaging info icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "messaging": {
+        "fill": {
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.150}",
+            "$description": "Error message background. Signals critical issue, validation failure, or danger.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.200}",
+            "$description": "Success message background. Signals positive completion or confirmation.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.150}",
+            "$description": "Warning message background. Signals caution, blocked action, or attention need.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.150}",
+            "$description": "Info message background. Signals neutral information or helpful guidance.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        },
+        "border": {
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.850}",
+            "$description": "Error message border. Reinforces error intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.800}",
+            "$description": "Success message border. Reinforces success intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.750}",
+            "$description": "Warning message border. Reinforces warning intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.700}",
+            "$description": "Info message border. Reinforces info intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "icon": {
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.800}",
+            "$description": "Status icon used within error messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.700}",
+            "$description": "Status icon used within success messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.750}",
+            "$description": "Status icon used within warning messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.700}",
+            "$description": "Status icon used within informational messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        },
+        "link": {
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{text.primary}",
+              "$description": "Link text inside messaging surfaces, default state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Secondary link on press. Completes secondary state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.750}",
+              "$description": "Link text inside messaging surfaces, visited state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.link.secondary.text.default}",
+              "$description": "Link icon inside messaging surfaces, default state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Secondary link on press. Completes secondary state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.750}",
+              "$description": "Link icon inside messaging surfaces, visited state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "underline": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.link.secondary.text.default}",
+              "$description": "Link underline inside messaging surfaces, default state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.800}",
+              "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.750}",
+              "$description": "Secondary link on press. Completes secondary state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.750}",
+              "$description": "Link underline inside messaging surfaces, visited state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "interactive": {
+        "primary": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.blue.800}",
+              "$description": "High-emphasis button background. Primary action colour used for main CTAs.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.blue.850}",
+              "$description": "Primary button on hover. Increased contrast for interactive state feedback.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.blue.850}",
+              "$description": "Primary button on press/active. Maximum contrast shift to signal interaction.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.50}",
+              "$description": "Text/icon on primary fills. Ensures contrast on primary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.default}",
+              "$description": "Primary text on hover state. Maintains contrast over hover fill.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.default}",
+              "$description": "Primary text on pressed state. Maintains contrast over pressed fill.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.default}",
+              "$description": "Icon on primary action fill. Ensures contrast on primary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.hover}",
+              "$description": "Interactive element primary icon hover",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.pressed}",
+              "$description": "Interactive element primary icon pressed",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          }
+        },
+        "secondary": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.50}",
+              "$description": "Medium-emphasis button background. Used for secondary actions and outline button fills.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.200}",
+              "$description": "Secondary button on hover. Provides visual feedback without primary emphasis.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.250}",
+              "$description": "Secondary button on press/active. Completes state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          },
+          "border": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.500}",
+              "$description": "Border for secondary buttons. Defines button edge without fill.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.600}",
+              "$description": "Secondary border on hover. Visual distinction for interactive state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.600}",
+              "$description": "Secondary border on pressed. Completes feedback state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{text.primary}",
+              "$description": "Text/icon on secondary fills. Contrast on secondary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Secondary text on hover. Maintains readability on hover state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Secondary text on pressed. Maintains readability on pressed state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.secondary.text.default}",
+              "$description": "Icon on secondary fill. Contrast on secondary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{interactive.secondary.text.hover}",
+              "$description": "Interactive element secondary icon hover",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Interactive element secondary icon pressed",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          }
+        },
+        "disabled": {
+          "a": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.200}",
+            "$description": "Disabled button fill (type A). Low contrast to signal unavailability.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.300}",
+            "$description": "Disabled text/link (type B). Reduced contrast for disabled text content.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "c": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.400}",
+            "$description": "Disabled border (type C). Subtle border for disabled inputs/fields.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          }
+        },
+        "negative": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.50}",
+              "$description": "Background for destructive action buttons. Medium-emphasis visual treatment for actions requiring user confirmation.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.200}",
+              "$description": "Background hover state for destructive actions. Provides visual feedback for interactive danger elements.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.250}",
+              "$description": "Background pressed state for destructive actions. Completes interaction feedback before user confirmation.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          },
+          "border": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.messaging.error.800}",
+              "$description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "#b30000",
+              "$description": "Border hover state for destructive actions. Reinforces interactive danger state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "#a90000",
+              "$description": "Border pressed state for destructive actions. Maximum emphasis for imminent critical action.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.messaging.error.800}",
+              "$description": "Text for destructive action buttons. High contrast ensures readability and signals danger.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "#b30000",
+              "$description": "Text hover state for destructive actions. Maintains readability during interaction.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "#a90000",
+              "$description": "Text pressed state for destructive actions. Maximum emphasis confirms critical action intent.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.negative.text.default}",
+              "$description": "Icon colour for destructive actions. Matches text for visual consistency.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "#b30000",
+              "$description": "Icon hover state for destructive actions. Unified visual feedback with text and border.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "#a90000",
+              "$description": "Icon pressed state for destructive actions. Maximum emphasis aligns with text state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          }
+        },
+        "link": {
+          "primary": {
+            "text": {
+              "default": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.700}",
+                "$description": "Standalone primary link text. Used in prose and navigation. Brand colour.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.800}",
+                "$description": "Primary link on hover. Indicates interactive state for text links.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.800}",
+                "$description": "Primary link on press/visited. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.650}",
+                "$description": "Primary link on press/visited. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "icon": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.primary.text.default}",
+                "$description": "Standalone primary link icon. Used in prose and navigation. Brand colour.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.800}",
+                "$description": "Primary link icon on hover. Indicates interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.800}",
+                "$description": "Primary link icon on press. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.650}",
+                "$description": "Primary link icon on visited state. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "underline": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.primary.text.default}",
+                "$description": "Standalone primary link underline. Used in prose and navigation. Brand colour.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.800}",
+                "$description": "Primary link underline on hover. Indicates interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.800}",
+                "$description": "Primary link underline on press. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.blue.650}",
+                "$description": "Primary link underline on visited state. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "secondary": {
+            "text": {
+              "default": {
+                "$type": "color",
+                "$value": "{text.primary}",
+                "$description": "Standalone secondary link text. Lower emphasis than primary.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.950}",
+                "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.950}",
+                "$description": "Secondary link on press. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.750}",
+                "$description": "Secondary link on press. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "icon": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.secondary.text.default}",
+                "$description": "Standalone secondary link icon. Lower emphasis than primary.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.950}",
+                "$description": "Secondary link icon on hover. Visual feedback for secondary interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.950}",
+                "$description": "Secondary link icon on press. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.750}",
+                "$description": "Secondary link icon on visited state. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "underline": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.secondary.text.default}",
+                "$description": "Standalone secondary link underline. Lower emphasis than primary.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.800}",
+                "$description": "Secondary link underline on hover. Visual feedback for secondary interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.750}",
+                "$description": "Secondary link underline on press. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.750}",
+                "$description": "Secondary link underline on visited state. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "chip": {
+          "primary": {
+            "on": {
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.primary.fill.default}",
+                  "$description": "Primary solid chip fill in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Primary link on hover. Indicates interactive state for text links.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Primary link on press/visited. Completes link state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.primary.text.default}",
+                  "$description": "Text on primary solid chip in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.200}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.250}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.primary.text.default}",
+                  "$description": "Primary solid chip icon in default state. Uses primary action colour.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.200}",
+                  "$description": "Primary solid chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.250}",
+                  "$description": "Primary solid chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            },
+            "off": {
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.100}",
+                  "$description": "Primary solid chip fill in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.250}",
+                  "$description": "Primary link on hover. Indicates interactive state for text links.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.300}",
+                  "$description": "Primary link on press/visited. Completes link state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.primary.fill.default}",
+                  "$description": "Text on primary solid chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.primary.off.text.default}",
+                  "$description": "Primary solid chip icon in default state. Uses primary action colour.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Primary solid chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Primary solid chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "border": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.primary.off.text.default}",
+                  "$description": "Border on primary solid chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.blue.850}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            }
+          },
+          "secondary": {
+            "on": {
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.secondary.text.default}",
+                  "$description": "Text on secondary outline chip in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.950}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.950}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.secondary.fill.default}",
+                  "$description": "Secondary outline chip fill in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.200}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.250}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "border": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.secondary.border.default}",
+                  "$description": "Border on secondary outline chip in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.600}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.600}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.secondary.text.default}",
+                  "$description": "Secondary outline chip icon in default state. Uses secondary action colour.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.950}",
+                  "$description": "Secondary outline chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.950}",
+                  "$description": "Secondary outline chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            },
+            "off": {
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.100}",
+                  "$description": "Secondary outline chip fill in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.250}",
+                  "$description": "Primary link on hover. Indicates interactive state for text links.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.300}",
+                  "$description": "Primary link on press/visited. Completes link state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{text.secondary}",
+                  "$description": "Text on secondary outline chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.secondary.off.text.default}",
+                  "$description": "Icon on secondary outline chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Primary solid chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Primary solid chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "active": {
+        "fill": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.1000}",
+          "$description": "Background for elements in a latched active state (e.g., current tab) no longer interactive.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Text for active, non-interactive elements. White on black fill for high contrast.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{active.fill}",
+          "$description": "Border for active, non-interactive elements, providing edge definition.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{active.text}",
+          "$description": "Icons for active, non-interactive elements. White on black fill for high contrast.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "focus": {
+        "border": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.600}",
+          "$description": "Focus indicator border in light mode. Passes 4.5:1 contrast on white canvas.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "label": {
+        "primary": {
+          "$type": "color",
+          "$value": "{text.primary}",
+          "$description": "Primary text token for labels and badges.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{text.tertiary}",
+          "$description": "Secondary text token for labels and badges.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        },
+        "callout": {
+          "$type": "color",
+          "$value": "{flag.callout.fill}",
+          "$description": "Text colour for callout labels. Uses callout flag fill colour.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        }
+      },
+      "flag": {
+        "primary": {
+          "fill": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Fill token for primary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.100}",
+            "$description": "Text token for primary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{flag.primary.text}",
+            "$description": "Icon token for primary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "secondary": {
+          "text": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Text/icon token for secondary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{flag.secondary.text}",
+            "$description": "Text/icon token for secondary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "callout": {
+          "fill": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.850}",
+            "$description": "Fill token for LIVE Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Text/icon token for LIVE Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{flag.callout.text}",
+            "$description": "Text/icon token for LIVE Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "toast": {
+        "fill": {
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.850}",
+            "$description": "Info toast background.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.850}",
+            "$description": "Success toast background.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.750}",
+            "$description": "Warning toast background.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.800}",
+            "$description": "Error toast background.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "icon": {
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.400}",
+            "$description": "Icon on info toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.400}",
+            "$description": "Icon on success toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.350}",
+            "$description": "Icon on warning toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.350}",
+            "$description": "Icon on error toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "text": {
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Text on info toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Text on success toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Text on error toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Text on warning toast.",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "link": {
+          "info": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.50}",
+              "$description": "Link on info toast, default state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.200}",
+              "$description": "Link on info toast, hover state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.250}",
+              "$description": "Link on info toast, pressed state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "success": {
+            "default": {
+              "$type": "color",
+              "$value": "{toast.link.info.default}",
+              "$description": "Link on success toast, default state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.200}",
+              "$description": "Link on success toast, hover state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.250}",
+              "$description": "Link on success toast, pressed state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "error": {
+            "default": {
+              "$type": "color",
+              "$value": "{toast.link.info.default}",
+              "$description": "Link on error toast, default state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.200}",
+              "$description": "Link on error toast, hover state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.250}",
+              "$description": "Link on error toast, pressed state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "warning": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.1000}",
+              "$description": "Link on warning toast, default state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.dark.50}",
+              "$description": "Link on warning toast, hover state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.dark.50}",
+              "$description": "Link on warning toast, pressed state.",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "tooltip": {
+        "fill": {
+          "$type": "color",
+          "$value": "{surface.inverse}",
+          "$description": "Tooltip background. Always uses inverse surface.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{text.inverse}",
+          "$description": "Tooltip text. Always uses inverse text colour.",
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{icon.inverse}",
+          "$description": "Tooltip icon. Always uses inverse icon colour.",
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL",
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      }
+    },
+    "theme": {
+      "background": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "App/page base surface."
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Default text on background."
+      },
+      "card": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.100}",
+        "$description": "Card surface."
+      },
+      "card-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text on card."
+      },
+      "popover": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Popover/menu surface."
+      },
+      "popover-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text on popover."
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.blue.800}",
+        "$description": "Primary brand tier. Main CTAs."
+      },
+      "primary-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text/icon on primary."
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.200}",
+        "$description": "Secondary tier. Low-emphasis surfaces."
+      },
+      "secondary-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text/icon on secondary."
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.teal.500}",
+        "$description": "Tertiary accent tier."
+      },
+      "tertiary-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text/icon on tertiary."
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.150}",
+        "$description": "Muted surface."
+      },
+      "muted-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.600}",
+        "$description": "Muted/secondary text."
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.300}",
+        "$description": "Default border colour."
+      },
+      "input": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.300}",
+        "$description": "Form input border."
+      },
+      "ring": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.600}",
+        "$description": "Focus ring."
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.info.500}",
+        "$description": "Informational feedback."
+      },
+      "info-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on info."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.success.500}",
+        "$description": "Success feedback."
+      },
+      "success-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on success."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.warning.500}",
+        "$description": "Warning feedback."
+      },
+      "warning-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text on warning."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.error.500}",
+        "$description": "Error feedback."
+      },
+      "error-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on error."
+      },
+      "destructive": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.error.500}",
+        "$description": "Destructive action."
+      },
+      "destructive-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on destructive."
+      },
+      "chart-1": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.darkBlue.500}",
+        "$description": "Data-vis series 1."
+      },
+      "chart-2": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.yellow.500}",
+        "$description": "Data-vis series 2."
+      },
+      "chart-3": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.lightBlue.500}",
+        "$description": "Data-vis series 3."
+      },
+      "chart-4": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.orange.500}",
+        "$description": "Data-vis series 4."
+      },
+      "chart-5": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.teal.500}",
+        "$description": "Data-vis series 5."
+      }
+    }
+  },
+  "Dark": {
+    "core": {
+      "surface": {
+        "undercanvas": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.150}",
+          "$description": "Deepest background beneath canvas. Rarely visible; used for special contexts.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "canvas": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Primary background layer. Page/application base.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-1": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.100}",
+          "$description": "First elevation above canvas. Subtle lift for cards and contained components.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-2": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.150}",
+          "$description": "Second elevation. Modest lift for grouped content and secondary panels.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-3": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.200}",
+          "$description": "Third elevation. Prominent lift for popovers and tertiary containers.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "level-4": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.150}",
+          "$description": "Fourth elevation. Highest lift for modals, dropdowns, and overlays.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.1000}",
+          "$description": "Inverse surface token for fixed dark surfaces in dark mode contexts when switching mode is not possible.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "overlay": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.overlay.dark.550}",
+          "$description": "Semi-transparent overlay. Used for modals, backdrop scrim, dimming.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "static": {
+          "dark": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Static dark surface - always black (#000000) regardless of mode",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "light": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Static light surface - always white (#ffffff) regardless of mode",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "text": {
+        "primary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.1000}",
+          "$description": "Primary text token for labels and badges.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Inverse text token for content placed on inverse (dark) surfaces in dark mode contexts.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.900}",
+          "$description": "Supporting text, captions, and metadata on canvas. Mid-tone neutral.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.700}",
+          "$description": "Secondary text token for labels and badges.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "static": {
+          "dark": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Static dark text - always black (#000000) regardless of mode",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "light": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Static light text - always white (#ffffff) regardless of mode",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "icon": {
+        "primary": {
+          "$type": "color",
+          "$value": "{text.primary}",
+          "$description": "Primary icon colour. Highest contrast for primary iconography.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Inverse icon token for iconography placed on inverse (dark) surfaces in dark mode contexts.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{text.secondary}",
+          "$description": "Supporting icon colour. Reduced emphasis for secondary iconography.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{text.tertiary}",
+          "$description": "Tertiary icon colour. Least prominent icons.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "border": {
+        "primary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.400}",
+          "$description": "Standard UI borders and dividers.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.250}",
+          "$description": "Subtle borders and light dividers.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "tertiary": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.150}",
+          "$description": "Very subtle borders and dividers. Minimal emphasis.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "elevation": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.250}",
+          "$description": "Borders for elevated surfaces and cards. Defines depth and separation.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "static": {
+          "dark": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Static dark border - always black (#000000) regardless of mode",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "light": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Static light border - always white (#ffffff) regardless of mode",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        }
+      },
+      "input": {
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Form input background at placeholder/rest state.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.150}",
+            "$description": "Form input background in error state. Uses messaging error fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.100}",
+            "$description": "Form input background on hover. Indicates the field is interactive.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Form input background on focus/active edit. Matches hover treatment.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$description": "Form input background after completion.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.150}",
+            "$description": "Form input background in success state. Uses messaging success fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.150}",
+            "$description": "Form input background in warning state. Uses messaging warning fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.150}",
+            "$description": "Form input background in info state. Uses messaging info fill semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.500}",
+            "$description": "Form input border at rest. Defines field boundary with neutral contrast.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.750}",
+            "$description": "Form input border in error state. Uses messaging error border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.450}",
+            "$description": "Form input border on hover. Increased contrast for interactivity.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.700}",
+            "$description": "Form input border on focus/active edit. Focus ring is provided by focus.border.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.900}",
+            "$description": "Form input border after completion.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.750}",
+            "$description": "Form input border in success state. Uses messaging success border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.800}",
+            "$description": "Form input border in warning state. Uses messaging warning border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.650}",
+            "$description": "Form input border in info state. Uses messaging info border semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{text.tertiary}",
+            "$description": "Form input text at rest. Neutral tone for readability.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in error state. Remains neutral while border/icon carry feedback color.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{text.secondary}",
+            "$description": "Form input text on hover. Maintains readability during interaction.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text on focus/active edit. Maintains readability while typing.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text after completion. Remains neutral for consistency.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in success state. Remains neutral while border/icon carry feedback color.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in warning state. Remains neutral while border/icon carry feedback color.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Form input text in info state. Remains neutral while border/icon carry feedback color.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ]
+            }
+          }
+        },
+        "icon": {
+          "default": {
+            "$type": "color",
+            "$value": "{input.border.default}",
+            "$description": "Form input icon at rest. Matches neutral input text tone.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{input.border.hover}",
+            "$description": "Form input icon on hover. Coordinates with input interaction state.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "active": {
+            "$type": "color",
+            "$value": "{input.border.active}",
+            "$description": "Form input icon on focus/active edit. Coordinates with active interaction state.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "completed": {
+            "$type": "color",
+            "$value": "{input.border.completed}",
+            "$description": "Form input icon after completion.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{input.border.error}",
+            "$description": "Form input icon in error state. Uses messaging error icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{input.border.success}",
+            "$description": "Form input icon in success state. Uses messaging success icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{input.border.warning}",
+            "$description": "Form input icon in warning state. Uses messaging warning icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{input.border.info}",
+            "$description": "Form input icon in info state. Uses messaging info icon semantics.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        }
+      },
+      "messaging": {
+        "fill": {
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.150}",
+            "$description": "Error message background. Signals critical issue, validation failure, or danger.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.150}",
+            "$description": "Success message background. Signals positive completion or confirmation.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.150}",
+            "$description": "Warning message background. Signals caution, blocked action, or attention need.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.150}",
+            "$description": "Info message background. Signals neutral information or helpful guidance.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        },
+        "border": {
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.750}",
+            "$description": "Error message border. Reinforces error intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.750}",
+            "$description": "Success message border. Reinforces success intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.550}",
+            "$description": "Warning message border. Reinforces warning intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.750}",
+            "$description": "Info message border. Reinforces info intent with colour accent.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "STROKE_COLOR"
+              ]
+            }
+          }
+        },
+        "icon": {
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.750}",
+            "$description": "Status icon used within error messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.750}",
+            "$description": "Status icon used within success messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.550}",
+            "$description": "Status icon used within warning messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          },
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.750}",
+            "$description": "Status icon used within informational messaging surfaces.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ]
+            }
+          }
+        },
+        "link": {
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{text.primary}",
+              "$description": "Link text inside messaging surfaces, default state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.900}",
+              "$description": "Primary link on hover. Indicates interactive state for text links.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.850}",
+              "$description": "Primary link on press/visited. Completes link state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Link text inside messaging surfaces, visited state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.link.primary.text.default}",
+              "$description": "Link icon inside messaging surfaces, default state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.900}",
+              "$description": "Primary link on hover. Indicates interactive state for text links.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.850}",
+              "$description": "Primary link on press/visited. Completes link state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Link icon inside messaging surfaces, visited state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL",
+                  "STROKE_COLOR"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "underline": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.link.primary.text.default}",
+              "$description": "Link underline inside messaging surfaces, default state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Primary link on hover. Indicates interactive state for text links.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Primary link on press/visited. Completes link state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "visited": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.950}",
+              "$description": "Link underline inside messaging surfaces, visited state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ],
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "interactive": {
+        "primary": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.1000}",
+              "$description": "High-emphasis button background. Primary action colour used for main CTAs.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Primary button on hover. Increased contrast for interactive state feedback.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Primary button on press/active. Maximum contrast shift to signal interaction.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.50}",
+              "$description": "Text/icon on primary fills. Ensures contrast on primary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.default}",
+              "$description": "Primary text on hover state. Maintains contrast over hover fill.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.default}",
+              "$description": "Primary text on pressed state. Maintains contrast over pressed fill.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.default}",
+              "$description": "Icon on primary action fill. Ensures contrast on primary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.hover}",
+              "$description": "Interactive element primary icon hover",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{interactive.primary.text.pressed}",
+              "$description": "Interactive element primary icon pressed",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          }
+        },
+        "secondary": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{surface.canvas}",
+              "$description": "Medium-emphasis button background. Used for secondary actions and outline button fills.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.200}",
+              "$description": "Secondary button on hover. Provides visual feedback without primary emphasis.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.250}",
+              "$description": "Secondary button on press/active. Completes state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          },
+          "border": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.600}",
+              "$description": "Border for secondary buttons. Defines button edge without fill.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.650}",
+              "$description": "Secondary border on hover. Visual distinction for interactive state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.700}",
+              "$description": "Secondary border on pressed. Completes feedback state progression.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{text.primary}",
+              "$description": "Text/icon on secondary fills. Contrast on secondary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Secondary text on hover. Maintains readability on hover state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Secondary text on pressed. Maintains readability on pressed state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.secondary.text.default}",
+              "$description": "Icon on secondary fill. Contrast on secondary background.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{interactive.secondary.text.hover}",
+              "$description": "Interactive element secondary icon hover",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.light.50}",
+              "$description": "Interactive element secondary icon pressed",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          }
+        },
+        "disabled": {
+          "a": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.200}",
+            "$description": "Disabled button fill (type A). Low contrast to signal unavailability.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "b": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.300}",
+            "$description": "Disabled text/link (type B). Reduced contrast for disabled text content.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          },
+          "c": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.400}",
+            "$description": "Disabled border (type C). Subtle border for disabled inputs/fields.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "ALL_SCOPES"
+              ]
+            }
+          }
+        },
+        "negative": {
+          "fill": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.50}",
+              "$description": "Background for destructive action buttons. Medium-emphasis visual treatment for actions requiring user confirmation.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.dark.50}",
+              "$description": "Background hover state for destructive actions. Provides visual feedback for interactive danger elements.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.dark.50}",
+              "$description": "Background pressed state for destructive actions. Completes interaction feedback before user confirmation.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          },
+          "border": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.messaging.error.600}",
+              "$description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "#db0000",
+              "$description": "Border hover state for destructive actions. Reinforces interactive danger state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "#cf0000",
+              "$description": "Border pressed state for destructive actions. Maximum emphasis for imminent critical action.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "STROKE_COLOR"
+                ]
+              }
+            }
+          },
+          "text": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.messaging.error.600}",
+              "$description": "Text for destructive action buttons. High contrast ensures readability and signals danger.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "#db0000",
+              "$description": "Text hover state for destructive actions. Maintains readability during interaction.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "#cf0000",
+              "$description": "Text pressed state for destructive actions. Maximum emphasis confirms critical action intent.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "TEXT_FILL"
+                ]
+              }
+            }
+          },
+          "icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{interactive.negative.text.default}",
+              "$description": "Icon colour for destructive actions. Matches text for visual consistency.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "#db0000",
+              "$description": "Icon hover state for destructive actions. Unified visual feedback with text and border.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "#cf0000",
+              "$description": "Icon pressed state for destructive actions. Maximum emphasis aligns with text state.",
+              "$extensions": {
+                "com.figma.scopes": [
+                  "FRAME_FILL",
+                  "STROKE_COLOR",
+                  "SHAPE_FILL"
+                ]
+              }
+            }
+          }
+        },
+        "link": {
+          "secondary": {
+            "text": {
+              "default": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.500}",
+                "$description": "Standalone primary link text. Used in prose and navigation. Brand colour.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.450}",
+                "$description": "Primary link on hover. Indicates interactive state for text links.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.400}",
+                "$description": "Primary link on press/visited. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.550}",
+                "$description": "Primary link on press/visited. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "icon": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.secondary.text.default}",
+                "$description": "Standalone secondary link icon. Lower emphasis than primary.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.450}",
+                "$description": "Secondary link icon on hover. Visual feedback for secondary interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.400}",
+                "$description": "Secondary link icon on press. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.550}",
+                "$description": "Secondary link icon on visited state. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "underline": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.secondary.text.default}",
+                "$description": "Standalone secondary link underline. Lower emphasis than primary.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.600}",
+                "$description": "Secondary link underline on hover. Visual feedback for secondary interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.600}",
+                "$description": "Secondary link underline on press. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.450}",
+                "$description": "Secondary link underline on visited state. Completes secondary state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            }
+          },
+          "primary": {
+            "text": {
+              "default": {
+                "$type": "color",
+                "$value": "{text.primary}",
+                "$description": "Standalone primary link text. Used in prose and navigation. Brand colour.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.900}",
+                "$description": "Primary link on hover. Indicates interactive state for text links.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.850}",
+                "$description": "Primary link on press/visited. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.overlay.light.50}",
+                "$description": "Primary link on press/visited. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "icon": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.primary.text.default}",
+                "$description": "Standalone primary link icon. Used in prose and navigation. Brand colour.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.900}",
+                "$description": "Primary link icon on hover. Indicates interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.850}",
+                "$description": "Primary link icon on press. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.overlay.light.50}",
+                "$description": "Primary link icon on visited state. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "FRAME_FILL",
+                    "SHAPE_FILL",
+                    "STROKE_COLOR"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            },
+            "underline": {
+              "default": {
+                "$type": "color",
+                "$value": "{interactive.link.primary.text.default}",
+                "$description": "Standalone primary link underline. Used in prose and navigation. Brand colour.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "hover": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.overlay.light.50}",
+                "$description": "Primary link underline on hover. Indicates interactive state.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "pressed": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.overlay.light.50}",
+                "$description": "Primary link underline on press. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              },
+              "visited": {
+                "$type": "color",
+                "$value": "{brand.core.ramp.neutral.950}",
+                "$description": "Primary link underline on visited state. Completes link state progression.",
+                "$extensions": {
+                  "com.figma.scopes": [
+                    "TEXT_FILL"
+                  ],
+                  "com.figma.hiddenFromPublishing": true
+                }
+              }
+            }
+          }
+        },
+        "chip": {
+          "primary": {
+            "on": {
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.primary.fill.default}",
+                  "$description": "Primary solid chip fill in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.900}",
+                  "$description": "Primary link on hover. Indicates interactive state for text links.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Primary link on press/visited. Completes link state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.primary.text.default}",
+                  "$description": "Text on primary solid chip in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.overlay.dark.50}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.overlay.dark.50}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.primary.on.text.default}",
+                  "$description": "Primary solid chip icon in default state. Uses primary action colour.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.overlay.dark.50}",
+                  "$description": "Primary solid chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.overlay.dark.50}",
+                  "$description": "Primary solid chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            },
+            "off": {
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{surface.canvas}",
+                  "$description": "Primary solid chip fill in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.overlay.dark.50}",
+                  "$description": "Primary link on hover. Indicates interactive state for text links.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.overlay.dark.50}",
+                  "$description": "Primary link on press/visited. Completes link state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{text.primary}",
+                  "$description": "Text on primary solid chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.900}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.primary.off.text.default}",
+                  "$description": "Primary solid chip icon in default state. Uses primary action colour.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.900}",
+                  "$description": "Primary solid chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Primary solid chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "border": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.primary.off.text.default}",
+                  "$description": "Border on primary solid chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.900}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            }
+          },
+          "secondary": {
+            "on": {
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.secondary.text.default}",
+                  "$description": "Text on secondary outline chip in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.900}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.200}",
+                  "$description": "Secondary outline chip fill in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.200}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.150}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "border": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.secondary.border.default}",
+                  "$description": "Border on secondary outline chip in selected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.500}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.500}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.secondary.text.default}",
+                  "$description": "Secondary outline chip icon in default state. Uses secondary action colour.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.900}",
+                  "$description": "Secondary outline chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.850}",
+                  "$description": "Secondary outline chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            },
+            "off": {
+              "fill": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.secondary.on.fill.default}",
+                  "$description": "Secondary outline chip fill in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.200}",
+                  "$description": "Primary link on hover. Indicates interactive state for text links.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.150}",
+                  "$description": "Primary link on press/visited. Completes link state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "FRAME_FILL",
+                      "SHAPE_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "text": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{text.tertiary}",
+                  "$description": "Text on secondary outline chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.600}",
+                  "$description": "Secondary link on hover. Visual feedback for secondary interactive state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.550}",
+                  "$description": "Secondary link on press. Completes secondary state progression.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "TEXT_FILL"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              },
+              "icon": {
+                "default": {
+                  "$type": "color",
+                  "$value": "{interactive.chip.secondary.off.text.default}",
+                  "$description": "Icon on secondary outline chip in unselected state.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "hover": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.600}",
+                  "$description": "Primary solid chip icon on hover. Darkened for interactive feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                },
+                "pressed": {
+                  "$type": "color",
+                  "$value": "{brand.core.ramp.neutral.550}",
+                  "$description": "Primary solid chip icon on press. Maximum darkening for active feedback.",
+                  "$extensions": {
+                    "com.figma.scopes": [
+                      "SHAPE_FILL",
+                      "FRAME_FILL",
+                      "STROKE_COLOR"
+                    ],
+                    "com.figma.hiddenFromPublishing": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "active": {
+        "fill": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.1000}",
+          "$description": "Background for active, non-interactive elements in dark mode. White (neutral.1000 = #ffffff in dark mode) for high visual distinction.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ]
+          }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Text on active elements in dark mode. Black (neutral.50 = #000000 in dark mode) for contrast on white fill.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.600}",
+          "$description": "Border for active elements in dark mode. Passes 5.32:1 contrast on black canvas.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.50}",
+          "$description": "Icons on active elements in dark mode. Black for contrast on white fill.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "STROKE_COLOR",
+              "SHAPE_FILL"
+            ]
+          }
+        }
+      },
+      "focus": {
+        "border": {
+          "$type": "color",
+          "$value": "{brand.core.ramp.neutral.600}",
+          "$description": "Focus indicator border in dark mode. Passes 4.5:1 contrast on black canvas (neutral.600 = #808080).",
+          "$extensions": {
+            "com.figma.scopes": [
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      },
+      "label": {
+        "primary": {
+          "$type": "color",
+          "$value": "{text.primary}",
+          "$description": "Primary text token for labels and badges.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "{text.secondary}",
+          "$description": "Secondary text token for labels and badges.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        },
+        "callout": {
+          "$type": "color",
+          "$value": "{flag.callout.fill}",
+          "$description": "Form input text in error state. Remains neutral while border/icon carry feedback color.",
+          "$extensions": {
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        }
+      },
+      "flag": {
+        "primary": {
+          "fill": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Fill token for primary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.100}",
+            "$description": "Text token for primary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{flag.primary.text}",
+            "$description": "Icon token for primary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "secondary": {
+          "text": {
+            "$type": "color",
+            "$value": "{text.primary}",
+            "$description": "Text/icon token for secondary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{flag.secondary.text}",
+            "$description": "Text/icon token for secondary Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "callout": {
+          "fill": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.350}",
+            "$description": "Fill token for LIVE Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "text": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$description": "Text/icon token for LIVE Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "TEXT_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "icon": {
+            "$type": "color",
+            "$value": "{flag.callout.text}",
+            "$description": "Text/icon token for LIVE Flag.",
+            "$extensions": {
+              "com.figma.scopes": [
+                "FRAME_FILL",
+                "STROKE_COLOR",
+                "SHAPE_FILL"
+              ],
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        }
+      },
+      "toast": {
+        "fill": {
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.500}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.400}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.450}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.400}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "icon": {
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.info.900}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.success.950}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.warning.950}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.messaging.error.1000}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "text": {
+          "info": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "success": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "error": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.1000}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          },
+          "warning": {
+            "$type": "color",
+            "$value": "{brand.core.ramp.neutral.50}",
+            "$extensions": {
+              "com.figma.hiddenFromPublishing": true
+            }
+          }
+        },
+        "link": {
+          "info": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.1000}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.900}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.850}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "success": {
+            "default": {
+              "$type": "color",
+              "$value": "{toast.link.info.default}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.900}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.850}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "error": {
+            "default": {
+              "$type": "color",
+              "$value": "{toast.link.info.default}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.900}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.850}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          },
+          "warning": {
+            "default": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.neutral.50}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.dark.50}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            },
+            "pressed": {
+              "$type": "color",
+              "$value": "{brand.core.ramp.overlay.dark.50}",
+              "$extensions": {
+                "com.figma.hiddenFromPublishing": true
+              }
+            }
+          }
+        }
+      },
+      "tooltip": {
+        "fill": {
+          "$type": "color",
+          "$value": "{surface.inverse}",
+          "$extensions": {
+            "com.figma.scopes": [
+              "FRAME_FILL",
+              "SHAPE_FILL"
+            ],
+            "com.figma.hiddenFromPublishing": true
+          }
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{text.inverse}",
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [
+              "TEXT_FILL"
+            ]
+          }
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{icon.inverse}",
+          "$extensions": {
+            "com.figma.hiddenFromPublishing": true,
+            "com.figma.scopes": [
+              "SHAPE_FILL",
+              "FRAME_FILL",
+              "STROKE_COLOR"
+            ]
+          }
+        }
+      }
+    },
+    "theme": {
+      "background": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "App/page base surface."
+      },
+      "foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Default text on background."
+      },
+      "card": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.100}",
+        "$description": "Card surface."
+      },
+      "card-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text on card."
+      },
+      "popover": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Popover/menu surface."
+      },
+      "popover-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text on popover."
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.blue.800}",
+        "$description": "Primary brand tier. Main CTAs."
+      },
+      "primary-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text/icon on primary."
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.200}",
+        "$description": "Secondary tier. Low-emphasis surfaces."
+      },
+      "secondary-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text/icon on secondary."
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.teal.500}",
+        "$description": "Tertiary accent tier."
+      },
+      "tertiary-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text/icon on tertiary."
+      },
+      "muted": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.150}",
+        "$description": "Muted surface."
+      },
+      "muted-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.600}",
+        "$description": "Muted/secondary text."
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.300}",
+        "$description": "Default border colour."
+      },
+      "input": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.300}",
+        "$description": "Form input border."
+      },
+      "ring": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.600}",
+        "$description": "Focus ring."
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.info.500}",
+        "$description": "Informational feedback."
+      },
+      "info-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on info."
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.success.500}",
+        "$description": "Success feedback."
+      },
+      "success-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on success."
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.warning.500}",
+        "$description": "Warning feedback."
+      },
+      "warning-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.950}",
+        "$description": "Text on warning."
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.error.500}",
+        "$description": "Error feedback."
+      },
+      "error-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on error."
+      },
+      "destructive": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.messaging.error.500}",
+        "$description": "Destructive action."
+      },
+      "destructive-foreground": {
+        "$type": "color",
+        "$value": "{brand.core.ramp.neutral.50}",
+        "$description": "Text on destructive."
+      },
+      "chart-1": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.darkBlue.500}",
+        "$description": "Data-vis series 1."
+      },
+      "chart-2": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.yellow.500}",
+        "$description": "Data-vis series 2."
+      },
+      "chart-3": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.lightBlue.500}",
+        "$description": "Data-vis series 3."
+      },
+      "chart-4": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.orange.500}",
+        "$description": "Data-vis series 4."
+      },
+      "chart-5": {
+        "$type": "color",
+        "$value": "{brand.data-visualisation.ramp.teal.500}",
+        "$description": "Data-vis series 5."
+      }
+    }
+  }
+}

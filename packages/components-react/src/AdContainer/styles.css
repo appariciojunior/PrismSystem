@@ -1,0 +1,58 @@
+.ad-inline-container {
+  clear: both;
+  width: 100%;
+  min-height: 283px;
+  margin: var(--spacing-10) 0;
+  box-sizing: content-box;
+  padding: 0 0 var(--spacing-05);
+  border-bottom: var(--spacing-01) solid rgb(78, 78, 78);
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ad-inline-container {
+    min-height: 123px;
+  }
+}
+
+.ad-inline-container .ad-label {
+  border-bottom: var(--spacing-01) solid rgb(78, 78, 78);
+  color: rgb(204, 204, 204);
+  flex: 1 1 100%;
+  font: var(--fontSize020, 14px)/var(--fontLineHeight010, 1.125) "Inter", "Inter-fallback", serif;
+  letter-spacing: 0.6px;
+  margin: 0 0 var(--spacing-05);
+  padding: 0 0 var(--spacing-03);
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+}
+
+.ad-header {
+  display: flex;
+  padding-block: var(--spacing-05) var(--spacing-05);
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: 100%;
+  border-width: 0 0 var(--spacing-01);
+  border-style: solid;
+  border-color: var(--wp--preset--color--grey, #dbdbdb);
+  flex-direction: column;
+}
+.ad-header-wrapper {
+  min-height: 50px;
+  align-items: center;
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .ad-header-wrapper {
+    min-height: 90px;
+  }
+}
+@media (min-width: 1024px) {
+  .ad-header-wrapper {
+    min-height: 250px;
+  }
+}
