@@ -9,9 +9,10 @@ import { spawn } from 'child_process';
 import {
   ROOT, loadBrand, saveBrand, computeSystem, applySystem, DEFAULT_BRAND
 } from './lib/engine.mjs';
+import { extractFigmaTokens } from './lib/figma-tokens.mjs';
 
 const PORT = process.env.PORT || 4400;
-const BUILD = 13;
+const BUILD = 17;
 const PUB = path.join(path.dirname(new URL(import.meta.url).pathname), 'public');
 const CORPUS_INBOX = path.join(ROOT, 'design-corpus/raw/inbox');
 
@@ -82,6 +83,152 @@ function restoreVersion(id) {
   }
 }
 
+// The Figma desktop app exposes a local MCP server over HTTP. The controller
+// calls it directly, no token, no cloud. Only requires Figma desktop running.
+// Try IPv4, IPv6 and localhost forms — Figma may bind to any one of them.
+const FIGMA_MCP_URLS = (process.env.FIGMA_MCP_URL ? [process.env.FIGMA_MCP_URL] : [])
+  .concat(['http://127.0.0.1:3845/mcp', 'http://localhost:3845/mcp', 'http://[::1]:3845/mcp']);
+const FIGMA_MCP_URL = FIGMA_MCP_URLS[0];
+
+function parseMcpBody(text) {
+  // Streamable-HTTP responses may be SSE ("data: {json}") or plain JSON.
+  const chunks = [];
+  for (const line of String(text).split('\n')) {
+    const t = line.trim();
+    if (t.startsWith('data:')) { try { chunks.push(JSON.parse(t.slice(5).trim())); } catch {} }
+  }
+  if (chunks.length) return chunks.find((c) => c.result || c.error) || chunks[chunks.length - 1];
+  try { return JSON.parse(text); } catch { return null; }
+}
+
+// Read ONE Streamable-HTTP MCP response. Figma answers with
+// Content-Type: text/event-stream and keeps the socket OPEN for later server
+// messages, so `res.text()` would block forever (that is the "Failed to fetch"
+// the browser eventually reports). We stream instead and return the moment the
+// first JSON-RPC message carrying result/error arrives.
+async function readMcpMessage(res) {
+  const ct = (res.headers.get('content-type') || '').toLowerCase();
+  if (!ct.includes('text/event-stream') || !res.body) return parseMcpBody(await res.text());
+  const reader = res.body.getReader();
+  const dec = new TextDecoder();
+  let buf = '';
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (value) buf += dec.decode(value, { stream: true });
+      let nl;
+      while ((nl = buf.indexOf('\n')) >= 0) {
+        const line = buf.slice(0, nl).trim();
+        buf = buf.slice(nl + 1);
+        if (line.startsWith('data:')) {
+          try { const m = JSON.parse(line.slice(5).trim()); if (m && (m.result || m.error)) return m; } catch {}
+        }
+      }
+      if (done) break;
+    }
+  } finally { try { await reader.cancel(); } catch {} }
+  return parseMcpBody(buf);
+}
+
+// One JSON-RPC call with a hard timeout, so the controller can never hang on an
+// event-stream that stays open. Notifications (no id) don't wait for a body.
+async function mcpRpc(url, body, session, timeoutMs = 15000) {
+  const H = { 'Content-Type': 'application/json', 'Accept': 'application/json, text/event-stream' };
+  if (session) H['Mcp-Session-Id'] = session;
+  const ac = new AbortController();
+  const timer = setTimeout(() => ac.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { method: 'POST', headers: H, body: JSON.stringify(body), signal: ac.signal });
+    const sid = res.headers.get('mcp-session-id') || res.headers.get('Mcp-Session-Id') || '';
+    const msg = body.id === undefined ? null : await readMcpMessage(res);
+    return { session: sid, msg };
+  } finally { clearTimeout(timer); try { ac.abort(); } catch {} }
+}
+
+// Initialize against the first endpoint that answers (IPv4 / localhost / IPv6).
+async function figmaMcpConnect() {
+  const initBody = { jsonrpc: '2.0', id: 1, method: 'initialize',
+    params: { protocolVersion: '2025-06-18', capabilities: {}, clientInfo: { name: 'prism-controller', version: '1' } } };
+  let lastErr;
+  for (const u of FIGMA_MCP_URLS) {
+    try {
+      const { session, msg } = await mcpRpc(u, initBody, '', 6000);
+      if (msg && msg.error) { lastErr = new Error(msg.error.message); continue; }
+      return { url: u, session };
+    } catch (e) { lastErr = e; }
+  }
+  throw new Error('none of [' + FIGMA_MCP_URLS.join(', ') + '] answered an MCP initialize (' + (lastErr && lastErr.message) + ')');
+}
+
+async function figmaMcpRead(fileKey, nodeId) {
+  // 1) connect + initialize (tries 127.0.0.1, localhost, [::1])
+  const { url: baseUrl, session } = await figmaMcpConnect();
+  // 2) initialized notification (fire-and-forget)
+  try { await mcpRpc(baseUrl, { jsonrpc: '2.0', method: 'notifications/initialized' }, session, 3000); } catch {}
+  // 3) tools/call helper
+  let idc = 10;
+  const call = async (name, cargs) => {
+    const { msg } = await mcpRpc(baseUrl, { jsonrpc: '2.0', id: idc++, method: 'tools/call', params: { name, arguments: cargs } }, session, 20000);
+    if (!msg || msg.error) throw new Error(msg?.error?.message || ('MCP call failed: ' + name));
+    const content = msg.result?.content || [];
+    const textPart = content.find((c) => c.type === 'text');
+    return textPart ? textPart.text : JSON.stringify(msg.result);
+  };
+  const args = { fileKey, clientLanguages: 'typescript,html,css', clientFrameworks: 'react' };
+  if (nodeId) args.nodeId = nodeId;
+  const metadata = await call('get_metadata', args);
+  let variables = {};
+  if (nodeId) {
+    try { variables = JSON.parse(await call('get_variable_defs', { fileKey, nodeId })); } catch {}
+  }
+  const nameMatch = String(metadata).match(/name="([^"]+)"/);
+  return { name: nameMatch ? nameMatch[1] : 'Figma design', metadata, variables };
+}
+
+// Deterministic design language from Figma MCP data — the real specifics: colours,
+// spacing, radius, typography, shadows, blur, layout and component recipes.
+function buildFigmaProfile(name, metadata, vars) {
+  const colours = [], spacing = [], radius = [], fontFamilies = new Set(), fontSizes = new Set(), weights = new Set(), shadows = [], blur = [];
+  for (const [k, v] of Object.entries(vars || {})) {
+    const val = String(v);
+    if (/^#[0-9a-fA-F]{3,8}\b|rgba?\(/.test(val)) colours.push({ k, v: val });
+    else if (/radius/i.test(k)) radius.push(`${k.split('/').pop()}=${val}`);
+    else if (/spacing/i.test(k)) spacing.push(`${k.split('/').pop()}=${val}`);
+    else if (/font.?famil/i.test(k)) fontFamilies.add(val);
+    else if (/font.?size|(^|\/)size\//i.test(k) && /^\d+$/.test(val)) fontSizes.add(val);
+    else if (/font.?weight|weight/i.test(k) && /^(regular|medium|semibold|bold|black|light|\d+)/i.test(val)) weights.add(val);
+    else if (/shadow/i.test(k) && /Effect|DROP_SHADOW|offset/i.test(val)) shadows.push(k.split('/').pop());
+    else if (/blur/i.test(k)) blur.push(`${k.split('/').pop()}=${val}`);
+  }
+  // layout: top-level frame names from the metadata XML
+  const topFrames = [...String(metadata).matchAll(/<(?:frame|instance)[^>]*name="([^"]+)"/g)].map((m) => m[1]);
+  const layout = topFrames.slice(0, 12).join(' · ') || 'see Figma structure';
+  // component recipes: repeated instance names (course_card, Stat card, Badge...)
+  const nameCounts = {};
+  for (const n of topFrames) nameCounts[n] = (nameCounts[n] || 0) + 1;
+  const recipes = Object.entries(nameCounts).filter(([, c]) => c >= 1)
+    .filter(([n]) => /card|badge|button|item|input|avatar|icon|nav|chip|tab|list|field/i.test(n))
+    .slice(0, 10).map(([n, c]) => ({ name: n, desc: c > 1 ? `repeated ${c}×` : 'component instance' }));
+  const radiusVals = radius.map((r) => parseInt(r.split('=')[1])).filter((x) => !isNaN(x));
+  const hasPill = radiusVals.some((x) => x >= 999);
+  const spacingVals = [...new Set(spacing.map((s) => parseInt(s.split('=')[1])).filter((x) => !isNaN(x)))].sort((a, b) => a - b);
+  const tokens = extractFigmaTokens(colours, spacingVals, radiusVals, hasPill, fontFamilies, weights);
+  return {
+    tokens,
+    voice: [],
+    layout,
+    density: spacingVals.length ? `spacing scale ${spacingVals.join(', ')}px` : 'unknown',
+    cornerPersonality: radiusVals.length ? `radius ${Math.min(...radiusVals)}–${Math.max(...radiusVals.filter((x) => x < 999))}px${hasPill ? ', pills via radius-full' : ''}` : 'unknown',
+    colourUsage: colours.slice(0, 16).map((c) => `${c.k.split('/').pop()} ${c.v}`).join(', '),
+    componentRecipes: recipes,
+    illustration: '',
+    typography: `${[...fontFamilies].join(', ') || 'unknown'}; sizes ${[...fontSizes].sort((a, b) => a - b).join('/')}px; weights ${[...weights].join('/')}`,
+    signatureMoves: [hasPill ? 'pill radius' : null, shadows.length ? 'subtle shadows' : null, blur.length ? 'backdrop blur' : null].filter(Boolean),
+    blocksToUse: /dashboard/i.test(name + layout) ? ['dashboard-01'] : (/sidebar|nav/i.test(layout) ? ['sidebar-01'] : []),
+    notes: `Read live from Figma via the local MCP. Colours: ${colours.length}, spacing steps: ${spacingVals.length}, radius steps: ${radiusVals.length}. Map these onto the system tokens; keep the spacing and radius scale as the rhythm.`
+  };
+}
+
 function figmaToken() {
   if (process.env.FIGMA_ACCESS_TOKEN) return process.env.FIGMA_ACCESS_TOKEN.trim();
   for (const p of [path.join(process.env.HOME || '', '.figma-console-mcp.env'), path.join(ROOT, '.figma.env')]) {
@@ -110,21 +257,27 @@ function claudeDesignProfile({ imagePath, figmaSummary }) {
   const prompt = base +
     `You are a senior product designer reverse-engineering its DESIGN LANGUAGE so an AI can reproduce the look with shadcn/ui components. ` +
     `Do not describe the content; describe the design decisions. Respond with ONLY a JSON object matching: ${schema}`;
+  return runClaude(prompt).then((txt) => {
+    if (!txt) return null;
+    try { const jm = String(txt).match(/\{[\s\S]*\}/); return JSON.parse(jm[0]); }
+    catch { return null; }
+  });
+}
+
+// Bare, portable claude call: `claude -p "<prompt>"`, no shell, no unsupported flags.
+// Returns the model's text output, or null if claude is missing/disabled/errored.
+function runClaude(prompt) {
   return new Promise((resolve) => {
-    const args = ['-p', prompt, '--output-format', 'json', '--max-turns', '3'];
-    if (imagePath) { args.push('--allowedTools', 'Read'); }
-    const child = spawn('claude', args, { cwd: ROOT, shell: true, timeout: 150000 });
-    let so = '';
-    child.stdout.on('data', (d) => (so += d));
+    let child;
+    try { child = spawn('claude', ['-p', prompt], { cwd: ROOT, timeout: 150000 }); }
+    catch { return resolve(null); }
+    let out = '';
+    child.stdout.on('data', (d) => (out += d));
     child.on('error', () => resolve(null));
     child.on('close', (code) => {
       if (code !== 0) return resolve(null);
-      try {
-        const env = JSON.parse(so);
-        const txt = typeof env === 'object' && env.result ? env.result : so;
-        const jm = String(txt).match(/\{[\s\S]*\}/);
-        resolve(JSON.parse(jm[0]));
-      } catch { resolve(null); }
+      if (/not enabled in this environment|only `claude -p|command not found/i.test(out)) return resolve(null);
+      resolve(out.trim() ? out : null);
     });
   });
 }
@@ -151,12 +304,12 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === '/api/state') {
       const brand = loadBrand();
       const system = computeSystem(brand);
-      return json(res, 200, { brand, theme: system.theme, audits: system.audits, building, lastBuild });
+      return json(res, 200, { brand, theme: system.theme, ramps: system.ramps, audits: system.audits, building, lastBuild });
     }
     if (url.pathname === '/api/preview' && req.method === 'POST') {
       const brand = { ...DEFAULT_BRAND, ...(await readBody(req)) };
       const system = computeSystem(brand);
-      return json(res, 200, { theme: system.theme, audits: system.audits });
+      return json(res, 200, { theme: system.theme, ramps: system.ramps, audits: system.audits });
     }
     if (url.pathname === '/api/save' && req.method === 'POST') {
       if (building) return json(res, 409, { error: 'build already running' });
@@ -205,21 +358,11 @@ const server = http.createServer(async (req, res) => {
         `"typography":{"style":"serif|sans|mono|mixed","headingFont":"one of Inter, DM Sans, Geist, IBM Plex Sans, Source Sans 3, Space Grotesk, Playfair Display, Lora","bodyFont":"same options","reason":"short"},` +
         `"radius":0.0,` + // 0 sharp .. 2 round, judge from the UI
         `"mood":["3-5 adjectives"],"notes":"2 sentences on how to apply this to the system"}`;
-      const out = await new Promise((resolve) => {
-        const child = spawn('claude', ['-p', prompt, '--output-format', 'json', '--allowedTools', 'Read', '--max-turns', '3'],
-          { cwd: ROOT, shell: true, timeout: 120000 });
-        let so = '', se = '';
-        child.stdout.on('data', (d) => (so += d));
-        child.stderr.on('data', (d) => (se += d));
-        child.on('error', () => resolve(null));
-        child.on('close', (code) => resolve(code === 0 ? so : null));
-      });
+      const out = await runClaude(prompt);
       try { fs.unlinkSync(img); } catch {}
       if (!out) return json(res, 200, { fallback: true, reason: 'claude CLI unavailable; use client-side extraction' });
       try {
-        const env = JSON.parse(out);
-        const txt = typeof env === 'object' && env.result ? env.result : out;
-        const jm = String(txt).match(/\{[\s\S]*\}/);
+        const jm = String(out).match(/\{[\s\S]*\}/);
         return json(res, 200, { analysis: JSON.parse(jm[0]), name });
       } catch {
         return json(res, 200, { fallback: true, reason: 'could not parse analysis' });
@@ -292,22 +435,19 @@ const server = http.createServer(async (req, res) => {
       const body = await readBody(req);
       if (body.source === 'figma') {
         const figKey = (String(body.url || '').match(/figma\.com\/(?:design|file)\/([A-Za-z0-9]+)/) || [])[1];
+        const nodeId = ((String(body.url || '').match(/node-id=([0-9]+[-:][0-9]+)/) || [])[1] || '').replace('-', ':') || undefined;
         if (!figKey) return json(res, 400, { error: 'Could not read a Figma file key from that URL.' });
-        const tok = figmaToken();
-        if (!tok) return json(res, 200, { fallback: true, reason: 'No Figma token found. Set FIGMA_ACCESS_TOKEN or add it to ~/.figma-console-mcp.env to read Figma files.' });
-        let fr;
-        try {
-          const r = await fetch(`https://api.figma.com/v1/files/${figKey}?depth=2`, { headers: { 'X-Figma-Token': tok } });
-          if (!r.ok) return json(res, 200, { fallback: true, reason: `Figma API responded ${r.status}. Check the token has access to this file.` });
-          fr = await r.json();
-        } catch (e) { return json(res, 200, { fallback: true, reason: 'Could not reach the Figma API: ' + e.message }); }
-        const pages = (fr.document?.children || []).map((p) => p.name);
-        const frames = [];
-        for (const p of (fr.document?.children || [])) for (const c of (p.children || [])) if (c.name) frames.push(c.name);
-        const styles = Object.values(fr.styles || {}).map((s) => `${s.styleType}: ${s.name}`);
-        const summary = `Figma file "${fr.name}". Pages: ${pages.join(', ')}. Frames: ${frames.slice(0, 40).join(', ')}. Styles: ${styles.slice(0, 40).join('; ')}.`;
-        const profile = await claudeDesignProfile({ figmaSummary: summary });
-        return json(res, 200, profile ? { profile, source: 'figma', name: fr.name } : { fallback: true, reason: 'Read the Figma file but the local AI (claude CLI) was unavailable to interpret it. The raw structure was captured.', raw: summary });
+        // Read straight from the local Figma desktop MCP (no token). Requires Figma desktop open.
+        let mcp;
+        try { mcp = await figmaMcpRead(figKey, nodeId); }
+        catch (e) {
+          const refused = /ECONNREFUSED|fetch failed|connect/i.test(e.message);
+          return json(res, 200, { fallback: true, reason: refused
+            ? ('Nothing is listening on ' + FIGMA_MCP_URL + '. For the controller to read Figma, BOTH must be true: (1) enable Figma’s Dev Mode MCP server (Figma menu → Preferences → Enable Dev Mode MCP server; needs a Dev or Full seat and Figma running), and (2) run this controller on the SAME machine as the Figma desktop app, since 127.0.0.1 is per-machine. Verify on that machine with: curl http://127.0.0.1:3845/mcp')
+            : ('Reached the Figma MCP but the call failed: ' + e.message) });
+        }
+        const profile = buildFigmaProfile(mcp.name, mcp.metadata, mcp.variables);
+        return json(res, 200, { profile, tokens: profile.tokens, source: 'figma (mcp)', name: mcp.name });
       }
       // image path
       const m = /^data:(image\/\w+);base64,(.+)$/.exec(body.dataUrl || '');
@@ -346,7 +486,7 @@ const server = http.createServer(async (req, res) => {
       const build = await runBuild();
       const brand = loadBrand();
       const system = computeSystem(brand);
-      return json(res, 200, { restored: id, build, brand, theme: system.theme, audits: system.audits });
+      return json(res, 200, { restored: id, build, brand, theme: system.theme, ramps: system.ramps, audits: system.audits });
     }
     if (url.pathname === '/api/upload' && req.method === 'POST') {
       const { name, dataUrl, note } = await readBody(req);

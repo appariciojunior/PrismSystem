@@ -848,6 +848,7 @@
         <button type="button" data-sub="mail">Mail</button>
         <button type="button" data-sub="components">Components</button>
         <button type="button" data-sub="type">Type</button>
+        <button type="button" data-sub="colours">Colours</button>
       </div>
       <div class="preview" id="preview">
         <div class="pane active" id="pane-mood">
@@ -1057,6 +1058,13 @@
           <div id="type-ladder"></div>
         </div>
       </div>        </div>
+        <div class="pane" id="pane-colours">
+          <div class="view-head">
+            <div class="view-title">Colours</div>
+            <div class="view-sub">The whole colour system: every generated ramp (with your seed marked) and the resolved theme tokens, for the current light/dark mode.</div>
+          </div>
+          <div id="colours-view"></div>
+        </div>
       </div>
     </section>
 
@@ -1078,6 +1086,9 @@
         <div style="display:flex; gap:8px; margin-top:12px">
           <input type="text" id="figma-url" placeholder="Or paste a Figma file link (figma.com/design/...)" style="flex:1">
           <button class="btn" id="btn-figma" type="button">Read Figma</button>
+        </div>
+        <div style="margin-top:8px; font-size:11.5px; color:var(--text-3); line-height:1.55">
+          Reads straight from the <b>Figma desktop app on this machine</b> over its local MCP (<span class="mono">127.0.0.1:3845</span>) — no token, no API key, nothing sent to figma.com. Requirements: open the file in the Figma <b>desktop</b> app (not the browser), and turn on <span class="mono">Figma menu → Preferences → Enable Dev Mode MCP server</span>. If the read fails, check it on this machine with <span class="mono">curl http://127.0.0.1:3845/mcp</span>.
         </div>
         <div id="design-result"></div>
       </div>
@@ -1387,6 +1398,7 @@
   var brand = deepMergeDefaults(null);
   var savedSnapshot = '';
   var theme = null;
+  var ramps = null;
   var audits = null;
   var mode = 'light';
   var saving = false;
@@ -1721,7 +1733,7 @@
   }
   loadVersions();
   fetch('/api/ping').then(function (r) { return r.ok ? r.json() : { build: 0 }; }).then(function (d) {
-    if (!d.build || d.build < 13) {
+    if (!d.build || d.build < 14) {
       toast('note', 'Old server detected', 'This page is newer than the server. Run: lsof -ti :4400 | xargs kill -9, then npm run controller.');
     }
   }).catch(function () {});
@@ -1743,7 +1755,7 @@
         .catch(function (e) { toast('bad', 'Save failed', e.message); });
     });
 
-    function renderProfile(p, source, name) {
+    function renderProfile(p, source, name, tokens) {
       result.innerHTML = '';
       var box = document.createElement('div');
       box.style.cssText = 'margin-top:14px; padding:14px; border:1px solid var(--line); border-radius:calc(var(--r) * 1.25); background:var(--panel-2)';
@@ -1766,10 +1778,101 @@
         var md = profileToMd(p, source, name);
         ta.value = (ta.value ? ta.value.replace(/\s+$/, '') + '\n\n' : '') + md;
         toast('ok', 'Added', 'Appended to the design language. Review and Save.');
-        result.innerHTML = '';
+        var ap = document.getElementById('fig-apply-panel');
+        if (ap) box.appendChild(ap); else result.innerHTML = '';
       });
+      // ---- Apply-to-system panel (Figma reads only — they carry real token values) ----
+      var tk = tokens && tokens.swatches ? tokens : null;
+      if (tk) box.appendChild(buildApplyPanel(tk, esc));
     }
     window.__renderDesignProfile = renderProfile;
+
+    // Build the panel that turns a Figma read into live draft controls. Populates the
+    // controls only (never auto-saves): the user reviews, then hits Save & apply.
+    function buildApplyPanel(tk, esc) {
+      var ap = document.createElement('div');
+      ap.id = 'fig-apply-panel';
+      ap.style.cssText = 'margin-top:12px; padding:14px; border:1px solid var(--line); border-radius:calc(var(--r) * 1.25); background:var(--panel)';
+      var sel = tk.suggestedBrand || (tk.swatches[0] && tk.swatches[0].hex) || null;
+      var sw = tk.swatches.map(function (s) {
+        return '<button type="button" class="fig-sw" data-hex="' + s.hex + '" title="' + esc(s.name) + ' ' + s.hex + '" style="width:24px;height:24px;border-radius:50%;border:2px solid transparent;background:' + s.hex + ';cursor:pointer;padding:0;margin:0 6px 6px 0;vertical-align:middle;transition:transform .1s"></button>';
+      }).join('');
+      var sem = tk.semantics || {};
+      var semList = ['success', 'warning', 'error', 'info'].filter(function (k) { return sem[k]; });
+      var semStr = semList.map(function (k) { return k + ' ' + sem[k]; }).join(', ');
+      function line(label, val) { return val ? '<div style="font-size:12px;margin:3px 0"><span style="color:var(--text-3)">' + label + ':</span> ' + esc(val) + '</div>' : ''; }
+      function cb(id, label, on) { return '<label style="display:flex;align-items:center;gap:7px;font-size:12.5px;margin:5px 0;cursor:pointer"><input type="checkbox" id="' + id + '"' + (on ? ' checked' : '') + '> ' + esc(label) + '</label>'; }
+      ap.innerHTML =
+        '<div style="font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px">Apply to the system</div>' +
+        '<div style="font-size:12px; margin-bottom:5px">Brand colour <span style="color:var(--text-3)">— click a swatch</span></div>' +
+        '<div id="fig-swatches">' + sw + '</div>' +
+        '<div style="margin-top:8px">' +
+          line('Neutral', tk.suggestedNeutral) +
+          (semStr ? line('Semantics', semStr) : '') +
+          (tk.radiusMult ? line('Radius', '×' + tk.radiusMult + ' (from ' + tk.radiusPx + 'px' + (tk.hasPill ? ', pills detected' : '') + ')') : '') +
+          (tk.spacingMult ? line('Spacing', '×' + tk.spacingMult + ' (grid unit ' + tk.spacingStepPx + 'px)') : '') +
+          ((tk.fontFamily || tk.headingWeight) ? line('Type', (tk.fontFamily || '') + (tk.headingWeight ? ' · heading ' + tk.headingWeight : '') + (tk.bodyWeight ? ' / body ' + tk.bodyWeight : '')) : '') +
+        '</div>' +
+        '<div style="margin-top:8px; border-top:1px solid var(--line); padding-top:8px">' +
+          cb('fig-ap-colour', 'Brand + neutral colours', true) +
+          (semStr ? cb('fig-ap-sem', 'Semantic colours (' + semList.length + ')', true) : '') +
+          (tk.radiusMult ? cb('fig-ap-radius', 'Corner radius', true) : '') +
+          (tk.spacingMult ? cb('fig-ap-spacing', 'Spacing rhythm', false) : '') +
+          ((tk.fontFamily || tk.headingWeight) ? cb('fig-ap-type', 'Font + weights', true) : '') +
+        '</div>' +
+        '<button class="btn primary" id="fig-apply" type="button" style="margin-top:10px">Apply to controls</button>' +
+        '<div style="font-size:11px;color:var(--text-3);margin-top:6px">Populates the controls as a draft. Review, then <b>Save &amp; apply</b> to rebuild the whole system.</div>';
+      function paint() {
+        ap.querySelectorAll('.fig-sw').forEach(function (b) {
+          var on = b.getAttribute('data-hex') === sel;
+          b.style.borderColor = on ? 'var(--text)' : 'transparent';
+          b.style.transform = on ? 'scale(1.18)' : 'none';
+        });
+      }
+      ap.querySelectorAll('.fig-sw').forEach(function (b) {
+        b.addEventListener('click', function () { sel = b.getAttribute('data-hex'); paint(); });
+      });
+      paint();
+      ap.querySelector('#fig-apply').addEventListener('click', function () {
+        applyFigmaTokens(tk, sel, {
+          colour: !!(document.getElementById('fig-ap-colour') || {}).checked,
+          semantics: !!(document.getElementById('fig-ap-sem') || {}).checked,
+          radius: !!(document.getElementById('fig-ap-radius') || {}).checked,
+          spacing: !!(document.getElementById('fig-ap-spacing') || {}).checked,
+          type: !!(document.getElementById('fig-ap-type') || {}).checked
+        });
+      });
+      return ap;
+    }
+
+    // Mirror of applyTweakcnPreset: mutate the draft `brand`, then syncControls + markDirty.
+    function applyFigmaTokens(tk, brandHex, opts) {
+      var changed = [];
+      if (opts.colour) {
+        if (brandHex) { brand.primary = brandHex; if (typeof clearOverridesFor === 'function') clearOverridesFor('primary'); changed.push('brand'); }
+        if (tk.suggestedNeutral) { brand.neutralTint = tk.suggestedNeutral; if (typeof clearOverridesFor === 'function') clearOverridesFor('neutralTint'); changed.push('neutral'); }
+        brand.presetSlug = null;
+      }
+      if (opts.semantics && tk.semantics) {
+        var s = tk.semantics;
+        if (s.success) { brand.success = s.success; changed.push('success'); }
+        if (s.warning) { brand.warning = s.warning; changed.push('warning'); }
+        if (s.error) { brand.error = s.error; if (typeof clearOverridesFor === 'function') clearOverridesFor('error'); changed.push('error'); }
+        if (s.info) { brand.info = s.info; changed.push('info'); }
+      }
+      if (opts.radius && tk.radiusMult != null) { brand.radius = tk.radiusMult; changed.push('radius'); }
+      if (opts.spacing && tk.spacingMult != null) { brand.spacing = tk.spacingMult; changed.push('spacing'); }
+      if (opts.type) {
+        if (tk.fontFamily && typeof FONTS !== 'undefined' && FONTS.indexOf(tk.fontFamily) !== -1) { brand.headingFont = tk.fontFamily; brand.bodyFont = tk.fontFamily; changed.push('font'); }
+        if (tk.headingWeight) { brand.headingWeight = tk.headingWeight; changed.push('heading weight'); }
+        if (tk.bodyWeight) { brand.bodyWeight = tk.bodyWeight; changed.push('body weight'); }
+      }
+      if (!changed.length) { toast('note', 'Nothing selected', 'Tick at least one group to apply.'); return; }
+      try { if (typeof ensureFontsLoaded === 'function') ensureFontsLoaded(); } catch (e) {}
+      syncControls();
+      markDirty();
+      toast('ok', 'Applied to draft', 'Controls updated: ' + changed.join(', ') + '. Review, then Save & apply.');
+    }
 
     function profileToMd(p, source, name) {
       var L = [];
@@ -1822,7 +1925,7 @@
       fetch('/api/analyze-design', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source: 'figma', url: u }) })
         .then(function (r) { return r.json(); })
         .then(function (d) {
-          if (d.profile) renderProfile(d.profile, 'figma', d.name);
+          if (d.profile) renderProfile(d.profile, 'figma', d.name, d.tokens);
           else result.innerHTML = '<div style="margin-top:12px; color:var(--amber); font-size:12.5px">' + (d.reason || d.error || 'Could not read the file') + '</div>';
         })
         .catch(function (e) { result.innerHTML = '<div style="margin-top:12px; color:var(--red); font-size:12.5px">' + e.message + '</div>'; });
@@ -1903,9 +2006,64 @@
           p.classList.toggle('active', p.id === 'pane-' + id);
         });
         if (id === 'mood') renderMood();
+        if (id === 'colours') renderColours();
       });
     });
   })();
+
+  /* ================= Colours tab: full ramps + resolved theme tokens ================= */
+  function renderColours() {
+    var host = document.getElementById('colours-view');
+    if (!host) return;
+    if (!ramps) { host.innerHTML = '<div style="color:var(--text-3);font-size:12.5px">The ramps appear after the first preview. Change any control, or wait a moment.</div>'; return; }
+    function lin(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    function textOn(hex) {
+      var c = String(hex).replace('#', ''); if (c.length === 3) c = c.split('').map(function (x) { return x + x; }).join('');
+      var r = parseInt(c.slice(0, 2), 16), g = parseInt(c.slice(2, 4), 16), b = parseInt(c.slice(4, 6), 16);
+      if (isNaN(r)) return '#fff';
+      var L = 0.2126 * lin(r) + 0.7152 * lin(g) + 0.0722 * lin(b);
+      return L > 0.4 ? '#111' : '#fff';
+    }
+    var FAM = [
+      ['brand', 'Brand', 'primary'], ['neutral', 'Neutral', 'neutralTint'], ['tertiary', 'Tertiary', 'tertiary'],
+      ['info', 'Info', 'info'], ['success', 'Success', 'success'], ['warning', 'Warning', 'warning'], ['error', 'Error', 'error'],
+      ['chart1', 'Chart 1', null], ['chart2', 'Chart 2', null], ['chart3', 'Chart 3', null], ['chart4', 'Chart 4', null], ['chart5', 'Chart 5', null]
+    ];
+    var html = '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px">Ramps &middot; ' + mode + ' mode</div>';
+    FAM.forEach(function (f) {
+      var r = ramps[f[0]]; if (!r || !r[mode]) return;
+      var steps = r.steps || Object.keys(r[mode]).map(Number).sort(function (a, b) { return a - b; });
+      var seedHex = f[2] && brand[f[2]] ? String(brand[f[2]]).toLowerCase() : null;
+      var cells = steps.map(function (st) {
+        var hex = r[mode][st]; if (!hex) return '';
+        var isSeed = seedHex && String(hex).toLowerCase() === seedHex;
+        return '<div title="' + f[1] + ' ' + st + ' &middot; ' + hex + '" style="flex:1 1 0;min-width:0;height:48px;background:' + hex + ';display:flex;flex-direction:column;justify-content:flex-end;padding:3px 4px;color:' + textOn(hex) + ';font-size:9px;line-height:1.1;' + (isSeed ? 'outline:2px solid var(--text);outline-offset:-2px;position:relative;z-index:1;font-weight:700;' : '') + '">' + st + '</div>';
+      }).join('');
+      html += '<div style="margin-bottom:12px">'
+        + '<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">'
+        + '<span style="font-size:12px;font-weight:600">' + f[1] + '</span>'
+        + (seedHex ? '<span style="font-size:10.5px;color:var(--text-3);font-family:var(--mono)">seed ' + brand[f[2]] + '</span>' : '')
+        + '</div>'
+        + '<div style="display:flex;border-radius:8px;overflow:hidden;border:1px solid var(--line)">' + cells + '</div>'
+        + '</div>';
+    });
+    if (theme && theme[mode]) {
+      var TOK = ['background', 'foreground', 'card', 'card-foreground', 'popover', 'muted', 'muted-foreground',
+        'primary', 'primary-foreground', 'secondary', 'secondary-foreground', 'tertiary', 'accent', 'accent-foreground',
+        'border', 'input', 'ring', 'info', 'success', 'warning', 'error', 'destructive',
+        'chart-1', 'chart-2', 'chart-3', 'chart-4', 'chart-5'];
+      var chips = TOK.map(function (t) {
+        var hex = theme[mode][t]; if (!hex) return '';
+        return '<div style="display:flex;align-items:center;gap:8px;padding:6px 8px;border:1px solid var(--line);border-radius:8px;background:var(--panel-2)">'
+          + '<span style="width:22px;height:22px;border-radius:5px;border:1px solid var(--line);background:' + hex + ';flex:none"></span>'
+          + '<span style="min-width:0;overflow:hidden"><span style="display:block;font-size:11.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + t + '</span>'
+          + '<span style="font-size:10px;color:var(--text-3);font-family:var(--mono)">' + hex + '</span></span></div>';
+      }).join('');
+      html += '<div style="font-size:11px;color:var(--text-3);text-transform:uppercase;letter-spacing:.07em;margin:18px 0 10px">Theme tokens &middot; ' + mode + ' mode</div>'
+        + '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px">' + chips + '</div>';
+    }
+    host.innerHTML = html;
+  }
 
   /* ================= Spacing & effects controls ================= */
   var SHADOW_PRESETS = {
@@ -3339,6 +3497,8 @@
     renderChart();
     renderAudits();
     if (currentTab === 'preview') renderMood();
+    var cp = document.getElementById('pane-colours');
+    if (cp && cp.classList.contains('active')) renderColours();
   }
 
   /* ================= Server calls ================= */
@@ -3365,6 +3525,7 @@
     }).then(function (d) {
       if (seq !== previewSeq) return;
       theme = d.theme;
+      ramps = d.ramps || ramps;
       audits = d.audits;
       renderThemeViews();
       if (manual === true) toast('ok', 'Preview refreshed', 'Tokens and audits recomputed from the current draft.');
@@ -3483,7 +3644,7 @@
       .then(function (d) {
         if (!d.restored) throw new Error(d.error || 'unknown error');
         brand = deepMergeDefaults(d.brand);
-        theme = d.theme; audits = d.audits;
+        theme = d.theme; ramps = d.ramps || ramps; audits = d.audits;
         savedSnapshot = snapshot();
         syncControls(); syncIdentityInputs(); renderThemeViews(); renderDraftViews(); updateStatusChip(); updateSummary();
         toast(d.build && d.build.ok ? 'ok' : 'note', 'Restored ' + label,
@@ -3514,6 +3675,7 @@
   function hydrate(s) {
     brand = deepMergeDefaults(s.brand);
     theme = s.theme || theme;
+    ramps = s.ramps || ramps;
     audits = s.audits || audits;
     building = !!s.building;
     savedSnapshot = snapshot();
