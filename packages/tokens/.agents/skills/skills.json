@@ -1,689 +1,209 @@
 {
   "$schema": "https://agentskills.io/schema/v1",
   "name": "ds-skills",
-  "version": "6.0.0",
-  "description": "Skills for the Design System: token architecture (Foundation \u2192 Palette \u2192 Semantic), component workflows, and the designer-facing design suite (UI, UX, handoff, motion)",
+  "version": "6.1.0",
+  "description": "Skills for the Design System: token architecture (Foundation → Palette → Semantic), component workflows, and the designer-facing design suite (UI, UX, handoff, motion)",
   "repository": "https://github.com/your-org/design-system",
+  "note": "Lean registry. Extended metadata (intents, compose graph, io, gates) lives in skills.extended.json, keyed by skill name.",
   "skills": [
     {
       "name": "contrast-check",
-      "path": "color-ramps/contrast-check.md",
       "description": "Verify color combinations meet WCAG accessibility contrast requirements. Supports AA (4.5:1) and AAA (7:1) levels.",
-      "category": "color-ramps",
+      "category": "foundations",
+      "path": "color-ramps/contrast-check.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need dark/light ramp mapping guidance",
-        "Need accessibility contrast verification"
-      ],
-      "do_not_use_for": [
-        "Non-color workflow orchestration",
-        "Bypassing contrast/parity validation"
-      ],
-      "required_inputs": [
-        "token_or_color_pair",
-        "mode_context"
-      ],
-      "outputs": [
-        "mapping_or_contrast_result",
-        "risk_notes"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "discovery/token-lookup"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "dark-mode-mapping",
-      "path": "color-ramps/dark-mode-mapping.md",
       "description": "CRITICAL - Map between light/dark mode ramp steps correctly. Documents the neutral ramp REVERSAL where step 50 and 1000 swap between white/black.",
-      "category": "color-ramps",
+      "category": "foundations",
+      "path": "color-ramps/dark-mode-mapping.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need dark/light ramp mapping guidance",
-        "Need accessibility contrast verification"
-      ],
-      "do_not_use_for": [
-        "Non-color workflow orchestration",
-        "Bypassing contrast/parity validation"
-      ],
-      "required_inputs": [
-        "token_or_color_pair",
-        "mode_context"
-      ],
-      "outputs": [
-        "mapping_or_contrast_result",
-        "risk_notes"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "discovery/token-lookup"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "ramp-generation",
-      "path": "color-ramps/ramp-generation.md",
       "description": "Generate or modify color ramps with proper foundation references. Maintains consistent step intervals (50-1000) and applies OKLCH lightness modifiers.",
-      "category": "color-ramps",
+      "category": "foundations",
+      "path": "color-ramps/ramp-generation.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need dark/light ramp mapping guidance",
-        "Need accessibility contrast verification"
-      ],
-      "do_not_use_for": [
-        "Non-color workflow orchestration",
-        "Bypassing contrast/parity validation"
-      ],
-      "required_inputs": [
-        "token_or_color_pair",
-        "mode_context"
-      ],
-      "outputs": [
-        "mapping_or_contrast_result",
-        "risk_notes"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "discovery/token-lookup"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "extend-ramps",
-      "path": "color-ramps/extend-ramps.md",
       "description": "Extend the colour ranges of the white-label system: add a new accent tier, add shades to an existing ramp, add data-vis chart slots, and wire new tokens through source so a rebuild emits them across web and iOS.",
-      "category": "color-ramps",
+      "category": "foundations",
+      "path": "color-ramps/extend-ramps.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to add a new accent tier or extend colour ranges",
-        "Need to add ramp shades or data-vis chart slots"
-      ],
-      "do_not_use_for": [
-        "Non-color workflow orchestration",
-        "Bypassing contrast/parity validation"
-      ],
-      "required_inputs": [
-        "extension_kind",
-        "mode_context"
-      ],
-      "outputs": [
-        "edited_source_tokens",
-        "contrast_and_rebuild_notes"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive palette change: adding tiers/shades/chart slots without confirmation or without both-mode parity can cause governance or release risk.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "color-ramps/ramp-generation",
-        "color-ramps/contrast-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "brief-updater",
-      "path": "coordination/brief-updater.md",
       "description": "Update agent briefs when skills change or patterns evolve. Propagates changes from skills library to brief references.",
-      "category": "coordination",
+      "category": "workflow",
+      "path": "coordination/brief-updater.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need cross-agent handoff or release workflow",
-        "Need rollback or announcement process"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Replacing validation checks"
-      ],
-      "required_inputs": [
-        "handoff_or_release_scope"
-      ],
-      "outputs": [
-        "handoff_or_release_artifact",
-        "status_summary"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "validation/build-verify",
-        "validation/constraint-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "handoff-protocol",
-      "path": "coordination/handoff-protocol.md",
       "description": "Standardize agent-to-agent handoffs with structured state transfer. Ensures context preservation and clear task boundaries.",
-      "category": "coordination",
+      "category": "workflow",
+      "path": "coordination/handoff-protocol.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need cross-agent handoff or release workflow",
-        "Need rollback or announcement process"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Replacing validation checks"
-      ],
-      "required_inputs": [
-        "handoff_or_release_scope"
-      ],
-      "outputs": [
-        "handoff_or_release_artifact",
-        "status_summary"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "validation/build-verify",
-        "validation/constraint-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "release-process",
-      "path": "coordination/release-process.md",
       "description": "Complete checklist for releasing a new Token Library version, including tokens, changelog, announcement, and Figma Make assets.",
-      "category": "coordination",
+      "category": "workflow",
+      "path": "coordination/release-process.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need cross-agent handoff or release workflow",
-        "Need rollback or announcement process"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Replacing validation checks"
-      ],
-      "required_inputs": [
-        "handoff_or_release_scope"
-      ],
-      "outputs": [
-        "handoff_or_release_artifact",
-        "status_summary"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "validation/build-verify",
-        "validation/constraint-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "rollback",
-      "path": "coordination/rollback.md",
       "description": "Safely revert token changes when issues are discovered. Supports commit/file/session level rollbacks with proper documentation.",
-      "category": "coordination",
+      "category": "workflow",
+      "path": "coordination/rollback.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need cross-agent handoff or release workflow",
-        "Need rollback or announcement process"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Replacing validation checks"
-      ],
-      "required_inputs": [
-        "handoff_or_release_scope"
-      ],
-      "outputs": [
-        "handoff_or_release_artifact",
-        "status_summary"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "validation/build-verify",
-        "validation/constraint-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "slack-announcements",
-      "path": "coordination/slack-announcements.md",
       "description": "Create and format Slack release announcements for design system updates following the standard template.",
-      "category": "coordination",
+      "category": "workflow",
+      "path": "coordination/slack-announcements.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need cross-agent handoff or release workflow",
-        "Need rollback or announcement process"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Replacing validation checks"
-      ],
-      "required_inputs": [
-        "handoff_or_release_scope"
-      ],
-      "outputs": [
-        "handoff_or_release_artifact",
-        "status_summary"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "validation/build-verify",
-        "validation/constraint-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "ui-kit-release-artifacts",
-      "path": "coordination/ui-kit-release-artifacts.md",
       "description": "Create or update UI Kit release changelogs, Slack announcements, and Figma publish messages by compiling all per-component changelog entries since the last UI Kit publish date.",
-      "category": "coordination",
+      "category": "workflow",
+      "path": "coordination/ui-kit-release-artifacts.md",
       "agents": [
         "Architect",
         "Code",
         "Testing",
         "Figma Executor"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need cross-agent handoff or release workflow",
-        "Need rollback or announcement process"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Replacing validation checks"
-      ],
-      "required_inputs": [
-        "handoff_or_release_scope"
-      ],
-      "outputs": [
-        "handoff_or_release_artifact",
-        "status_summary"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "validation/build-verify",
-        "validation/constraint-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "dependency-graph",
-      "path": "discovery/dependency-graph.md",
       "description": "Trace token references to build upstream/downstream dependency graphs. Detects circular references and calculates change impact.",
       "category": "discovery",
+      "path": "discovery/dependency-graph.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to locate token path or dependency",
-        "Need intent-first token search"
-      ],
-      "do_not_use_for": [
-        "Applying token edits",
-        "Replacing validation gates"
-      ],
-      "required_inputs": [
-        "search_intent"
-      ],
-      "outputs": [
-        "candidate_paths",
-        "resolved_paths"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [],
-      "compose_before": [
-        "governance/token-modification-gates",
-        "editing/safe-token-edit",
-        "validation/constraint-check"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "semantic-token-search",
-      "path": "discovery/semantic-token-search.md",
       "description": "Use search_tokens for intent-first token discovery, then narrow with precision filters for faster and more accurate context.",
       "category": "discovery",
+      "path": "discovery/semantic-token-search.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to locate token path or dependency",
-        "Need intent-first token search"
-      ],
-      "do_not_use_for": [
-        "Applying token edits",
-        "Replacing validation gates"
-      ],
-      "required_inputs": [
-        "search_intent"
-      ],
-      "outputs": [
-        "candidate_paths",
-        "resolved_paths"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [],
-      "compose_before": [
-        "governance/token-modification-gates",
-        "editing/safe-token-edit",
-        "validation/constraint-check"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "token-lookup",
-      "path": "discovery/token-lookup.md",
       "description": "Find tokens by path, name pattern, or value. Returns metadata and location for efficient context gathering without reading full tokens.json.",
       "category": "discovery",
+      "path": "discovery/token-lookup.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to locate token path or dependency",
-        "Need intent-first token search"
-      ],
-      "do_not_use_for": [
-        "Applying token edits",
-        "Replacing validation gates"
-      ],
-      "required_inputs": [
-        "search_intent"
-      ],
-      "outputs": [
-        "candidate_paths",
-        "resolved_paths"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [],
-      "compose_before": [
-        "governance/token-modification-gates",
-        "editing/safe-token-edit",
-        "validation/constraint-check"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "bulk-transform",
-      "path": "editing/bulk-transform.md",
       "description": "Apply batch transformations across multiple tokens with atomic commit and rollback. Requires human approval when affecting more than 10 tokens.",
-      "category": "editing",
+      "category": "quality",
+      "path": "editing/bulk-transform.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to modify token values or descriptions safely",
-        "Need controlled batch token updates"
-      ],
-      "do_not_use_for": [
-        "Skipping governance checks",
-        "Using for read-only discovery"
-      ],
-      "required_inputs": [
-        "target_paths",
-        "change_intent"
-      ],
-      "outputs": [
-        "proposed_or_applied_edits",
-        "edit_summary"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "governance/token-modification-gates"
-      ],
-      "compose_before": [
-        "validation/json-validate",
-        "validation/build-verify"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "description-guidelines",
-      "path": "editing/description-guidelines.md",
       "description": "Rules for writing token descriptions that maintain semantic abstraction and theme compatibility.",
-      "category": "editing",
+      "category": "quality",
+      "path": "editing/description-guidelines.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "reference",
-      "trigger_intents": [
-        "Need to modify token values or descriptions safely",
-        "Need controlled batch token updates"
-      ],
-      "do_not_use_for": [
-        "Skipping governance checks",
-        "Using for read-only discovery"
-      ],
-      "required_inputs": [
-        "target_paths",
-        "change_intent"
-      ],
-      "outputs": [
-        "proposed_or_applied_edits",
-        "edit_summary"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mutation risk: incorrect path/value changes can propagate across downstream tokens.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "governance/token-modification-gates"
-      ],
-      "compose_before": [
-        "validation/json-validate",
-        "validation/build-verify"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "reference"
     },
     {
       "name": "safe-token-edit",
-      "path": "editing/safe-token-edit.md",
       "description": "Safely edit tokens in tokens.json with validation gates. Includes pre-edit checklist, scripted approach, and post-edit validation.",
-      "category": "editing",
+      "category": "quality",
+      "path": "editing/safe-token-edit.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to modify token values or descriptions safely",
-        "Need controlled batch token updates"
-      ],
-      "do_not_use_for": [
-        "Skipping governance checks",
-        "Using for read-only discovery"
-      ],
-      "required_inputs": [
-        "target_paths",
-        "change_intent"
-      ],
-      "outputs": [
-        "proposed_or_applied_edits",
-        "edit_summary"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "governance/token-modification-gates"
-      ],
-      "compose_before": [
-        "validation/json-validate",
-        "validation/build-verify"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "component-lifecycle-orchestration",
-      "path": "figma-integration/component-lifecycle-orchestration.md",
       "description": "Mandatory orchestration workflow for Figma Executor on MAKE/UPDATE component tasks, including VS Code question gates, semver classification, multi-agent delegation, and release communications.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/component-lifecycle-orchestration.md",
       "agents": [
         "Architect",
         "Figma Executor",
@@ -691,254 +211,74 @@
         "React Expert",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need Figma extraction, linting, or mutation workflow",
-        "Need Figma MCP setup/status guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma-only tasks",
-        "Skipping desktop bridge gate for Figma URLs"
-      ],
-      "required_inputs": [
-        "figma_target",
-        "task_intent"
-      ],
-      "outputs": [
-        "extraction_or_mutation_report",
-        "evidence_artifacts"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "react/component-patterns",
-        "storybook/figma-to-storybook"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "design-extraction",
-      "path": "figma-integration/design-extraction.md",
       "description": "Figma Console MCP operating playbook with mode/status checks, tool routing, and FOM 2026 execution contracts for any Figma-facing task.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/design-extraction.md",
       "agents": [
         "Architect",
         "Code",
         "Testing",
         "React Expert"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need Figma extraction, linting, or mutation workflow",
-        "Need Figma MCP setup/status guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma-only tasks",
-        "Skipping desktop bridge gate for Figma URLs"
-      ],
-      "required_inputs": [
-        "figma_target",
-        "task_intent"
-      ],
-      "outputs": [
-        "extraction_or_mutation_report",
-        "evidence_artifacts"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "react/component-patterns",
-        "storybook/figma-to-storybook"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "design-linting",
-      "path": "figma-integration/design-linting.md",
       "description": "Workflow for design quality and accessibility auditing using figma_lint_design and figma_audit_design_system before handoff.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/design-linting.md",
       "agents": [
         "Figma Executor",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need Figma extraction, linting, or mutation workflow",
-        "Need Figma MCP setup/status guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma-only tasks",
-        "Skipping desktop bridge gate for Figma URLs"
-      ],
-      "required_inputs": [
-        "figma_target",
-        "task_intent"
-      ],
-      "outputs": [
-        "extraction_or_mutation_report",
-        "evidence_artifacts"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "react/component-patterns",
-        "storybook/figma-to-storybook"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-api-reference",
-      "path": "figma-integration/figma-use/references/api-reference.md",
       "description": "Reference skill for figma-integration/figma-use/references/api-reference.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/api-reference.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/api-reference.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-common-patterns",
-      "path": "figma-integration/figma-use/references/common-patterns.md",
       "description": "Reference skill for figma-integration/figma-use/references/common-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/common-patterns.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/common-patterns.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-component-patterns",
-      "path": "figma-integration/figma-use/references/component-patterns.md",
       "description": "Reference skill for figma-integration/figma-use/references/component-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/component-patterns.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/component-patterns.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-console-mcp-integration",
-      "path": "figma-integration/figma-console-mcp-integration.md",
       "description": "End-to-end Figma Console MCP integration proposal and operating standard for setup, mode-aware execution, reliability gates, and deterministic troubleshooting.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-console-mcp-integration.md",
       "agents": [
         "Architect",
         "Code",
@@ -946,1163 +286,325 @@
         "React Expert",
         "Figma Executor"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need Figma extraction, linting, or mutation workflow",
-        "Need Figma MCP setup/status guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma-only tasks",
-        "Skipping desktop bridge gate for Figma URLs"
-      ],
-      "required_inputs": [
-        "figma_target",
-        "task_intent"
-      ],
-      "outputs": [
-        "extraction_or_mutation_report",
-        "evidence_artifacts"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
-      "compose_after": [],
-      "compose_before": [
-        "react/component-patterns",
-        "storybook/figma-to-storybook"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-effect-style-patterns",
-      "path": "figma-integration/figma-use/references/effect-style-patterns.md",
       "description": "Reference skill for figma-integration/figma-use/references/effect-style-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/effect-style-patterns.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/effect-style-patterns.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-gotchas",
-      "path": "figma-integration/figma-use/references/gotchas.md",
       "description": "Reference skill for figma-integration/figma-use/references/gotchas.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/gotchas.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/gotchas.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-make-workflow",
-      "path": "figma-integration/figma-make-workflow.md",
       "description": "End-to-end workflow for building React components from Figma designs for Figma Make integration.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-make-workflow.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need Figma extraction, linting, or mutation workflow",
-        "Need Figma MCP setup/status guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma-only tasks",
-        "Skipping desktop bridge gate for Figma URLs"
-      ],
-      "required_inputs": [
-        "figma_target",
-        "task_intent"
-      ],
-      "outputs": [
-        "extraction_or_mutation_report",
-        "evidence_artifacts"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "react/component-patterns",
-        "storybook/figma-to-storybook"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-plugin-api-patterns",
-      "path": "figma-integration/figma-use/references/plugin-api-patterns.md",
       "description": "Reference skill for figma-integration/figma-use/references/plugin-api-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/plugin-api-patterns.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/plugin-api-patterns.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-text-style-patterns",
-      "path": "figma-integration/figma-use/references/text-style-patterns.md",
       "description": "Reference skill for figma-integration/figma-use/references/text-style-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/text-style-patterns.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/text-style-patterns.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-use",
+      "description": "MANDATORY prerequisite — load before every figma_execute (Console MCP) or use_figma (Desktop Bridge MCP) call. Covers Plugin API critical rules (17), incremental workflow, error recovery, pre-flight checklist, and Design System variable bindings. Reference docs cover gotchas, common patterns, component/variant patterns, variable patterns, plugin API patterns, text/effect style patterns, and complete API surface.",
+      "category": "figma",
       "path": "figma-integration/figma-use/SKILL.md",
-      "description": "MANDATORY prerequisite \u2014 load before every figma_execute (Console MCP) or use_figma (Desktop Bridge MCP) call. Covers Plugin API critical rules (17), incremental workflow, error recovery, pre-flight checklist, and Design System variable bindings. Reference docs cover gotchas, common patterns, component/variant patterns, variable patterns, plugin API patterns, text/effect style patterns, and complete API surface.",
-      "category": "figma-integration",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need Figma extraction, linting, or mutation workflow",
-        "Need Figma MCP setup/status guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma-only tasks",
-        "Skipping desktop bridge gate for Figma URLs"
-      ],
-      "required_inputs": [
-        "figma_target",
-        "task_intent"
-      ],
-      "outputs": [
-        "extraction_or_mutation_report",
-        "evidence_artifacts"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "react/component-patterns",
-        "storybook/figma-to-storybook"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-validation-and-recovery",
-      "path": "figma-integration/figma-use/references/validation-and-recovery.md",
       "description": "Reference skill for figma-integration/figma-use/references/validation-and-recovery.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/validation-and-recovery.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/validation-and-recovery.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-variable-patterns",
-      "path": "figma-integration/figma-use/references/variable-patterns.md",
       "description": "Reference skill for figma-integration/figma-use/references/variable-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/variable-patterns.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/variable-patterns.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-wwds",
-      "path": "figma-integration/figma-use/references/working-with-design-systems/wwds.md",
       "description": "Reference skill for figma-integration/figma-use/references/working-with-design-systems/wwds.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/working-with-design-systems/wwds.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/working-with-design-systems/wwds.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-wwds-variables",
-      "path": "figma-integration/figma-use/references/working-with-design-systems/wwds-variables.md",
       "description": "Reference skill for figma-integration/figma-use/references/working-with-design-systems/wwds-variables.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/working-with-design-systems/wwds-variables.md",
       "agents": [
         "Figma Executor",
         "React Expert",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from figma-integration/figma-use/references/working-with-design-systems/wwds-variables.md"
-      ],
-      "do_not_use_for": [
-        "Token editing workflows",
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "figma_target"
-      ],
-      "outputs": [
-        "reference_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
-      "compose_after": [
-        "figma-integration/figma-use"
-      ],
-      "compose_before": [
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "token-mapping",
-      "path": "figma-integration/token-mapping.md",
       "description": "Map Figma design values to design system tokens dynamically using tokens.json as source of truth, with FOM 2026 MCP-aware mapping guidance.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/token-mapping.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need Figma extraction, linting, or mutation workflow",
-        "Need Figma MCP setup/status guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma-only tasks",
-        "Skipping desktop bridge gate for Figma URLs"
-      ],
-      "required_inputs": [
-        "figma_target",
-        "task_intent"
-      ],
-      "outputs": [
-        "extraction_or_mutation_report",
-        "evidence_artifacts"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "react/component-patterns",
-        "storybook/figma-to-storybook"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "approval-workflow",
-      "path": "governance/approval-workflow.md",
       "description": "Manage approval workflow for token changes. Determines required labels, reviews, and sign-offs based on change type and scope.",
-      "category": "governance",
+      "category": "quality",
+      "path": "governance/approval-workflow.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need approval gate decision before protected-layer changes",
-        "Need policy check for restricted operations"
-      ],
-      "do_not_use_for": [
-        "General token discovery",
-        "Implementing edits directly"
-      ],
-      "required_inputs": [
-        "token_path",
-        "operation_type"
-      ],
-      "outputs": [
-        "allow_block_decision",
-        "required_approvals"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "discovery/semantic-token-search"
-      ],
-      "compose_before": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "constraint-reference",
-      "path": "governance/constraint-reference.md",
       "description": "Complete reference of token system constraints and violations. Invoke when validating changes or unsure about rules.",
-      "category": "governance",
+      "category": "quality",
+      "path": "governance/constraint-reference.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need approval gate decision before protected-layer changes",
-        "Need policy check for restricted operations"
-      ],
-      "do_not_use_for": [
-        "General token discovery",
-        "Implementing edits directly"
-      ],
-      "required_inputs": [
-        "token_path",
-        "operation_type"
-      ],
-      "outputs": [
-        "allow_block_decision",
-        "required_approvals"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "discovery/semantic-token-search"
-      ],
-      "compose_before": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "foundation-gate",
-      "path": "governance/foundation-gate.md",
       "description": "Compatibility wrapper delegating foundation layer decisions to token-modification-gates.",
-      "category": "governance",
+      "category": "quality",
+      "path": "governance/foundation-gate.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "blocked",
-      "trigger_intents": [
-        "Legacy compatibility path for foundation gate invocation"
-      ],
-      "do_not_use_for": [
-        "New governance implementation (use token-modification-gates)",
-        "Direct token editing"
-      ],
-      "required_inputs": [
-        "token_path",
-        "operation_type"
-      ],
-      "outputs": [
-        "allow_block_decision",
-        "required_approvals"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Blocked action path: requires explicit human approval before protected operations.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "discovery/semantic-token-search"
-      ],
-      "compose_before": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "blocked"
     },
     {
       "name": "palette-gate",
-      "path": "governance/palette-gate.md",
       "description": "Compatibility wrapper delegating palette layer decisions to token-modification-gates.",
-      "category": "governance",
+      "category": "quality",
+      "path": "governance/palette-gate.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Legacy compatibility path for palette gate invocation"
-      ],
-      "do_not_use_for": [
-        "New governance implementation (use token-modification-gates)",
-        "Direct token editing"
-      ],
-      "required_inputs": [
-        "token_path",
-        "operation_type"
-      ],
-      "outputs": [
-        "allow_block_decision",
-        "required_approvals"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "discovery/semantic-token-search"
-      ],
-      "compose_before": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "token-modification-gates",
-      "path": "governance/token-modification-gates.md",
       "description": "Unified canonical gate for protected token layers (foundation and palette), including approval labels and escalation rules.",
-      "category": "governance",
+      "category": "quality",
+      "path": "governance/token-modification-gates.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need single canonical gate for foundation/palette write decisions"
-      ],
-      "do_not_use_for": [
-        "General token discovery",
-        "Implementing edits directly"
-      ],
-      "required_inputs": [
-        "token_path",
-        "operation_type"
-      ],
-      "outputs": [
-        "allow_block_decision",
-        "required_approvals"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "discovery/semantic-token-search"
-      ],
-      "compose_before": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "accessibility",
-      "path": "react/accessibility.md",
       "description": "WCAG 2.1 AA compliance patterns for React components. Covers ARIA, keyboard navigation, and focus management.",
       "category": "react",
+      "path": "react/accessibility.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need React implementation pattern guidance",
-        "Need component state/accessibility/testing strategy"
-      ],
-      "do_not_use_for": [
-        "Token governance decisions",
-        "Figma extraction without figma-integration skills"
-      ],
-      "required_inputs": [
-        "component_scope",
-        "implementation_goal"
-      ],
-      "outputs": [
-        "component_pattern_or_test_guidance",
-        "implementation_checks"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "figma-integration/design-extraction",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "storybook/story-writing",
-        "storybook/visual-testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "component-patterns",
-      "path": "react/component-patterns.md",
       "description": "Design patterns for composable React components. Covers compound components, render props, HOCs, and controlled/uncontrolled.",
       "category": "react",
+      "path": "react/component-patterns.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need React implementation pattern guidance",
-        "Need component state/accessibility/testing strategy"
-      ],
-      "do_not_use_for": [
-        "Token governance decisions",
-        "Figma extraction without figma-integration skills"
-      ],
-      "required_inputs": [
-        "component_scope",
-        "implementation_goal"
-      ],
-      "outputs": [
-        "component_pattern_or_test_guidance",
-        "implementation_checks"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "figma-integration/design-extraction",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "storybook/story-writing",
-        "storybook/visual-testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "hooks-quick-reference",
-      "path": "react/hooks-quick-reference.md",
       "description": "Compact decision matrix for built-in React hooks used in design system components.",
       "category": "react",
+      "path": "react/hooks-quick-reference.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need React implementation pattern guidance",
-        "Need component state/accessibility/testing strategy"
-      ],
-      "do_not_use_for": [
-        "Token governance decisions",
-        "Figma extraction without figma-integration skills"
-      ],
-      "required_inputs": [
-        "component_scope",
-        "implementation_goal"
-      ],
-      "outputs": [
-        "component_pattern_or_test_guidance",
-        "implementation_checks"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "figma-integration/design-extraction",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "storybook/story-writing",
-        "storybook/visual-testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "hooks-reference",
-      "path": "react/hooks-reference.md",
       "description": "Custom hook architecture and safe hook composition patterns for design system components.",
       "category": "react",
+      "path": "react/hooks-reference.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need React implementation pattern guidance",
-        "Need component state/accessibility/testing strategy"
-      ],
-      "do_not_use_for": [
-        "Token governance decisions",
-        "Figma extraction without figma-integration skills"
-      ],
-      "required_inputs": [
-        "component_scope",
-        "implementation_goal"
-      ],
-      "outputs": [
-        "component_pattern_or_test_guidance",
-        "implementation_checks"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "figma-integration/design-extraction",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "storybook/story-writing",
-        "storybook/visual-testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "state-management",
-      "path": "react/state-management.md",
       "description": "Patterns for managing state in React components from local state to complex state machines and context.",
       "category": "react",
+      "path": "react/state-management.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need React implementation pattern guidance",
-        "Need component state/accessibility/testing strategy"
-      ],
-      "do_not_use_for": [
-        "Token governance decisions",
-        "Figma extraction without figma-integration skills"
-      ],
-      "required_inputs": [
-        "component_scope",
-        "implementation_goal"
-      ],
-      "outputs": [
-        "component_pattern_or_test_guidance",
-        "implementation_checks"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "figma-integration/design-extraction",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "storybook/story-writing",
-        "storybook/visual-testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "testing",
-      "path": "react/testing.md",
       "description": "Behavior-level unit and integration testing guidance for React components using Testing Library.",
       "category": "react",
+      "path": "react/testing.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need React implementation pattern guidance",
-        "Need component state/accessibility/testing strategy"
-      ],
-      "do_not_use_for": [
-        "Token governance decisions",
-        "Figma extraction without figma-integration skills"
-      ],
-      "required_inputs": [
-        "component_scope",
-        "implementation_goal"
-      ],
-      "outputs": [
-        "component_pattern_or_test_guidance",
-        "implementation_checks"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "figma-integration/design-extraction",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "storybook/story-writing",
-        "storybook/visual-testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "typescript-patterns",
-      "path": "react/typescript-patterns.md",
       "description": "TypeScript patterns for React components including props typing, generics, and discriminated unions.",
       "category": "react",
+      "path": "react/typescript-patterns.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need React implementation pattern guidance",
-        "Need component state/accessibility/testing strategy"
-      ],
-      "do_not_use_for": [
-        "Token governance decisions",
-        "Figma extraction without figma-integration skills"
-      ],
-      "required_inputs": [
-        "component_scope",
-        "implementation_goal"
-      ],
-      "outputs": [
-        "component_pattern_or_test_guidance",
-        "implementation_checks"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "figma-integration/design-extraction",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "storybook/story-writing",
-        "storybook/visual-testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "shadcn-ui",
-      "path": "react/shadcn-ui.md",
       "description": "Build screens with the @ds/ui shadcn component library themed by the design-system tokens. Imports, theming contract, composition patterns.",
       "category": "react",
+      "path": "react/shadcn-ui.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "build a screen",
-        "use shadcn",
-        "generate UI with the component library",
-        "new page or feature UI",
-        "which component library to use"
-      ],
-      "do_not_use_for": [
-        "editing raw tokens (use token skills)",
-        "legacy components-react maintenance"
-      ],
-      "required_inputs": [
-        "what to build",
-        "target route or surface"
-      ],
-      "outputs": [
-        "React screen/feature using @ds/ui + tokens"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "discovery/token-lookup",
-        "react/component-patterns"
-      ],
-      "compose_before": [
-        "react/testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "compose-screen",
-      "path": "react/compose-screen.md",
       "description": "Compose a designed product screen from the design system: tokens, material, captured design language and vendored blocks. Use to build a page/dashboard/feature that should look designed, not raw shadcn.",
       "category": "react",
+      "path": "react/compose-screen.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "build a screen",
-        "design a page",
-        "make a dashboard",
-        "generate a designed UI",
-        "build a feature screen"
-      ],
-      "do_not_use_for": [
-        "editing tokens",
-        "pure component library maintenance"
-      ],
-      "required_inputs": [
-        "what to build",
-        "target route"
-      ],
-      "outputs": [
-        "a designed screen under sandbox/ using @ds/ui + blocks + tokens"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/shadcn-ui",
-        "discovery/token-lookup"
-      ],
-      "compose_before": [
-        "react/testing"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "react-loop",
-      "path": "reasoning/react-loop.md",
       "description": "ReAct (Reasoning + Acting) pattern for grounded problem-solving. Interleaves explicit reasoning traces with tool actions and observations.",
-      "category": "reasoning",
+      "category": "discovery",
+      "path": "reasoning/react-loop.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need structured thought-action-observation loop",
-        "Complex multi-step decision with uncertainty"
-      ],
-      "do_not_use_for": [
-        "Direct file mutation",
-        "Token lookup as primary action"
-      ],
-      "required_inputs": [
-        "task_goal",
-        "current_constraints"
-      ],
-      "outputs": [
-        "decision_trace",
-        "next_action"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "mobbin-mcp",
-      "path": "reference/mobbin-mcp.md",
       "description": "Mobbin MCP workflow for grounding component and pattern decisions in shipped product examples before reference or execution responses.",
-      "category": "reference",
+      "category": "discovery",
+      "path": "reference/mobbin-mcp.md",
       "agents": [
         "Architect",
         "Code",
@@ -2110,2631 +612,714 @@
         "Figma Executor",
         "React Expert"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need component or interaction pattern grounding",
-        "Need modal or flow examples before token reference or implementation"
-      ],
-      "do_not_use_for": [
-        "As source of truth for token values",
-        "Overriding brand principles"
-      ],
-      "required_inputs": [
-        "component_or_pattern_intent"
-      ],
-      "outputs": [
-        "pattern_reference_examples",
-        "applied_pattern_notes"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; risk is misapplication of external patterns without token-system alignment.",
-      "compose_after": [],
-      "compose_before": [
-        "reference/token-reference-fast-path",
-        "figma-integration/design-extraction"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "npm-packages",
-      "path": "reference/npm-packages.md",
       "description": "Curated list of battle-tested npm packages for React component development, organized by category.",
-      "category": "reference",
+      "category": "discovery",
+      "path": "reference/npm-packages.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "informational",
-      "trigger_intents": [
-        "Need quick package or React lookup reference"
-      ],
-      "do_not_use_for": [
-        "As authoritative governance gate",
-        "As replacement for procedural skills"
-      ],
-      "required_inputs": [
-        "lookup_topic"
-      ],
-      "outputs": [
-        "quick_reference_links"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "informational"
     },
     {
       "name": "react-cheatsheet",
-      "path": "reference/react-cheatsheet.md",
       "description": "Quick reference for React patterns, hooks, TypeScript types, and common scenarios.",
-      "category": "reference",
+      "category": "discovery",
+      "path": "reference/react-cheatsheet.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "informational",
-      "trigger_intents": [
-        "Need quick package or React lookup reference"
-      ],
-      "do_not_use_for": [
-        "As authoritative governance gate",
-        "As replacement for procedural skills"
-      ],
-      "required_inputs": [
-        "lookup_topic"
-      ],
-      "outputs": [
-        "quick_reference_links"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "informational"
     },
     {
       "name": "token-reference-fast-path",
-      "path": "reference/token-reference-fast-path.md",
       "description": "Deterministic MCP-only workflow for token reference queries with grouped table output.",
-      "category": "reference",
+      "category": "discovery",
+      "path": "reference/token-reference-fast-path.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need reference-only token suggestions",
-        "Need deterministic grouped table token output"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Implementation or code mutation planning"
-      ],
-      "required_inputs": [
-        "intent"
-      ],
-      "outputs": [
-        "grouped_reference_tables",
-        "data_quality_note"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is inconsistent formatting if ordering rules are skipped.",
-      "compose_after": [
-        "reference/mobbin-mcp",
-        "discovery/semantic-token-search"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "component-documentation",
-      "path": "storybook/component-documentation.md",
       "description": "Index skill. Delegates to component-documentation-writing (content) and component-documentation-figma (Figma/Storybook sync).",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/component-documentation.md",
       "agents": [
         "Architect",
         "Code",
         "Testing",
         "React Expert"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "component-documentation-figma",
-      "path": "storybook/component-documentation-figma.md",
       "description": "Sync the canonical component doc to Figma configuration tables and Storybook controls. Enforces layout contracts, chip/plain-text formatting, and MCP safeguards.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/component-documentation-figma.md",
       "agents": [
         "Code",
         "React Expert"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "component-documentation-writing",
-      "path": "storybook/component-documentation-writing.md",
       "description": "Write clear, multi-audience component docs (designers, developers, product owners) using the 9-section canonical structure. The component doc is the single source of truth.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/component-documentation-writing.md",
       "agents": [
         "Architect",
         "Code",
         "Testing",
         "React Expert"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "figma-to-storybook",
-      "path": "storybook/figma-to-storybook.md",
       "description": "End-to-end workflow for translating Figma component designs into Storybook stories with all variants and states.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/figma-to-storybook.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "natural-language-stories",
-      "path": "storybook/natural-language-stories.md",
       "description": "Generate Storybook stories and React components from plain English descriptions. Enables non-coders to create UI via prompting.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/natural-language-stories.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "story-writing",
-      "path": "storybook/story-writing.md",
       "description": "Write Storybook stories using modern CSF3 format. Generates type-safe story files from component specs or designer descriptions.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/story-writing.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "storybook-component-changelog-design",
-      "path": "storybook/component-changelog-design.md",
       "description": "Reference skill for storybook/component-changelog-design.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/component-changelog-design.md",
       "agents": [
         "Architect",
         "Code",
         "Testing",
         "Figma Executor"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need guidance from storybook/component-changelog-design.md"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "React unit testing"
-      ],
-      "required_inputs": [
-        "component_doc_target"
-      ],
-      "outputs": [
-        "design_changelog_entry"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Release communication risk if labels/version/date format are inconsistent.",
-      "compose_after": [
-        "figma-integration/component-lifecycle-orchestration"
-      ],
-      "compose_before": [
-        "coordination/ui-kit-release-artifacts"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "storybook-config",
+      "description": "Manage Storybook configuration — main.js, preview.js, addons, fonts, CSS token integration, dark mode toggle.",
+      "category": "react",
       "path": "storybook/storybook-config.md",
-      "description": "Manage Storybook configuration \u2014 main.js, preview.js, addons, fonts, CSS token integration, dark mode toggle.",
-      "category": "storybook",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "token-showcase",
+      "description": "Create Storybook stories that visually showcase design tokens — colours, typography, spacing, shadows, and palettes.",
+      "category": "react",
       "path": "storybook/token-showcase.md",
-      "description": "Create Storybook stories that visually showcase design tokens \u2014 colours, typography, spacing, shadows, and palettes.",
-      "category": "storybook",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "visual-regression-gate",
-      "path": "storybook/visual-regression-gate.md",
       "description": "Mandatory post-task visual regression gate for Figma builds, visual prompt changes, and reference-output fidelity checks.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/visual-regression-gate.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "visual-testing",
-      "path": "storybook/visual-testing.md",
       "description": "Set up and run accessibility, interaction, and visual tests in Storybook using play functions and a11y addon.",
-      "category": "storybook",
+      "category": "react",
+      "path": "storybook/visual-testing.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need story/doc generation or visual verification workflow",
-        "Need Storybook config/testing guidance"
-      ],
-      "do_not_use_for": [
-        "Core token mutation",
-        "Replacing react unit/integration testing"
-      ],
-      "required_inputs": [
-        "story_or_doc_target",
-        "output_type"
-      ],
-      "outputs": [
-        "story_or_doc_output",
-        "verification_steps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
-      "compose_after": [
-        "react/component-patterns",
-        "react/testing"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "build-verify",
-      "path": "validation/build-verify.md",
       "description": "Run npm build and test commands to verify token changes. Ensures JSON syntax, tests pass, and theme.js is generated correctly.",
-      "category": "validation",
+      "category": "quality",
+      "path": "validation/build-verify.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to verify syntax, constraints, or build integrity",
-        "Need pass/fail quality verdict"
-      ],
-      "do_not_use_for": [
-        "Making source edits as first step",
-        "Bypassing governance decisions"
-      ],
-      "required_inputs": [
-        "changed_files",
-        "validation_scope"
-      ],
-      "outputs": [
-        "pass_fail_report",
-        "risk_findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
-      "compose_after": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol",
-        "coordination/release-process"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "constraint-check",
-      "path": "validation/constraint-check.md",
       "description": "Verify token changes comply with constraint rules. Detects circular references, layer violations, and font weight format errors.",
-      "category": "validation",
+      "category": "quality",
+      "path": "validation/constraint-check.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to verify syntax, constraints, or build integrity",
-        "Need pass/fail quality verdict"
-      ],
-      "do_not_use_for": [
-        "Making source edits as first step",
-        "Bypassing governance decisions"
-      ],
-      "required_inputs": [
-        "changed_files",
-        "validation_scope"
-      ],
-      "outputs": [
-        "pass_fail_report",
-        "risk_findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
-      "compose_after": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol",
-        "coordination/release-process"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "json-validate",
-      "path": "validation/json-validate.md",
       "description": "Validate tokens.json JSON syntax and structural integrity.",
-      "category": "validation",
+      "category": "quality",
+      "path": "validation/json-validate.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to verify syntax, constraints, or build integrity",
-        "Need pass/fail quality verdict"
-      ],
-      "do_not_use_for": [
-        "Making source edits as first step",
-        "Bypassing governance decisions"
-      ],
-      "required_inputs": [
-        "changed_files",
-        "validation_scope"
-      ],
-      "outputs": [
-        "pass_fail_report",
-        "risk_findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
-      "compose_after": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol",
-        "coordination/release-process"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "semantic-theme-parity",
-      "path": "validation/semantic-theme-parity.md",
       "description": "Validate semantic theme parity required for Figma Variables export, including strict structural checks and advisory channel value decisions.",
-      "category": "validation",
+      "category": "quality",
+      "path": "validation/semantic-theme-parity.md",
       "agents": [
         "Architect",
         "Code",
         "Testing",
         "React Expert"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to verify syntax, constraints, or build integrity",
-        "Need pass/fail quality verdict"
-      ],
-      "do_not_use_for": [
-        "Making source edits as first step",
-        "Bypassing governance decisions"
-      ],
-      "required_inputs": [
-        "changed_files",
-        "validation_scope"
-      ],
-      "outputs": [
-        "pass_fail_report",
-        "risk_findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
-      "compose_after": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol",
-        "coordination/release-process"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "token-audit-workflow",
-      "path": "validation/token-audit-workflow.md",
       "description": "Run audit_design_system to detect duplicate values, naming drift, and contrast risks before implementation or sign-off.",
-      "category": "validation",
+      "category": "quality",
+      "path": "validation/token-audit-workflow.md",
       "agents": [
         "Architect",
         "Code",
         "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to verify syntax, constraints, or build integrity",
-        "Need pass/fail quality verdict"
-      ],
-      "do_not_use_for": [
-        "Making source edits as first step",
-        "Bypassing governance decisions"
-      ],
-      "required_inputs": [
-        "changed_files",
-        "validation_scope"
-      ],
-      "outputs": [
-        "pass_fail_report",
-        "risk_findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
-      "compose_after": [
-        "editing/safe-token-edit",
-        "editing/bulk-transform"
-      ],
-      "compose_before": [
-        "coordination/handoff-protocol",
-        "coordination/release-process"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "ask-first-protocol",
-      "path": "coordination/ask-first-protocol.md",
       "description": "Structured question format standard for agent-to-user decisions. Present every architectural decision, trade-off, ambiguity, or gate as structured options, not prose.",
-      "category": "coordination",
+      "category": "workflow",
+      "path": "coordination/ask-first-protocol.md",
       "agents": [
         "Architect",
         "Code",
         "Testing",
         "Figma Executor"
       ],
-      "autonomy": "informational",
-      "trigger_intents": [
-        "Need to present a decision, trade-off, or gate to the user",
-        "Need structured clarification instead of prose questions"
-      ],
-      "do_not_use_for": [
-        "Autonomous read-only work with no decision point"
-      ],
-      "required_inputs": [
-        "decision_context"
-      ],
-      "outputs": [
-        "structured_question_set"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; primary risk is unstructured decisions slipping past the user.",
-      "compose_after": [],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "informational"
     },
     {
       "name": "component-doc-mcp-workflow",
-      "path": "figma-integration/component-doc-mcp-workflow.md",
       "description": "Convert component property docs (Markdown) into Figma template updates via Figma Console MCP figma_execute. No plugin or REST API needed.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/component-doc-mcp-workflow.md",
       "agents": [
         "Figma Executor",
         "Code"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to push component doc content into Figma templates"
-      ],
-      "do_not_use_for": [
-        "Token value editing",
-        "Extraction-only tasks"
-      ],
-      "required_inputs": [
-        "component_doc_path",
-        "figma_target"
-      ],
-      "outputs": [
-        "figma_template_update",
-        "evidence_artifacts"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: mutates Figma templates; acting without confirmation can cause design-file damage.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "figma-variables-implementation-guide",
-      "path": "figma-integration/figma-variables-implementation-guide.md",
       "description": "Internalised Figma Help knowledge: variables vs styles, modes, scoping, and design token implementation in Figma. Foundational reference for figma-executor work.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/figma-variables-implementation-guide.md",
       "agents": [
         "Figma Executor",
         "Architect"
       ],
-      "autonomy": "informational",
-      "trigger_intents": [
-        "Need Figma variables or styles implementation guidance"
-      ],
-      "do_not_use_for": [
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "task_intent"
-      ],
-      "outputs": [
-        "implementation_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
-      "compose_after": [],
-      "compose_before": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "informational"
     },
     {
       "name": "variable-binding-reference",
-      "path": "figma-integration/variable-binding-reference.md",
       "description": "Design System Figma file keys, variable collections, and binding patterns. Internalised reference for figma-executor, including Token Library and UI Kit keys.",
-      "category": "figma-integration",
+      "category": "figma",
+      "path": "figma-integration/variable-binding-reference.md",
       "agents": [
         "Figma Executor",
         "Architect",
         "Code"
       ],
-      "autonomy": "informational",
-      "trigger_intents": [
-        "Need Figma variable IDs, file keys, or binding patterns"
-      ],
-      "do_not_use_for": [
-        "Non-Figma tasks"
-      ],
-      "required_inputs": [
-        "lookup_target"
-      ],
-      "outputs": [
-        "binding_reference"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
-      "compose_after": [],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "informational"
     },
     {
       "name": "token-governance-and-scaling",
-      "path": "governance/token-governance-and-scaling.md",
       "description": "Internalised industry knowledge on token system lifecycle, governance, and scaling. Foundational reference for architect-level governance decisions.",
-      "category": "governance",
+      "category": "quality",
+      "path": "governance/token-governance-and-scaling.md",
       "agents": [
         "Architect"
       ],
-      "autonomy": "informational",
-      "trigger_intents": [
-        "Need token governance, lifecycle, or scaling guidance"
-      ],
-      "do_not_use_for": [
-        "Executing token edits",
-        "Replacing gate decisions"
-      ],
-      "required_inputs": [
-        "governance_question"
-      ],
-      "outputs": [
-        "governance_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
-      "compose_after": [],
-      "compose_before": [
-        "governance/token-modification-gates"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "informational"
     },
     {
       "name": "design-token-naming-architecture",
-      "path": "token-foundations/design-token-naming-architecture.md",
       "description": "Internalised industry knowledge on three-tier token naming architecture. Tool-agnostic foundational reference to load before planning token changes.",
-      "category": "token-foundations",
+      "category": "foundations",
+      "path": "token-foundations/design-token-naming-architecture.md",
       "agents": [
         "Architect",
         "Code"
       ],
-      "autonomy": "informational",
-      "trigger_intents": [
-        "Need token naming or tier architecture guidance"
-      ],
-      "do_not_use_for": [
-        "Tool-specific implementation detail (see figma-integration guides)"
-      ],
-      "required_inputs": [
-        "naming_question"
-      ],
-      "outputs": [
-        "naming_guidance"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
-      "compose_after": [],
-      "compose_before": [
-        "editing/safe-token-edit"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "informational"
     },
     {
       "name": "design-dna",
-      "path": "design/foundation/design-dna.md",
       "description": "The single source of truth for who the Design System is, how your brand designs, and what good design means here. Identity, content sections, design principles, anti-patterns, motion philosophy. Standalone prototyping companion and always-on preamble for every design/ skill.",
-      "category": "design/foundation",
+      "category": "foundations",
+      "path": "design/foundation/design-dna.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "PM",
-        "QA",
+        "Testing",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "design_dna",
-      "trigger_intents": [
-        "Need brand, channel, or design principle grounding",
-        "Starting any new design or prototype",
-        "Need the anti-pattern list before critique"
-      ],
-      "do_not_use_for": [
-        "Token value lookup (use discovery/token-lookup)",
-        "Editing tokens"
-      ],
-      "required_inputs": [
-        "mode_or_lens"
-      ],
-      "outputs": [
-        "dna_briefing"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference; risk is staleness, mitigated by tokens.json and content-styleguide.md being higher authorities.",
-      "compose_after": [],
-      "compose_before": [
-        "design/design-router"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "design-router",
-      "path": "design/design-router.md",
       "description": "Single entry point for design work. Classifies a designer's request into prototype, ui-craft, new-experience, handoff, or corpus-distill, loads the Design DNA, and composes the ordered skill sequence. Surfaced as /design.",
       "category": "design",
+      "path": "design/design-router.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "PM",
-        "QA"
+        "Testing"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "design_route",
-      "trigger_intents": [
-        "Any design request without a named skill",
-        "Need to know which design skill applies",
-        "Designer says what they are doing in plain language"
-      ],
-      "do_not_use_for": [
-        "Running a specific named skill directly",
-        "Token editing"
-      ],
-      "required_inputs": [
-        "request"
-      ],
-      "outputs": [
-        "route",
-        "skill_sequence",
-        "route_summary_json"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only routing; risk is misclassification, mitigated by the one-question rule and explicit route restatement.",
-      "compose_after": [
-        "design/foundation/design-dna"
-      ],
-      "compose_before": [
-        "design/ui/design-critique",
-        "design/handoff/handoff-flow"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "frame-to-spec",
-      "path": "design/handoff/frame-to-spec.md",
       "description": "Turn a Figma frame into a complete, no-questions-asked developer spec packet. Pulls layout, tokens, states, breakpoints, edge cases and a11y notes from the frame and renders them as a single Markdown file that links back to the Figma node.",
-      "category": "design/handoff",
+      "category": "handoff",
+      "path": "design/handoff/frame-to-spec.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "frame_to_spec",
-      "trigger_intents": [
-        "Need to hand a Figma frame to engineering",
-        "Need a complete spec packet from a design",
-        "Need a deterministic developer-facing spec"
-      ],
-      "do_not_use_for": [
-        "Critiquing whether a design is good",
-        "Writing component code",
-        "Editing tokens"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "spec_markdown",
-        "token_map",
-        "state_matrix",
-        "open_questions"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only extraction and synthesis. Primary risk is invented tokens or hallucinated states, mitigated by strict procedure forbidding non-resolved values.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration",
-        "figma-integration/design-linting"
-      ],
-      "compose_before": [
-        "design/handoff/component-scaffold",
-        "design/handoff/spec-packet"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "token-mapping-audit",
-      "path": "design/ui/token-mapping-audit.md",
       "description": "For a given Figma frame, list every raw colour, spacing, radius, type and shadow value, map each one to a DS token via Token MCP, flag values with no token match, and recommend the closest semantic token.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/token-mapping-audit.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to audit token usage in a Figma frame",
-        "Need to find unmapped values in a design",
-        "Need to verify a frame uses semantic tokens not foundation/palette"
-      ],
-      "do_not_use_for": [
-        "Editing tokens",
-        "Creating new tokens (governed by governance/token-modification-gates)",
-        "Critiquing design quality"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "token_audit_report",
-        "unmapped_values_list",
-        "remediation_recommendations"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only audit. Primary risk is silent token mismatch, mitigated by surfacing all match candidates above threshold.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "design/handoff/frame-to-spec",
-        "design/handoff/spec-packet"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "state-matrix",
-      "path": "design/ui/state-matrix.md",
       "description": "Generate the full interactive state grid for a Figma component (default, hover, focus-visible, active, disabled, loading, error, empty) with the token controlling the difference in each cell.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/state-matrix.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to enumerate all states of a component",
-        "Need a state matrix for handoff",
-        "Need to verify all interactive states are implemented"
-      ],
-      "do_not_use_for": [
-        "Writing component code",
-        "Defining new states (that is a design decision)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "state_matrix_markdown",
-        "findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only extraction. Primary risk is misclassifying a state, mitigated by the explicit `unknown` bucket and human-review surfacing.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration",
-        "figma-integration/design-extraction"
-      ],
-      "compose_before": [
-        "design/handoff/frame-to-spec",
-        "design/handoff/spec-packet",
-        "design/handoff/component-scaffold"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "design-critique",
-      "path": "design/ui/design-critique.md",
       "description": "Structured critique of a Figma frame against Design System rules. Covers visual hierarchy, spacing rhythm, alignment, density, component reuse and channel fit. Returns a categorised findings list with node IDs.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/design-critique.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "design_critique",
-      "trigger_intents": [
-        "Need a structured review of a Figma frame",
-        "Need to critique a design before handoff",
-        "Need findings on hierarchy, spacing, alignment, density, reuse, channel fit"
-      ],
-      "do_not_use_for": [
-        "Token audit (use handoff/token-mapping-audit)",
-        "Accessibility check (use quality/a11y-check)",
-        "Content style check (use quality/content-style-check)",
-        "Light/dark parity (use quality/light-dark-parity)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "critique_report",
-        "categorised_findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only critique. Primary risk is subjective findings, mitigated by every rule pointing to a specific DS artefact or convention.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration",
-        "figma-integration/design-linting"
-      ],
-      "compose_before": [
-        "design/handoff/frame-to-spec",
-        "design/handoff/spec-packet"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "a11y-check",
-      "path": "design/ui/a11y-check.md",
       "description": "Design-time accessibility audit for a Figma frame. Checks colour contrast, text size, hit target size, focus indicator design, alt text placeholders, screen reader notes, and reduced-motion intent. Complements react/accessibility which covers WCAG 2.1 AA in implementation.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/a11y-check.md",
       "agents": [
         "Designer",
-        "QA",
+        "Testing",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to check design-time accessibility",
-        "Need contrast, hit target, focus indicator audit on a frame",
-        "Need to verify a11y notes before handoff"
-      ],
-      "do_not_use_for": [
-        "Code-level WCAG audit (use react/accessibility)",
-        "General design critique (use quality/design-critique)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "a11y_report",
-        "findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only audit. Errors here are hard gates for handoff. Primary risk is missing context (decorative vs meaningful images), mitigated by requiring layer-name semantic intent.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration",
-        "design/ui/token-mapping-audit"
-      ],
-      "compose_before": [
-        "design/handoff/spec-packet",
-        "design/handoff/handoff-flow"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "content-style-check",
-      "path": "design/ui/content-style-check.md",
       "description": "Run the copy in a Figma frame against the Design System content styleguide. Checks voice, tone, British English, brand name usage, em dash avoidance, headline structure, table label rules, and typography token description format.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/content-style-check.md",
       "agents": [
         "Designer",
         "Content",
         "PM",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need a content review of a Figma frame",
-        "Need to enforce the Design System content styleguide",
-        "Need to check British English, brand names, token formatting in copy"
-      ],
-      "do_not_use_for": [
-        "Editing copy in Figma directly (this is read-only)",
-        "Critiquing visual design (use quality/design-critique)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "content_audit_report",
-        "findings_with_rewrites"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only audit. Heuristic findings (passive voice, jargon) marked warning/info to avoid false-positive errors.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [
-        "design/handoff/spec-packet",
-        "design/handoff/handoff-flow"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "channel-context",
-      "path": "design/ui/channel-context.md",
       "description": "Validate channel colour usage in a Figma frame. Confirms the channel is declared at the right level, that semantic tokens flow from the channel, and that no cross-channel mixing occurs.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/channel-context.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to validate channel scope in a Figma frame",
-        "Need to check for cross-channel colour mixing",
-        "Need to confirm channel tokens flow correctly through semantic layer"
-      ],
-      "do_not_use_for": [
-        "Defining new channels (design decision)",
-        "Editing channel tokens (governance/token-modification-gates)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "channel_context_report",
-        "scope_diagnosis",
-        "findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only validation. Primary risk is misidentifying the scope; mitigated by surfacing scope mechanism explicitly.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration",
-        "design/ui/token-mapping-audit"
-      ],
-      "compose_before": [
-        "design/handoff/frame-to-spec",
-        "design/handoff/spec-packet",
-        "design/ui/light-dark-parity"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "spec-packet",
-      "path": "design/handoff/spec-packet.md",
       "description": "Bundle the outputs of frame-to-spec, state-matrix, token-mapping-audit, channel-context, plus asset export list and the Figma deep link, into a single Markdown packet ready to attach to an engineering ticket.",
-      "category": "design/handoff",
+      "category": "handoff",
+      "path": "design/handoff/spec-packet.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "PM",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need a complete handoff packet for engineering",
-        "Need to bundle all upstream artefacts into one file",
-        "Need a ticket-attachable spec document"
-      ],
-      "do_not_use_for": [
-        "Generating the spec itself (use handoff/frame-to-spec)",
-        "Editing upstream skill outputs"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "packet_markdown",
-        "artefact_index",
-        "asset_export_list"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Writes to .design/<feature>/. Risk is overwriting prior runs; mitigated by Figma sha freshness check.",
-      "compose_after": [
-        "design/handoff/frame-to-spec",
-        "design/ui/state-matrix",
-        "design/ui/token-mapping-audit",
-        "design/ui/channel-context",
-        "design/ui/a11y-check",
-        "design/ui/content-style-check"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "light-dark-parity",
-      "path": "design/ui/light-dark-parity.md",
       "description": "Compare light and dark frames of the same component, flag structural divergence, value divergence outside the documented channel exceptions, and missing dark variants. Enforces the 1:1 semantic token rule at design time.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/light-dark-parity.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to verify light/dark parity in a Figma component",
-        "Need to find missing dark variants",
-        "Need to enforce 1:1 semantic token rule at design time"
-      ],
-      "do_not_use_for": [
-        "Editing tokens to fix parity (use governance/token-modification-gates)",
-        "Parity at the token file level (use validation/semantic-theme-parity)"
-      ],
-      "required_inputs": [
-        "light_url_or_node",
-        "dark_url_or_node"
-      ],
-      "outputs": [
-        "parity_report",
-        "structural_diff",
-        "missing_siblings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only comparison. Primary risk is wrong-pair comparison; mitigated by stopping when structural diff exceeds 50%.",
-      "compose_after": [
-        "design/ui/token-mapping-audit",
-        "design/ui/channel-context"
-      ],
-      "compose_before": [
-        "design/handoff/spec-packet",
-        "design/handoff/handoff-flow"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "handoff-flow",
-      "path": "design/handoff/handoff-flow.md",
       "description": "End-to-end orchestrator for the design-workflow skill suite. Runs every check and produces a complete handoff packet for a feature in one guided pass, stopping between phases for confirmation. Persists every artefact to .design/<feature>/.",
-      "category": "design/handoff",
+      "category": "handoff",
+      "path": "design/handoff/handoff-flow.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "PM",
         "Architect"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to run the full design-workflow pipeline for a feature",
-        "Need a guided end-to-end handoff",
-        "First time handing a new design to engineering"
-      ],
-      "do_not_use_for": [
-        "Spot checks on a single dimension (use individual skills)",
-        "Re-running a single skill after a fix (use that skill directly)"
-      ],
-      "required_inputs": [
-        "feature_name",
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "run_log",
-        "complete_design_folder",
-        "packet"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Writes a complete .design/<feature>/ folder. Approval-sensitive because it may trigger future phase 4 scaffold writes. Interactive pauses are the approval mechanism.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration"
-      ],
-      "compose_before": [],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "component-scaffold",
-      "path": "design/handoff/component-scaffold.md",
       "description": "Scaffold a new Design System React component from a completed handoff packet. Creates the component file, CSS, story, docs MDX and changelog stub. Never invents, never overwrites, everything traces to upstream SPEC.md and STATE_MATRIX.md.",
-      "category": "design/handoff",
+      "category": "handoff",
+      "path": "design/handoff/component-scaffold.md",
       "agents": [
         "Design Engineer",
         "Code",
         "Architect"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to scaffold a new DS React component",
-        "Need to generate component + story + docs + changelog from a spec",
-        "After a handoff packet is approved and ready to build"
-      ],
-      "do_not_use_for": [
-        "Updating an existing component (use figma-integration/component-lifecycle-orchestration UPDATE)",
-        "Editing tokens or theme files",
-        "Implementing business logic"
-      ],
-      "required_inputs": [
-        "feature_name",
-        "component_name"
-      ],
-      "outputs": [
-        "seven_scaffolded_files",
-        "scaffold_report",
-        "follow_up_checklist"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Writes seven files into the production source tree. Mitigated by dry-run default, atomic write semantics, and refusal to overwrite existing files.",
-      "compose_after": [
-        "design/handoff/frame-to-spec",
-        "design/ui/state-matrix",
-        "design/ui/token-mapping-audit",
-        "design/ui/channel-context"
-      ],
-      "compose_before": [
-        "design/handoff/code-connect-stub",
-        "design/ui/visual-vs-built"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "code-connect-stub",
-      "path": "design/handoff/code-connect-stub.md",
       "description": "Generate the Figma Code Connect entry for a Design System component using the documentUrlSubstitutions in figma.config.json. Maps Figma component properties to React props, produces a .figma.tsx file alongside the component source.",
-      "category": "design/handoff",
+      "category": "handoff",
+      "path": "design/handoff/code-connect-stub.md",
       "agents": [
         "Design Engineer",
         "Code",
         "Architect"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to set up Figma Code Connect for a DS component",
-        "Need to generate the .figma.tsx mapping file",
-        "Need to link Figma component properties to React props"
-      ],
-      "do_not_use_for": [
-        "Editing figma.config.json (governance change, not a skill)",
-        "Updating component props (that is the component file)"
-      ],
-      "required_inputs": [
-        "component_name",
-        "feature_name"
-      ],
-      "outputs": [
-        "figma_tsx_file",
-        "code_connect_report",
-        "prop_mapping_table"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Writes a new file into the source tree. Mitigated by dry-run default and CLI validation that rolls back invalid stubs.",
-      "compose_after": [
-        "design/handoff/component-scaffold",
-        "design/handoff/frame-to-spec"
-      ],
-      "compose_before": [
-        "design/ui/visual-vs-built"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "dev-spec",
-      "path": "design/handoff/dev-spec.md",
       "description": "Generate DEV-SPEC.html, the engineer's quick view of a generated screen or feature: components used with match status, tokens used with binding status, target surface, and open questions. Produced automatically alongside every full-page or feature generation, in the same sandbox run folder. The quick view, not the packet.",
-      "category": "design/handoff",
+      "category": "handoff",
+      "path": "design/handoff/dev-spec.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "A screen or feature was just generated and engineering needs the quick breakdown",
-        "Need the component and token summary of a generation",
-        "Which components and tokens does this new feature use"
-      ],
-      "do_not_use_for": [
-        "The full engineering handoff (use frame-to-spec or spec-packet)",
-        "Converting a prototype to production code (use stack-convert)",
-        "Flow documents with no built screen"
-      ],
-      "required_inputs": [
-        "run_folder",
-        "feature",
-        "target"
-      ],
-      "outputs": [
-        "dev_spec_html",
-        "component_status_table",
-        "token_status_table"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Write-once summary page in the run folder. Primary risk is statuses that flatter the build; mitigated by writing only from the generation's own record and wearing estimated/flagged openly.",
-      "compose_after": [
-        "design/foundation/sandbox-runs",
-        "design/handoff/stack-convert"
-      ],
-      "compose_before": [
-        "design/handoff/frame-to-spec",
-        "design/handoff/spec-packet"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "visual-vs-built",
-      "path": "design/ui/visual-vs-built.md",
       "description": "Compare a Figma frame against the live Storybook story for the same component. Structured diff covering token usage, spacing, typography, layout, with supporting fuzzy pixel diff. Catches drift after a component has landed in code.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/visual-vs-built.md",
       "agents": [
         "Design Engineer",
-        "QA",
+        "Testing",
         "Designer"
       ],
-      "autonomy": "requires-approval",
-      "trigger_intents": [
-        "Need to verify implementation matches the Figma source",
-        "Need to detect drift between design and built component",
-        "Pre-release check on visual fidelity"
-      ],
-      "do_not_use_for": [
-        "Pixel-perfect comparison (designed to avoid false positives)",
-        "Critiquing the design (use quality/design-critique)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node",
-        "storybook_url"
-      ],
-      "outputs": [
-        "visual_diff_report",
-        "structured_findings",
-        "pixel_diff_image"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Triggers Playwright / CI image captures and may consume CI minutes. Read-only on the source tree, but findings may prompt downstream edits.",
-      "compose_after": [
-        "design/handoff/component-scaffold",
-        "design/handoff/code-connect-stub",
-        "storybook/visual-testing"
-      ],
-      "compose_before": [
-        "coordination/release-process"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "motion-tokens",
-      "path": "design/motion/motion-tokens.md",
       "description": "Reference and lookup skill for Design System motion tokens (durations, easings, named transitions). Mirrors reference/token-reference-fast-path but for motion. Returns deterministic tables. Currently scaffolded; fully active once motion tokens land in tokens.json.",
-      "category": "design/motion",
+      "category": "design",
+      "path": "design/motion/motion-tokens.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect",
         "Code"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to look up a motion duration token",
-        "Need to look up a motion easing token",
-        "Need to look up a named transition",
-        "Reference query for motion"
-      ],
-      "do_not_use_for": [
-        "Creating motion tokens (governance/token-modification-gates)",
-        "Reviewing motion in a frame (use quality/motion-review)"
-      ],
-      "required_inputs": [
-        "intent"
-      ],
-      "outputs": [
-        "motion_token_table",
-        "provisional_values_when_scaffolded"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference. Operates in scaffolded mode until motion tokens exist; flags this clearly in output.",
-      "compose_after": [],
-      "compose_before": [
-        "design/ui/motion-review",
-        "design/motion/interaction-patterns",
-        "design/motion/prototype-spec",
-        "design/handoff/frame-to-spec"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "interaction-patterns",
-      "path": "design/motion/interaction-patterns.md",
       "description": "Reference library of named interaction patterns (modal-open, toast-appear, optimistic-save, in-place-edit, sheet-drag, list-reorder, chip-toggle, hover-feedback, focus-ring-appear) with DS-recommended motion tokens and behavioural rules.",
-      "category": "design/motion",
+      "category": "design",
+      "path": "design/motion/interaction-patterns.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Code",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need the standard motion for a modal / toast / list / hover",
-        "Need to look up a named interaction pattern",
-        "Designing or implementing a standard interaction"
-      ],
-      "do_not_use_for": [
-        "Custom motions outside the catalogue (use motion/prototype-spec)",
-        "Reviewing motion in a frame (use quality/motion-review)"
-      ],
-      "required_inputs": [
-        "pattern_name_or_description"
-      ],
-      "outputs": [
-        "pattern_card",
-        "implementation_hint"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference. Token values are provisional in scaffolded mode.",
-      "compose_after": [
-        "design/motion/motion-tokens"
-      ],
-      "compose_before": [
-        "design/ui/motion-review",
-        "design/motion/prototype-spec",
-        "design/handoff/frame-to-spec"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "prototype-spec",
-      "path": "design/motion/prototype-spec.md",
       "description": "Given a Figma prototype with smart animate or interactive components, emit a textual motion spec for engineering. Captures every animated property, duration, easing, trigger, and reduced-motion fallback.",
-      "category": "design/motion",
+      "category": "design",
+      "path": "design/motion/prototype-spec.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to spec the motion in a Figma prototype",
-        "Need to translate smart animate to code",
-        "Engineer needs the motion details from a prototype"
-      ],
-      "do_not_use_for": [
-        "Static design spec (use handoff/frame-to-spec)",
-        "Reviewing whether the motion is good (use quality/motion-review)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "motion_spec_markdown",
-        "capture_table",
-        "findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only extraction. Provisional token mapping in scaffolded mode.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration",
-        "design/motion/motion-tokens",
-        "design/motion/interaction-patterns"
-      ],
-      "compose_before": [
-        "design/ui/motion-review",
-        "design/handoff/frame-to-spec",
-        "design/handoff/spec-packet"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "motion-review",
-      "path": "design/ui/motion-review.md",
       "description": "Score the motion in a Figma frame or prototype against Design System motion standards. Checks durations against the motion-token scale, easings against the standard set, reduced-motion fallback documentation, and divergence from interaction-patterns.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/motion-review.md",
       "agents": [
         "Designer",
         "Design Engineer",
-        "QA"
+        "Testing"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Need to review motion quality in a frame",
-        "Need to check motion against DS standards",
-        "Need findings on durations, easings, reduced-motion"
-      ],
-      "do_not_use_for": [
-        "Capturing the motion itself (use motion/prototype-spec first)",
-        "General design critique (use quality/design-critique)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "motion_review_report",
-        "findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only review. Severities downgraded by one step when motion-tokens are in scaffolded mode.",
-      "compose_after": [
-        "design/motion/prototype-spec",
-        "design/motion/motion-tokens",
-        "design/motion/interaction-patterns"
-      ],
-      "compose_before": [
-        "design/handoff/spec-packet",
-        "design/handoff/handoff-flow"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "monthly-audit",
-      "path": "design/ui/monthly-audit.md",
       "description": "Roll up every design-workflow finding across all features touched in the last month into a single Markdown digest with trends, top issues, and an action list. Designed to run on a scheduled task and feed a monthly retro.",
-      "category": "design/ui",
+      "category": "design",
+      "path": "design/ui/monthly-audit.md",
       "agents": [
         "Designer",
         "PM",
         "Design Engineer",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "trigger_intents": [
-        "Monthly retro on design quality",
-        "Need to spot system-level recurring issues",
-        "Need a trend report for design workflow"
-      ],
-      "do_not_use_for": [
-        "Per-feature reviews (use the individual quality skills)",
-        "Posting to Slack directly (skill produces a markdown announcement file, posting is manual)"
-      ],
-      "required_inputs": [],
-      "outputs": [
-        "monthly_audit_markdown",
-        "trend_table",
-        "action_list",
-        "optional_slack_announcement"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only aggregation. Risk is misleading trends when sample sizes are tiny; mitigated by 'first month' annotation.",
-      "compose_after": [
-        "design/ui/design-critique",
-        "design/ui/a11y-check",
-        "design/ui/content-style-check",
-        "design/ui/light-dark-parity",
-        "design/ui/motion-review"
-      ],
-      "compose_before": [
-        "coordination/slack-announcements"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "prototyping-agent",
-      "path": "design/agents/prototyping-agent.md",
       "description": "Fast, conversational agent for early-stage design and prototyping. Loads Design DNA, then helps a designer iterate quickly on layout, tokens, interactions and motion ideas. Read-only, low-ceremony, designed for the first thirty minutes of a new design.",
-      "category": "design/agents",
+      "category": "workflow",
+      "path": "design/agents/prototyping-agent.md",
       "agents": [
         "Designer",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "type": "agent",
-      "trigger_intents": [
-        "Need a quick first pass on a new design idea",
-        "Early exploration before any formal check"
-      ],
-      "do_not_use_for": [
-        "Engineering handoff (use handoff-agent)",
-        "Writing code"
-      ],
-      "required_inputs": [
-        "request_or_figma_url"
-      ],
-      "outputs": [
-        "agent_run_report"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only orchestration; risk is stale composition order, mitigated by the registry compose fields.",
-      "compose_after": [
-        "design/foundation/design-dna"
-      ],
-      "compose_before": [
-        "design/agents/critique-agent"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "critique-agent",
-      "path": "design/agents/critique-agent.md",
       "description": "Read-only critique agent. Runs design-critique, a11y-check, content-style-check and light-dark-parity (when relevant) against a Figma frame, grounded in the Design DNA, and returns a consolidated findings report.",
-      "category": "design/agents",
+      "category": "workflow",
+      "path": "design/agents/critique-agent.md",
       "agents": [
         "Designer",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "type": "agent",
-      "trigger_intents": [
-        "Need a full quality pass on a frame",
-        "Mid-iteration review before handoff"
-      ],
-      "do_not_use_for": [
-        "Producing the handoff packet (use handoff-agent)",
-        "Writing code"
-      ],
-      "required_inputs": [
-        "request_or_figma_url"
-      ],
-      "outputs": [
-        "agent_run_report"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only orchestration; risk is stale composition order, mitigated by the registry compose fields.",
-      "compose_after": [
-        "design/foundation/design-dna"
-      ],
-      "compose_before": [
-        "design/agents/handoff-agent"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "handoff-agent",
-      "path": "design/agents/handoff-agent.md",
       "description": "Drives a Figma design to a complete engineering handoff packet. Composes the DNA preamble with token-mapping-audit, design-critique, a11y-check, content-style-check, light-dark-parity and frame-to-spec, then bundles PACKET.md.",
-      "category": "design/agents",
+      "category": "workflow",
+      "path": "design/agents/handoff-agent.md",
       "agents": [
         "Designer",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "type": "agent",
-      "trigger_intents": [
-        "Design is ready for engineering",
-        "Need the full handoff pipeline in one pass"
-      ],
-      "do_not_use_for": [
-        "Early ideation (use prototyping-agent)",
-        "Writing component code (use build-agent)"
-      ],
-      "required_inputs": [
-        "request_or_figma_url"
-      ],
-      "outputs": [
-        "agent_run_report"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only orchestration; risk is stale composition order, mitigated by the registry compose fields.",
-      "compose_after": [
-        "design/agents/critique-agent"
-      ],
-      "compose_before": [
-        "design/agents/build-agent"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "build-agent",
-      "path": "design/agents/build-agent.md",
       "description": "The only design agent that writes code. Takes an approved handoff packet and builds the React component end-to-end: scaffold, Code Connect stub, visual verification against Storybook. Requires approval at every write step; dry-run by default.",
-      "category": "design/agents",
+      "category": "workflow",
+      "path": "design/agents/build-agent.md",
       "agents": [
         "Designer",
         "Design Engineer"
       ],
-      "autonomy": "requires-approval",
-      "type": "agent",
-      "trigger_intents": [
-        "Approved packet needs a component scaffold",
-        "Need Code Connect stub and visual verification"
-      ],
-      "do_not_use_for": [
-        "Anything before an approved handoff packet exists",
-        "Token editing"
-      ],
-      "required_inputs": [
-        "request_or_figma_url"
-      ],
-      "outputs": [
-        "agent_run_report"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: writes component code and stories; every write step is gated and dry-run by default.",
-      "compose_after": [
-        "design/agents/handoff-agent"
-      ],
-      "compose_before": [
-        "storybook/visual-regression-gate"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "design-rules",
-      "path": "design/foundation/design-rules.md",
       "description": "The Design System rule set: eight categories of concrete, sourced design rules with IDs, severities and weights. Scoring backbone for design-critique and promotion target for corpus observations.",
-      "category": "design/foundation",
+      "category": "foundations",
+      "path": "design/foundation/design-rules.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "PM",
-        "QA",
+        "Testing",
         "Architect"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "design_rules",
-      "trigger_intents": [
-        "Need the DS rule set or a rule by ID",
-        "Need the scoring formula for a critique",
-        "Need to promote a corpus rule candidate"
-      ],
-      "do_not_use_for": [
-        "Token value lookup",
-        "Inventing rules without a source"
-      ],
-      "required_inputs": [
-        "category_or_all"
-      ],
-      "outputs": [
-        "rule_rows",
-        "scoring_formula"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference; risk is rule drift from source, mitigated by every rule naming its source.",
-      "compose_after": [
-        "design/foundation/design-dna"
-      ],
-      "compose_before": [
-        "design/ui/design-critique",
-        "design/ui/monthly-audit",
-        "design/corpus/distill-corpus"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "corpus-guide",
-      "path": "design/foundation/corpus-guide.md",
       "description": "The citation contract for the design corpus: how skills cite distilled evidence, what authority it carries, and how corpus versions are referenced.",
-      "category": "design/foundation",
+      "category": "foundations",
+      "path": "design/foundation/corpus-guide.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "PM",
-        "QA"
+        "Testing"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "corpus_cite",
-      "trigger_intents": [
-        "Need to cite corpus evidence in a skill output",
-        "Need the authority ranking of corpus vs tokens/DNA"
-      ],
-      "do_not_use_for": [
-        "Treating corpus as a rule",
-        "Citing the corpus without a version"
-      ],
-      "required_inputs": [
-        "doc_and_anchor"
-      ],
-      "outputs": [
-        "citation_string",
-        "authority_rank"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference; risk is unversioned citations, mitigated by requiring corpus vN on every cite.",
-      "compose_after": [
-        "design/foundation/design-dna"
-      ],
-      "compose_before": [
-        "design/ui/design-critique",
-        "design/ux/flow-design",
-        "design/ux/pattern-library"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "distill-corpus",
-      "path": "design/corpus/distill-corpus.md",
       "description": "Turn a batch of real Brand product screenshots into versioned design knowledge: classify by surface/channel/journey, file with a content hash, distil into the corpus reference docs, and propose rule candidates.",
-      "category": "design/corpus",
+      "category": "discovery",
+      "path": "design/corpus/distill-corpus.md",
       "agents": [
         "Designer",
         "Design Engineer",
         "Architect"
       ],
-      "autonomy": "requires-approval",
-      "mcp_tool": "design_distill_corpus",
-      "trigger_intents": [
-        "Learn how your brand designs from screenshots",
-        "Grow the design corpus from a batch of images"
-      ],
-      "do_not_use_for": [
-        "Editing design-rules directly",
-        "Committing raw screenshots"
-      ],
-      "required_inputs": [
-        "source_folder"
-      ],
-      "outputs": [
-        "updated_distilled_docs",
-        "corpus_manifest_entries",
-        "rule_candidates"
-      ],
-      "approval_required": true,
-      "breaking_risks_summary": "Approval-sensitive: moves image files and writes distilled docs; dry-run by default, manifest validated after every write.",
-      "compose_after": [
-        "design/foundation/design-dna",
-        "design/foundation/design-rules",
-        "design/foundation/corpus-guide"
-      ],
-      "compose_before": [
-        "design/ui/design-critique",
-        "design/ux/flow-design",
-        "design/ux/pattern-library"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "requires-approval"
     },
     {
       "name": "experience-principles",
-      "path": "design/ux/experience-principles.md",
       "description": "Journey-level principles for new Brand experiences, extending the six DNA principles up to flows: modality heuristics, progressive disclosure, state completeness, subscription dignity, reader-first pacing and continuity. Preamble for the other ux/ skills.",
-      "category": "design/ux",
+      "category": "design",
+      "path": "design/ux/experience-principles.md",
       "agents": [
         "Designer",
         "PM",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "ux_principles",
-      "trigger_intents": [
-        "Need journey-level design principles",
-        "Deciding modality (page/sheet/modal/inline/toast)",
-        "Grounding a new experience before designing it"
-      ],
-      "do_not_use_for": [
-        "Single-view visual critique (use design-critique)",
-        "Token lookup"
-      ],
-      "required_inputs": [
-        "lens_or_all"
-      ],
-      "outputs": [
-        "principle_guidance",
-        "experience_preamble"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference; risk is contradicting the DNA, mitigated by the DNA outranking this file.",
-      "compose_after": [
-        "design/foundation/design-dna"
-      ],
-      "compose_before": [
-        "design/ux/flow-design",
-        "design/ux/pattern-library",
-        "design/ux/page-templates"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "flow-design",
-      "path": "design/ux/flow-design.md",
       "description": "Turn an experience brief into a designed flow for a new Brand experience: screen sequence, states, decision points, component mapping and open questions, grounded in Mobbin prior art and the design corpus. The entry skill for the new-experience route.",
-      "category": "design/ux",
+      "category": "design",
+      "path": "design/ux/flow-design.md",
       "agents": [
         "Designer",
         "PM",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "ux_flow_design",
-      "trigger_intents": [
-        "Design a new flow, journey or page type that does not exist yet",
-        "Shape an experience brief into screens and states"
-      ],
-      "do_not_use_for": [
-        "Critiquing an existing frame (use design-critique)",
-        "Experiences that already exist in DS (route to ui-craft/handoff)"
-      ],
-      "required_inputs": [
-        "experience_brief"
-      ],
-      "outputs": [
-        "flow_markdown",
-        "screen_sequence",
-        "component_gaps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only synthesis; risk is ungrounded invention, mitigated by mandatory Mobbin and corpus grounding.",
-      "compose_after": [
-        "design/foundation/design-dna",
-        "design/ux/experience-principles",
-        "reference/mobbin-mcp",
-        "design/foundation/corpus-guide"
-      ],
-      "compose_before": [
-        "design/ux/page-templates",
-        "design/ux/pattern-library",
-        "design/ui/design-critique",
-        "design/handoff/handoff-flow"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "pattern-library",
-      "path": "design/ux/pattern-library.md",
       "description": "Catalogue of Brand experience patterns one altitude above component motions: navigation, content lists and cards, article anatomy, forms and auth, paywall and subscriber touchpoints, the empty/error/loading trio, and live-updating content. Each pattern names its anatomy in DS components, states, a11y and motion.",
-      "category": "design/ux",
+      "category": "design",
+      "path": "design/ux/pattern-library.md",
       "agents": [
         "Designer",
         "PM",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "ux_patterns",
-      "trigger_intents": [
-        "Need the house style to build a list, feed, paywall or form",
-        "Assembling an experience from reusable patterns"
-      ],
-      "do_not_use_for": [
-        "Component-level motion (use motion/interaction-patterns)",
-        "Inventing a pattern not grounded in prior art"
-      ],
-      "required_inputs": [
-        "pattern_or_all"
-      ],
-      "outputs": [
-        "pattern_card",
-        "component_gaps"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference; risk is naming docs-only components as shipping, mitigated by checking component contracts.",
-      "compose_after": [
-        "design/foundation/design-dna",
-        "design/ux/experience-principles"
-      ],
-      "compose_before": [
-        "design/ux/flow-design",
-        "design/ux/page-templates",
-        "design/ui/design-critique"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "page-templates",
-      "path": "design/ux/page-templates.md",
       "description": "Page-level layout templates for Brand experiences on the DS responsive grid: article, section front, media, account and settings, and puzzle hub, each with per-viewport reflow. Grounded in the grid reference and the corpus.",
-      "category": "design/ux",
+      "category": "design",
+      "path": "design/ux/page-templates.md",
       "agents": [
         "Designer",
         "PM",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "ux_page_templates",
-      "trigger_intents": [
-        "Lay a new full-page screen on the grid",
-        "Need the template for an article, section front or account page"
-      ],
-      "do_not_use_for": [
-        "Sub-page components (use ui/ or pattern-library)",
-        "Guessing grid values without token lookup"
-      ],
-      "required_inputs": [
-        "template_or_all"
-      ],
-      "outputs": [
-        "template_layout",
-        "reflow_table"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only reference; risk is stale grid numbers (Large-column drift), mitigated by verifying via discovery/token-lookup.",
-      "compose_after": [
-        "design/foundation/design-dna",
-        "design/ux/experience-principles",
-        "design/ux/flow-design"
-      ],
-      "compose_before": [
-        "design/ui/design-critique",
-        "design/handoff/frame-to-spec"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     },
     {
       "name": "microcopy",
-      "path": "design/ux/microcopy.md",
       "description": "Author the interface copy for a product experience - button labels, form labels, errors, empty states, confirmations, permission asks and paywall copy - in the brand voice. Writes the words; ui/content-style-check checks them. Extends content-styleguide.md to product-surface microcopy.",
-      "category": "design/ux",
+      "category": "design",
+      "path": "design/ux/microcopy.md",
       "agents": [
         "Designer",
         "Content",
         "PM",
         "Design Engineer"
       ],
-      "autonomy": "autonomous",
-      "mcp_tool": "ux_microcopy",
-      "trigger_intents": [
-        "Write button, error, empty-state or paywall copy",
-        "Author product microcopy in the brand voice"
-      ],
-      "do_not_use_for": [
-        "Checking existing copy (use content-style-check)",
-        "Long-form editorial content"
-      ],
-      "required_inputs": [
-        "surface",
-        "context"
-      ],
-      "outputs": [
-        "microcopy",
-        "voice_self_check"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only authoring; risk is dark-pattern copy, refused by experience-principle 4.",
-      "compose_after": [
-        "design/foundation/design-dna",
-        "design/ux/experience-principles"
-      ],
-      "compose_before": [
-        "design/ui/content-style-check",
-        "design/handoff/frame-to-spec"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ]
+      "autonomy": "autonomous"
     }
-  ],
-  "agents": [
-    {
-      "name": "Architect",
-      "brief": "../briefs/architect.md",
-      "description": "Strategy, planning, and blueprint creation for token changes"
-    },
-    {
-      "name": "Code",
-      "brief": "../briefs/code.md",
-      "description": "Implementation, execution, commits"
-    },
-    {
-      "name": "Testing",
-      "brief": "../briefs/testing.md",
-      "description": "Validation, compliance, quality assurance"
-    },
-    {
-      "name": "React Expert",
-      "brief": "../briefs/react-expert.md",
-      "description": "Build bespoke React components from Figma designs (inactive \u2014 reserved for future use)"
-    }
-  ],
-  "registry_contract": {
-    "model": "progressive-disclosure",
-    "tiers": {
-      "tier1": "skills.json directive routing registry",
-      "tier2": "markdown skill activation (frontmatter + required sections)",
-      "tier3": "large external assets via selected skill procedures"
-    }
-  }
+  ]
 }

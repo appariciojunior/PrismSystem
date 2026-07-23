@@ -1,0 +1,3717 @@
+{
+  "name": "ds-skills-extended",
+  "version": "6.1.0",
+  "description": "Optional per-skill metadata split out of skills.json in Phase A. Keyed by skill name.",
+  "skills": {
+    "contrast-check": {
+      "trigger_intents": [
+        "Need dark/light ramp mapping guidance",
+        "Need accessibility contrast verification"
+      ],
+      "do_not_use_for": [
+        "Non-color workflow orchestration",
+        "Bypassing contrast/parity validation"
+      ],
+      "required_inputs": [
+        "token_or_color_pair",
+        "mode_context"
+      ],
+      "outputs": [
+        "mapping_or_contrast_result",
+        "risk_notes"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "discovery/token-lookup"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "color-ramps"
+    },
+    "dark-mode-mapping": {
+      "trigger_intents": [
+        "Need dark/light ramp mapping guidance",
+        "Need accessibility contrast verification"
+      ],
+      "do_not_use_for": [
+        "Non-color workflow orchestration",
+        "Bypassing contrast/parity validation"
+      ],
+      "required_inputs": [
+        "token_or_color_pair",
+        "mode_context"
+      ],
+      "outputs": [
+        "mapping_or_contrast_result",
+        "risk_notes"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "discovery/token-lookup"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "color-ramps"
+    },
+    "ramp-generation": {
+      "trigger_intents": [
+        "Need dark/light ramp mapping guidance",
+        "Need accessibility contrast verification"
+      ],
+      "do_not_use_for": [
+        "Non-color workflow orchestration",
+        "Bypassing contrast/parity validation"
+      ],
+      "required_inputs": [
+        "token_or_color_pair",
+        "mode_context"
+      ],
+      "outputs": [
+        "mapping_or_contrast_result",
+        "risk_notes"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "discovery/token-lookup"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "color-ramps"
+    },
+    "extend-ramps": {
+      "trigger_intents": [
+        "Need to add a new accent tier or extend colour ranges",
+        "Need to add ramp shades or data-vis chart slots"
+      ],
+      "do_not_use_for": [
+        "Non-color workflow orchestration",
+        "Bypassing contrast/parity validation"
+      ],
+      "required_inputs": [
+        "extension_kind",
+        "mode_context"
+      ],
+      "outputs": [
+        "edited_source_tokens",
+        "contrast_and_rebuild_notes"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive palette change: adding tiers/shades/chart slots without confirmation or without both-mode parity can cause governance or release risk.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "color-ramps/ramp-generation",
+        "color-ramps/contrast-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "color-ramps"
+    },
+    "brief-updater": {
+      "trigger_intents": [
+        "Need cross-agent handoff or release workflow",
+        "Need rollback or announcement process"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Replacing validation checks"
+      ],
+      "required_inputs": [
+        "handoff_or_release_scope"
+      ],
+      "outputs": [
+        "handoff_or_release_artifact",
+        "status_summary"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "validation/build-verify",
+        "validation/constraint-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "coordination"
+    },
+    "handoff-protocol": {
+      "trigger_intents": [
+        "Need cross-agent handoff or release workflow",
+        "Need rollback or announcement process"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Replacing validation checks"
+      ],
+      "required_inputs": [
+        "handoff_or_release_scope"
+      ],
+      "outputs": [
+        "handoff_or_release_artifact",
+        "status_summary"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "validation/build-verify",
+        "validation/constraint-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "coordination"
+    },
+    "release-process": {
+      "trigger_intents": [
+        "Need cross-agent handoff or release workflow",
+        "Need rollback or announcement process"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Replacing validation checks"
+      ],
+      "required_inputs": [
+        "handoff_or_release_scope"
+      ],
+      "outputs": [
+        "handoff_or_release_artifact",
+        "status_summary"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "validation/build-verify",
+        "validation/constraint-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "coordination"
+    },
+    "rollback": {
+      "trigger_intents": [
+        "Need cross-agent handoff or release workflow",
+        "Need rollback or announcement process"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Replacing validation checks"
+      ],
+      "required_inputs": [
+        "handoff_or_release_scope"
+      ],
+      "outputs": [
+        "handoff_or_release_artifact",
+        "status_summary"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "validation/build-verify",
+        "validation/constraint-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "coordination"
+    },
+    "slack-announcements": {
+      "trigger_intents": [
+        "Need cross-agent handoff or release workflow",
+        "Need rollback or announcement process"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Replacing validation checks"
+      ],
+      "required_inputs": [
+        "handoff_or_release_scope"
+      ],
+      "outputs": [
+        "handoff_or_release_artifact",
+        "status_summary"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "validation/build-verify",
+        "validation/constraint-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "coordination"
+    },
+    "ui-kit-release-artifacts": {
+      "trigger_intents": [
+        "Need cross-agent handoff or release workflow",
+        "Need rollback or announcement process"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Replacing validation checks"
+      ],
+      "required_inputs": [
+        "handoff_or_release_scope"
+      ],
+      "outputs": [
+        "handoff_or_release_artifact",
+        "status_summary"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "validation/build-verify",
+        "validation/constraint-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "coordination"
+    },
+    "dependency-graph": {
+      "trigger_intents": [
+        "Need to locate token path or dependency",
+        "Need intent-first token search"
+      ],
+      "do_not_use_for": [
+        "Applying token edits",
+        "Replacing validation gates"
+      ],
+      "required_inputs": [
+        "search_intent"
+      ],
+      "outputs": [
+        "candidate_paths",
+        "resolved_paths"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [],
+      "compose_before": [
+        "governance/token-modification-gates",
+        "editing/safe-token-edit",
+        "validation/constraint-check"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "discovery"
+    },
+    "semantic-token-search": {
+      "trigger_intents": [
+        "Need to locate token path or dependency",
+        "Need intent-first token search"
+      ],
+      "do_not_use_for": [
+        "Applying token edits",
+        "Replacing validation gates"
+      ],
+      "required_inputs": [
+        "search_intent"
+      ],
+      "outputs": [
+        "candidate_paths",
+        "resolved_paths"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [],
+      "compose_before": [
+        "governance/token-modification-gates",
+        "editing/safe-token-edit",
+        "validation/constraint-check"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "discovery"
+    },
+    "token-lookup": {
+      "trigger_intents": [
+        "Need to locate token path or dependency",
+        "Need intent-first token search"
+      ],
+      "do_not_use_for": [
+        "Applying token edits",
+        "Replacing validation gates"
+      ],
+      "required_inputs": [
+        "search_intent"
+      ],
+      "outputs": [
+        "candidate_paths",
+        "resolved_paths"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [],
+      "compose_before": [
+        "governance/token-modification-gates",
+        "editing/safe-token-edit",
+        "validation/constraint-check"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "discovery"
+    },
+    "bulk-transform": {
+      "trigger_intents": [
+        "Need to modify token values or descriptions safely",
+        "Need controlled batch token updates"
+      ],
+      "do_not_use_for": [
+        "Skipping governance checks",
+        "Using for read-only discovery"
+      ],
+      "required_inputs": [
+        "target_paths",
+        "change_intent"
+      ],
+      "outputs": [
+        "proposed_or_applied_edits",
+        "edit_summary"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "governance/token-modification-gates"
+      ],
+      "compose_before": [
+        "validation/json-validate",
+        "validation/build-verify"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "editing"
+    },
+    "description-guidelines": {
+      "trigger_intents": [
+        "Need to modify token values or descriptions safely",
+        "Need controlled batch token updates"
+      ],
+      "do_not_use_for": [
+        "Skipping governance checks",
+        "Using for read-only discovery"
+      ],
+      "required_inputs": [
+        "target_paths",
+        "change_intent"
+      ],
+      "outputs": [
+        "proposed_or_applied_edits",
+        "edit_summary"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mutation risk: incorrect path/value changes can propagate across downstream tokens.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "governance/token-modification-gates"
+      ],
+      "compose_before": [
+        "validation/json-validate",
+        "validation/build-verify"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "editing"
+    },
+    "safe-token-edit": {
+      "trigger_intents": [
+        "Need to modify token values or descriptions safely",
+        "Need controlled batch token updates"
+      ],
+      "do_not_use_for": [
+        "Skipping governance checks",
+        "Using for read-only discovery"
+      ],
+      "required_inputs": [
+        "target_paths",
+        "change_intent"
+      ],
+      "outputs": [
+        "proposed_or_applied_edits",
+        "edit_summary"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "governance/token-modification-gates"
+      ],
+      "compose_before": [
+        "validation/json-validate",
+        "validation/build-verify"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "editing"
+    },
+    "component-lifecycle-orchestration": {
+      "trigger_intents": [
+        "Need Figma extraction, linting, or mutation workflow",
+        "Need Figma MCP setup/status guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma-only tasks",
+        "Skipping desktop bridge gate for Figma URLs"
+      ],
+      "required_inputs": [
+        "figma_target",
+        "task_intent"
+      ],
+      "outputs": [
+        "extraction_or_mutation_report",
+        "evidence_artifacts"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "react/component-patterns",
+        "storybook/figma-to-storybook"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "design-extraction": {
+      "trigger_intents": [
+        "Need Figma extraction, linting, or mutation workflow",
+        "Need Figma MCP setup/status guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma-only tasks",
+        "Skipping desktop bridge gate for Figma URLs"
+      ],
+      "required_inputs": [
+        "figma_target",
+        "task_intent"
+      ],
+      "outputs": [
+        "extraction_or_mutation_report",
+        "evidence_artifacts"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "react/component-patterns",
+        "storybook/figma-to-storybook"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "design-linting": {
+      "trigger_intents": [
+        "Need Figma extraction, linting, or mutation workflow",
+        "Need Figma MCP setup/status guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma-only tasks",
+        "Skipping desktop bridge gate for Figma URLs"
+      ],
+      "required_inputs": [
+        "figma_target",
+        "task_intent"
+      ],
+      "outputs": [
+        "extraction_or_mutation_report",
+        "evidence_artifacts"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "react/component-patterns",
+        "storybook/figma-to-storybook"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-api-reference": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/api-reference.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-common-patterns": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/common-patterns.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-component-patterns": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/component-patterns.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-console-mcp-integration": {
+      "trigger_intents": [
+        "Need Figma extraction, linting, or mutation workflow",
+        "Need Figma MCP setup/status guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma-only tasks",
+        "Skipping desktop bridge gate for Figma URLs"
+      ],
+      "required_inputs": [
+        "figma_target",
+        "task_intent"
+      ],
+      "outputs": [
+        "extraction_or_mutation_report",
+        "evidence_artifacts"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
+      "compose_after": [],
+      "compose_before": [
+        "react/component-patterns",
+        "storybook/figma-to-storybook"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-effect-style-patterns": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/effect-style-patterns.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-gotchas": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/gotchas.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-make-workflow": {
+      "trigger_intents": [
+        "Need Figma extraction, linting, or mutation workflow",
+        "Need Figma MCP setup/status guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma-only tasks",
+        "Skipping desktop bridge gate for Figma URLs"
+      ],
+      "required_inputs": [
+        "figma_target",
+        "task_intent"
+      ],
+      "outputs": [
+        "extraction_or_mutation_report",
+        "evidence_artifacts"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "react/component-patterns",
+        "storybook/figma-to-storybook"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-plugin-api-patterns": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/plugin-api-patterns.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-text-style-patterns": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/text-style-patterns.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-use": {
+      "trigger_intents": [
+        "Need Figma extraction, linting, or mutation workflow",
+        "Need Figma MCP setup/status guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma-only tasks",
+        "Skipping desktop bridge gate for Figma URLs"
+      ],
+      "required_inputs": [
+        "figma_target",
+        "task_intent"
+      ],
+      "outputs": [
+        "extraction_or_mutation_report",
+        "evidence_artifacts"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "react/component-patterns",
+        "storybook/figma-to-storybook"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-validation-and-recovery": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/validation-and-recovery.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-variable-patterns": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/variable-patterns.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-wwds": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/working-with-design-systems/wwds.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-wwds-variables": {
+      "trigger_intents": [
+        "Need guidance from figma-integration/figma-use/references/working-with-design-systems/wwds-variables.md"
+      ],
+      "do_not_use_for": [
+        "Token editing workflows",
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "figma_target"
+      ],
+      "outputs": [
+        "reference_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Reference misuse risk: selecting the wrong Figma API pattern can cause execution failures.",
+      "compose_after": [
+        "figma-integration/figma-use"
+      ],
+      "compose_before": [
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "token-mapping": {
+      "trigger_intents": [
+        "Need Figma extraction, linting, or mutation workflow",
+        "Need Figma MCP setup/status guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma-only tasks",
+        "Skipping desktop bridge gate for Figma URLs"
+      ],
+      "required_inputs": [
+        "figma_target",
+        "task_intent"
+      ],
+      "outputs": [
+        "extraction_or_mutation_report",
+        "evidence_artifacts"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Mode/connectivity risk: incorrect Local/Remote assumptions can invalidate outcomes.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "react/component-patterns",
+        "storybook/figma-to-storybook"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "approval-workflow": {
+      "trigger_intents": [
+        "Need approval gate decision before protected-layer changes",
+        "Need policy check for restricted operations"
+      ],
+      "do_not_use_for": [
+        "General token discovery",
+        "Implementing edits directly"
+      ],
+      "required_inputs": [
+        "token_path",
+        "operation_type"
+      ],
+      "outputs": [
+        "allow_block_decision",
+        "required_approvals"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "discovery/semantic-token-search"
+      ],
+      "compose_before": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "governance"
+    },
+    "constraint-reference": {
+      "trigger_intents": [
+        "Need approval gate decision before protected-layer changes",
+        "Need policy check for restricted operations"
+      ],
+      "do_not_use_for": [
+        "General token discovery",
+        "Implementing edits directly"
+      ],
+      "required_inputs": [
+        "token_path",
+        "operation_type"
+      ],
+      "outputs": [
+        "allow_block_decision",
+        "required_approvals"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "discovery/semantic-token-search"
+      ],
+      "compose_before": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "governance"
+    },
+    "foundation-gate": {
+      "trigger_intents": [
+        "Legacy compatibility path for foundation gate invocation"
+      ],
+      "do_not_use_for": [
+        "New governance implementation (use token-modification-gates)",
+        "Direct token editing"
+      ],
+      "required_inputs": [
+        "token_path",
+        "operation_type"
+      ],
+      "outputs": [
+        "allow_block_decision",
+        "required_approvals"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Blocked action path: requires explicit human approval before protected operations.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "discovery/semantic-token-search"
+      ],
+      "compose_before": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "governance"
+    },
+    "palette-gate": {
+      "trigger_intents": [
+        "Legacy compatibility path for palette gate invocation"
+      ],
+      "do_not_use_for": [
+        "New governance implementation (use token-modification-gates)",
+        "Direct token editing"
+      ],
+      "required_inputs": [
+        "token_path",
+        "operation_type"
+      ],
+      "outputs": [
+        "allow_block_decision",
+        "required_approvals"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "discovery/semantic-token-search"
+      ],
+      "compose_before": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "governance"
+    },
+    "token-modification-gates": {
+      "trigger_intents": [
+        "Need single canonical gate for foundation/palette write decisions"
+      ],
+      "do_not_use_for": [
+        "General token discovery",
+        "Implementing edits directly"
+      ],
+      "required_inputs": [
+        "token_path",
+        "operation_type"
+      ],
+      "outputs": [
+        "allow_block_decision",
+        "required_approvals"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "discovery/semantic-token-search"
+      ],
+      "compose_before": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "governance"
+    },
+    "accessibility": {
+      "trigger_intents": [
+        "Need React implementation pattern guidance",
+        "Need component state/accessibility/testing strategy"
+      ],
+      "do_not_use_for": [
+        "Token governance decisions",
+        "Figma extraction without figma-integration skills"
+      ],
+      "required_inputs": [
+        "component_scope",
+        "implementation_goal"
+      ],
+      "outputs": [
+        "component_pattern_or_test_guidance",
+        "implementation_checks"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "figma-integration/design-extraction",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "storybook/story-writing",
+        "storybook/visual-testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "component-patterns": {
+      "trigger_intents": [
+        "Need React implementation pattern guidance",
+        "Need component state/accessibility/testing strategy"
+      ],
+      "do_not_use_for": [
+        "Token governance decisions",
+        "Figma extraction without figma-integration skills"
+      ],
+      "required_inputs": [
+        "component_scope",
+        "implementation_goal"
+      ],
+      "outputs": [
+        "component_pattern_or_test_guidance",
+        "implementation_checks"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "figma-integration/design-extraction",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "storybook/story-writing",
+        "storybook/visual-testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "hooks-quick-reference": {
+      "trigger_intents": [
+        "Need React implementation pattern guidance",
+        "Need component state/accessibility/testing strategy"
+      ],
+      "do_not_use_for": [
+        "Token governance decisions",
+        "Figma extraction without figma-integration skills"
+      ],
+      "required_inputs": [
+        "component_scope",
+        "implementation_goal"
+      ],
+      "outputs": [
+        "component_pattern_or_test_guidance",
+        "implementation_checks"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "figma-integration/design-extraction",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "storybook/story-writing",
+        "storybook/visual-testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "hooks-reference": {
+      "trigger_intents": [
+        "Need React implementation pattern guidance",
+        "Need component state/accessibility/testing strategy"
+      ],
+      "do_not_use_for": [
+        "Token governance decisions",
+        "Figma extraction without figma-integration skills"
+      ],
+      "required_inputs": [
+        "component_scope",
+        "implementation_goal"
+      ],
+      "outputs": [
+        "component_pattern_or_test_guidance",
+        "implementation_checks"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "figma-integration/design-extraction",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "storybook/story-writing",
+        "storybook/visual-testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "state-management": {
+      "trigger_intents": [
+        "Need React implementation pattern guidance",
+        "Need component state/accessibility/testing strategy"
+      ],
+      "do_not_use_for": [
+        "Token governance decisions",
+        "Figma extraction without figma-integration skills"
+      ],
+      "required_inputs": [
+        "component_scope",
+        "implementation_goal"
+      ],
+      "outputs": [
+        "component_pattern_or_test_guidance",
+        "implementation_checks"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "figma-integration/design-extraction",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "storybook/story-writing",
+        "storybook/visual-testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "testing": {
+      "trigger_intents": [
+        "Need React implementation pattern guidance",
+        "Need component state/accessibility/testing strategy"
+      ],
+      "do_not_use_for": [
+        "Token governance decisions",
+        "Figma extraction without figma-integration skills"
+      ],
+      "required_inputs": [
+        "component_scope",
+        "implementation_goal"
+      ],
+      "outputs": [
+        "component_pattern_or_test_guidance",
+        "implementation_checks"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "figma-integration/design-extraction",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "storybook/story-writing",
+        "storybook/visual-testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "typescript-patterns": {
+      "trigger_intents": [
+        "Need React implementation pattern guidance",
+        "Need component state/accessibility/testing strategy"
+      ],
+      "do_not_use_for": [
+        "Token governance decisions",
+        "Figma extraction without figma-integration skills"
+      ],
+      "required_inputs": [
+        "component_scope",
+        "implementation_goal"
+      ],
+      "outputs": [
+        "component_pattern_or_test_guidance",
+        "implementation_checks"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "figma-integration/design-extraction",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "storybook/story-writing",
+        "storybook/visual-testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "shadcn-ui": {
+      "trigger_intents": [
+        "build a screen",
+        "use shadcn",
+        "generate UI with the component library",
+        "new page or feature UI",
+        "which component library to use"
+      ],
+      "do_not_use_for": [
+        "editing raw tokens (use token skills)",
+        "legacy components-react maintenance"
+      ],
+      "required_inputs": [
+        "what to build",
+        "target route or surface"
+      ],
+      "outputs": [
+        "React screen/feature using @ds/ui + tokens"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "discovery/token-lookup",
+        "react/component-patterns"
+      ],
+      "compose_before": [
+        "react/testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "compose-screen": {
+      "trigger_intents": [
+        "build a screen",
+        "design a page",
+        "make a dashboard",
+        "generate a designed UI",
+        "build a feature screen"
+      ],
+      "do_not_use_for": [
+        "editing tokens",
+        "pure component library maintenance"
+      ],
+      "required_inputs": [
+        "what to build",
+        "target route"
+      ],
+      "outputs": [
+        "a designed screen under sandbox/ using @ds/ui + blocks + tokens"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/shadcn-ui",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "react/testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "react"
+    },
+    "react-loop": {
+      "trigger_intents": [
+        "Need structured thought-action-observation loop",
+        "Complex multi-step decision with uncertainty"
+      ],
+      "do_not_use_for": [
+        "Direct file mutation",
+        "Token lookup as primary action"
+      ],
+      "required_inputs": [
+        "task_goal",
+        "current_constraints"
+      ],
+      "outputs": [
+        "decision_trace",
+        "next_action"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "reasoning"
+    },
+    "mobbin-mcp": {
+      "trigger_intents": [
+        "Need component or interaction pattern grounding",
+        "Need modal or flow examples before token reference or implementation"
+      ],
+      "do_not_use_for": [
+        "As source of truth for token values",
+        "Overriding brand principles"
+      ],
+      "required_inputs": [
+        "component_or_pattern_intent"
+      ],
+      "outputs": [
+        "pattern_reference_examples",
+        "applied_pattern_notes"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; risk is misapplication of external patterns without token-system alignment.",
+      "compose_after": [],
+      "compose_before": [
+        "reference/token-reference-fast-path",
+        "figma-integration/design-extraction"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "reference"
+    },
+    "npm-packages": {
+      "trigger_intents": [
+        "Need quick package or React lookup reference"
+      ],
+      "do_not_use_for": [
+        "As authoritative governance gate",
+        "As replacement for procedural skills"
+      ],
+      "required_inputs": [
+        "lookup_topic"
+      ],
+      "outputs": [
+        "quick_reference_links"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "reference"
+    },
+    "react-cheatsheet": {
+      "trigger_intents": [
+        "Need quick package or React lookup reference"
+      ],
+      "do_not_use_for": [
+        "As authoritative governance gate",
+        "As replacement for procedural skills"
+      ],
+      "required_inputs": [
+        "lookup_topic"
+      ],
+      "outputs": [
+        "quick_reference_links"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "reference"
+    },
+    "token-reference-fast-path": {
+      "trigger_intents": [
+        "Need reference-only token suggestions",
+        "Need deterministic grouped table token output"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Implementation or code mutation planning"
+      ],
+      "required_inputs": [
+        "intent"
+      ],
+      "outputs": [
+        "grouped_reference_tables",
+        "data_quality_note"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is inconsistent formatting if ordering rules are skipped.",
+      "compose_after": [
+        "reference/mobbin-mcp",
+        "discovery/semantic-token-search"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "reference"
+    },
+    "component-documentation": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "component-documentation-figma": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "component-documentation-writing": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "figma-to-storybook": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "natural-language-stories": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "story-writing": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "storybook-component-changelog-design": {
+      "trigger_intents": [
+        "Need guidance from storybook/component-changelog-design.md"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "React unit testing"
+      ],
+      "required_inputs": [
+        "component_doc_target"
+      ],
+      "outputs": [
+        "design_changelog_entry"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Release communication risk if labels/version/date format are inconsistent.",
+      "compose_after": [
+        "figma-integration/component-lifecycle-orchestration"
+      ],
+      "compose_before": [
+        "coordination/ui-kit-release-artifacts"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "storybook-config": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: acting without confirmation can cause governance or release risk.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "token-showcase": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "visual-regression-gate": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "visual-testing": {
+      "trigger_intents": [
+        "Need story/doc generation or visual verification workflow",
+        "Need Storybook config/testing guidance"
+      ],
+      "do_not_use_for": [
+        "Core token mutation",
+        "Replacing react unit/integration testing"
+      ],
+      "required_inputs": [
+        "story_or_doc_target",
+        "output_type"
+      ],
+      "outputs": [
+        "story_or_doc_output",
+        "verification_steps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/component-patterns",
+        "react/testing"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "storybook"
+    },
+    "build-verify": {
+      "trigger_intents": [
+        "Need to verify syntax, constraints, or build integrity",
+        "Need pass/fail quality verdict"
+      ],
+      "do_not_use_for": [
+        "Making source edits as first step",
+        "Bypassing governance decisions"
+      ],
+      "required_inputs": [
+        "changed_files",
+        "validation_scope"
+      ],
+      "outputs": [
+        "pass_fail_report",
+        "risk_findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
+      "compose_after": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol",
+        "coordination/release-process"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "validation"
+    },
+    "constraint-check": {
+      "trigger_intents": [
+        "Need to verify syntax, constraints, or build integrity",
+        "Need pass/fail quality verdict"
+      ],
+      "do_not_use_for": [
+        "Making source edits as first step",
+        "Bypassing governance decisions"
+      ],
+      "required_inputs": [
+        "changed_files",
+        "validation_scope"
+      ],
+      "outputs": [
+        "pass_fail_report",
+        "risk_findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
+      "compose_after": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol",
+        "coordination/release-process"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "validation"
+    },
+    "json-validate": {
+      "trigger_intents": [
+        "Need to verify syntax, constraints, or build integrity",
+        "Need pass/fail quality verdict"
+      ],
+      "do_not_use_for": [
+        "Making source edits as first step",
+        "Bypassing governance decisions"
+      ],
+      "required_inputs": [
+        "changed_files",
+        "validation_scope"
+      ],
+      "outputs": [
+        "pass_fail_report",
+        "risk_findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
+      "compose_after": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol",
+        "coordination/release-process"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "validation"
+    },
+    "semantic-theme-parity": {
+      "trigger_intents": [
+        "Need to verify syntax, constraints, or build integrity",
+        "Need pass/fail quality verdict"
+      ],
+      "do_not_use_for": [
+        "Making source edits as first step",
+        "Bypassing governance decisions"
+      ],
+      "required_inputs": [
+        "changed_files",
+        "validation_scope"
+      ],
+      "outputs": [
+        "pass_fail_report",
+        "risk_findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
+      "compose_after": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol",
+        "coordination/release-process"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "validation"
+    },
+    "token-audit-workflow": {
+      "trigger_intents": [
+        "Need to verify syntax, constraints, or build integrity",
+        "Need pass/fail quality verdict"
+      ],
+      "do_not_use_for": [
+        "Making source edits as first step",
+        "Bypassing governance decisions"
+      ],
+      "required_inputs": [
+        "changed_files",
+        "validation_scope"
+      ],
+      "outputs": [
+        "pass_fail_report",
+        "risk_findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "False confidence risk if checks are skipped or scope is incomplete.",
+      "compose_after": [
+        "editing/safe-token-edit",
+        "editing/bulk-transform"
+      ],
+      "compose_before": [
+        "coordination/handoff-protocol",
+        "coordination/release-process"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "validation"
+    },
+    "ask-first-protocol": {
+      "trigger_intents": [
+        "Need to present a decision, trade-off, or gate to the user",
+        "Need structured clarification instead of prose questions"
+      ],
+      "do_not_use_for": [
+        "Autonomous read-only work with no decision point"
+      ],
+      "required_inputs": [
+        "decision_context"
+      ],
+      "outputs": [
+        "structured_question_set"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is unstructured decisions slipping past the user.",
+      "compose_after": [],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "coordination"
+    },
+    "component-doc-mcp-workflow": {
+      "trigger_intents": [
+        "Need to push component doc content into Figma templates"
+      ],
+      "do_not_use_for": [
+        "Token value editing",
+        "Extraction-only tasks"
+      ],
+      "required_inputs": [
+        "component_doc_path",
+        "figma_target"
+      ],
+      "outputs": [
+        "figma_template_update",
+        "evidence_artifacts"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: mutates Figma templates; acting without confirmation can cause design-file damage.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "figma-variables-implementation-guide": {
+      "trigger_intents": [
+        "Need Figma variables or styles implementation guidance"
+      ],
+      "do_not_use_for": [
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "task_intent"
+      ],
+      "outputs": [
+        "implementation_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
+      "compose_after": [],
+      "compose_before": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "variable-binding-reference": {
+      "trigger_intents": [
+        "Need Figma variable IDs, file keys, or binding patterns"
+      ],
+      "do_not_use_for": [
+        "Non-Figma tasks"
+      ],
+      "required_inputs": [
+        "lookup_target"
+      ],
+      "outputs": [
+        "binding_reference"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
+      "compose_after": [],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "figma-integration"
+    },
+    "token-governance-and-scaling": {
+      "trigger_intents": [
+        "Need token governance, lifecycle, or scaling guidance"
+      ],
+      "do_not_use_for": [
+        "Executing token edits",
+        "Replacing gate decisions"
+      ],
+      "required_inputs": [
+        "governance_question"
+      ],
+      "outputs": [
+        "governance_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
+      "compose_after": [],
+      "compose_before": [
+        "governance/token-modification-gates"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "governance"
+    },
+    "design-token-naming-architecture": {
+      "trigger_intents": [
+        "Need token naming or tier architecture guidance"
+      ],
+      "do_not_use_for": [
+        "Tool-specific implementation detail (see figma-integration guides)"
+      ],
+      "required_inputs": [
+        "naming_question"
+      ],
+      "outputs": [
+        "naming_guidance"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; reference knowledge only.",
+      "compose_after": [],
+      "compose_before": [
+        "editing/safe-token-edit"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "token-foundations"
+    },
+    "design-dna": {
+      "mcp_tool": "design_dna",
+      "trigger_intents": [
+        "Need brand, channel, or design principle grounding",
+        "Starting any new design or prototype",
+        "Need the anti-pattern list before critique"
+      ],
+      "do_not_use_for": [
+        "Token value lookup (use discovery/token-lookup)",
+        "Editing tokens"
+      ],
+      "required_inputs": [
+        "mode_or_lens"
+      ],
+      "outputs": [
+        "dna_briefing"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference; risk is staleness, mitigated by tokens.json and content-styleguide.md being higher authorities.",
+      "compose_after": [],
+      "compose_before": [
+        "design/design-router"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/foundation"
+    },
+    "design-router": {
+      "mcp_tool": "design_route",
+      "trigger_intents": [
+        "Any design request without a named skill",
+        "Need to know which design skill applies",
+        "Designer says what they are doing in plain language"
+      ],
+      "do_not_use_for": [
+        "Running a specific named skill directly",
+        "Token editing"
+      ],
+      "required_inputs": [
+        "request"
+      ],
+      "outputs": [
+        "route",
+        "skill_sequence",
+        "route_summary_json"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only routing; risk is misclassification, mitigated by the one-question rule and explicit route restatement.",
+      "compose_after": [
+        "design/foundation/design-dna"
+      ],
+      "compose_before": [
+        "design/ui/design-critique",
+        "design/handoff/handoff-flow"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design"
+    },
+    "frame-to-spec": {
+      "mcp_tool": "frame_to_spec",
+      "trigger_intents": [
+        "Need to hand a Figma frame to engineering",
+        "Need a complete spec packet from a design",
+        "Need a deterministic developer-facing spec"
+      ],
+      "do_not_use_for": [
+        "Critiquing whether a design is good",
+        "Writing component code",
+        "Editing tokens"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "spec_markdown",
+        "token_map",
+        "state_matrix",
+        "open_questions"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only extraction and synthesis. Primary risk is invented tokens or hallucinated states, mitigated by strict procedure forbidding non-resolved values.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration",
+        "figma-integration/design-linting"
+      ],
+      "compose_before": [
+        "design/handoff/component-scaffold",
+        "design/handoff/spec-packet"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/handoff"
+    },
+    "token-mapping-audit": {
+      "trigger_intents": [
+        "Need to audit token usage in a Figma frame",
+        "Need to find unmapped values in a design",
+        "Need to verify a frame uses semantic tokens not foundation/palette"
+      ],
+      "do_not_use_for": [
+        "Editing tokens",
+        "Creating new tokens (governed by governance/token-modification-gates)",
+        "Critiquing design quality"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "token_audit_report",
+        "unmapped_values_list",
+        "remediation_recommendations"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only audit. Primary risk is silent token mismatch, mitigated by surfacing all match candidates above threshold.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "design/handoff/frame-to-spec",
+        "design/handoff/spec-packet"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "state-matrix": {
+      "trigger_intents": [
+        "Need to enumerate all states of a component",
+        "Need a state matrix for handoff",
+        "Need to verify all interactive states are implemented"
+      ],
+      "do_not_use_for": [
+        "Writing component code",
+        "Defining new states (that is a design decision)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "state_matrix_markdown",
+        "findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only extraction. Primary risk is misclassifying a state, mitigated by the explicit `unknown` bucket and human-review surfacing.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration",
+        "figma-integration/design-extraction"
+      ],
+      "compose_before": [
+        "design/handoff/frame-to-spec",
+        "design/handoff/spec-packet",
+        "design/handoff/component-scaffold"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "design-critique": {
+      "mcp_tool": "design_critique",
+      "trigger_intents": [
+        "Need a structured review of a Figma frame",
+        "Need to critique a design before handoff",
+        "Need findings on hierarchy, spacing, alignment, density, reuse, channel fit"
+      ],
+      "do_not_use_for": [
+        "Token audit (use handoff/token-mapping-audit)",
+        "Accessibility check (use quality/a11y-check)",
+        "Content style check (use quality/content-style-check)",
+        "Light/dark parity (use quality/light-dark-parity)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "critique_report",
+        "categorised_findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only critique. Primary risk is subjective findings, mitigated by every rule pointing to a specific DS artefact or convention.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration",
+        "figma-integration/design-linting"
+      ],
+      "compose_before": [
+        "design/handoff/frame-to-spec",
+        "design/handoff/spec-packet"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "a11y-check": {
+      "trigger_intents": [
+        "Need to check design-time accessibility",
+        "Need contrast, hit target, focus indicator audit on a frame",
+        "Need to verify a11y notes before handoff"
+      ],
+      "do_not_use_for": [
+        "Code-level WCAG audit (use react/accessibility)",
+        "General design critique (use quality/design-critique)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "a11y_report",
+        "findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only audit. Errors here are hard gates for handoff. Primary risk is missing context (decorative vs meaningful images), mitigated by requiring layer-name semantic intent.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration",
+        "design/ui/token-mapping-audit"
+      ],
+      "compose_before": [
+        "design/handoff/spec-packet",
+        "design/handoff/handoff-flow"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "content-style-check": {
+      "trigger_intents": [
+        "Need a content review of a Figma frame",
+        "Need to enforce the Design System content styleguide",
+        "Need to check British English, brand names, token formatting in copy"
+      ],
+      "do_not_use_for": [
+        "Editing copy in Figma directly (this is read-only)",
+        "Critiquing visual design (use quality/design-critique)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "content_audit_report",
+        "findings_with_rewrites"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only audit. Heuristic findings (passive voice, jargon) marked warning/info to avoid false-positive errors.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [
+        "design/handoff/spec-packet",
+        "design/handoff/handoff-flow"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "channel-context": {
+      "trigger_intents": [
+        "Need to validate channel scope in a Figma frame",
+        "Need to check for cross-channel colour mixing",
+        "Need to confirm channel tokens flow correctly through semantic layer"
+      ],
+      "do_not_use_for": [
+        "Defining new channels (design decision)",
+        "Editing channel tokens (governance/token-modification-gates)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "channel_context_report",
+        "scope_diagnosis",
+        "findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only validation. Primary risk is misidentifying the scope; mitigated by surfacing scope mechanism explicitly.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration",
+        "design/ui/token-mapping-audit"
+      ],
+      "compose_before": [
+        "design/handoff/frame-to-spec",
+        "design/handoff/spec-packet",
+        "design/ui/light-dark-parity"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "spec-packet": {
+      "trigger_intents": [
+        "Need a complete handoff packet for engineering",
+        "Need to bundle all upstream artefacts into one file",
+        "Need a ticket-attachable spec document"
+      ],
+      "do_not_use_for": [
+        "Generating the spec itself (use handoff/frame-to-spec)",
+        "Editing upstream skill outputs"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "packet_markdown",
+        "artefact_index",
+        "asset_export_list"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Writes to .design/<feature>/. Risk is overwriting prior runs; mitigated by Figma sha freshness check.",
+      "compose_after": [
+        "design/handoff/frame-to-spec",
+        "design/ui/state-matrix",
+        "design/ui/token-mapping-audit",
+        "design/ui/channel-context",
+        "design/ui/a11y-check",
+        "design/ui/content-style-check"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/handoff"
+    },
+    "light-dark-parity": {
+      "trigger_intents": [
+        "Need to verify light/dark parity in a Figma component",
+        "Need to find missing dark variants",
+        "Need to enforce 1:1 semantic token rule at design time"
+      ],
+      "do_not_use_for": [
+        "Editing tokens to fix parity (use governance/token-modification-gates)",
+        "Parity at the token file level (use validation/semantic-theme-parity)"
+      ],
+      "required_inputs": [
+        "light_url_or_node",
+        "dark_url_or_node"
+      ],
+      "outputs": [
+        "parity_report",
+        "structural_diff",
+        "missing_siblings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only comparison. Primary risk is wrong-pair comparison; mitigated by stopping when structural diff exceeds 50%.",
+      "compose_after": [
+        "design/ui/token-mapping-audit",
+        "design/ui/channel-context"
+      ],
+      "compose_before": [
+        "design/handoff/spec-packet",
+        "design/handoff/handoff-flow"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "handoff-flow": {
+      "trigger_intents": [
+        "Need to run the full design-workflow pipeline for a feature",
+        "Need a guided end-to-end handoff",
+        "First time handing a new design to engineering"
+      ],
+      "do_not_use_for": [
+        "Spot checks on a single dimension (use individual skills)",
+        "Re-running a single skill after a fix (use that skill directly)"
+      ],
+      "required_inputs": [
+        "feature_name",
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "run_log",
+        "complete_design_folder",
+        "packet"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Writes a complete .design/<feature>/ folder. Approval-sensitive because it may trigger future phase 4 scaffold writes. Interactive pauses are the approval mechanism.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration"
+      ],
+      "compose_before": [],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/handoff"
+    },
+    "component-scaffold": {
+      "trigger_intents": [
+        "Need to scaffold a new DS React component",
+        "Need to generate component + story + docs + changelog from a spec",
+        "After a handoff packet is approved and ready to build"
+      ],
+      "do_not_use_for": [
+        "Updating an existing component (use figma-integration/component-lifecycle-orchestration UPDATE)",
+        "Editing tokens or theme files",
+        "Implementing business logic"
+      ],
+      "required_inputs": [
+        "feature_name",
+        "component_name"
+      ],
+      "outputs": [
+        "seven_scaffolded_files",
+        "scaffold_report",
+        "follow_up_checklist"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Writes seven files into the production source tree. Mitigated by dry-run default, atomic write semantics, and refusal to overwrite existing files.",
+      "compose_after": [
+        "design/handoff/frame-to-spec",
+        "design/ui/state-matrix",
+        "design/ui/token-mapping-audit",
+        "design/ui/channel-context"
+      ],
+      "compose_before": [
+        "design/handoff/code-connect-stub",
+        "design/ui/visual-vs-built"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/handoff"
+    },
+    "code-connect-stub": {
+      "trigger_intents": [
+        "Need to set up Figma Code Connect for a DS component",
+        "Need to generate the .figma.tsx mapping file",
+        "Need to link Figma component properties to React props"
+      ],
+      "do_not_use_for": [
+        "Editing figma.config.json (governance change, not a skill)",
+        "Updating component props (that is the component file)"
+      ],
+      "required_inputs": [
+        "component_name",
+        "feature_name"
+      ],
+      "outputs": [
+        "figma_tsx_file",
+        "code_connect_report",
+        "prop_mapping_table"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Writes a new file into the source tree. Mitigated by dry-run default and CLI validation that rolls back invalid stubs.",
+      "compose_after": [
+        "design/handoff/component-scaffold",
+        "design/handoff/frame-to-spec"
+      ],
+      "compose_before": [
+        "design/ui/visual-vs-built"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/handoff"
+    },
+    "dev-spec": {
+      "trigger_intents": [
+        "A screen or feature was just generated and engineering needs the quick breakdown",
+        "Need the component and token summary of a generation",
+        "Which components and tokens does this new feature use"
+      ],
+      "do_not_use_for": [
+        "The full engineering handoff (use frame-to-spec or spec-packet)",
+        "Converting a prototype to production code (use stack-convert)",
+        "Flow documents with no built screen"
+      ],
+      "required_inputs": [
+        "run_folder",
+        "feature",
+        "target"
+      ],
+      "outputs": [
+        "dev_spec_html",
+        "component_status_table",
+        "token_status_table"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Write-once summary page in the run folder. Primary risk is statuses that flatter the build; mitigated by writing only from the generation's own record and wearing estimated/flagged openly.",
+      "compose_after": [
+        "design/foundation/sandbox-runs",
+        "design/handoff/stack-convert"
+      ],
+      "compose_before": [
+        "design/handoff/frame-to-spec",
+        "design/handoff/spec-packet"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/handoff"
+    },
+    "visual-vs-built": {
+      "trigger_intents": [
+        "Need to verify implementation matches the Figma source",
+        "Need to detect drift between design and built component",
+        "Pre-release check on visual fidelity"
+      ],
+      "do_not_use_for": [
+        "Pixel-perfect comparison (designed to avoid false positives)",
+        "Critiquing the design (use quality/design-critique)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node",
+        "storybook_url"
+      ],
+      "outputs": [
+        "visual_diff_report",
+        "structured_findings",
+        "pixel_diff_image"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Triggers Playwright / CI image captures and may consume CI minutes. Read-only on the source tree, but findings may prompt downstream edits.",
+      "compose_after": [
+        "design/handoff/component-scaffold",
+        "design/handoff/code-connect-stub",
+        "storybook/visual-testing"
+      ],
+      "compose_before": [
+        "coordination/release-process"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "motion-tokens": {
+      "trigger_intents": [
+        "Need to look up a motion duration token",
+        "Need to look up a motion easing token",
+        "Need to look up a named transition",
+        "Reference query for motion"
+      ],
+      "do_not_use_for": [
+        "Creating motion tokens (governance/token-modification-gates)",
+        "Reviewing motion in a frame (use quality/motion-review)"
+      ],
+      "required_inputs": [
+        "intent"
+      ],
+      "outputs": [
+        "motion_token_table",
+        "provisional_values_when_scaffolded"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference. Operates in scaffolded mode until motion tokens exist; flags this clearly in output.",
+      "compose_after": [],
+      "compose_before": [
+        "design/ui/motion-review",
+        "design/motion/interaction-patterns",
+        "design/motion/prototype-spec",
+        "design/handoff/frame-to-spec"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/motion"
+    },
+    "interaction-patterns": {
+      "trigger_intents": [
+        "Need the standard motion for a modal / toast / list / hover",
+        "Need to look up a named interaction pattern",
+        "Designing or implementing a standard interaction"
+      ],
+      "do_not_use_for": [
+        "Custom motions outside the catalogue (use motion/prototype-spec)",
+        "Reviewing motion in a frame (use quality/motion-review)"
+      ],
+      "required_inputs": [
+        "pattern_name_or_description"
+      ],
+      "outputs": [
+        "pattern_card",
+        "implementation_hint"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference. Token values are provisional in scaffolded mode.",
+      "compose_after": [
+        "design/motion/motion-tokens"
+      ],
+      "compose_before": [
+        "design/ui/motion-review",
+        "design/motion/prototype-spec",
+        "design/handoff/frame-to-spec"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/motion"
+    },
+    "prototype-spec": {
+      "trigger_intents": [
+        "Need to spec the motion in a Figma prototype",
+        "Need to translate smart animate to code",
+        "Engineer needs the motion details from a prototype"
+      ],
+      "do_not_use_for": [
+        "Static design spec (use handoff/frame-to-spec)",
+        "Reviewing whether the motion is good (use quality/motion-review)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "motion_spec_markdown",
+        "capture_table",
+        "findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only extraction. Provisional token mapping in scaffolded mode.",
+      "compose_after": [
+        "figma-integration/figma-console-mcp-integration",
+        "design/motion/motion-tokens",
+        "design/motion/interaction-patterns"
+      ],
+      "compose_before": [
+        "design/ui/motion-review",
+        "design/handoff/frame-to-spec",
+        "design/handoff/spec-packet"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/motion"
+    },
+    "motion-review": {
+      "trigger_intents": [
+        "Need to review motion quality in a frame",
+        "Need to check motion against DS standards",
+        "Need findings on durations, easings, reduced-motion"
+      ],
+      "do_not_use_for": [
+        "Capturing the motion itself (use motion/prototype-spec first)",
+        "General design critique (use quality/design-critique)"
+      ],
+      "required_inputs": [
+        "figma_url_or_node"
+      ],
+      "outputs": [
+        "motion_review_report",
+        "findings"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only review. Severities downgraded by one step when motion-tokens are in scaffolded mode.",
+      "compose_after": [
+        "design/motion/prototype-spec",
+        "design/motion/motion-tokens",
+        "design/motion/interaction-patterns"
+      ],
+      "compose_before": [
+        "design/handoff/spec-packet",
+        "design/handoff/handoff-flow"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "monthly-audit": {
+      "trigger_intents": [
+        "Monthly retro on design quality",
+        "Need to spot system-level recurring issues",
+        "Need a trend report for design workflow"
+      ],
+      "do_not_use_for": [
+        "Per-feature reviews (use the individual quality skills)",
+        "Posting to Slack directly (skill produces a markdown announcement file, posting is manual)"
+      ],
+      "required_inputs": [],
+      "outputs": [
+        "monthly_audit_markdown",
+        "trend_table",
+        "action_list",
+        "optional_slack_announcement"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only aggregation. Risk is misleading trends when sample sizes are tiny; mitigated by 'first month' annotation.",
+      "compose_after": [
+        "design/ui/design-critique",
+        "design/ui/a11y-check",
+        "design/ui/content-style-check",
+        "design/ui/light-dark-parity",
+        "design/ui/motion-review"
+      ],
+      "compose_before": [
+        "coordination/slack-announcements"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ui"
+    },
+    "prototyping-agent": {
+      "type": "agent",
+      "trigger_intents": [
+        "Need a quick first pass on a new design idea",
+        "Early exploration before any formal check"
+      ],
+      "do_not_use_for": [
+        "Engineering handoff (use handoff-agent)",
+        "Writing code"
+      ],
+      "required_inputs": [
+        "request_or_figma_url"
+      ],
+      "outputs": [
+        "agent_run_report"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only orchestration; risk is stale composition order, mitigated by the registry compose fields.",
+      "compose_after": [
+        "design/foundation/design-dna"
+      ],
+      "compose_before": [
+        "design/agents/critique-agent"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/agents"
+    },
+    "critique-agent": {
+      "type": "agent",
+      "trigger_intents": [
+        "Need a full quality pass on a frame",
+        "Mid-iteration review before handoff"
+      ],
+      "do_not_use_for": [
+        "Producing the handoff packet (use handoff-agent)",
+        "Writing code"
+      ],
+      "required_inputs": [
+        "request_or_figma_url"
+      ],
+      "outputs": [
+        "agent_run_report"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only orchestration; risk is stale composition order, mitigated by the registry compose fields.",
+      "compose_after": [
+        "design/foundation/design-dna"
+      ],
+      "compose_before": [
+        "design/agents/handoff-agent"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/agents"
+    },
+    "handoff-agent": {
+      "type": "agent",
+      "trigger_intents": [
+        "Design is ready for engineering",
+        "Need the full handoff pipeline in one pass"
+      ],
+      "do_not_use_for": [
+        "Early ideation (use prototyping-agent)",
+        "Writing component code (use build-agent)"
+      ],
+      "required_inputs": [
+        "request_or_figma_url"
+      ],
+      "outputs": [
+        "agent_run_report"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only orchestration; risk is stale composition order, mitigated by the registry compose fields.",
+      "compose_after": [
+        "design/agents/critique-agent"
+      ],
+      "compose_before": [
+        "design/agents/build-agent"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/agents"
+    },
+    "build-agent": {
+      "type": "agent",
+      "trigger_intents": [
+        "Approved packet needs a component scaffold",
+        "Need Code Connect stub and visual verification"
+      ],
+      "do_not_use_for": [
+        "Anything before an approved handoff packet exists",
+        "Token editing"
+      ],
+      "required_inputs": [
+        "request_or_figma_url"
+      ],
+      "outputs": [
+        "agent_run_report"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: writes component code and stories; every write step is gated and dry-run by default.",
+      "compose_after": [
+        "design/agents/handoff-agent"
+      ],
+      "compose_before": [
+        "storybook/visual-regression-gate"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/agents"
+    },
+    "design-rules": {
+      "mcp_tool": "design_rules",
+      "trigger_intents": [
+        "Need the DS rule set or a rule by ID",
+        "Need the scoring formula for a critique",
+        "Need to promote a corpus rule candidate"
+      ],
+      "do_not_use_for": [
+        "Token value lookup",
+        "Inventing rules without a source"
+      ],
+      "required_inputs": [
+        "category_or_all"
+      ],
+      "outputs": [
+        "rule_rows",
+        "scoring_formula"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference; risk is rule drift from source, mitigated by every rule naming its source.",
+      "compose_after": [
+        "design/foundation/design-dna"
+      ],
+      "compose_before": [
+        "design/ui/design-critique",
+        "design/ui/monthly-audit",
+        "design/corpus/distill-corpus"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/foundation"
+    },
+    "corpus-guide": {
+      "mcp_tool": "corpus_cite",
+      "trigger_intents": [
+        "Need to cite corpus evidence in a skill output",
+        "Need the authority ranking of corpus vs tokens/DNA"
+      ],
+      "do_not_use_for": [
+        "Treating corpus as a rule",
+        "Citing the corpus without a version"
+      ],
+      "required_inputs": [
+        "doc_and_anchor"
+      ],
+      "outputs": [
+        "citation_string",
+        "authority_rank"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference; risk is unversioned citations, mitigated by requiring corpus vN on every cite.",
+      "compose_after": [
+        "design/foundation/design-dna"
+      ],
+      "compose_before": [
+        "design/ui/design-critique",
+        "design/ux/flow-design",
+        "design/ux/pattern-library"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/foundation"
+    },
+    "distill-corpus": {
+      "mcp_tool": "design_distill_corpus",
+      "trigger_intents": [
+        "Learn how your brand designs from screenshots",
+        "Grow the design corpus from a batch of images"
+      ],
+      "do_not_use_for": [
+        "Editing design-rules directly",
+        "Committing raw screenshots"
+      ],
+      "required_inputs": [
+        "source_folder"
+      ],
+      "outputs": [
+        "updated_distilled_docs",
+        "corpus_manifest_entries",
+        "rule_candidates"
+      ],
+      "approval_required": true,
+      "breaking_risks_summary": "Approval-sensitive: moves image files and writes distilled docs; dry-run by default, manifest validated after every write.",
+      "compose_after": [
+        "design/foundation/design-dna",
+        "design/foundation/design-rules",
+        "design/foundation/corpus-guide"
+      ],
+      "compose_before": [
+        "design/ui/design-critique",
+        "design/ux/flow-design",
+        "design/ux/pattern-library"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/corpus"
+    },
+    "experience-principles": {
+      "mcp_tool": "ux_principles",
+      "trigger_intents": [
+        "Need journey-level design principles",
+        "Deciding modality (page/sheet/modal/inline/toast)",
+        "Grounding a new experience before designing it"
+      ],
+      "do_not_use_for": [
+        "Single-view visual critique (use design-critique)",
+        "Token lookup"
+      ],
+      "required_inputs": [
+        "lens_or_all"
+      ],
+      "outputs": [
+        "principle_guidance",
+        "experience_preamble"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference; risk is contradicting the DNA, mitigated by the DNA outranking this file.",
+      "compose_after": [
+        "design/foundation/design-dna"
+      ],
+      "compose_before": [
+        "design/ux/flow-design",
+        "design/ux/pattern-library",
+        "design/ux/page-templates"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ux"
+    },
+    "flow-design": {
+      "mcp_tool": "ux_flow_design",
+      "trigger_intents": [
+        "Design a new flow, journey or page type that does not exist yet",
+        "Shape an experience brief into screens and states"
+      ],
+      "do_not_use_for": [
+        "Critiquing an existing frame (use design-critique)",
+        "Experiences that already exist in DS (route to ui-craft/handoff)"
+      ],
+      "required_inputs": [
+        "experience_brief"
+      ],
+      "outputs": [
+        "flow_markdown",
+        "screen_sequence",
+        "component_gaps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only synthesis; risk is ungrounded invention, mitigated by mandatory Mobbin and corpus grounding.",
+      "compose_after": [
+        "design/foundation/design-dna",
+        "design/ux/experience-principles",
+        "reference/mobbin-mcp",
+        "design/foundation/corpus-guide"
+      ],
+      "compose_before": [
+        "design/ux/page-templates",
+        "design/ux/pattern-library",
+        "design/ui/design-critique",
+        "design/handoff/handoff-flow"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ux"
+    },
+    "pattern-library": {
+      "mcp_tool": "ux_patterns",
+      "trigger_intents": [
+        "Need the house style to build a list, feed, paywall or form",
+        "Assembling an experience from reusable patterns"
+      ],
+      "do_not_use_for": [
+        "Component-level motion (use motion/interaction-patterns)",
+        "Inventing a pattern not grounded in prior art"
+      ],
+      "required_inputs": [
+        "pattern_or_all"
+      ],
+      "outputs": [
+        "pattern_card",
+        "component_gaps"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference; risk is naming docs-only components as shipping, mitigated by checking component contracts.",
+      "compose_after": [
+        "design/foundation/design-dna",
+        "design/ux/experience-principles"
+      ],
+      "compose_before": [
+        "design/ux/flow-design",
+        "design/ux/page-templates",
+        "design/ui/design-critique"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ux"
+    },
+    "page-templates": {
+      "mcp_tool": "ux_page_templates",
+      "trigger_intents": [
+        "Lay a new full-page screen on the grid",
+        "Need the template for an article, section front or account page"
+      ],
+      "do_not_use_for": [
+        "Sub-page components (use ui/ or pattern-library)",
+        "Guessing grid values without token lookup"
+      ],
+      "required_inputs": [
+        "template_or_all"
+      ],
+      "outputs": [
+        "template_layout",
+        "reflow_table"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only reference; risk is stale grid numbers (Large-column drift), mitigated by verifying via discovery/token-lookup.",
+      "compose_after": [
+        "design/foundation/design-dna",
+        "design/ux/experience-principles",
+        "design/ux/flow-design"
+      ],
+      "compose_before": [
+        "design/ui/design-critique",
+        "design/handoff/frame-to-spec"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ux"
+    },
+    "microcopy": {
+      "mcp_tool": "ux_microcopy",
+      "trigger_intents": [
+        "Write button, error, empty-state or paywall copy",
+        "Author product microcopy in the brand voice"
+      ],
+      "do_not_use_for": [
+        "Checking existing copy (use content-style-check)",
+        "Long-form editorial content"
+      ],
+      "required_inputs": [
+        "surface",
+        "context"
+      ],
+      "outputs": [
+        "microcopy",
+        "voice_self_check"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Read-only authoring; risk is dark-pattern copy, refused by experience-principle 4.",
+      "compose_after": [
+        "design/foundation/design-dna",
+        "design/ux/experience-principles"
+      ],
+      "compose_before": [
+        "design/ui/content-style-check",
+        "design/handoff/frame-to-spec"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ],
+      "original_category": "design/ux"
+    }
+  }
+}
