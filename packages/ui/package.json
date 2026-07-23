@@ -9,7 +9,8 @@
     "./components/*": "./src/components/*.tsx",
     "./styles/*": "./src/styles/*",
     "./lib/utils": "./src/lib/utils.ts",
-    "./hooks/use-mobile": "./src/hooks/use-mobile.ts"
+    "./hooks/use-mobile": "./src/hooks/use-mobile.ts",
+    "./blocks/*": "./src/blocks/*"
   },
   "license": "MIT",
   "peerDependencies": {

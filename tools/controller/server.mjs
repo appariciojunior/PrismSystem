@@ -11,7 +11,7 @@ import {
 } from './lib/engine.mjs';
 
 const PORT = process.env.PORT || 4400;
-const BUILD = 12;
+const BUILD = 13;
 const PUB = path.join(path.dirname(new URL(import.meta.url).pathname), 'public');
 const CORPUS_INBOX = path.join(ROOT, 'design-corpus/raw/inbox');
 
@@ -80,6 +80,53 @@ function restoreVersion(id) {
   else if (id === 'factory') {
     try { fs.writeFileSync(BRAND_F, JSON.stringify(DEFAULT_BRAND, null, 2)); } catch {}
   }
+}
+
+function figmaToken() {
+  if (process.env.FIGMA_ACCESS_TOKEN) return process.env.FIGMA_ACCESS_TOKEN.trim();
+  for (const p of [path.join(process.env.HOME || '', '.figma-console-mcp.env'), path.join(ROOT, '.figma.env')]) {
+    try {
+      const m = fs.readFileSync(p, 'utf8').match(/FIGMA_ACCESS_TOKEN\s*=\s*(\S+)/);
+      if (m) return m[1].trim();
+    } catch {}
+  }
+  return null;
+}
+
+// Deep design-language analysis via the local `claude` CLI. Returns a profile object or null.
+function claudeDesignProfile({ imagePath, figmaSummary }) {
+  const schema = `{"voice":["3-6 adjectives for the overall aesthetic"],` +
+    `"layout":"the layout/nav pattern in one line (e.g. left icon-rail + filter sidebar + card grid)",` +
+    `"density":"compact|comfortable|spacious","cornerPersonality":"how rounded, and where pills/sharp are used",` +
+    `"colourUsage":"how colour is used compositionally (e.g. pastel category tints per card, high-contrast CTAs)",` +
+    `"componentRecipes":[{"name":"short name","desc":"what it is composed of"}],` +
+    `"illustration":"illustration/imagery style, or none","typography":"heading/body feel and case",` +
+    `"signatureMoves":["the 3-6 decisions that make it look designed, not default"],` +
+    `"blocksToUse":["which of these shadcn blocks fit: dashboard-01, sidebar-01..16, login-01..05, signup-01..05"],` +
+    `"notes":"2-3 sentences of guidance for reproducing this look with shadcn components"}`;
+  const base = imagePath
+    ? `Read the reference UI image at ${imagePath}. `
+    : `Here is the structure of a Figma design file: ${figmaSummary}. `;
+  const prompt = base +
+    `You are a senior product designer reverse-engineering its DESIGN LANGUAGE so an AI can reproduce the look with shadcn/ui components. ` +
+    `Do not describe the content; describe the design decisions. Respond with ONLY a JSON object matching: ${schema}`;
+  return new Promise((resolve) => {
+    const args = ['-p', prompt, '--output-format', 'json', '--max-turns', '3'];
+    if (imagePath) { args.push('--allowedTools', 'Read'); }
+    const child = spawn('claude', args, { cwd: ROOT, shell: true, timeout: 150000 });
+    let so = '';
+    child.stdout.on('data', (d) => (so += d));
+    child.on('error', () => resolve(null));
+    child.on('close', (code) => {
+      if (code !== 0) return resolve(null);
+      try {
+        const env = JSON.parse(so);
+        const txt = typeof env === 'object' && env.result ? env.result : so;
+        const jm = String(txt).match(/\{[\s\S]*\}/);
+        resolve(JSON.parse(jm[0]));
+      } catch { resolve(null); }
+    });
+  });
 }
 
 function runBuild() {
@@ -239,6 +286,52 @@ const server = http.createServer(async (req, res) => {
           googleFonts: [...new Set(gfonts)].slice(0, 5)
         }
       });
+    }
+    // ---- Design language: deep analysis of a reference (image or Figma) ----
+    if (url.pathname === '/api/analyze-design' && req.method === 'POST') {
+      const body = await readBody(req);
+      if (body.source === 'figma') {
+        const figKey = (String(body.url || '').match(/figma\.com\/(?:design|file)\/([A-Za-z0-9]+)/) || [])[1];
+        if (!figKey) return json(res, 400, { error: 'Could not read a Figma file key from that URL.' });
+        const tok = figmaToken();
+        if (!tok) return json(res, 200, { fallback: true, reason: 'No Figma token found. Set FIGMA_ACCESS_TOKEN or add it to ~/.figma-console-mcp.env to read Figma files.' });
+        let fr;
+        try {
+          const r = await fetch(`https://api.figma.com/v1/files/${figKey}?depth=2`, { headers: { 'X-Figma-Token': tok } });
+          if (!r.ok) return json(res, 200, { fallback: true, reason: `Figma API responded ${r.status}. Check the token has access to this file.` });
+          fr = await r.json();
+        } catch (e) { return json(res, 200, { fallback: true, reason: 'Could not reach the Figma API: ' + e.message }); }
+        const pages = (fr.document?.children || []).map((p) => p.name);
+        const frames = [];
+        for (const p of (fr.document?.children || [])) for (const c of (p.children || [])) if (c.name) frames.push(c.name);
+        const styles = Object.values(fr.styles || {}).map((s) => `${s.styleType}: ${s.name}`);
+        const summary = `Figma file "${fr.name}". Pages: ${pages.join(', ')}. Frames: ${frames.slice(0, 40).join(', ')}. Styles: ${styles.slice(0, 40).join('; ')}.`;
+        const profile = await claudeDesignProfile({ figmaSummary: summary });
+        return json(res, 200, profile ? { profile, source: 'figma', name: fr.name } : { fallback: true, reason: 'Read the Figma file but the local AI (claude CLI) was unavailable to interpret it. The raw structure was captured.', raw: summary });
+      }
+      // image path
+      const m = /^data:(image\/\w+);base64,(.+)$/.exec(body.dataUrl || '');
+      if (!m) return json(res, 400, { error: 'expected an image dataUrl or a Figma url' });
+      const ext = m[1].split('/')[1].replace('jpeg', 'jpg');
+      const tmp = path.join(ROOT, 'tools/controller/.tmp');
+      fs.mkdirSync(tmp, { recursive: true });
+      const img = path.join(tmp, `design-${Date.now()}.${ext}`);
+      fs.writeFileSync(img, Buffer.from(m[2], 'base64'));
+      const profile = await claudeDesignProfile({ imagePath: img });
+      try { fs.unlinkSync(img); } catch {}
+      return json(res, 200, profile ? { profile, source: 'image', name: body.name || 'reference' } : { fallback: true, reason: 'The local AI (claude CLI) was unavailable. Describe the design language by hand below, or install the claude CLI for automatic analysis.' });
+    }
+    if (url.pathname === '/api/design-language') {
+      if (req.method === 'POST') {
+        const { md } = await readBody(req);
+        const dir = path.join(ROOT, 'design-corpus/brand');
+        fs.mkdirSync(dir, { recursive: true });
+        fs.writeFileSync(path.join(dir, 'DESIGN-LANGUAGE.md'), String(md || ''));
+        return json(res, 200, { saved: true });
+      }
+      let md = '';
+      try { md = fs.readFileSync(path.join(ROOT, 'design-corpus/brand/DESIGN-LANGUAGE.md'), 'utf8'); } catch {}
+      return json(res, 200, { md });
     }
     if (url.pathname === '/api/ping') {
       return json(res, 200, { build: BUILD });

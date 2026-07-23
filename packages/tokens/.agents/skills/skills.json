@@ -2014,6 +2014,52 @@
       ]
     },
     {
+      "name": "compose-screen",
+      "path": "react/compose-screen.md",
+      "description": "Compose a designed product screen from the design system: tokens, material, captured design language and vendored blocks. Use to build a page/dashboard/feature that should look designed, not raw shadcn.",
+      "category": "react",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous",
+      "trigger_intents": [
+        "build a screen",
+        "design a page",
+        "make a dashboard",
+        "generate a designed UI",
+        "build a feature screen"
+      ],
+      "do_not_use_for": [
+        "editing tokens",
+        "pure component library maintenance"
+      ],
+      "required_inputs": [
+        "what to build",
+        "target route"
+      ],
+      "outputs": [
+        "a designed screen under sandbox/ using @ds/ui + blocks + tokens"
+      ],
+      "approval_required": false,
+      "breaking_risks_summary": "Low direct mutation risk; primary risk is misrouting or incomplete context.",
+      "compose_after": [
+        "react/shadcn-ui",
+        "discovery/token-lookup"
+      ],
+      "compose_before": [
+        "react/testing"
+      ],
+      "l2_sections_required": [
+        "Purpose",
+        "Preconditions",
+        "Inputs",
+        "Procedure",
+        "Error Handling"
+      ]
+    },
+    {
       "name": "react-loop",
       "path": "reasoning/react-loop.md",
       "description": "ReAct (Reasoning + Acting) pattern for grounded problem-solving. Interleaves explicit reasoning traces with tool actions and observations.",

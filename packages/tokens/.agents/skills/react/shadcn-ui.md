@@ -34,6 +34,10 @@ import { Button, Card, CardHeader, CardTitle, CardContent, Input, Label,
 
 Tailwind utilities map to tokens: `bg-background text-foreground border-border rounded-lg`, `bg-primary text-primary-foreground`, `text-muted-foreground`, `ring-ring`. Radius utilities (`rounded-sm..2xl`) derive from `--radius`, so the Controller's radius slider reshapes every component.
 
+## Start from designed blocks and the design language
+
+Before composing, read `design-corpus/brand/GUIDELINES.md` AND `design-corpus/brand/DESIGN-LANGUAGE.md` (the captured design language: layout patterns, component recipes, signature moves). Start from `@ds/ui/blocks` (27 vendored shadcn blocks: dashboards, sidebars, login and signup flows) rather than raw primitives, then flavour them with the design language and tokens. Never ship stock components untouched when the design language calls for a recipe (tinted category cards, pill CTAs, illustrated cards, chip filters, and so on).
+
 ## Composition rules
 
 1. Prefer composition over new components: a settings row is `Card` + `Switch` + `Label`, not a new component.

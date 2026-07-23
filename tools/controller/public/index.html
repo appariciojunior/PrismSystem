@@ -736,7 +736,7 @@
     <button class="tab" data-tab="preview" type="button">Preview</button>
     <button class="tab" data-tab="identity" type="button">Identity</button>
     <button class="tab" data-tab="icons" type="button">Icons</button>
-    <button class="tab" data-tab="imagery" type="button">Imagery</button>
+    <button class="tab" data-tab="imagery" type="button">References</button>
     <button class="tab" data-tab="guidelines" type="button">Guidelines</button>
   </nav>
 
@@ -1063,15 +1063,43 @@
     <!-- ============ IMAGERY ============ -->
     <section class="view" id="view-imagery">
       <div class="view-head">
-        <div class="view-title">Imagery</div>
-        <div class="view-sub">Drop brand material, screenshots or moodboard finds. Each image is analysed for palette, type and mood, and filed into the design corpus so generation agents learn from it.</div>
+        <div class="view-title">References</div>
+        <div class="view-sub">Feed the system real design. Images and Figma files are read for palette, type and, most importantly, design language, so generated screens look designed, not default.</div>
       </div>
-      <div class="dropzone" id="dropzone">
-        <strong>Drop images here</strong>
-        or click to browse. Multiple files welcome.
+
+      <div class="panel" style="margin-bottom:18px">
+        <div class="panel-title">Capture a design language</div>
+        <div class="panel-sub">Drop a reference screen or paste a Figma link. The system extracts the design decisions (layout, component recipes, signature moves) and adds them to your language below.</div>
+        <div class="dropzone" id="dz-design" style="margin-top:12px">
+          <strong>Drop a reference screen</strong>
+          or click to browse. This reads its design language.
+        </div>
+        <input type="file" id="design-file" accept="image/*" hidden>
+        <div style="display:flex; gap:8px; margin-top:12px">
+          <input type="text" id="figma-url" placeholder="Or paste a Figma file link (figma.com/design/...)" style="flex:1">
+          <button class="btn" id="btn-figma" type="button">Read Figma</button>
+        </div>
+        <div id="design-result"></div>
       </div>
-      <input type="file" id="file-input" accept="image/*" multiple hidden>
-      <div class="img-cards" id="img-cards"></div>
+
+      <div class="panel" style="margin-bottom:18px">
+        <div class="panel-title" style="display:flex; align-items:center; justify-content:space-between">Design language
+          <button class="btn primary" id="btn-save-dl" type="button" style="padding:5px 12px; font-size:12px">Save</button>
+        </div>
+        <div class="panel-sub">Written to <span class="mono">design-corpus/brand/DESIGN-LANGUAGE.md</span>. Generation agents read this before composing a screen. Editable.</div>
+        <textarea id="design-language" spellcheck="false" style="width:100%; min-height:260px; margin-top:12px; font-family:var(--mono); font-size:12.5px; line-height:1.6"></textarea>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title">Moodboard imagery</div>
+        <div class="panel-sub">Drop brand material and screenshots. Each is analysed for palette and mood and filed into the corpus.</div>
+        <div class="dropzone" id="dropzone" style="margin-top:12px">
+          <strong>Drop images here</strong>
+          or click to browse. Multiple files welcome.
+        </div>
+        <input type="file" id="file-input" accept="image/*" multiple hidden>
+        <div class="img-cards" id="img-cards"></div>
+      </div>
     </section>
 
     <!-- ============ GUIDELINES ============ -->
@@ -1693,10 +1721,113 @@
   }
   loadVersions();
   fetch('/api/ping').then(function (r) { return r.ok ? r.json() : { build: 0 }; }).then(function (d) {
-    if (!d.build || d.build < 12) {
+    if (!d.build || d.build < 13) {
       toast('note', 'Old server detected', 'This page is newer than the server. Run: lsof -ti :4400 | xargs kill -9, then npm run controller.');
     }
   }).catch(function () {});
+
+  /* ================= Design language capture ================= */
+  (function buildDesignLanguage() {
+    var ta = document.getElementById('design-language');
+    var result = document.getElementById('design-result');
+    if (!ta) return;
+    // load current
+    fetch('/api/design-language').then(function (r) { return r.json(); }).then(function (d) {
+      if (d.md != null) ta.value = d.md;
+    }).catch(function () {});
+
+    document.getElementById('btn-save-dl').addEventListener('click', function () {
+      fetch('/api/design-language', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ md: ta.value }) })
+        .then(function (r) { return r.json(); })
+        .then(function () { toast('ok', 'Design language saved', 'Written to design-corpus/brand/DESIGN-LANGUAGE.md.'); })
+        .catch(function (e) { toast('bad', 'Save failed', e.message); });
+    });
+
+    function renderProfile(p, source, name) {
+      result.innerHTML = '';
+      var box = document.createElement('div');
+      box.style.cssText = 'margin-top:14px; padding:14px; border:1px solid var(--line); border-radius:calc(var(--r) * 1.25); background:var(--panel-2)';
+      function chips(arr) { return (arr || []).map(function (x) { return '<span style="display:inline-block; padding:3px 9px; margin:0 5px 5px 0; border-radius:999px; background:var(--line); font-size:11.5px">' + esc(x) + '</span>'; }).join(''); }
+      function esc(s) { return String(s == null ? '' : s).replace(/[<>&]/g, function (c) { return { '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]; }); }
+      var recipes = (p.componentRecipes || []).map(function (r) { return '<li><b>' + esc(r.name) + '</b> — ' + esc(r.desc) + '</li>'; }).join('');
+      box.innerHTML =
+        '<div style="font-size:11px; color:var(--text-3); text-transform:uppercase; letter-spacing:.07em; margin-bottom:8px">Design language read from ' + esc(source) + (name ? ' · ' + esc(name) : '') + '</div>' +
+        '<div style="margin-bottom:8px">' + chips(p.voice) + '</div>' +
+        '<div style="font-size:12.5px; margin-bottom:6px"><b>Layout:</b> ' + esc(p.layout) + '</div>' +
+        '<div style="font-size:12.5px; margin-bottom:6px"><b>Corners:</b> ' + esc(p.cornerPersonality) + ' &nbsp; <b>Density:</b> ' + esc(p.density) + '</div>' +
+        '<div style="font-size:12.5px; margin-bottom:6px"><b>Colour usage:</b> ' + esc(p.colourUsage) + '</div>' +
+        (p.illustration ? '<div style="font-size:12.5px; margin-bottom:6px"><b>Imagery:</b> ' + esc(p.illustration) + '</div>' : '') +
+        (recipes ? '<div style="font-size:12.5px; margin:8px 0 4px"><b>Component recipes</b></div><ul style="font-size:12px; margin:0 0 6px 16px; line-height:1.5">' + recipes + '</ul>' : '') +
+        (p.signatureMoves ? '<div style="font-size:12.5px; margin:8px 0 4px"><b>Signature moves</b></div><div>' + chips(p.signatureMoves) + '</div>' : '') +
+        (p.blocksToUse && p.blocksToUse.length ? '<div style="font-size:12px; color:var(--text-2); margin-top:6px">Suggested blocks: ' + esc(p.blocksToUse.join(', ')) + '</div>' : '') +
+        '<button class="btn primary" id="btn-add-dl" type="button" style="margin-top:12px">Add to design language</button>';
+      result.appendChild(box);
+      document.getElementById('btn-add-dl').addEventListener('click', function () {
+        var md = profileToMd(p, source, name);
+        ta.value = (ta.value ? ta.value.replace(/\s+$/, '') + '\n\n' : '') + md;
+        toast('ok', 'Added', 'Appended to the design language. Review and Save.');
+        result.innerHTML = '';
+      });
+    }
+    window.__renderDesignProfile = renderProfile;
+
+    function profileToMd(p, source, name) {
+      var L = [];
+      L.push('## Design language from ' + source + (name ? ' (' + name + ')' : ''));
+      if (p.voice) L.push('Voice: ' + p.voice.join(', ') + '.');
+      if (p.layout) L.push('Layout: ' + p.layout + '.');
+      if (p.cornerPersonality) L.push('Corners: ' + p.cornerPersonality + '.');
+      if (p.density) L.push('Density: ' + p.density + '.');
+      if (p.colourUsage) L.push('Colour usage: ' + p.colourUsage + '.');
+      if (p.illustration) L.push('Imagery: ' + p.illustration + '.');
+      if (p.typography) L.push('Typography: ' + p.typography + '.');
+      if (p.componentRecipes && p.componentRecipes.length) {
+        L.push('');
+        L.push('Component recipes:');
+        p.componentRecipes.forEach(function (r) { L.push('- ' + r.name + ': ' + r.desc); });
+      }
+      if (p.signatureMoves && p.signatureMoves.length) { L.push(''); L.push('Signature moves: ' + p.signatureMoves.join('; ') + '.'); }
+      if (p.blocksToUse && p.blocksToUse.length) L.push('Start from blocks: ' + p.blocksToUse.join(', ') + '.');
+      if (p.notes) { L.push(''); L.push(p.notes); }
+      return L.join('\n');
+    }
+
+    function analyseImage(file) {
+      result.innerHTML = '<div style="margin-top:12px; color:var(--text-2); font-size:12.5px">Reading design language\u2026 this can take up to two minutes.</div>';
+      var reader = new FileReader();
+      reader.onload = function () {
+        fetch('/api/analyze-design', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source: 'image', dataUrl: reader.result, name: file.name }) })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (d.profile) renderProfile(d.profile, 'image', d.name);
+            else result.innerHTML = '<div style="margin-top:12px; color:var(--amber); font-size:12.5px">' + (d.fallback ? d.reason : (d.error || 'Analysis failed')) + '</div>';
+          })
+          .catch(function (e) { result.innerHTML = '<div style="margin-top:12px; color:var(--red); font-size:12.5px">' + e.message + '</div>'; });
+      };
+      reader.readAsDataURL(file);
+    }
+
+    var dz = document.getElementById('dz-design');
+    var fi = document.getElementById('design-file');
+    dz.addEventListener('click', function () { fi.click(); });
+    dz.addEventListener('dragover', function (e) { e.preventDefault(); dz.classList.add('over'); });
+    dz.addEventListener('dragleave', function () { dz.classList.remove('over'); });
+    dz.addEventListener('drop', function (e) { e.preventDefault(); dz.classList.remove('over'); if (e.dataTransfer.files[0]) analyseImage(e.dataTransfer.files[0]); });
+    fi.addEventListener('change', function () { if (fi.files[0]) analyseImage(fi.files[0]); });
+
+    document.getElementById('btn-figma').addEventListener('click', function () {
+      var u = document.getElementById('figma-url').value.trim();
+      if (!u) { toast('note', 'No link', 'Paste a Figma file link first.'); return; }
+      result.innerHTML = '<div style="margin-top:12px; color:var(--text-2); font-size:12.5px">Reading the Figma file\u2026</div>';
+      fetch('/api/analyze-design', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ source: 'figma', url: u }) })
+        .then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (d.profile) renderProfile(d.profile, 'figma', d.name);
+          else result.innerHTML = '<div style="margin-top:12px; color:var(--amber); font-size:12.5px">' + (d.reason || d.error || 'Could not read the file') + '</div>';
+        })
+        .catch(function (e) { result.innerHTML = '<div style="margin-top:12px; color:var(--red); font-size:12.5px">' + e.message + '</div>'; });
+    });
+  })();
 
   /* ================= Material (surface style) ================= */
   var MATERIAL_PRESETS = {
