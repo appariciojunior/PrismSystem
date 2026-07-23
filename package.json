@@ -16,8 +16,6 @@
     "test:output": "npm test --workspace=packages/output",
     "build:output": "npm run reconcile --workspace=packages/output && npm run build:style-dictionary && node scripts/copy-variables-css.js",
     "build:figma-make": "node packages/tokens/scripts/generate-figma-make-css.js",
-    "build:token-mapping-table": "node packages/tokens/scripts/generate-token-mapping-table-data.js",
-    "build:typography-mapping-table": "node packages/tokens/scripts/generate-typography-mapping-table-data.js",
     "build:semantic-scope-table": "node packages/tokens/scripts/generate-semantic-scope-master-table.js",
     "verify:toast-rollout": "python3 packages/tokens/scripts/verify_toast_rollout_hidden.py",
     "lint": "eslint .",

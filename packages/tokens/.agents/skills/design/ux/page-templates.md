@@ -1,6 +1,6 @@
 ---
 name: page-templates
-description: The page-level layout templates for brand experiences. Article, section front, media, account and settings, and puzzle hub, each expressed on the DS responsive grid (Small, Medium, Large, XLarge viewports). Grounded in the grid reference and the design corpus. Tells a new full-page screen how to sit on the grid before it fills in content.
+description: The page-level layout templates for brand experiences. Article, section front, media, account and settings, and game hub, each expressed on the DS responsive grid (Small, Medium, Large, XLarge viewports). Grounded in the grid reference and the design corpus. Tells a new full-page screen how to sit on the grid before it fills in content.
 license: MIT
 metadata:
   category: design/ux
@@ -28,8 +28,7 @@ Templates are starting points, not straitjackets. They encode the layouts your b
 
 ## Inputs
 
-* `template` — `article` | `section-front` | `media` | `account` | `puzzle-hub` | `all`. Default `all` (list) or the one named.
-* `channel` — one of the thirteen or `core`. Affects section labelling and channel colour, not the grid.
+* `template` — `article` | `section-front` | `media` | `account` | `game-hub` | `all`. Default `all` (list) or the one named.
 * `viewport` — optional focus: `small` | `medium` | `large` | `xlarge`.
 
 ## The grid, briefly
@@ -52,15 +51,13 @@ Reading measure: body text never wider than about 8 columns / 60–75 characters
 The reading page; the product's centre.
 **Layout.** Single reading column centred, max ~8 columns for the measure. Hero image full content-width above or beside the headline block. Related/UpNext rail below the article on Small/Medium, optionally beside it on Large/XLarge if the measure is preserved.
 **Reflow.** Small: one column, rail stacks below. Large/XLarge: reading column stays ~8 cols even as the page widens; extra width becomes margin, not longer lines.
-**Channel.** Set at the section; channel colour flows through `surface.channel.*` / `text.channel.*`.
 **Anatomy source.** `ux/pattern-library` → article anatomy. Evidence: `layout-patterns.md#article-template`.
 
 ### Section front
 
-A channel or topic landing page: a curated list of articles.
+A topic landing page: a curated list of articles.
 **Layout.** A lead block (one large card, full or 8-column) then a grid of cards. Card grid: 1-up on Small, 2–3-up on Medium, 3–4-up on Large/XLarge. An ad slot (`AdContainer`) at documented intervals, never mid-card.
 **Reflow.** Cards reflow by column count; the lead card spans full width on Small, a larger span on wide viewports. Density holds — cards keep a consistent internal rhythm.
-**Channel.** This is where channel identity is strongest: the section's channel colour in the masthead label and accents.
 **Evidence.** `layout-patterns.md#section-front`.
 
 ### Media (gallery / video)
@@ -73,21 +70,21 @@ Image- or video-led pages.
 
 ### Account and settings
 
-Core (non-channel) utility pages: profile, subscription, preferences.
+Utility pages: profile, subscription, preferences.
 **Layout.** A single narrow column of grouped settings (a settings list of rows: label, current value, control). Section headings group related settings. On Large/XLarge an optional left nav lists the setting groups; content stays a readable single column, not stretched full-width.
 **Reflow.** Small: stacked, nav becomes a top list or accordion. The content column never widens past comfortable reading.
 **States.** In-place edit (`motion/interaction-patterns` → `in-place-edit`), optimistic save with Toast confirmation, InlineMessage for validation.
-**Copy.** Plain, `core` tokens, no channel colour. Microcopy via `ux/microcopy`.
+**Copy.** Plain, `core` tokens. Microcopy via `ux/microcopy`.
 **Evidence.** `ux-patterns/onboarding.md`, `layout-patterns.md#account`.
 
-### Puzzle hub
+### Game hub
 
-The puzzles landing (channel `puzzle`): a warmer, more playful surface within the brand frame.
-**Layout.** A grid of puzzle entry cards (crossword, sudoku, etc.), each with title, difficulty, and a play action. A "continue where you left off" block at top when there is progress.
+The games landing: a warmer, more playful surface within the brand frame.
+**Layout.** A grid of game entry cards (crossword, sudoku, etc.), each with title, difficulty, and a play action. A "continue where you left off" block at top when there is progress.
 **Reflow.** Card grid by column count as section front; the continue block spans wide.
-**Channel.** `puzzle` channel (foundation `#DF7334`), the one place a warmer, more interactive tone is on-brand — still on-brand, not a games app (DNA: playful but restrained).
+**Tone.** A warmer, more interactive tone is on-brand here — still on-brand, not a games app (DNA: playful but restrained).
 **States.** Progress persistence, locked-until-subscribed entries marked with `Label` (subscriber pattern), completed state.
-**Evidence.** `layout-patterns.md#puzzle-hub`.
+**Evidence.** `layout-patterns.md#game-hub`.
 
 ## Output Contract
 
@@ -96,7 +93,7 @@ Listing mode returns template names with one-line summaries. Single-template mod
 ```markdown
 # Page template — <name>
 
-> Channel: <name or core> · Grid source: grid.md + viewport/* tokens
+> Grid source: grid.md + viewport/* tokens
 > Corpus evidence: <vN or none>
 
 ## Layout
@@ -115,7 +112,7 @@ Listing mode returns template names with one-line summaries. Single-template mod
 <DS components; links to ux/pattern-library cards>
 
 ## Notes
-<channel, states, known drift>
+<states, known drift>
 ```
 
 Followed by:

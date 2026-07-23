@@ -227,7 +227,7 @@ ISC
 
 ```javascript
 tokens.brand.primary; // Color ramp with 19 steps (100-1000)
-tokens.channels.comment; // Channel-specific colors
+tokens.channels.theme-4; // Channel-specific colors
 tokens.dataVisualisation.data01; // Data visualization colors
 ```
 

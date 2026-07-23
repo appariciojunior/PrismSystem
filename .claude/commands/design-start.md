@@ -74,7 +74,7 @@ Show the focal options in plain language, and map each to its skills and agents 
 - **Everything (scored review)** → `agents/critique-agent`
 - **Accessibility** → `ui/a11y-check`
 - **Copy and tone** → `ui/content-style-check`
-- **Colour and channel** → `ui/token-mapping-audit` + `ui/channel-context` (best with Figma connected)
+- **Colour** → `ui/token-mapping-audit` (best with Figma connected)
 - **Light vs dark** → `ui/light-dark-parity`
 - **Motion** → `ui/motion-review`
 - **Component states** → `ui/state-matrix`
@@ -92,7 +92,7 @@ Show the focal options in plain language, and map each to its skills and agents 
 
 - **Add a feature** → read the screen + `ux/pattern-library` + `/figma-generate-design`
 - **Change something that is there** → read the screen + `/figma-generate-design`
-- **Move it to another section or platform** → read the screen + `ui/channel-context` + `/figma-generate-design`
+- **Move it to another section or platform** → read the screen + `/figma-generate-design`
 
 Read the base (Figma desktop MCP active tab if connected, otherwise a screenshot), keep its section colour, grid and components, and build the change from the same tokens.
 
@@ -139,9 +139,9 @@ If Step 2 already found the input, use it. Otherwise ask for it in plain words:
 
 **The Figma suggestion (important, especially on a first run).** If the Figma desktop MCP is not live (you checked in Step 2), add this once, kindly, and do not nag or block:
 
-> A screenshot is enough for layout, hierarchy, wording and a rough colour read, so we can start right now. For the most precise results, the real colour, token and channel checks, connect the Figma desktop MCP: open your file as the active tab and turn on the local MCP server. Even a single clear screen example helps me be accurate.
+> A screenshot is enough for layout, hierarchy, wording and a rough colour read, so we can start right now. For the most precise results, the real colour and token checks, connect the Figma desktop MCP: open your file as the active tab and turn on the local MCP server. Even a single clear screen example helps me be accurate.
 
-The designer can always carry on with a screenshot or a description. Only press for Figma when the chosen focus actually needs token truth (colour and channel, light vs dark by token, a real handoff).
+The designer can always carry on with a screenshot or a description. Only press for Figma when the chosen focus actually needs token truth (colour, light vs dark by token, a real handoff).
 
 ## Step 8: Show a quick summary, then run
 

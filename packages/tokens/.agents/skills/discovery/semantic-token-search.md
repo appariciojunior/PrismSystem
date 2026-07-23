@@ -16,11 +16,9 @@ Find the best token candidates quickly from natural-language intent, then narrow
 
 ## Core Principle: 1:1 Semantic Token Mapping
 
-**Semantic tokens are 1:1 mapped across all themes.** When search results include the same semantic token from multiple themes (e.g., `light/ core.messaging.fill.warning` and `light/ comment.messaging.fill.warning`), they are semantically identical and differ only in value when a channel-specific override is documented.
+**Semantic tokens are 1:1 mapped across all themes.** When search results include the same semantic token from multiple themes (e.g., `light/ messaging.fill.warning` and `dark/ messaging.fill.warning`), they are semantically identical and differ only in value per theme.
 
-**Do not ask users to choose between themes for semantic tokens.** Always recommend the canonical semantic token path (e.g., `messaging.fill.warning`) without theme qualification, unless a channel-specific divergence is documented.
-
-Only exception: Channel-specific tokens (`.channel.` in path) may have documented value differences across themes.
+**Do not ask users to choose between themes for semantic tokens.** Always recommend the canonical semantic token path (e.g., `messaging.fill.warning`) without theme qualification.
 
 ## Preconditions
 

@@ -29,7 +29,7 @@ Every pattern is assembled from existing DS components and existing interaction 
 ## Inputs
 
 * `pattern` — optional: name one pattern to return in full. Default: list all with one-line summaries.
-* `context` — optional channel or surface to tailor the guidance.
+* `context` — optional surface to tailor the guidance.
 
 ## How to read a pattern card
 
@@ -41,7 +41,7 @@ Each card has: **When to use** · **Anatomy** (DS components) · **Content rules
 
 **When to use.** Any experience that spans more than one view, or sits inside the product's global chrome.
 **Anatomy.** Global masthead (product chrome, not redesigned per feature) · section navigation · in-page anchors for long reads · a persistent way back (experience-principle 5). Breadcrumbs only where the hierarchy is genuinely deep.
-**Content rules.** Section labels use the channel's `Label`; never invent a nav label that is not a real section. British English, full names.
+**Content rules.** Section labels use the `Label` component; never invent a nav label that is not a real section. British English, full names.
 **States.** Current location is always marked (`aria-current`). Loading nav is rare; render it statically.
 **Accessibility.** Nav is a landmark; the current item carries `aria-current="page"`; skip-to-content is present on full pages.
 **Motion.** None on the nav itself beyond `hover-feedback` (instant). Route transitions are calm (DNA: motion is invisible).
@@ -50,7 +50,7 @@ Each card has: **When to use** · **Anatomy** (DS components) · **Content rules
 ### Content lists and cards
 
 **When to use.** Any surface presenting multiple articles, events, or items — the core of a news product.
-**Anatomy.** A repeating card: optional `Image` (fixed ratio, usually 3:2 or 16:9) · optional `Label` (channel/section) · headline (`brand-heading-*`) · optional standfirst (`brand-standfirst-*`) · byline/timestamp (`brand-byline-*`) · optional `Flag` (LIVE, UPDATED). Lists compose cards on the grid (`ux/page-templates`).
+**Anatomy.** A repeating card: optional `Image` (fixed ratio, usually 3:2 or 16:9) · optional `Label` (section) · headline (`brand-heading-*`) · optional standfirst (`brand-standfirst-*`) · byline/timestamp (`brand-byline-*`) · optional `Flag` (LIVE, UPDATED). Lists compose cards on the grid (`ux/page-templates`).
 **Content rules.** One headline per card. Standfirst is optional and short. Timestamps are relative for recent, absolute beyond a day. No clickbait — brand headlines are direct.
 **States.** Loading = skeleton cards matching the final layout. Empty = a quiet line, never a blank grid. Variable text lengths must not break the card (design-critique density rules).
 **Accessibility.** The whole card is one link with an accessible name from the headline; nested links (byline author) are separate, not overlapping targets. Image alt from the caption or marked decorative.
@@ -61,7 +61,7 @@ Each card has: **When to use** · **Anatomy** (DS components) · **Content rules
 
 **When to use.** The reading experience itself — the product's centre of gravity.
 **Anatomy.** `Label` (section) → headline (`brand-heading-fluid-*`) → standfirst → byline + timestamp → hero `Image` → body (`brand-paragraph-*`, 60–75 char measure) → inline `Link`s (brand sentiment) → pull quotes, inline `Flag`s → related/UpNext rail → comments (or `CommentsDisabled`).
-**Content rules.** Channel is set at the article's section, flowing channel colour through tokens (never per-component). Reading measure held at 8 columns max.
+**Content rules.** Reading measure held at 8 columns max.
 **States.** Paywall/register interpose per the subscription pattern below. Comments have their own loading/empty/disabled states.
 **Accessibility.** One `h1`; heading levels sequential (`DS-TYP-02`); body at or above the minimum body token.
 **Motion.** Minimal. No hero scroll theatrics on news (DNA anti-pattern `DS-MOT-06`).

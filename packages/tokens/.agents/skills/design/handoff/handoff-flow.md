@@ -36,7 +36,6 @@ Required:
 Optional:
 
 * `dark_figma_url` — required if light/dark parity will run.
-* `channel` — declared channel for the feature, if any.
 * `ticket_id` — JIRA/Linear/GitHub ID to embed in the packet.
 * `include_critique` — boolean, default true for the first run of a feature, false for re-runs.
 * `interactive` — boolean, default true. When true, the orchestrator pauses for confirmation between phases. When false, it runs straight through and reports.
@@ -44,7 +43,7 @@ Optional:
 
 ## Procedure
 
-The orchestrator runs in seven phases. Each phase produces a file in `.design/<feature>/`. Between phases (when `interactive` is true), the orchestrator presents a summary and asks: continue, re-run last phase, or stop.
+The orchestrator runs in six phases. Each phase produces a file in `.design/<feature>/`. Between phases (when `interactive` is true), the orchestrator presents a summary and asks: continue, re-run last phase, or stop.
 
 ### Phase A: Preflight
 
@@ -67,13 +66,7 @@ The orchestrator runs in seven phases. Each phase produces a file in `.design/<f
 2. Output: `STATE_MATRIX.md`.
 3. Pause: present the matrix. Highlight any "not implemented" states.
 
-### Phase D: Channel context (conditional)
-
-1. Skip if no channel tokens detected in Phase B.
-2. Otherwise run `ui/channel-context.md`. Output: `CHANNEL_CONTEXT.md`.
-3. Pause: present.
-
-### Phase E: Quality checks
+### Phase D: Quality checks
 
 Run these three concurrently (no dependency between them):
 
@@ -83,13 +76,13 @@ Run these three concurrently (no dependency between them):
 
 After all three complete, pause. Present the combined error count and ask: continue, re-run any, stop.
 
-### Phase F: Light/dark parity (conditional)
+### Phase E: Light/dark parity (conditional)
 
 1. Skip if no `dark_figma_url`.
 2. Otherwise run `ui/light-dark-parity.md`. Output: `PARITY.md`.
 3. Pause: present.
 
-### Phase G: Spec and packet
+### Phase F: Spec and packet
 
 1. Run `handoff/frame-to-spec.md` against the entry frame. Output: `SPEC.md`.
 2. Run `handoff/spec-packet.md` with all upstream artefacts present. Output: `PACKET.md` and `INDEX.md`.
@@ -114,7 +107,6 @@ The orchestrator does not produce a single file as its primary output. Its outpu
 - Feature: <name>
 - Light Figma: <url>
 - Dark Figma: <url or "not provided">
-- Channel: <name or "none">
 - Ticket: <id or "not set">
 - Include critique: <true | false>
 
@@ -126,13 +118,12 @@ The orchestrator does not produce a single file as its primary output. Its outpu
 | B | token-mapping-audit (light) | ok | 12s | TOKEN_AUDIT_LIGHT.md | 0 | 3 |
 | B | token-mapping-audit (dark) | ok | 11s | TOKEN_AUDIT_DARK.md | 0 | 2 |
 | C | state-matrix | ok | 8s | STATE_MATRIX.md | 1 | 0 |
-| D | channel-context | skipped | - | - | - | - |
-| E | a11y-check | ok | 18s | A11Y_CHECK.md | 0 | 4 |
-| E | content-style-check | ok | 6s | CONTENT_STYLE.md | 2 | 7 |
-| E | design-critique | ok | 14s | CRITIQUE.md | 0 | 6 |
-| F | light-dark-parity | ok | 9s | PARITY.md | 1 | 0 |
-| G | frame-to-spec | ok | 11s | SPEC.md | - | - |
-| G | spec-packet | ok | 4s | PACKET.md | - | - |
+| D | a11y-check | ok | 18s | A11Y_CHECK.md | 0 | 4 |
+| D | content-style-check | ok | 6s | CONTENT_STYLE.md | 2 | 7 |
+| D | design-critique | ok | 14s | CRITIQUE.md | 0 | 6 |
+| E | light-dark-parity | ok | 9s | PARITY.md | 1 | 0 |
+| F | frame-to-spec | ok | 11s | SPEC.md | - | - |
+| F | spec-packet | ok | 4s | PACKET.md | - | - |
 
 ## Decisions taken during run
 
@@ -171,7 +162,6 @@ If errors == 0: attach PACKET.md to ticket <id> and notify engineering.
 * `./frame-to-spec.md`
 * `./token-mapping-audit.md`
 * `./state-matrix.md`
-* `./channel-context.md`
 * `./spec-packet.md`
 * `../ui/design-critique.md`
 * `../ui/a11y-check.md`

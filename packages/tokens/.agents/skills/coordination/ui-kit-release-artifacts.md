@@ -49,7 +49,7 @@ Create UI Kit release outputs that focus only on component changes relevant to F
   - Removed
   - Updated
 - Must include CTA line at bottom:
-  - Questions or feedback: #ds-support ([Slack channel](https://newscorp.enterprise.slack.com/archives/C09ALD6M7CZ))
+  - Questions or feedback: #ds-support ([Slack channel](https://your-workspace.slack.example/ds-support))
 
 ## Source of Truth
 

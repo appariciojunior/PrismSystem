@@ -34,7 +34,6 @@ Required:
 
 Optional:
 
-* `channel` — affects tone slightly (comment is weightier, puzzle lighter) but never the core rules.
 * `constraints` — character limits from the component (e.g. Button label length).
 
 ## the brand voice, at microcopy scale
@@ -132,7 +131,6 @@ Followed by:
 * **Context too thin to write specific copy.** Ask for the one missing fact (what just happened, what the button does) rather than writing vague copy. Vague microcopy is worse than none.
 * **A constraint forces a compromise** (a 10-character button). Offer the best short option and flag the trade-off; never truncate mid-word or drop clarity for length silently.
 * **Requested copy would be a dark pattern** (guilt decline, fake urgency). Refuse it, cite experience-principle 4, write the honest version.
-* **Channel tone vs core rules.** Channel adjusts tone within the rules; it never overrides British English, brand names, or directness.
 
 ## Composition
 

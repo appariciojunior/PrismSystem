@@ -28,7 +28,7 @@ This skill **writes code**, so it is `requires-approval`. It shows the plan (fil
 
 ## Preconditions
 
-1. The DNA TL;DR is loaded (`foundation/design-dna`): channel rules, voice rules, and the semantic-tokens-only law.
+1. The DNA TL;DR is loaded (`foundation/design-dna`): voice rules and the semantic-tokens-only law.
 2. A token source is available: the token MCP tools (`token_lookup`, `search_tokens`, `token_validate`, `contrast_check`) or the token JSON under `packages/tokens/`. Without token truth this skill cannot map; it must stop, not guess.
 3. A component inventory for the target stack is readable: the exports of `@ds/components-react`, or the equivalent inventory for, `theme-ios`, `theme-css` / `theme-scss`.
 4. An input prototype is present (code, image or Figma access).
@@ -39,7 +39,6 @@ This skill **writes code**, so it is `requires-approval`. It shows the plan (fil
 * `source`: the prototype. A path to code or a folder, an image, or a Figma URL or node. Required.
 * `target_stack`: `react` | `` | `ios` | `` | `css`. Required.
 * `feature`: kebab-case slug. Artefacts persist to `.design/<feature>/`. Derived from the source name if absent, confirmed with the engineer.
-* `channel`: optional channel name (one of the thirteen; see `foundation/design-dna`). Applied through section context and channel tokens, never bound per component.
 * `mode`: `light` | `dark` | `both`. Default `both` where the stack supports it.
 * `out_dir`: where generated code goes. Default: the conventional location in the target package, proposed in the plan; the engineer can redirect it.
 * `dry_run`: when true, produce the inventories, both mapping tables and the plan, but write nothing. Default false; the approval gate applies either way.
@@ -69,7 +68,7 @@ For each entry in the value inventory, in order:
 2. **Nearest match.** No exact hit: find the nearest semantic token of the correct role (`search_tokens` intent-first, then distance on the value). For any colour that carries text, run `contrast_check` to confirm the substitution still meets AA before accepting it. Match type: `nearest`, always with a note stating the original value and the visible difference.
 3. **Flag.** No credible nearest token: record the value as `flagged` with the original, the location, and what would resolve it (usually a designer decision or a token request). The generated code carries a marked placeholder that fails loudly rather than a silent raw value.
 
-Mapping rules, non-negotiable: semantic layer only; never palette-direct, never foundation-direct, never raw hex, never legacy names. Channel colour is applied through channel context at section level, never hard-coded on a component.
+Mapping rules, non-negotiable: semantic layer only; never palette-direct, never foundation-direct, never raw hex, never legacy names.
 
 ### Step 4: Map widgets to DS components
 
@@ -115,7 +114,7 @@ In the same pass, write `DEV-SPEC.html` into the run folder root per `handoff/de
 
 > Source: <path, image or Figma link> (<code | image | figma>)
 > Target stack: <react | | ios | | css>
-> Channel: <name or "not set">  Mode: <light | dark | both>
+> Mode: <light | dark | both>
 > Provenance: <n> measured, <n> bound, <n> estimated
 > Converted: <ISO timestamp>
 
@@ -159,7 +158,6 @@ Followed by the machine-readable summary:
   "source_type": "code | image | figma",
   "target_stack": "react | | ios | | css",
   "feature": "<slug>",
-  "channel": "<name or null>",
   "values": { "total": 0, "exact": 0, "nearest": 0, "flagged": 0 },
   "widgets": { "total": 0, "matched": 0, "swapped": 0, "gaps": 0 },
   "verification": { "raw_values": 0, "legacy_names": 0, "unresolved_imports": 0, "reconciled": true },

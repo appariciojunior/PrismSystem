@@ -43,7 +43,6 @@ Because every skill loads the DNA TL;DR as its preamble, swapping the DNA re-gro
 * `moodboard`: optional folder of images (logo, moodboard, references, product screens). Informs the qualitative side: shape, tone, imagery, personality.
 * `brand_name`: the new brand or product name.
 * `target`: where the forked system is written: a new repo path, or a brand-pack subfolder. Default: a new `brand-pack/<brand_name>/` folder, so nothing is overwritten in place until you approve.
-* `channels_model`: how to handle the starter's 13-channel concept: `none` | `surfaces` | `subbrands` | `keep`. Default `none`.
 * `dry_run`: when true, produce the plan and the proposed files without writing. Default true. Set false to apply.
 
 ## What the skill reads, and where each brand signal lands
@@ -65,14 +64,13 @@ This is the map from a brand's raw identity to the files it becomes. It answers 
 
 ## Procedure
 
-### Step 0: Decide the brand model (the one big fork)
+### Step 0: Decide the brand model
 
-Before extracting anything, settle two questions, because they shape everything downstream:
+Before extracting anything, settle one question, because it shapes everything downstream:
 
-1. **Channels.** The starter ships with 13 content channels as an example. Most brands have none. Choose `none` (simplest), `surfaces` (web, social, print), `subbrands`, or `keep`. This decision changes the DNA, the rules, `channel-context` and the intake flow.
-2. **Component library.** Does the brand already have a real component library and Storybook? If not, the handoff, build, state-matrix and visual-vs-built paths have little to work on yet. Note this, and defer those paths in the pack rather than pretending they are ready.
+**Component library.** Does the brand already have a real component library and Storybook? If not, the handoff, build, state-matrix and visual-vs-built paths have little to work on yet. Note this, and defer those paths in the pack rather than pretending they are ready.
 
-If either is undecided, stop and ask. Do not guess; they touch too much.
+If it is undecided, stop and ask. Do not guess; it touches too much.
 
 ### Step 1: Read the brand from Figma
 
@@ -101,7 +99,6 @@ From the inventory, generate `tokens.json` in the three-layer structure the suit
 Draft `foundation/<brand>-design-dna.md` in the same structure as `design-dna.md` (the starter DNA), replacing all the content:
 
 * **Who we are**, in the brand's own voice.
-* **Channels or surfaces**, per Step 0.
 * **Token layers**, pointing at the new `tokens.json`.
 * **Voice**, the brand's actual voice. Do not carry over the starter's example voice rules. If the brand uses American English, or allows em dashes, or is deliberately chatty, say so here.
 * **Anti-patterns**, drawn from the opposite of the moodboard.
@@ -112,7 +109,7 @@ Keep the TL;DR section intact, because the whole suite loads it as its preamble.
 
 ### Step 5: Rewrite the rules
 
-Take `design-rules.md` and sort every rule into three piles. **Keep** the universal ones: accessibility contrast, hierarchy, token discipline, design every state. **Drop** the starter-specific ones: the channel rules, the brand-name-in-full rule, and "no em dash" unless the new brand also wants it. **Add** new ones from the moodboard and the corpus, for example "corners are always 12px" or "the logo is never recoloured". Keep the `CAT-NN` ID scheme so cited IDs keep resolving; rename the category set to the brand.
+Take `design-rules.md` and sort every rule into three piles. **Keep** the universal ones: accessibility contrast, hierarchy, token discipline, design every state. **Drop** the starter-specific ones: the brand-name-in-full rule, and "no em dash" unless the new brand also wants it. **Add** new ones from the moodboard and the corpus, for example "corners are always 12px" or "the logo is never recoloured". Keep the `CAT-NN` ID scheme so cited IDs keep resolving; rename the category set to the brand.
 
 ### Step 6: Swap the voice styleguide
 
@@ -126,17 +123,16 @@ Empty `design-corpus/distilled` and reset the manifest to a fresh version. Then,
 
 The skills are brand-agnostic, but a few name starter-only concepts. Do not rewrite their procedures; only adjust what they reference:
 
-* `channel-context`: keep only if the brand has channels or surfaces; otherwise disable it.
 * `token-mapping-audit`: re-point its legacy-drift definitions (the legacy design system) to the brand's own legacy, or remove that section if the brand has none.
 * Everything else re-grounds automatically off the new DNA.
 
 ### Step 9: Re-point the router and the intake
 
-Update the router and `/design-start` to load the new DNA and to use the brand's intents. If the brand has no channels, drop the channel question. The intents and paths structure stays; only the grounding it loads changes.
+Update the router and `/design-start` to load the new DNA and to use the brand's intents. The intents and paths structure stays; only the grounding it loads changes.
 
 ### Step 10: Verify the fork
 
-* Grep the forked files for residual starter references: the starter brand names, `NK-*` legacy tokens, the channel names, `#135DCB`, and the British-English rules. Nothing should remain except what you kept on purpose.
+* Grep the forked files for residual starter references: the starter brand names, `NK-*` legacy tokens, `#135DCB`, and the British-English rules. Nothing should remain except what you kept on purpose.
 * Run one critique on a brand screen and confirm the findings cite the new rules and the new tokens.
 * Run one voice check and confirm it enforces the brand's voice, not the starter's.
 
@@ -148,7 +144,7 @@ Only when these pass is the fork clean.
 # Rebrand: <brand_name>
 
 > Source: <figma_url or "moodboard only">
-> Moodboard: <n images> | Channels model: <none | surfaces | subbrands | keep>
+> Moodboard: <n images>
 > Mode: <dry-run | applied>
 
 ## Brand inventory
@@ -178,7 +174,6 @@ Followed by the machine-readable summary:
 {
   "skill": "design/rebrand/rebrand-system",
   "brand": "<brand_name>",
-  "channels_model": "<none | surfaces | subbrands | keep>",
   "files_written": ["tokens.json", "foundation/<brand>-design-dna.md", "..."],
   "rules": { "kept": 0, "dropped": 0, "added": 0 },
   "corpus_seeded": 0,
@@ -196,7 +191,6 @@ Frame the output as a swappable **brand pack**: the DNA, the tokens, the rules, 
 * **No Figma access.** Run from the moodboard plus explicit colour and type input, but mark the tokens approximate (pixels, not bindings) and recommend a Figma pass before shipping the pack.
 * **Moodboard conflicts with Figma.** Figma wins for values, the moodboard informs tone. Record the conflict, do not silently average.
 * **No component library yet.** Defer the handoff, build, state-matrix and visual-vs-built paths, and note it in the pack rather than pretending they run.
-* **Channels undecided.** Stop and ask. It shapes the DNA, the rules and the intake, so it cannot be guessed.
 * **Applying over the live suite.** Never overwrite the source suite on a dry run. Write to `brand-pack/<brand>/` first, and only merge in place on an explicit apply.
 
 ## Composition
@@ -207,6 +201,6 @@ Frame the output as a swappable **brand pack**: the DNA, the tokens, the rules, 
 
 ## How to invoke
 
-- "Rebrand the system. My Figma is the active tab, brand name Acme, no channels, and here is my moodboard folder."
+- "Rebrand the system. My Figma is the active tab, brand name Acme, and here is my moodboard folder."
 - "Fork this into a new product from this Figma file. I have no component library yet, so defer handoff and build."
 - "Read my brand from Figma and the logo folder, and draft the DNA and tokens only. Dry run, I want to review before you write anything."

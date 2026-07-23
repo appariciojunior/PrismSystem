@@ -822,7 +822,7 @@
     },
     {
       "name": "semantic-theme-parity",
-      "description": "Validate semantic theme parity required for Figma Variables export, including strict structural checks and advisory channel value decisions.",
+      "description": "Validate semantic theme parity required for Figma Variables export, including strict structural checks.",
       "category": "quality",
       "path": "validation/semantic-theme-parity.md",
       "agents": [
@@ -981,7 +981,7 @@
     },
     {
       "name": "design-critique",
-      "description": "Structured critique of a Figma frame against Design System rules. Covers visual hierarchy, spacing rhythm, alignment, density, component reuse and channel fit. Returns a categorised findings list with node IDs.",
+      "description": "Structured critique of a Figma frame against Design System rules. Covers visual hierarchy, spacing rhythm, alignment, density, component reuse and gradient decoration. Returns a categorised findings list with node IDs.",
       "category": "design",
       "path": "design/ui/design-critique.md",
       "agents": [
@@ -1017,20 +1017,8 @@
       "autonomy": "autonomous"
     },
     {
-      "name": "channel-context",
-      "description": "Validate channel colour usage in a Figma frame. Confirms the channel is declared at the right level, that semantic tokens flow from the channel, and that no cross-channel mixing occurs.",
-      "category": "design",
-      "path": "design/ui/channel-context.md",
-      "agents": [
-        "Designer",
-        "Design Engineer",
-        "Architect"
-      ],
-      "autonomy": "autonomous"
-    },
-    {
       "name": "spec-packet",
-      "description": "Bundle the outputs of frame-to-spec, state-matrix, token-mapping-audit, channel-context, plus asset export list and the Figma deep link, into a single Markdown packet ready to attach to an engineering ticket.",
+      "description": "Bundle the outputs of frame-to-spec, state-matrix, token-mapping-audit, plus asset export list and the Figma deep link, into a single Markdown packet ready to attach to an engineering ticket.",
       "category": "handoff",
       "path": "design/handoff/spec-packet.md",
       "agents": [
@@ -1043,7 +1031,7 @@
     },
     {
       "name": "light-dark-parity",
-      "description": "Compare light and dark frames of the same component, flag structural divergence, value divergence outside the documented channel exceptions, and missing dark variants. Enforces the 1:1 semantic token rule at design time.",
+      "description": "Compare light and dark frames of the same component, flag structural divergence and missing dark variants. Enforces the 1:1 semantic token rule at design time.",
       "category": "design",
       "path": "design/ui/light-dark-parity.md",
       "agents": [
@@ -1250,7 +1238,7 @@
     },
     {
       "name": "distill-corpus",
-      "description": "Turn a batch of real Brand product screenshots into versioned design knowledge: classify by surface/channel/journey, file with a content hash, distil into the corpus reference docs, and propose rule candidates.",
+      "description": "Turn a batch of real Brand product screenshots into versioned design knowledge: classify by surface/journey, file with a content hash, distil into the corpus reference docs, and propose rule candidates.",
       "category": "discovery",
       "path": "design/corpus/distill-corpus.md",
       "agents": [

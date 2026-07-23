@@ -53,7 +53,6 @@ Verified as of 2026-07-20: the official Mobbin MCP exposes **one tool, `search_s
 * `pattern`: what to research, in plain words ("paywall", "saved articles", "live blog onboarding"). Required.
 * `route`: `new` | `evolve` | `versions` | `flow-design`. Which generation path is asking. Default `flow-design`.
 * `surface`: `web` | `ios` | `android`. Default `web`. Maps to the `platform` parameter (android proxies to `ios`; see Error Handling).
-* `channel`: optional channel name (one of the thirteen, or `core`). Shapes the translation step, never the search.
 * `feature`: optional feature slug. Evidence persists to `.design/<feature>/EVIDENCE.md`.
 * `max_screens`: total screens to review across all queries. Default 12.
 * `retrieved`: the run date passed in by the caller (this skill does not read the clock itself). Used in every citation.
@@ -117,7 +116,7 @@ Re-express the extracted pattern with your brand material. For each mechanic, na
 | Onboarding always shows progress and always offers an exit | Stepper from the pattern library; skip as a plain `Link`, not a buried gesture; copy in the brand voice, imperative and direct |
 | Live blog pins the newest entry with a calm "new updates" affordance | `Flag` plus `typography.utility` timestamp; instant, linear state change; no bounce, no pulse |
 
-Then run the translation past the DNA: does the result still read as your brand? Does it respect the channel decision (`channel` input, section-level, never component-level)? Does it avoid every listed anti-pattern? If a mechanic cannot be expressed with existing tokens and components, that is a system gap to report, not a licence to copy the source styling.
+Then run the translation past the DNA: does the result still read as your brand? Does it avoid every listed anti-pattern? If a mechanic cannot be expressed with existing tokens and components, that is a system gap to report, not a licence to copy the source styling.
 
 ### Step 8: Cite and hand over
 
@@ -156,7 +155,6 @@ The DNA's anti-pattern list ends with **borrowed identities**: "if the design co
 
 > Route: <new | evolve | versions | flow-design>
 > Surface: <web | ios | android (proxied to ios)>
-> Channel: <name or "not set">
 > Retrieved: <YYYY-MM-DD>
 > Corpus checked first: <yes, <n> relevant observations | yes, nothing relevant | corpus empty>
 

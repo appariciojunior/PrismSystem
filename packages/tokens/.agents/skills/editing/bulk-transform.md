@@ -204,7 +204,7 @@ Rollback: git revert HEAD"
 ```
 INVOKE: skill/editing/bulk-transform
 INPUTS: {
-  pattern: "light/ .*\\.text\\.channel",
+  pattern: "light/ .*\\.text\\.secondary",
   dry_run: true,
   transform: {
     type: "replace",
@@ -219,7 +219,7 @@ RESULT: {
   status: "dry_run_complete",
   tokens_affected: 28,
   previews: [
-    { path: "light/ core.text.channel.primary", before: "{brand.core.ramp.neutral.600}", after: "{brand.core.ramp.neutral.700}" },
+    { path: "light/ core.text.secondary.primary", before: "{brand.core.ramp.neutral.600}", after: "{brand.core.ramp.neutral.700}" },
     ...
   ]
 }

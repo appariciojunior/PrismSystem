@@ -1,6 +1,6 @@
 ---
 name: distill-corpus
-description: Turn a batch of real product screenshots into versioned design knowledge. Inventories the drop folder, classifies each screen by surface, channel and journey, files it, records it in the manifest with a content hash, then distils what it sees into the design-corpus distilled documents and proposes new rules. The engine behind the "learn how we design" corpus.
+description: Turn a batch of real product screenshots into versioned design knowledge. Inventories the drop folder, classifies each screen by surface and journey, files it, records it in the manifest with a content hash, then distils what it sees into the design-corpus distilled documents and proposes new rules. The engine behind the "learn how we design" corpus.
 license: MIT
 metadata:
   category: design/corpus
@@ -16,7 +16,7 @@ metadata:
 
 ## Purpose
 
-Read a batch of screenshots of the live product website and app and grow the design corpus from them: file each image, record it, and update the distilled reference documents with what the batch reveals about layout, channels, components and user journeys. Over time this is how the suite learns how your brand actually designs, and how new rule candidates surface with real evidence behind them.
+Read a batch of screenshots of the live product website and app and grow the design corpus from them: file each image, record it, and update the distilled reference documents with what the batch reveals about layout, components and user journeys. Over time this is how the suite learns how your brand actually designs, and how new rule candidates surface with real evidence behind them.
 
 This skill **writes files and moves images**, so it is `requires-approval`. It shows the plan (what it will file where, what it will write) and waits for a go before touching `design-corpus/`.
 
@@ -51,7 +51,6 @@ Cross-check each hash against `screens[].sha256` in `manifest/corpus-manifest.js
 Look at each new image and determine:
 
 * **surface** — web, ios, or android, from chrome, status bar, proportions. If `default_surface` is not `auto`, use it and only override on strong evidence.
-* **channel** — one of the thirteen (`home`, `uk`, `world`, `money`, `comment`, `business`, `sport`, `travel`, `puzzle`, `culture`, `obituaries`, `ireland`, `lifeAndStyle`), or `core` for brand/service surfaces (account, settings, subscribe), or `unknown`. Use masthead colour and section label as the signal; cross-check the channel hexes in `foundation/design-dna`.
 * **journey** — a short slug for the flow the screen belongs to: `reader-journey`, `paywall-subscription`, `onboarding`, `live-blog`, `navigation-search`, or a new slug if none fit (note new slugs for review).
 
 Low-confidence classifications are allowed; record them as `unknown` rather than guessing, and list them in the run report for a human to correct.
@@ -61,26 +60,25 @@ Low-confidence classifications are allowed; record them as `unknown` rather than
 For each new image, compute its destination and manifest entry. Filing convention:
 
 ```
-design-corpus/raw/<surface>/<channel>/<YYYYMMDD>-<journey>-<shortslug>.<ext>
+design-corpus/raw/<surface>/<YYYYMMDD>-<journey>-<shortslug>.<ext>
 ```
 
-Date is the capture date if known (from the caller or image metadata), else the run date passed in by the caller (this skill does not read the clock itself). Present the full plan as a table: source filename → destination path → surface / channel / journey. **If `dry_run`, stop here and also show the proposed distilled-doc diffs from Step 5 without writing.** Otherwise request approval to proceed.
+Date is the capture date if known (from the caller or image metadata), else the run date passed in by the caller (this skill does not read the clock itself). Present the full plan as a table: source filename → destination path → surface / journey. **If `dry_run`, stop here and also show the proposed distilled-doc diffs from Step 5 without writing.** Otherwise request approval to proceed.
 
 ### Step 4: File and record
 
 On approval, for each image:
 
-1. Move it from `source` to its destination path (create `raw/<surface>/<channel>/` as needed).
+1. Move it from `source` to its destination path (create `raw/<surface>/` as needed).
 2. Append a manifest entry:
 
 ```json
 {
   "sha256": "<hash>",
   "surface": "<surface>",
-  "channel": "<channel>",
   "journey": "<journey>",
   "captured": "<ISO date or null>",
-  "filed_path": "raw/<surface>/<channel>/<name>",
+  "filed_path": "raw/<surface>/<name>",
   "distilled_into": [],
   "added_in_corpus_version": <next version>
 }
@@ -93,7 +91,6 @@ Write the manifest back as valid JSON (validate with `python3 -m json.tool`). `f
 This is the value. Reading the batch **together** (patterns emerge across screens, not within one), update the distilled documents:
 
 * `distilled/layout-patterns.md` — grids and columns, card anatomy, page templates, density and rhythm actually used.
-* `distilled/channel-styling.md` — how each channel's colour and tone play out; group by channel.
 * `distilled/component-usage.md` — which DS components appear, in which variants, how often, and any divergence from the component contracts in `packages/tokens/docs/components/`.
 * `distilled/ux-patterns/<journey>.md` — for each journey in the batch: screens in the flow, steps and decision points, states (loading, empty, error), components used.
 
@@ -106,7 +103,7 @@ Rules for writing observations:
 
 ### Step 6: Propose rule candidates
 
-Where an observation recurs with enough evidence (see the strength ladder in `foundation/corpus-guide`: 3+ screens is a pattern, 10+ across channels or surfaces is strong), append a candidate to `design-corpus/distilled/rules-candidates.md`:
+Where an observation recurs with enough evidence (see the strength ladder in `foundation/corpus-guide`: 3+ screens is a pattern, 10+ across surfaces is strong), append a candidate to `design-corpus/distilled/rules-candidates.md`:
 
 ```
 - [ ] <CAT> · <one-line rule> · proposed <error|warning|info> · evidence: distilled/<doc>#<anchor> (corpus vN) · <n> screens · <date>
@@ -116,7 +113,7 @@ Only propose. Promotion into `foundation/design-rules.md` is a human decision. N
 
 ### Step 7: Bump the version and report
 
-Increment `corpus_version` in the manifest, and add a row to `distilled/VERSION.md` recording the run: version, date, screens added, surfaces, channels covered, docs touched, rules proposed. Then render the run report (Output Contract).
+Increment `corpus_version` in the manifest, and add a row to `distilled/VERSION.md` recording the run: version, date, screens added, surfaces, docs touched, rules proposed. Then render the run report (Output Contract).
 
 ## Output Contract
 
@@ -139,9 +136,9 @@ Increment `corpus_version` in the manifest, and add a row to `distilled/VERSION.
 
 ## Filed
 
-| Source | Destination | Surface | Channel | Journey |
-|---|---|---|---|---|
-| ... | ... | ... | ... | ... |
+| Source | Destination | Surface | Journey |
+|---|---|---|---|
+| ... | ... | ... | ... |
 
 ## Distilled
 
@@ -175,7 +172,7 @@ Followed by the machine-readable summary:
 * **No images in source.** Return `info`: "nothing to distil". Not an error.
 * **Vision unavailable.** Stop. This skill cannot classify or distil without seeing the images.
 * **Manifest invalid JSON after write.** Restore the pre-run manifest, stop, and report. Never leave the manifest unparseable; the whole corpus keys on it.
-* **Ambiguous channel or surface.** Record `unknown`, file under `raw/<surface>/unknown/` or `raw/unknown/<channel>/` as appropriate, and list for human correction. Do not force a guess into the evidence.
+* **Ambiguous surface.** Record `unknown`, file under `raw/unknown/` as appropriate, and list for human correction. Do not force a guess into the evidence.
 * **A raw image would be committed.** The gitignore covers `design-corpus/raw/**`; if a filing path falls outside it, stop and report rather than risk committing subscriber or unreleased content.
 * **Batch too large.** Process `batch_size`, report the remainder, and leave it in `source` for the next run.
 

@@ -1,6 +1,6 @@
 # Token Documentation: light/ core.interactive.link
 
-Generated: 2026-07-23T13:04:57.128Z
+Generated: 2026-07-23T19:44:52.441Z
 
 Total Tokens: 24
 

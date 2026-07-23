@@ -1,6 +1,6 @@
 ---
 name: design-critique
-description: Structured critique of a Figma frame or screenshot against Design System rules. Covers visual hierarchy, spacing rhythm, alignment, density, component reuse and channel fit. Every finding cites a rule ID from foundation/design-rules and the frame is scored 0 to 100 with per-category subscores. Does not duplicate token, a11y or content checks - those have their own skills and fold into the full score via the critique-agent.
+description: Structured critique of a Figma frame or screenshot against Design System rules. Covers visual hierarchy, spacing rhythm, alignment, density, component reuse and gradient decoration. Every finding cites a rule ID from foundation/design-rules and the frame is scored 0 to 100 with per-category subscores. Does not duplicate token, a11y or content checks - those have their own skills and fold into the full score via the critique-agent.
 license: MIT
 metadata:
   category: design/ui
@@ -20,7 +20,7 @@ Give a designer or design engineer a structured, repeatable second pair of eyes 
 
 The skill is intentionally narrow. It does *not* check tokens (that is `ui/token-mapping-audit.md`), accessibility (that is `ui/a11y-check.md`), content (that is `ui/content-style-check.md`) or light/dark parity (that is `ui/light-dark-parity.md`). Run those alongside this skill via `handoff/handoff-flow.md` or `agents/critique-agent` for a full pass.
 
-Findings and scoring are governed by `foundation/design-rules.md`. This skill assesses the structural rule categories — **TYP, SPC, CMP, the channel and gradient rules in COL, and the hierarchy and availability rules in UX** — and produces a score over those. The remaining categories (A11Y, BRD, MOT, full token-level COL, parity) belong to the dedicated skills; their findings fold into the full eight-category score at the `agents/critique-agent` level. A standalone critique score is therefore a *structural craft* score and says so.
+Findings and scoring are governed by `foundation/design-rules.md`. This skill assesses the structural rule categories — **TYP, SPC, CMP, the gradient rules in COL, and the hierarchy and availability rules in UX** — and produces a score over those. The remaining categories (A11Y, BRD, MOT, full token-level COL, parity) belong to the dedicated skills; their findings fold into the full eight-category score at the `agents/critique-agent` level. A standalone critique score is therefore a *structural craft* score and says so.
 
 ## Preconditions
 
@@ -56,7 +56,6 @@ Use `figma_get_component_for_development` and capture:
 * All text nodes with their bound typography tokens.
 * All spacing values used (padding per side, gap, internal margins).
 * Component instances vs detached elements.
-* Channel context (any `product.channel.*` token in use).
 
 ### Step 3: Run the critique categories
 
@@ -71,7 +70,7 @@ The six presentation categories map onto the rule-set categories that drive the 
 | C. Alignment | SPC | DS-SPC-07, 08 |
 | D. Density | CMP, UX | DS-CMP-05, 07; DS-UX-01, 05 |
 | E. Component reuse | CMP | DS-CMP-01, 02, 03, 04, 06 |
-| F. Channel fit | COL | DS-COL-04, 05, 06, 07 |
+| F. Gradient and decoration | COL | DS-COL-07 |
 
 If a finding does not map to an existing rule, do not score it: surface it as an `info` observation labelled "no rule yet — candidate for design-rules" so it can flow to the corpus `rules-candidates.md`.
 
@@ -107,11 +106,10 @@ If a finding does not map to an existing rule, do not score it: surface it as an
 * Custom-built versions of existing primitives are `error` severity. The fix is "replace with `@ds/...` instance".
 * Acceptable detachments: documented overrides with a comment in the layer name. Surface as `info`, do not flag as error.
 
-#### Category F: Channel fit
+#### Category F: Gradient and decoration
 
-* If a channel context is set, the frame uses channel-appropriate masthead, accent and surface tokens (cross-reference `ui/channel-context.md`).
-* If no channel is set on a frame that visually reads as channel-specific (e.g. masthead colour matches a known channel), flag as "channel implied but not declared".
-* Cross-channel mixing (e.g. `sport` masthead with `comment` accent) is `error` severity.
+* No purple gradients on white, and no generic gradient decoration (DS-COL-07). This is a DNA anti-pattern — the "generic AI-design aesthetic" the product deliberately avoids; severity `warning`.
+* Decorative fills earn their place: flag gradient or decorative treatment that adds visual noise without contributing to hierarchy.
 
 ### Step 4: Score
 
@@ -123,7 +121,7 @@ Apply the scoring formula from `foundation/design-rules.md`. Roll findings up by
 4. **Overall (structural) score** = `max(0, 100 − Σ capped deductions)`, over the categories this skill assesses.
 5. Band it: **90–100** ship-ready · **75–89** minor fixes · **50–74** needs work · **below 50** rework.
 
-State plainly that this is the *structural craft* score (TYP, SPC, CMP, COL-channel, UX-hierarchy). Categories owned by sibling skills (A11Y, BRD, MOT, token-level COL, parity) are listed as "not assessed here" so the reader knows the score's scope. When `agents/critique-agent` runs the full battery it passes every skill's findings through this same formula for a true eight-category score.
+State plainly that this is the *structural craft* score (TYP, SPC, CMP, COL-gradient, UX-hierarchy). Categories owned by sibling skills (A11Y, BRD, MOT, token-level COL, parity) are listed as "not assessed here" so the reader knows the score's scope. When `agents/critique-agent` runs the full battery it passes every skill's findings through this same formula for a true eight-category score.
 
 Info findings never move the score; they are shown for judgement and may become rule candidates.
 
@@ -151,7 +149,7 @@ Use the **Output Contract** below.
 | TYP | <n> | <n> | <n> | <n> |
 | SPC | <n> | <n> | <n> | <n> |
 | CMP | <n> | <n> | <n> | <n> |
-| COL (channel) | <n> | <n> | <n> | <n> |
+| COL (gradient) | <n> | <n> | <n> | <n> |
 | UX (hierarchy) | <n> | <n> | <n> | <n> |
 
 Not assessed here (own skills): A11Y (`a11y-check`), BRD (`content-style-check`), MOT (`motion-review`), token-level COL (`token-mapping-audit`), parity (`light-dark-parity`).
@@ -198,7 +196,7 @@ Not assessed here (own skills): A11Y (`a11y-check`), BRD (`content-style-check`)
 |---|---|---|---|---|
 | ... | ... | ... | ... | ... |
 
-### F. Channel fit
+### F. Gradient and decoration
 
 | Severity | Node | Rule | What | Suggested fix |
 |---|---|---|---|---|
@@ -237,15 +235,14 @@ Followed by the machine-readable summary:
 ## Error Handling
 
 * **Frame is mid-draft.** If the basic lint surfaces structural errors (broken auto-layout, missing variants), abort and report.
-* **Channel context unclear.** Surface as a finding under category F. Do not assume.
 * **Detached components.** If the frame is mostly detached, this skill's findings will be noisy. Cap output at the top 20 detached-component findings and recommend a Figma cleanup pass before re-running.
-* **Subjective categories (D, F).** Density and channel fit are judgement calls. Surface as `warning` or `info`, never `error`, unless the rule is unambiguous (e.g. cross-channel mixing).
+* **Subjective categories (D, F).** Density and gradient decoration are judgement calls. Surface as `warning` or `info`, never `error`.
 
 ## Composition
 
 * `compose_after`: `design/foundation/design-dna`, `design/foundation/design-rules`, `figma-integration/figma-console-mcp-integration`, `figma-integration/design-linting`
 * `compose_before`: `handoff/frame-to-spec`, `handoff/spec-packet`
-* `calls`: `figma-integration/design-extraction`, `figma-integration/design-linting`, `ui/token-mapping-audit`, `ui/channel-context`, `foundation/design-rules`, `foundation/corpus-guide`
+* `calls`: `figma-integration/design-extraction`, `figma-integration/design-linting`, `ui/token-mapping-audit`, `foundation/design-rules`, `foundation/corpus-guide`
 
 ## Related Skills
 

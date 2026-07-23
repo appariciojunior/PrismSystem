@@ -100,18 +100,6 @@
     --red: #B11116;
     --red-on-dark: #F26561; /* WCAG AA 4.6:1 on var(--ink) — use on dark surfaces only */
 
-    --home: #135DCB;
-    --world: #00787C;
-    --money: #58A385;
-    --comment: #9B1F45;
-    --business: #21709C;
-    --sport: #007A3F;
-    --travel: #2c79ad;
-    --puzzle: #DF7334;
-    --culture: #942364;
-    --obituaries: #6c6c69;
-    --ireland: #0f3d38;
-
     --agent-prototyping: #B45309;
     --agent-prototyping-soft: #FEF3C7;
     --agent-critique: #991B1B;
@@ -201,7 +189,7 @@
     color: var(--ink-soft);
     margin-top: 16px;
   }
-  .masthead-channels {
+  .masthead-accents {
     display: inline-flex;
     gap: 4px;
     margin-top: 12px;
@@ -209,7 +197,7 @@
     border-top: 1px solid var(--rule);
     border-bottom: 1px solid var(--rule);
   }
-  .masthead-channels span {
+  .masthead-accents span {
     width: 7px;
     height: 7px;
     border-radius: 50%;
@@ -220,8 +208,8 @@
     .masthead-sub { font-size: 15px; }
   }
 
-  /* ─── Channel nav (like the homepage) ─────────────── */
-  nav.channel-nav {
+  /* ─── Portal nav (sticky top bar) ─────────────── */
+  nav.portal-nav {
     position: sticky;
     top: 0;
     z-index: 50;
@@ -235,7 +223,7 @@
     flex-wrap: wrap;
     box-shadow: 0 1px 0 var(--rule);
   }
-  nav.channel-nav a {
+  nav.portal-nav a {
     display: inline-flex;
     align-items: baseline;
     gap: 6px;
@@ -249,17 +237,17 @@
     transition: border-color var(--motion-instant) var(--motion-easing),
                 color var(--motion-instant) var(--motion-easing);
   }
-  nav.channel-nav a:hover { border-bottom-color: var(--ink); }
-  nav.channel-nav a:focus-visible {
+  nav.portal-nav a:hover { border-bottom-color: var(--ink); }
+  nav.portal-nav a:focus-visible {
     outline: 2px solid var(--red);
     outline-offset: 2px;
     border-bottom-color: transparent;
   }
-  nav.channel-nav a.active {
+  nav.portal-nav a.active {
     border-bottom-color: var(--ink);
     font-weight: var(--fontWeight070);
   }
-  nav.channel-nav a .nav-step {
+  nav.portal-nav a .nav-step {
     font-family: var(--mono);
     font-size: var(--fontSize005); /* 10px */
     font-weight: var(--fontWeight060);
@@ -267,22 +255,22 @@
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
-  nav.channel-nav a .nav-bullet {
+  nav.portal-nav a .nav-bullet {
     color: var(--ink-faint);
     font-size: var(--fontSize005);
   }
-  nav.channel-nav a:hover .nav-step,
-  nav.channel-nav a:hover .nav-bullet { color: var(--ink-soft); }
-  nav.channel-nav a.active .nav-step,
-  nav.channel-nav a.active .nav-bullet { color: var(--red); }
-  nav.channel-nav a.download-link-nav {
+  nav.portal-nav a:hover .nav-step,
+  nav.portal-nav a:hover .nav-bullet { color: var(--ink-soft); }
+  nav.portal-nav a.active .nav-step,
+  nav.portal-nav a.active .nav-bullet { color: var(--red); }
+  nav.portal-nav a.download-link-nav {
     display: inline-flex;
     align-items: center;
     gap: 5px;
     color: var(--ink-soft);
   }
-  nav.channel-nav a.download-link-nav:hover { color: var(--ink); }
-  nav.channel-nav a.download-link-nav svg {
+  nav.portal-nav a.download-link-nav:hover { color: var(--ink); }
+  nav.portal-nav a.download-link-nav svg {
     width: 12px;
     height: 12px;
     stroke: currentColor;
@@ -805,11 +793,11 @@
     color: var(--ink-soft);
     line-height: var(--fontLineHeight040);
   }
-  footer .footer-channels {
+  footer .footer-accents {
     display: flex;
     gap: 6px;
   }
-  footer .footer-channels span {
+  footer .footer-accents span {
     width: 14px;
     height: 14px;
     border-radius: 50%;
@@ -841,7 +829,7 @@
   <div class="masthead">
     <div class="date-strip" id="date-strip">Tuesday May 26 2026</div>
     <a href="index.html" class="masthead-logo-link" aria-label="Back to home"><span class="masthead-logo masthead-wordmark" style="display:inline-block; font-family: Georgia, 'Brand New Roman', serif; font-weight:700; font-size:34px; letter-spacing:0.5px; line-height:1;">Design System</span></a>
-    <div class="masthead-channels" aria-label="Accent tiers">
+    <div class="masthead-accents" aria-label="Accent tiers">
       <span style="background:#3B82F6" title="primary"></span>
       <span style="background:#64748B" title="secondary"></span>
       <span style="background:#8B5CF6" title="tertiary"></span>
@@ -853,7 +841,7 @@
   </div>
 
   <!-- Nav -->
-  <nav class="channel-nav">
+  <nav class="portal-nav">
     <a href="#dna" class="active"><span class="nav-step">Step 01</span><span class="nav-bullet">&bull;</span>Start</a>
     <a href="#agents"><span class="nav-step">Step 02</span><span class="nav-bullet">&bull;</span>Pick</a>
     <a href="#workflow"><span class="nav-step">Step 03</span><span class="nav-bullet">&bull;</span>Flow</a>
@@ -874,7 +862,7 @@
   <section id="dna">
     <span class="step-num">Step 01 &middot; Start here</span>
     <h2>Read the Design DNA.</h2>
-    <p class="section-lede">The foundation every agent loads first. Brand, channels, tokens, voice, motion. Ten minutes to read, gives every later output its grounding.</p>
+    <p class="section-lede">The foundation every agent loads first. Brand, tokens, voice, motion. Ten minutes to read, gives every later output its grounding.</p>
     <div class="dna-step">
       <div class="dna-body">
         <p>The DNA captures who your brand is in skill form. It is short enough to read in one sitting and acts as the preamble every other skill loads before producing anything. If a finding ever feels generic, it is because this file hasn't loaded.</p>
@@ -889,8 +877,8 @@
           <p>British English, plain English, active voice. No em dashes.</p>
         </div>
         <div class="dna-tag-item">
-          <h5>Channels</h5>
-          <p>Eleven channels, set at section level. Never on a component.</p>
+          <h5>Colour</h5>
+          <p>Accent tiers built on a neutral core. Themed at the token layer, never on a component.</p>
         </div>
         <div class="dna-tag-item">
           <h5>Tokens</h5>
@@ -926,9 +914,9 @@
     <h2>Look up a specific skill.</h2>
     <p class="section-lede">Skills are the small, focused files each agent composes. Most of the time you call agents, not skills, but every skill is a real file you can read or call directly.</p>
     <div class="pillars" id="pillars">
-      <button class="pillar-tab active" data-pillar="all">All <span class="count">(32)</span></button>
+      <button class="pillar-tab active" data-pillar="all">All <span class="count">(31)</span></button>
       <button class="pillar-tab" data-pillar="foundation">Foundation <span class="count">(6)</span></button>
-      <button class="pillar-tab" data-pillar="ui">UI <span class="count">(10)</span></button>
+      <button class="pillar-tab" data-pillar="ui">UI <span class="count">(9)</span></button>
       <button class="pillar-tab" data-pillar="ux">UX <span class="count">(5)</span></button>
       <button class="pillar-tab" data-pillar="handoff">Handoff <span class="count">(7)</span></button>
       <button class="pillar-tab" data-pillar="motion">Motion <span class="count">(3)</span></button>
@@ -961,18 +949,13 @@
       <strong>The Design System</strong><br>
       Design Skills Portal &middot; v0.1 &middot; Built for designers, design engineers, PMs and QA.
     </div>
-    <div class="footer-channels" title="The eleven channels">
-      <span style="background:#135DCB" title="home"></span>
-      <span style="background:#00787C" title="world"></span>
-      <span style="background:#58A385" title="money"></span>
-      <span style="background:#9B1F45" title="comment"></span>
-      <span style="background:#21709C" title="business"></span>
-      <span style="background:#007A3F" title="sport"></span>
-      <span style="background:#2c79ad" title="travel"></span>
-      <span style="background:#DF7334" title="puzzle"></span>
-      <span style="background:#942364" title="culture"></span>
-      <span style="background:#6c6c69" title="obituaries"></span>
-      <span style="background:#0f3d38" title="ireland"></span>
+    <div class="footer-accents" aria-label="Accent tiers">
+      <span style="background:#3B82F6" title="primary"></span>
+      <span style="background:#64748B" title="secondary"></span>
+      <span style="background:#8B5CF6" title="tertiary"></span>
+      <span style="background:#22C55E" title="success"></span>
+      <span style="background:#F59E0B" title="warning"></span>
+      <span style="background:#EF4444" title="error"></span>
     </div>
     <div class="footer-meta">
       4 AGENTS &middot; 19 SKILLS &middot; v0.1
@@ -995,11 +978,11 @@ const AGENTS = [
     name: 'prototyping-agent',
     eyebrow: 'Idea phase',
     headline: '"Think out loud with me."',
-    summary: 'Fast and conversational. Loads the DNA, helps you sanity-check tokens, channels, motion. Read-only.',
+    summary: 'Fast and conversational. Loads the DNA, helps you sanity-check tokens and motion. Read-only.',
     mdPath: '../agents/prototyping-agent.md',
     skills: ['foundation/design-dna', 'ui/token-mapping-audit', 'motion/motion-tokens', 'motion/interaction-patterns', 'ui/state-matrix'],
     prompts: [
-      "I'm prototyping a callout card for the Comment section. What surface token should I use?",
+      "I'm prototyping a callout card. What surface token should I use?",
       "I want a hover effect on a story card. What's the standard?",
       "I'm prototyping a redesign of the homepage hero. Quick thoughts?"
     ],
@@ -1027,9 +1010,9 @@ const AGENTS = [
     headline: '"Ready for engineering."',
     summary: 'Drives the full pipeline. Pauses for confirmation. Ends with PACKET.md ready to attach to a ticket.',
     mdPath: '../agents/handoff-agent.md',
-    skills: ['foundation/design-dna', 'ui/token-mapping-audit', 'ui/state-matrix', 'ui/channel-context', 'ui/a11y-check', 'ui/content-style-check', 'ui/light-dark-parity', 'handoff/frame-to-spec', 'handoff/spec-packet'],
+    skills: ['foundation/design-dna', 'ui/token-mapping-audit', 'ui/state-matrix', 'ui/a11y-check', 'ui/content-style-check', 'ui/light-dark-parity', 'handoff/frame-to-spec', 'handoff/spec-packet'],
     prompts: [
-      "Hand off the comments-modal feature, Figma light at <url>, dark at <url>, channel comment, ticket COM-412",
+      "Hand off the comments-modal feature, Figma light at <url>, dark at <url>, ticket COM-412",
       "Run handoff for <feature>, light frame only",
       "Re-run handoff for <feature>, skip critique this time"
     ],
@@ -1064,7 +1047,6 @@ const SKILLS = [
   { name: 'content-style-check', pillar: 'ui', cadence: 'daily', desc: 'Copy review against the content styleguide. Em dashes, brand names, voice.', mdPath: '../ui/content-style-check.md', usedBy: ['critique-agent', 'handoff-agent'] },
   { name: 'token-mapping-audit', pillar: 'ui', cadence: 'daily', desc: 'List every value in a frame, map to tokens, flag unmapped and legacy bindings.', mdPath: '../ui/token-mapping-audit.md', usedBy: ['prototyping-agent', 'handoff-agent'] },
   { name: 'state-matrix', pillar: 'ui', cadence: 'daily', desc: 'Full grid of interactive states with token differentiators.', mdPath: '../ui/state-matrix.md', usedBy: ['prototyping-agent', 'handoff-agent'] },
-  { name: 'channel-context', pillar: 'ui', cadence: 'on-demand', desc: 'Validate channel colour usage. Catches cross-channel mixing.', mdPath: '../ui/channel-context.md', usedBy: ['handoff-agent'] },
   { name: 'light-dark-parity', pillar: 'ui', cadence: 'weekly', desc: 'Compare light and dark frames. Catches missing siblings and value drift.', mdPath: '../ui/light-dark-parity.md', usedBy: ['critique-agent', 'handoff-agent'] },
   { name: 'motion-review', pillar: 'ui', cadence: 'weekly', desc: 'Score motion against DS standards. Durations, easings, reduced-motion.', mdPath: '../ui/motion-review.md', usedBy: ['critique-agent'] },
   { name: 'visual-vs-built', pillar: 'ui', cadence: 'weekly', desc: 'Compare Figma frame to live Storybook story. Structured diff.', mdPath: '../ui/visual-vs-built.md', usedBy: ['build-agent'] },
@@ -1072,7 +1054,7 @@ const SKILLS = [
   { name: 'experience-principles', pillar: 'ux', cadence: 'daily', desc: 'Journey-level principles: modality, disclosure, states, subscription dignity.', mdPath: '../ux/experience-principles.md', usedBy: ['flow-design', 'pattern-library', 'page-templates'] },
   { name: 'flow-design', pillar: 'ux', cadence: 'weekly', desc: 'Brief to designed flow: screens, states, decisions, grounded in prior art.', mdPath: '../ux/flow-design.md', usedBy: ['new-experience route'] },
   { name: 'pattern-library', pillar: 'ux', cadence: 'weekly', desc: 'Brand experience patterns: lists, article anatomy, paywall, live-updating.', mdPath: '../ux/pattern-library.md', usedBy: ['flow-design'] },
-  { name: 'page-templates', pillar: 'ux', cadence: 'weekly', desc: 'Page layouts on the DS grid: article, section front, account, puzzle hub.', mdPath: '../ux/page-templates.md', usedBy: ['flow-design'] },
+  { name: 'page-templates', pillar: 'ux', cadence: 'weekly', desc: 'Page layouts on the DS grid: article, landing, account, dashboard.', mdPath: '../ux/page-templates.md', usedBy: ['flow-design'] },
   { name: 'microcopy', pillar: 'ux', cadence: 'weekly', desc: 'Author interface copy in the brand voice. Buttons, errors, empty states.', mdPath: '../ux/microcopy.md', usedBy: ['content-style-check'] },
   { name: 'frame-to-spec', pillar: 'handoff', cadence: 'daily', desc: 'Figma frame to a complete developer spec. The flagship handoff skill.', mdPath: '../handoff/frame-to-spec.md', usedBy: ['handoff-agent'] },
   { name: 'spec-packet', pillar: 'handoff', cadence: 'weekly', desc: 'Bundle every upstream output into one ticket-attachable PACKET.md.', mdPath: '../handoff/spec-packet.md', usedBy: ['handoff-agent'] },
@@ -1088,7 +1070,7 @@ const SKILLS = [
 ];
 
 const QUICK_ROUTES = [
-  { want: 'sanity-check a token choice', go: 'Use <code>prototyping-agent</code>. "What surface token for a comment callout card?"' },
+  { want: 'sanity-check a token choice', go: 'Use <code>prototyping-agent</code>. "What surface token for a callout card?"' },
   { want: 'see if my design is any good', go: 'Use <code>critique-agent</code>. "Critique the design at &lt;figma-url&gt;"' },
   { want: 'hand a design to engineering', go: 'Use <code>handoff-agent</code>. "Hand off the &lt;feature&gt; feature, light &lt;url&gt;, dark &lt;url&gt;"' },
   { want: 'just check accessibility', go: 'Use <code>critique-agent</code> with focus. "Check accessibility on &lt;url&gt;"' },
@@ -1233,7 +1215,7 @@ QUICK_ROUTES.forEach(qr => {
 });
 
 // Active nav state on scroll
-const navLinks = document.querySelectorAll('nav.channel-nav a[href^="#"]');
+const navLinks = document.querySelectorAll('nav.portal-nav a[href^="#"]');
 const sections = Array.from(navLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
 window.addEventListener('scroll', () => {
   const scrollPos = window.scrollY + 150;
@@ -1314,7 +1296,7 @@ timelineContainer.innerHTML = `<svg viewBox="0 0 1100 600" xmlns="http://www.w3.
   </g>
   <rect x="135" y="465" width="845" height="60" rx="8" fill="#1A1A1A"/>
   <text x="557" y="490" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">foundation/design-dna</text>
-  <text x="557" y="510" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-style="italic" font-size="13" fill="#D1D5DB">Brand, channels, tokens, voice, motion. Loaded by every agent.</text>
+  <text x="557" y="510" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-style="italic" font-size="13" fill="#D1D5DB">Brand, tokens, voice, motion. Loaded by every agent.</text>
   <text x="60" y="570" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="11" fill="#767676"><tspan font-weight="700">Also:</tspan> <tspan font-family="ui-monospace, monospace" font-size="10" fill="#1A1A1A">monthly-audit</tspan> runs on its own schedule (first working day of the month).</text>
 </svg>`;
 

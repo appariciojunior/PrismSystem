@@ -66,11 +66,10 @@ Cross-check via `discovery/semantic-token-search.md` if a candidate token feels 
 
 ### Step 3: Classify each value
 
-Every captured value lands in one of four buckets:
+Every captured value lands in one of three buckets:
 
 * **Mapped (semantic).** Bound to a semantic token. The desired state for components.
 * **Mapped (palette or foundation).** Bound to a palette- or foundation-level token. Allowed for foundation work, *not* allowed in components. Flag if seen inside a component.
-* **Mapped (channel).** Bound to a `product.channel.*` token. Allowed only when channel context is set. Cross-reference `ui/channel-context.md` rules.
 * **Unmapped.** No binding, no `search_tokens` match above threshold. The value is a literal, which is a design system violation in 99% of cases.
 
 ### Step 4: Recommend remediation for unmapped values
@@ -87,11 +86,7 @@ The skill produces recommendations, not decisions.
 
 For any colour value, look up its sibling in the opposite theme (light↔dark) via `color-ramps/dark-mode-mapping.md`. If the frame is only one theme and the component is expected to support both, list the missing sibling as an unmapped value in the other theme.
 
-### Step 6: Channel cross-check
-
-If any channel token is in the map, confirm it is being used inside a channel-scoped section. Out-of-channel use of channel colour is a flag, not a hard error.
-
-### Step 7: Render the report
+### Step 6: Render the report
 
 Write a Markdown report at `output_path` using the **Output Contract** below.
 
@@ -111,7 +106,6 @@ Write a Markdown report at `output_path` using the **Output Contract** below.
 - Values captured: <n>
 - Mapped (semantic): <n>
 - Mapped (palette/foundation): <n>  ← these need to move to semantic if inside a component
-- Mapped (channel): <n>
 - Unmapped: <n>
 - Light/dark divergence: <n missing siblings>
 
@@ -127,12 +121,6 @@ Write a Markdown report at `output_path` using the **Output Contract** below.
 |---|---|---|---|---|
 | ... | ... | ... | ... | foundation token used inside a component |
 
-## Mapped (channel)
-
-| Figma value | Token path | Token value | Node id | Channel scope OK? |
-|---|---|---|---|---|
-| ... | ... | ... | ... | yes / no |
-
 ## Unmapped values
 
 | Figma value | Where it appears | Closest candidates | Recommendation |
@@ -145,7 +133,7 @@ Write a Markdown report at `output_path` using the **Output Contract** below.
 | Token path (one theme) | Sibling in other theme | Status |
 |---|---|---|
 | `light/ core/ text/ primary` | `dark/ core/ text/ primary` | present |
-| `light/ comment/ surface/ primary` | `dark/ comment/ surface/ primary` | missing |
+| `light/ core/ surface/ primary` | `dark/ core/ surface/ primary` | missing |
 
 ## Findings (actionable)
 
@@ -164,17 +152,15 @@ A bulleted list of the top issues, each one tagged with its severity (error, war
 * **Token MCP cache stale.** If `search_tokens` returns results inconsistent with a direct read, force `token_lookup` and use that. Note the discrepancy.
 * **Variable alias resolves to an unknown library.** Record the library key and surface as "external token reference" rather than guessing.
 * **High unmapped count (>20% of captured values).** Stop and report. A frame with that many unmapped values is either a draft or built off-system; do not produce a low-confidence audit.
-* **Channel scope unclear.** Flag and continue. Do not fail audit on channel scope alone.
 
 ## Composition
 
 * `compose_after`: `figma-integration/figma-console-mcp-integration`
 * `compose_before`: `handoff/frame-to-spec`, `handoff/spec-packet`
-* `calls`: `figma-integration/design-extraction`, `figma-integration/token-mapping`, `discovery/token-lookup`, `discovery/semantic-token-search`, `color-ramps/dark-mode-mapping`, `ui/channel-context`
+* `calls`: `figma-integration/design-extraction`, `figma-integration/token-mapping`, `discovery/token-lookup`, `discovery/semantic-token-search`, `color-ramps/dark-mode-mapping`
 
 ## Related Skills
 
 * `./frame-to-spec.md` — consumes the audit output
-* `./channel-context.md` — channel-scope validation rules
 * `../../discovery/semantic-token-search.md` — the search layer this skill uses
 * `../../governance/token-modification-gates.md` — what to do when "new token needed" is the recommendation

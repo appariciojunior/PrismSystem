@@ -130,15 +130,15 @@
   .masthead-logo-link:hover { opacity: 0.7; }
   .masthead-logo-link:focus-visible { outline: 2px solid var(--red); outline-offset: 4px; }
   .masthead-logo { display: block; height: 40px; width: auto; max-width: 100%; margin: 0 auto; }
-  .masthead-channels {
+  .masthead-accents {
     display: inline-flex; gap: 4px; margin-top: 12px; padding: 6px 16px;
     border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
   }
-  .masthead-channels span { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
+  .masthead-accents span { width: 7px; height: 7px; border-radius: 50%; display: inline-block; }
   .masthead-sub { font-family: var(--fontFamily020); font-size: var(--fontSize030); color: var(--ink-soft); margin-top: 16px; }
 
   /* Nav (sticky to top while user scrolls) */
-  nav.channel-nav {
+  nav.portal-nav {
     position: sticky;
     top: 0;
     z-index: 50;
@@ -149,7 +149,7 @@
     display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
     box-shadow: 0 1px 0 var(--rule);
   }
-  nav.channel-nav a {
+  nav.portal-nav a {
     display: inline-flex; align-items: baseline; gap: 6px;
     font-family: var(--fontFamily040); font-size: var(--fontSize020); font-weight: var(--fontWeight050);
     color: var(--ink); text-decoration: none;
@@ -158,32 +158,32 @@
     transition: border-color var(--motion-instant) var(--motion-easing),
                 color var(--motion-instant) var(--motion-easing);
   }
-  nav.channel-nav a:hover { border-bottom-color: var(--ink); }
-  nav.channel-nav a:focus-visible {
+  nav.portal-nav a:hover { border-bottom-color: var(--ink); }
+  nav.portal-nav a:focus-visible {
     outline: 2px solid var(--red); outline-offset: 2px;
     border-bottom-color: transparent;
   }
-  nav.channel-nav a.active { border-bottom-color: var(--ink); font-weight: var(--fontWeight070); }
-  nav.channel-nav a .nav-step {
+  nav.portal-nav a.active { border-bottom-color: var(--ink); font-weight: var(--fontWeight070); }
+  nav.portal-nav a .nav-step {
     font-family: var(--mono); font-size: var(--fontSize005); font-weight: var(--fontWeight060);
     color: var(--ink-faint); letter-spacing: 0.04em; text-transform: uppercase;
   }
-  nav.channel-nav a .nav-bullet { color: var(--ink-faint); font-size: var(--fontSize005); }
-  nav.channel-nav a:hover .nav-step,
-  nav.channel-nav a:hover .nav-bullet { color: var(--ink-soft); }
-  nav.channel-nav a.active .nav-step,
-  nav.channel-nav a.active .nav-bullet { color: var(--red); }
-  nav.channel-nav a:hover { border-bottom-color: var(--ink); }
-  nav.channel-nav a:focus-visible {
+  nav.portal-nav a .nav-bullet { color: var(--ink-faint); font-size: var(--fontSize005); }
+  nav.portal-nav a:hover .nav-step,
+  nav.portal-nav a:hover .nav-bullet { color: var(--ink-soft); }
+  nav.portal-nav a.active .nav-step,
+  nav.portal-nav a.active .nav-bullet { color: var(--red); }
+  nav.portal-nav a:hover { border-bottom-color: var(--ink); }
+  nav.portal-nav a:focus-visible {
     outline: 2px solid var(--red); outline-offset: 2px;
     border-bottom-color: transparent;
   }
-  nav.channel-nav a.active { border-bottom-color: var(--ink); font-weight: var(--fontWeight070); }
-  nav.channel-nav a.download-link-nav {
+  nav.portal-nav a.active { border-bottom-color: var(--ink); font-weight: var(--fontWeight070); }
+  nav.portal-nav a.download-link-nav {
     display: inline-flex; align-items: center; gap: 5px; color: var(--ink-soft);
   }
-  nav.channel-nav a.download-link-nav:hover { color: var(--ink); }
-  nav.channel-nav a.download-link-nav svg {
+  nav.portal-nav a.download-link-nav:hover { color: var(--ink); }
+  nav.portal-nav a.download-link-nav svg {
     width: 12px; height: 12px; stroke: currentColor; flex-shrink: 0;
   }
 
@@ -424,8 +424,8 @@
     gap: 24px; flex-wrap: wrap;
   }
   footer .footer-text { font-family: var(--fontFamily020); font-size: var(--fontSize020); color: var(--ink-soft); line-height: var(--fontLineHeight040); }
-  footer .footer-channels { display: flex; gap: 6px; }
-  footer .footer-channels span { width: 14px; height: 14px; border-radius: 50%; }
+  footer .footer-accents { display: flex; gap: 6px; }
+  footer .footer-accents span { width: 14px; height: 14px; border-radius: 50%; }
   footer .footer-meta { font-family: var(--mono); font-size: var(--fontSize005); color: var(--ink-faint); letter-spacing: 0.04em; }
 
   .sr-only {
@@ -444,7 +444,7 @@
   <div class="masthead">
     <div class="date-strip" id="date-strip">Tuesday May 26 2026</div>
     <a href="index.html" class="masthead-logo-link" aria-label="Back to home"><span class="masthead-logo masthead-wordmark" style="display:inline-block; font-family: Georgia, 'Brand New Roman', serif; font-weight:700; font-size:34px; letter-spacing:0.5px; line-height:1;">Design System</span></a>
-    <div class="masthead-channels" aria-label="Accent tiers">
+    <div class="masthead-accents" aria-label="Accent tiers">
       <span style="background:#3B82F6" title="primary"></span>
       <span style="background:#64748B" title="secondary"></span>
       <span style="background:#8B5CF6" title="tertiary"></span>
@@ -456,7 +456,7 @@
   </div>
 
   <!-- Nav -->
-  <nav class="channel-nav">
+  <nav class="portal-nav">
     <a href="index.html#dna"><span class="nav-step">Step 01</span><span class="nav-bullet">&bull;</span>Start</a>
     <a href="index.html#agents"><span class="nav-step">Step 02</span><span class="nav-bullet">&bull;</span>Pick</a>
     <a href="index.html#workflow"><span class="nav-step">Step 03</span><span class="nav-bullet">&bull;</span>Flow</a>
@@ -524,7 +524,7 @@
           </div>
         </div>
 
-        <p>And underneath everything sits one foundation file, the <code>design-dna</code>, which captures who your brand is, the eleven channels, the token architecture, voice rules, motion philosophy. Every agent loads it before doing anything else, so every output is grounded in how we design.</p>
+        <p>And underneath everything sits one foundation file, the <code>design-dna</code>, which captures who your brand is, the token architecture, voice rules, motion philosophy. Every agent loads it before doing anything else, so every output is grounded in how we design.</p>
       </section>
 
       <!-- 2. Setup -->
@@ -579,7 +579,7 @@
         <p>Twelve files. Each does one specific job. You usually don't call them directly. They run inside agents. But you can call one on its own if you want a single check (e.g., just run <code>a11y-check</code>, skip the rest).</p>
 
         <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">The DNA is the ground truth.</h3>
-        <p>One file: <code>design-dna</code>. The brand, the eleven channels, the token architecture, the voice rules, the motion philosophy, the anti-patterns. Every agent loads it as a preamble before doing its work. That's why an output from <code>critique-agent</code> sounds like your brand and not like a generic design review.</p>
+        <p>One file: <code>design-dna</code>. The brand, the token architecture, the voice rules, the motion philosophy, the anti-patterns. Every agent loads it as a preamble before doing its work. That's why an output from <code>critique-agent</code> sounds like your brand and not like a generic design review.</p>
 
         <div class="callout">
           <h4>If you remember one thing</h4>
@@ -596,8 +596,8 @@
 
         <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">Example 1: thinking out loud</h3>
 
-        <div class="prompt-example">I'm prototyping a callout card for the Comment section. What surface token should I use?</div>
-        <div class="agent-response"><em>Loads the DNA…</em> For Comment, the channel-aware surface is <code>light/ comment/ surface/ primary</code> for the card body, with <code>light/ comment/ text/ primary</code> for the heading. If the callout is opinionated, <code>light/ comment/ accent/ primary</code> on the left border works. Don't reach for <code>product.channel.comment</code> directly — let the channel scope at section level do the work.</div>
+        <div class="prompt-example">I'm prototyping a callout card. What surface token should I use?</div>
+        <div class="agent-response"><em>Loads the DNA…</em> Use <code>light/ core/ surface/ primary</code> for the card body, with <code>light/ core/ text/ primary</code> for the heading. If the callout is opinionated, <code>light/ core/ accent/ primary</code> on the left border works. Reach for semantic tokens, not raw palette values, so the card themes correctly.</div>
 
         <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">Example 2: critiquing</h3>
 
@@ -606,7 +606,7 @@
 
         <h3 style="font-family: var(--tm); font-size: 22px; margin-top: 24px; margin-bottom: 8px;">Example 3: full handoff</h3>
 
-        <div class="prompt-example">Hand off the comments-modal feature, Figma light at &lt;url&gt;, dark at &lt;url&gt;, channel comment, ticket COM-412</div>
+        <div class="prompt-example">Hand off the comments-modal feature, Figma light at &lt;url&gt;, dark at &lt;url&gt;, ticket COM-412</div>
         <div class="agent-response"><em>Loading DNA. Running preflight. Bridge running?</em> <strong>(yes)</strong> <em>Running token audit on light frame… 23 tokens captured, 21 semantic, 2 unmapped. Pause: do you want to fix those before I continue, or flag them in the packet?</em> <strong>(continue)</strong> <em>…</em> Final output: <code>.design/comments-modal/PACKET.md</code> plus the full feature folder. Attach to COM-412.</div>
 
         <p>All three examples follow the same pattern: you describe what you want, the agent loads the DNA, runs the right skills, pauses when something needs your input, produces a report.</p>
@@ -683,18 +683,13 @@
       <strong>The Design System</strong><br>
       Design Skills Portal &middot; v0.1 &middot; Built for designers, design engineers, PMs and QA.
     </div>
-    <div class="footer-channels" title="The eleven channels">
-      <span style="background:#135DCB" title="home"></span>
-      <span style="background:#00787C" title="world"></span>
-      <span style="background:#58A385" title="money"></span>
-      <span style="background:#9B1F45" title="comment"></span>
-      <span style="background:#21709C" title="business"></span>
-      <span style="background:#007A3F" title="sport"></span>
-      <span style="background:#2c79ad" title="travel"></span>
-      <span style="background:#DF7334" title="puzzle"></span>
-      <span style="background:#942364" title="culture"></span>
-      <span style="background:#6c6c69" title="obituaries"></span>
-      <span style="background:#0f3d38" title="ireland"></span>
+    <div class="footer-accents" aria-label="Accent tiers">
+      <span style="background:#3B82F6" title="primary"></span>
+      <span style="background:#64748B" title="secondary"></span>
+      <span style="background:#8B5CF6" title="tertiary"></span>
+      <span style="background:#22C55E" title="success"></span>
+      <span style="background:#F59E0B" title="warning"></span>
+      <span style="background:#EF4444" title="error"></span>
     </div>
     <div class="footer-meta">4 AGENTS &middot; 19 SKILLS &middot; v0.1</div>
   </footer>

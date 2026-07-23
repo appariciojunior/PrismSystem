@@ -21,7 +21,7 @@ Press enter and you get **clickable options**: a short question about what you w
 ```
 /design critique this checkout screen for spacing and contrast
 /design design a new saved-articles experience
-/design this comment-section article is ready, get it ready for engineering
+/design this article is ready, get it ready for engineering
 /design learn from these screenshots
 ```
 
@@ -71,14 +71,14 @@ Golden rule of the system: **every judgement traces to a source.** If a critique
 ### 1. The router (recommended default)
 
 ```
-/design <task>. Channel: <name if it matters>. <light/dark if it matters>.
+/design <task>. <light/dark if it matters>.
 ```
 
-Good router prompts name the **task**, the **channel** if the screen is editorial, and the **artefact** (a Figma link, "the screenshot above", or a description):
+Good router prompts name the **task** and the **artefact** (a Figma link, "the screenshot above", or a description):
 
 ```
-/design critique the attached article screen. Channel: comment. It's the dark theme.
-/design design a live-blog experience for sport. Web first.
+/design critique the attached article screen. It's the dark theme.
+/design design a live-blog experience. Web first.
 /design hand off the events landing page. Figma is my active tab.
 ```
 
@@ -87,8 +87,8 @@ Good router prompts name the **task**, the **channel** if the screen is editoria
 Call the agent by name and give it the artefact:
 
 ```
-Use the critique-agent on the screenshot above. It's a money-section article.
-Use the prototyping-agent: what surface and text tokens for a comment callout card?
+Use the critique-agent on the screenshot above. It's an article screen.
+Use the prototyping-agent: what surface and text tokens for a callout card?
 Use the handoff-agent for the "saved articles" feature. Light: <figma-url>. Dark: <figma-url>.
 Use the build-agent to scaffold Banner from the packet in .design/banner/.
 ```
@@ -125,7 +125,6 @@ Rule of thumb: **prototyping → critique → handoff → build** is the lifecyc
 | Check accessibility (contrast, targets, focus) | `ui/a11y-check` |
 | Check copy and voice | `ui/content-style-check` |
 | Check every value maps to a real token | `ui/token-mapping-audit` |
-| Confirm channel colour is used correctly | `ui/channel-context` |
 | Get the full state grid for a component | `ui/state-matrix` |
 | Compare light vs dark | `ui/light-dark-parity` |
 | Design a new flow/journey | `ux/flow-design` |
@@ -144,7 +143,6 @@ The single biggest lever on output quality is the input you give. In order of im
 
 **1. Give context with the screen.** A bare image gets a generic read. Tell the system:
 - **What it is** — "article page", "checkout step 2 of 3", "empty saved-articles state".
-- **The channel** — home, comment, sport, money… (colour and tone depend on it). If it's a utility page, say "core".
 - **Light or dark** — parity and contrast checks need to know.
 - **What you want** — a full critique, just accessibility, just the copy.
 
@@ -171,14 +169,14 @@ Each finding cites a rule ID so the fix is unambiguous, and the 0–100 score tr
 | Input | Setup | Best for | The catch |
 |---|---|---|---|
 | **Paste a screenshot** | None | Visual critique, UX review, accessibility eyeballing, feeding the corpus | The system sees *pixels*, not token names |
-| **Figma Desktop MCP** (`localhost:3845`) | Open the file as the active tab, enable the local MCP server | **Token-level accuracy** — is this bound to the right token? channel tokens? legacy drift? | Serves only the **active tab**, one file at a time |
+| **Figma Desktop MCP** (`localhost:3845`) | Open the file as the active tab, enable the local MCP server | **Token-level accuracy** — is this bound to the right token? legacy drift? | Serves only the **active tab**, one file at a time |
 | **claude.ai Figma connector** | Connector auth | Any file the connected account can open | Your work/org files are **not** accessible on the personal-account connector (blocked) |
 
 ### The rule of thumb
 
 - **For design quality — layout, hierarchy, spacing rhythm, does-it-look-right, UX flow, copy, rough contrast — a screenshot is enough.** You do not need Figma. Paste and go.
 
-- **For token fidelity — "is this the right token?", "is this using channel tokens?", "is there legacy drift?", light/dark parity by token — you need the Figma MCP**, because only it can read the *actual variable bindings*. A screenshot shows a blue; the Figma MCP shows whether that blue is `interactive.primary.fill` (correct), `product.channel.home` (wrong — channel bound at component level), or `NK-legacy/interactivePrimary030` (legacy drift). You cannot see that in pixels.
+- **For token fidelity — "is this the right token?", "is there legacy drift?", light/dark parity by token — you need the Figma MCP**, because only it can read the *actual variable bindings*. A screenshot shows a blue; the Figma MCP shows whether that blue is `interactive.primary.fill` (correct) or `legacy/interactivePrimary030` (legacy drift). You cannot see that in pixels.
 
 This is exactly what happened critiquing the Home page v2: the **screenshot** gave a clean 91 on structure, but pulling the **variable definitions via the desktop MCP** is what exposed the legacy bindings that dropped the real score to the mid-60s. Same screen, two very different findings — the difference was token access.
 
@@ -196,7 +194,6 @@ To use the Desktop MCP: open the Figma desktop app, make the file the active tab
 
 These are enforced by the rules and the DNA; know them and your designs pass more often. Full detail in `foundation/design-dna.md`.
 
-- **Channel is a section-level decision, never component-level.** A button in a comment section is the same Button; the channel colour flows through tokens. Never bind `product.channel.*` on a component. Never mix two channels.
 - **Semantic tokens only.** Palette-direct is a smell; foundation-direct is a bug; raw hex is a bug; legacy is drift.
 - **Design every state**, not the happy path — loading, empty, error, success, edge.
 - **Voice:** British English, no em dashes, full brand names ("the brand", never abbreviated), direct not "friendly".
@@ -211,7 +208,6 @@ These are enforced by the rules and the DNA; know them and your designs pass mor
   - `SPEC.md`: the developer spec for a frame.
   - `TOKEN_AUDIT_LIGHT.md` / `_DARK.md`: every value mapped to a token, plus anything unmapped.
   - `STATE_MATRIX.md`: every interactive state of a component, with the token that changes it.
-  - `CHANNEL_CONTEXT.md`: channel colour validation.
   - `A11Y_CHECK.md`: accessibility findings.
   - `CRITIQUE.md`, `FLOW.md`, `PACKET.md`: the scored review, a new flow, and the engineering packet.
 - **Generated designs and prototypes** live in `sandbox/<project>/<date>-<run>/`, one folder per generation, never overwritten. Each run carries a `MANIFEST.md` (what was asked, what ran, what came out) and its reports in `reports/`. While a run is active, skill reports write there instead of `.design/`. Full convention: `foundation/sandbox-runs.md`.
@@ -219,7 +215,7 @@ These are enforced by the rules and the DNA; know them and your designs pass mor
 
 Common prompting mistakes to avoid:
 
-- **No context** — "critique this" with a bare image. Add what it is and the channel.
+- **No context** — "critique this" with a bare image. Add what it is.
 - **Asking for token accuracy from a screenshot** — for that, use the Figma MCP.
 - **Skipping the DNA framing** — you never need to; the router always loads it. But if you call a raw skill directly and get generic output, route through `/design` instead.
 - **Treating the score as the goal** — the findings are the work; the number just tracks it.

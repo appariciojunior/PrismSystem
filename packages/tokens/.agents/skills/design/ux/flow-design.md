@@ -1,6 +1,6 @@
 ---
 name: flow-design
-description: Turn an experience brief into a designed flow for a new brand experience. Loads the DNA and experience principles, grounds the flow in prior art (Mobbin plus the design corpus), then produces a FLOW.md with the screen sequence, states, decision points, component mapping, channel and open questions. The entry skill for the new-experience route. Composes into page-templates, design-critique and handoff.
+description: Turn an experience brief into a designed flow for a new brand experience. Loads the DNA and experience principles, grounds the flow in prior art (Mobbin plus the design corpus), then produces a FLOW.md with the screen sequence, states, decision points, component mapping and open questions. The entry skill for the new-experience route. Composes into page-templates, design-critique and handoff.
 license: MIT
 metadata:
   category: design/ux
@@ -35,7 +35,6 @@ Required:
 
 Optional:
 
-* `channel` — one of the thirteen, or `core`. Default inferred (most new experiences are `core`; editorial-section experiences take a channel).
 * `journey` — a slug matching a corpus `ux-patterns/*` doc when one fits (`reader-journey`, `paywall-subscription`, `onboarding`, `live-blog`, `navigation-search`) or a new slug.
 * `surfaces` — `web` | `ios` | `android` | list. Default `web` first, note native divergence.
 * `output_path` — defaults to `.design/<feature>/FLOW.md`.
@@ -57,7 +56,7 @@ State, in one sentence, what the reader is trying to accomplish and in what cont
 
 ### Step 4: Choose the modality and shape
 
-Using experience-principle 1, decide the top-level shape: is this a page, a flow of pages, a sheet over an existing page, a section within a page? Justify the choice. Decide whether it takes a channel or stays core (principle: channel is editorial intent, not decoration).
+Using experience-principle 1, decide the top-level shape: is this a page, a flow of pages, a sheet over an existing page, a section within a page? Justify the choice.
 
 ### Step 5: Map the screen sequence
 
@@ -97,7 +96,7 @@ Recommend the next skills: `ux/page-templates` for any full-page screens, `ui/de
 # Flow — <Experience name>
 
 > Brief: <one line>
-> Channel: <name or core> · Surfaces: <list>
+> Surfaces: <list>
 > Journey: <slug> · Corpus evidence: <vN or "none">
 > Prior art: <Mobbin consulted | not consulted>
 > Generated: <date> · Tokens snapshot: <git sha>
@@ -149,7 +148,6 @@ Followed by:
 {
   "skill": "design/ux/flow-design",
   "feature": "<slug>",
-  "channel": "<name or core>",
   "screens": <n>,
   "gaps": ["<new component/pattern>", "..."],
   "prior_art": { "mobbin": <true|false>, "corpus_version": "<vN or null>" },

@@ -32,7 +32,7 @@ All inputs come from the run itself, never from the user:
 
 * `entry` - which door the run came through. See the table in Step 2. Required.
 * `skill` / `agent` - what ran. At least one is usually set; both null only for the manual-prompting fallback line.
-* `route`, `feature`, `channel` - propagated from the router or the calling context when known, else null.
+* `route`, `feature` - propagated from the router or the calling context when known, else null.
 * `artifacts` - repo-relative paths produced by this run. Note the key is spelled `artifacts`: it matches the machine keys every skill summary already emits. Prose in this suite says artefact; the wire format does not.
 * `outcome` - how the run ended. See Step 2.
 
@@ -61,7 +61,6 @@ One run, one JSON object, one line. The fields:
 | `agent` | agent name, e.g. `critique-agent`, or `null` | On a nested skill line, the parent agent's name |
 | `route` | one of the five router routes, or `null` | |
 | `feature` | kebab-case slug, or `null` | The `.design/<feature>/` slug |
-| `channel` | channel name, `core`, or `null` | |
 | `artifacts` | array of repo-relative paths, may be empty | Paths only, never content, never URLs |
 | `outcome` | `completed`, `partial`, `failed`, `abandoned` | `rejected` exists too but appears only on feedback event lines (Step 4) |
 
@@ -93,7 +92,7 @@ Who appends what:
 The append is the last act of the run, after the skill's own JSON summary block is printed. Canonical one-liner, run from the repo root:
 
 ```bash
-w=$(date -u +%G-W%V); d="packages/tokens/.agents/weekly/$w"; mkdir -p "$d" 2>/dev/null; printf '%s\n' '{"ts":"2026-07-20T09:21:40Z","ide":"claude-code","entry":"design-start","skill":"design/ui/a11y-check","agent":null,"route":"ui-craft","feature":"saved-articles","channel":"comment","artifacts":[".design/saved-articles/A11Y.md"],"outcome":"completed"}' >> "$d/usage.jsonl" 2>/dev/null || true
+w=$(date -u +%G-W%V); d="packages/tokens/.agents/weekly/$w"; mkdir -p "$d" 2>/dev/null; printf '%s\n' '{"ts":"2026-07-20T09:21:40Z","ide":"claude-code","entry":"design-start","skill":"design/ui/a11y-check","agent":null,"route":"ui-craft","feature":"saved-articles","artifacts":[".design/saved-articles/A11Y.md"],"outcome":"completed"}' >> "$d/usage.jsonl" 2>/dev/null || true
 ```
 
 Rules:
@@ -107,7 +106,7 @@ python3 - <<'PY' 2>/dev/null || true
 import datetime, json, os
 line = {"ts": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "ide": "cursor", "entry": "direct", "skill": "design/ui/design-critique", "agent": None,
-        "route": "ui-craft", "feature": "saved-articles", "channel": "comment",
+        "route": "ui-craft", "feature": "saved-articles",
         "artifacts": [".design/saved-articles/CRITIQUE.md"], "outcome": "completed"}
 iso = datetime.datetime.now(datetime.timezone.utc).date().isocalendar()
 d = os.path.join("packages/tokens/.agents/weekly", f"{iso[0]}-W{iso[1]:02d}")
@@ -123,7 +122,7 @@ PY
 
 We cannot read minds, so the suite does not pretend to know when it failed someone. It records three pragmatic proxies instead. All three are noisy. They are trends to watch across weeks, not verdicts on a run, a skill, or a person.
 
-**(a) Explicit rejection: the `/feedback` convention.** When the user types `/feedback`, or says thumbs-down wording in the flow of work ("that did not help", "this is not helping", "wrong direction", "I will just do it myself"), the assistant appends a feedback event line: a copy of the judged run's `entry`, `skill`, `agent`, `route`, `feature` and `channel`, plus:
+**(a) Explicit rejection: the `/feedback` convention.** When the user types `/feedback`, or says thumbs-down wording in the flow of work ("that did not help", "this is not helping", "wrong direction", "I will just do it myself"), the assistant appends a feedback event line: a copy of the judged run's `entry`, `skill`, `agent`, `route` and `feature`, plus:
 
 ```json
 {"outcome": "rejected", "event": "feedback", "reason": "<one line>"}
@@ -140,10 +139,10 @@ The `reason` is one line, written by the assistant, about the suite's behaviour 
 A morning on the `saved-articles` feature, as it lands in the file:
 
 ```json
-{"ts":"2026-07-20T09:14:02Z","ide":"claude-code","entry":"design-start","skill":"design/design-router","agent":null,"route":"ui-craft","feature":"saved-articles","channel":"comment","artifacts":[],"outcome":"completed"}
-{"ts":"2026-07-20T09:21:40Z","ide":"claude-code","entry":"design-start","skill":"design/ui/a11y-check","agent":null,"route":"ui-craft","feature":"saved-articles","channel":"comment","artifacts":[".design/saved-articles/A11Y.md"],"outcome":"completed"}
-{"ts":"2026-07-20T09:48:11Z","ide":"claude-code","entry":"direct","skill":null,"agent":null,"route":null,"feature":"saved-articles","channel":"comment","artifacts":[],"outcome":"completed","retry_after_wizard":true}
-{"ts":"2026-07-20T09:52:30Z","ide":"claude-code","entry":"direct","skill":"design/ui/a11y-check","agent":null,"route":"ui-craft","feature":"saved-articles","channel":"comment","artifacts":[],"outcome":"rejected","event":"feedback","reason":"contrast advice ignored the dark theme"}
+{"ts":"2026-07-20T09:14:02Z","ide":"claude-code","entry":"design-start","skill":"design/design-router","agent":null,"route":"ui-craft","feature":"saved-articles","artifacts":[],"outcome":"completed"}
+{"ts":"2026-07-20T09:21:40Z","ide":"claude-code","entry":"design-start","skill":"design/ui/a11y-check","agent":null,"route":"ui-craft","feature":"saved-articles","artifacts":[".design/saved-articles/A11Y.md"],"outcome":"completed"}
+{"ts":"2026-07-20T09:48:11Z","ide":"claude-code","entry":"direct","skill":null,"agent":null,"route":null,"feature":"saved-articles","artifacts":[],"outcome":"completed","retry_after_wizard":true}
+{"ts":"2026-07-20T09:52:30Z","ide":"claude-code","entry":"direct","skill":"design/ui/a11y-check","agent":null,"route":"ui-craft","feature":"saved-articles","artifacts":[],"outcome":"rejected","event":"feedback","reason":"contrast advice ignored the dark theme"}
 ```
 
 Line 3 is the interesting one: the wizard ran at 09:14, and at 09:48 the same feature was worked on by plain prompting. That is the fallback signal this whole convention exists to catch.
@@ -152,7 +151,7 @@ Line 3 is the interesting one: the wizard ran at 09:14, and at 09:48 the same fe
 
 Non-negotiable, because the log travels with git like every other weekly artefact:
 
-* **Log names and metadata only**: skill paths, agent names, routes, channel names, feature slugs, repo-relative artefact paths, outcomes, timestamps.
+* **Log names and metadata only**: skill paths, agent names, routes, feature slugs, repo-relative artefact paths, outcomes, timestamps.
 * **Never log**: prompt text, requirements, design content or copy, token values or hex colours from the design under review, screenshots or references to image files outside the repo, Figma URLs or node ids, user names, email addresses, machine names.
 * Feature slugs are the `.design/<feature>/` slugs already visible in the repo. If a feature name is itself sensitive (an unreleased editorial project), use a neutral slug for both the folder and the log; the mapping lives with the humans, not in the file.
 * The `reason` field on feedback lines describes the suite, never the design, and never quotes anyone.
@@ -197,4 +196,4 @@ Adoption is one line added to every skill's Output Contract, immediately after i
 ## Related skills
 
 * `usage-report.md` - turns a week of these lines into the weekly report and upgrade suggestions
-* `../../design/design-router.md` - source of `entry`, `route`, `feature` and `channel` for routed runs
+* `../../design/design-router.md` - source of `entry`, `route` and `feature` for routed runs

@@ -66,13 +66,10 @@ const preview = {
               // L3 (Theme > Color Palette children)
               'Core',
               'Foundation',
-              'Channels',
+              'Themes',
               'Brands',
               'Marketing',
-              'Comment',
               'Data-Vis',
-              'LifeStyle',
-              'Puzzles',
               '*'
             ],
 

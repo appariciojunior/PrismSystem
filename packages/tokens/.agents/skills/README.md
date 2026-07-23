@@ -4,7 +4,7 @@
 
 ## Core Principle: 1:1 Semantic Token Mapping
 
-**All semantic tokens are structurally and semantically identical across all themes.** A token like `messaging.fill.warning` means the same thing in `light/ core`, `light/ comment`, `dark/ core`, etc. Do not select between themes for semantic tokens. Channel-specific tokens (`.channel.` in path) are the only exception where documented value divergence may apply.
+**All semantic tokens are structurally and semantically identical across all themes.** A token like `messaging.fill.warning` means the same thing in `light/ core`, `dark/ core`, etc. Do not select between themes for semantic tokens.
 
 ## Architecture
 
@@ -252,7 +252,7 @@ Create a new skill when:
 | 4.0.0   | 2025-07-28 | Added storybook category with 7 skills: story-writing, component-documentation, figma-to-storybook, natural-language-stories, storybook-config, visual-testing, token-showcase (40 skills, 11 categories)                  |
 | 4.1.0   | 2026-03-05 | Added `storybook/visual-regression-gate` skill and mandatory test asset path under `packages/tokens/.agents/tests/visual-regression` (41 skills, 11 categories)                                                            |
 | 4.2.0   | 2026-03-07 | Added `validation/semantic-theme-parity` for semantic theme `14 + 14` discovery, strict structural parity enforcement, alias integrity checks, and uncertainty escalation (42 skills, 11 categories)                       |
-| 4.3.0   | 2026-03-07 | Moved chip-channel rollout guidance from a dedicated skill into semantic docs and semantic parity cross-references to keep briefs/skills generalist (42 skills, 11 categories)                                             |
+| 4.3.0   | 2026-03-07 | Moved chip rollout guidance from a dedicated skill into semantic docs and semantic parity cross-references to keep briefs/skills generalist (42 skills, 11 categories)                                             |
 | 4.4.0   | 2026-03-11 | Added OCR-first cross-agent capability with `discovery/ocr-extract` and universal `discovery/ocr-reference-validate` for reusable image evidence workflows (46 skills, 11 categories)                                      |
 | 4.5.0   | 2026-03-11 | Decommissioned Pylon MCP crypto dependency. Removed `discovery/ocr-extract` and `discovery/ocr-reference-validate` (now use Claude's native vision). Removed `.vscode/mcp.json` pylon-mcp entry (44 skills, 11 categories) |
 | 4.6.0   | 2026-03-24 | Added `figma-integration/figma-console-mcp-integration` as a cross-agent integration standard with setup, mode, preflight, and troubleshooting contracts (45 skills, 11 categories)                                        |

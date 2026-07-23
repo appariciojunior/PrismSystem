@@ -8,14 +8,14 @@ One entry point: `design-router.md` (surfaced as `/design`). Say what you are do
 
 ## Why this exists
 
-The system had production-grade skills for tokens and components but nothing that starts from a designer's question: "is this good?", "how do we design this?", "what do I hand to engineering?". This suite answers those questions with your brand, its channels, tokens and component contracts as ground truth, not generic design advice. The full rationale lived in the original design-workflow proposal; its essence: catch problems before code is written, make handoff unambiguous, and keep every judgement traceable to a DS source.
+The system had production-grade skills for tokens and components but nothing that starts from a designer's question: "is this good?", "how do we design this?", "what do I hand to engineering?". This suite answers those questions with your brand, its tokens and component contracts as ground truth, not generic design advice. The full rationale lived in the original design-workflow proposal; its essence: catch problems before code is written, make handoff unambiguous, and keep every judgement traceable to a DS source.
 
 ## Pillars
 
 | Pillar | What it is for | Skills |
 |---|---|---|
-| `foundation/` | Ground truth. The Design DNA: identity, thirteen channels, principles, anti-patterns. Loaded by everything else. | design-dna |
-| `ui/` | Doing UI. Critique, accessibility, content style, tokens, states, channels, parity, motion review, drift, monthly roll-up. | design-critique, a11y-check, content-style-check, token-mapping-audit, state-matrix, channel-context, light-dark-parity, motion-review, visual-vs-built, monthly-audit |
+| `foundation/` | Ground truth. The Design DNA: identity, principles, anti-patterns. Loaded by everything else. | design-dna |
+| `ui/` | Doing UI. Critique, accessibility, content style, tokens, states, parity, motion review, drift, monthly roll-up. | design-critique, a11y-check, content-style-check, token-mapping-audit, state-matrix, light-dark-parity, motion-review, visual-vs-built, monthly-audit |
 | `ux/` | Creating new experiences. Flows, patterns, page templates, experience principles, microcopy. | coming next (flow-design, pattern-library, experience-principles, page-templates, microcopy) |
 | `handoff/` | The designer-to-engineer bridge. Both UI and UX work exits through here. | frame-to-spec, spec-packet, component-scaffold, code-connect-stub, handoff-flow |
 | `motion/` | Motion reference and interaction patterns. Scaffolded until motion tokens land in `tokens.json`. | motion-tokens, interaction-patterns, prototype-spec |
@@ -27,7 +27,7 @@ The system had production-grade skills for tokens and components but nothing tha
 Daily: design-critique, a11y-check, content-style-check, token-mapping-audit, state-matrix, the router itself.
 Weekly: light-dark-parity, motion-review, visual-vs-built, spec-packet, component-scaffold, code-connect-stub.
 Monthly: monthly-audit (scheduled; posts via coordination/slack-announcements).
-On demand: channel-context, handoff-flow, prototype-spec, corpus distillation.
+On demand: handoff-flow, prototype-spec, corpus distillation.
 
 ## Composition rules
 

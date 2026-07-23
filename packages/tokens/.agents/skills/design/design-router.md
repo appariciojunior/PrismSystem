@@ -28,7 +28,6 @@ Turn "help me with this design task" into a concrete, ordered plan of Design Sys
 * `request` — the designer's ask, in their own words. Required.
 * `figma_url` — optional Figma deep link (file or node). If present, the Mandatory User Gate for Figma URLs applies before any extraction.
 * `image` — optional screenshot or exported frame. Accepted anywhere Figma access is unavailable.
-* `channel` — optional channel name (one of the thirteen; see `foundation/design-dna`). Propagated to every downstream skill.
 * `feature` — optional feature slug. Downstream artefacts persist to `.design/<feature>/`.
 * `target` — the target surface for anything that will be generated: `web-desktop` | `web-mobile` | `responsive-web` | `native-ios`. Required before a screen is drawn (the grid, patterns, components and token set all change with it); collected by the wizard or inferred from the request, never silently defaulted. Native iOS designs to iOS patterns on the `theme-ios` token names, for SwiftUI.
 
@@ -61,7 +60,7 @@ If, and only if, the route is genuinely ambiguous between two options, ask one c
 Emit the ordered skill sequence for the chosen route:
 
 * **prototype** → `agents/prototyping-agent` (which itself loads the DNA, `ui/token-mapping-audit` and `ui/state-matrix` as needed).
-* **ui-craft** → pick from, in default order: `ui/design-critique`, `ui/a11y-check`, `ui/content-style-check`, `ui/token-mapping-audit`, `ui/channel-context` (when channel colour is present), `ui/state-matrix` (for components), `ui/light-dark-parity` (when both modes exist), `ui/motion-review` (when motion is specified). Scope to what the request actually asks for; the full battery is `agents/critique-agent`.
+* **ui-craft** → pick from, in default order: `ui/design-critique`, `ui/a11y-check`, `ui/content-style-check`, `ui/token-mapping-audit`, `ui/state-matrix` (for components), `ui/light-dark-parity` (when both modes exist), `ui/motion-review` (when motion is specified). Scope to what the request actually asks for; the full battery is `agents/critique-agent`.
 * **new-experience** → the `ux/` pillar: `foundation/design-dna` (tldr) + `ux/experience-principles` → `ux/flow-design` (grounds in `reference/mobbin-mcp` and the corpus, produces `.design/<feature>/FLOW.md`) → `ux/page-templates` for full-page screens → `ux/pattern-library` and `ux/microcopy` as the flow needs them → `ui/design-critique` once a prototype exists → `handoff/handoff-flow` when the direction settles. Any built screen lands in a sandbox run per `foundation/sandbox-runs`, with `handoff/dev-spec` writing `DEV-SPEC.html` beside it in the same pass: the engineer's quick view of components, tokens, statuses and the target surface.
 * **handoff** → `handoff/handoff-flow` for the guided pass, or `agents/handoff-agent` to run it end to end. Both end in `.design/<feature>/PACKET.md`.
 * **corpus-distill** → `corpus/distill-corpus` (drop screenshots in `design-corpus/raw/inbox/` first; the skill classifies, files and distils them into the versioned corpus, and proposes rule candidates).
@@ -72,7 +71,7 @@ Print the route, the sequence as a checklist, and the JSON summary. Then begin t
 
 ## Guided mode (the /design-start wizard)
 
-For designers who would rather click than recall skill names. Triggered by `/design-start`, or by `/design` with no description. Present each step as **selectable options** (Claude Code: the question tool; Copilot: `vscode_askQuestions`). Ask two, at most four, short questions, then request the concrete input in plain text. Never make the user type a keyword, and never ask more than four question-steps before getting to work.
+For designers who would rather click than recall skill names. Triggered by `/design-start`, or by `/design` with no description. Present each step as **selectable options** (Claude Code: the question tool; Copilot: `vscode_askQuestions`). Ask two, at most three, short questions, then request the concrete input in plain text. Never make the user type a keyword, and never ask more than three question-steps before getting to work.
 
 Load the DNA TL;DR first (Step 1 above), then:
 
@@ -89,7 +88,7 @@ If the user picks "Other" and describes a quick idea or exploration, treat it as
 
 ### G2 — Narrow it (options depend on G1)
 
-- **Check or improve** (multi-select): Everything (scored critique) · Accessibility · Copy and voice · Tokens and channel correctness · Light vs dark
+- **Check or improve** (multi-select): Everything (scored critique) · Accessibility · Copy and voice · Token correctness · Light vs dark
 - **Design something new**: A whole page or flow · A quick exploration first · Not sure, help me shape it
 - **Get it ready for engineering**: Just the spec · Spec plus scaffold the component · The full packet
 - **Teach the system**: Website screenshots · App screenshots · A mix
@@ -102,21 +101,13 @@ The `prototype` and `new-experience` routes, and any evolve of an existing scree
 
 The three web targets prototype in HTML on the `theme-css` semantic variables at the right canvas; native iOS designs to iOS patterns and safe areas on the `theme-ios` token names, for SwiftUI (load `figma-swiftui` when writing to Figma). Skip the question only when the request or the base screen already answers it, and confirm the inference in the plan instead. Check-only, handoff and corpus routes skip it.
 
-### G4 — Context (only when it helps; skip for corpus, skip if already clear)
-
-One light question, for the check / design / handoff routes:
-
-- "Is this for a specific editorial section?" → An editorial section (I will name it) · Core / utility, no channel · Not sure
-
-If they name a section, capture it as the channel. Do not enumerate all thirteen channels as buttons.
-
-### G5 — Ask for the input (free text, not options)
+### G4 — Ask for the input (free text, not options)
 
 End by asking for the concrete thing, and teach the screenshot-versus-Figma choice in the same breath:
 
-> Great. Now send me the design: **paste a screenshot** (fine for layout, hierarchy, UX and copy), or — if you want **token-level accuracy** like channel or legacy-drift checks — make the file your **active tab in Figma** and say so. You can also point me at a **folder**, or just **describe** the page.
+> Great. Now send me the design: **paste a screenshot** (fine for layout, hierarchy, UX and copy), or — if you want **token-level accuracy** like legacy-drift checks — make the file your **active tab in Figma** and say so. You can also point me at a **folder**, or just **describe** the page.
 
-Then map the collected answers to a route, target and channel, and run the composed skill sequence from Step 4. The wizard is a friendlier front door to the same five routes; the skill sequence it produces is identical to the typed path.
+Then map the collected answers to a route and target, and run the composed skill sequence from Step 4. The wizard is a friendlier front door to the same five routes; the skill sequence it produces is identical to the typed path.
 
 ## Output Contract
 
@@ -125,7 +116,6 @@ Then map the collected answers to a route, target and channel, and run the compo
 
 > Route: <prototype | ui-craft | new-experience | handoff | corpus-distill>
 > Target: <web-desktop | web-mobile | responsive-web | native-ios | "n/a">
-> Channel: <name or "not set">
 > Feature: <slug or "not set">
 
 ## Sequence
@@ -135,7 +125,7 @@ Then map the collected answers to a route, target and channel, and run the compo
 
 ## Notes
 
-<anything the DNA flags about this request: channel rules, anti-patterns to avoid, prior art to check>
+<anything the DNA flags about this request: anti-patterns to avoid, prior art to check>
 ```
 
 Followed by the machine-readable summary:
@@ -146,7 +136,6 @@ Followed by the machine-readable summary:
   "route": "<route>",
   "sequence": ["<skill-path>", "..."],
   "target": "<web-desktop | web-mobile | responsive-web | native-ios | null>",
-  "channel": "<name or null>",
   "feature": "<slug or null>",
   "artifacts": []
 }
@@ -157,7 +146,7 @@ Followed by the machine-readable summary:
 * **No classifiable intent.** Restate the five routes in one sentence each and ask the designer to pick one. Do not guess.
 * **Figma URL present but unreachable.** Route unchanged; note that extraction-dependent steps will need the Figma desktop MCP (active tab) or an exported image, and continue with what is available.
 * **Requested skill not yet shipped.** The `ux/` pillar, corpus and rule set are all live. If a genuinely missing capability is asked for (for example the MCP wrap, or motion scoring before motion tokens exist), say plainly what is not there rather than pretending it ran.
-* **Conflicting inputs** (for example a channel that contradicts the frame). Flag it, prefer the frame's evidence, and record the conflict in Notes.
+* **Conflicting inputs** (for example a stated target surface that contradicts the frame). Flag it, prefer the frame's evidence, and record the conflict in Notes.
 
 ## Composition
 

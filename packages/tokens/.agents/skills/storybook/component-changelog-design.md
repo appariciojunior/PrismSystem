@@ -194,9 +194,9 @@ VISUAL: Updated callout intent fill color
 
 ---
 
-PROPERTY: Removed intent='channel'
-- Channel intent was deprecated in favor of secondary / callout split
-- Migration: map existing channel instances to secondary or callout by context
+PROPERTY: Removed intent='tertiary'
+- Tertiary intent was deprecated in favor of secondary / callout split
+- Migration: map existing tertiary instances to secondary or callout by context
 - All property logic files updated in Figma
 
 ---
@@ -208,8 +208,8 @@ VARIANT: Added disabled state
 
 ---
 
-RATIONALE: Channel consolidation improves intent clarity
-- Channel mixed semantic meaning with secondary (both "alternate" treatment)
+RATIONALE: Intent consolidation improves intent clarity
+- Tertiary mixed semantic meaning with secondary (both "alternate" treatment)
 - Splitting into secondary (neutral emphasis) and callout (urgent emphasis) makes intent explicit
 - Aligns with the design language: primary / secondary / callout hierarchy
 

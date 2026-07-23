@@ -75,7 +75,6 @@ Read the SPEC.md and extract:
 * The Tokens used table → the CSS variables referenced in styles.css.
 * The State matrix table → the props that drive state, and one Storybook story per implemented state.
 * The Responsive behaviour section → CSS media queries (using DS viewport tokens).
-* The Channel context section (if present) → noted as a CSS variable consumer, not a prop.
 
 Reject the scaffold if any of these sections is missing or marked "needs description".
 
@@ -218,7 +217,7 @@ For each state in STATE_MATRIX.md:
 
 ## Composition
 
-* `compose_after`: `handoff/frame-to-spec`, `ui/state-matrix`, `ui/token-mapping-audit`, `ui/channel-context`
+* `compose_after`: `handoff/frame-to-spec`, `ui/state-matrix`, `ui/token-mapping-audit`
 * `compose_before`: `handoff/code-connect-stub`, `ui/visual-vs-built`
 * `calls`: `react/component-patterns`, `react/typescript-patterns`, `react/hooks-reference`, `storybook/story-writing`, `storybook/component-documentation-writing`, `figma-integration/component-lifecycle-orchestration`
 

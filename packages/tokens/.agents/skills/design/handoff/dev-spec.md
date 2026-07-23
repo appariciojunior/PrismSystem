@@ -32,7 +32,6 @@ The dev spec is the **quick view**. It never replaces `handoff/frame-to-spec`, `
 * `run_folder`: the sandbox run folder the artefact lives in. Required. The dev spec is written to `<run_folder>/DEV-SPEC.html`.
 * `feature`: the feature or project slug. Required.
 * `target`: `web-desktop` | `web-mobile` | `responsive-web` | `native-ios`. Required.
-* `channel`: optional channel name.
 * `scope`: `new-feature` (default) or `whole-page`. For an evolve run (a full base screen plus one change), scope the tables to the **new or changed feature**; base-screen elements appear only in a one-line "unchanged base" note. For a from-scratch page, cover the whole page.
 
 ## Procedure
@@ -56,9 +55,9 @@ For a native iOS target, the components column also names the SwiftUI mapping (t
 
 ### Step 2: Write DEV-SPEC.html
 
-One self-contained HTML file, no external assets, no scripts required, aiming well under 300 lines. Plain readable styling; it is an internal spec sheet, not a branded page, so no brand marks and no channel dressing. Structure, top to bottom:
+One self-contained HTML file, no external assets, no scripts required, aiming well under 300 lines. Plain readable styling; it is an internal spec sheet, not a branded page, so no brand marks. Structure, top to bottom:
 
-1. **Header**: feature name, run folder name, date, target surface, channel, and the filename of the artefact it describes.
+1. **Header**: feature name, run folder name, date, target surface, and the filename of the artefact it describes.
 2. **What was built**: two or three sentences in plain language.
 3. **Components table**: element → component used → status → note (the swap or gap explanation, one line).
 4. **Tokens table**: token path → role → status → note (original value for `nearest`, resolution needed for `flagged`).
@@ -81,7 +80,6 @@ The file itself, plus the machine-readable summary:
   "feature": "<slug>",
   "run": "<YYYY-MM-DD>-<run-slug>",
   "target": "web-desktop | web-mobile | responsive-web | native-ios",
-  "channel": "<name or null>",
   "components": { "existing": 0, "variant_needed": 0, "gaps": 0, "estimated": 0 },
   "tokens": { "bound": 0, "nearest": 0, "flagged": 0 },
   "open_questions": 0,

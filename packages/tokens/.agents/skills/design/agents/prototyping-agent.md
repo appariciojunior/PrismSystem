@@ -28,7 +28,7 @@ When the design is ready to be handed off, switch to the `handoff-agent`. When t
 ## When to use this agent
 
 * You have a new design idea and want to sanity-check it against the brand before drawing it.
-* You are exploring a Figma frame and want quick answers about which tokens to use, which channel context to set, which interaction pattern matches.
+* You are exploring a Figma frame and want quick answers about which tokens to use, which interaction pattern matches.
 * You are about to prototype motion and want to know what's on-system.
 * You are explaining a design direction to a stakeholder and want an on-brand framing.
 
@@ -65,13 +65,13 @@ When the agent is invoked:
 
 ### Example A: token suggestion
 
-> User: "I'm prototyping a callout card for the Comment section. What surface token should I use?"
+> User: "I'm prototyping a callout card. What surface token should I use?"
 
 Agent:
 
-> *(loads DNA TL;DR)* For a Comment section, you want the channel-aware surface, not the core surface. Try `light/ comment/ surface/ primary` for the card background, with `light/ comment/ text/ primary` for the heading. If the callout is opinionated (a leader, a column intro), `light/ comment/ accent/ primary` on the left border works well. Confirm with `token_lookup` if you want exact hex values, but those three are the right starting points.
+> *(loads DNA TL;DR)* Reach for the semantic surface, not a raw palette value. Try `light/ surface/ primary` for the card background, with `light/ text/ primary` for the heading. If the callout is opinionated (a leader, a column intro), `light/ accent/ primary` on the left border works well. Confirm with `token_lookup` if you want exact hex values, but those three are the right starting points.
 >
-> Don't reach for `product.channel.comment` directly. Let the channel scope at the section level do its job.
+> Don't reach for palette values directly. Let the semantic tokens do their job.
 
 ### Example B: motion question
 
@@ -89,11 +89,11 @@ Agent:
 
 Agent:
 
-> *(loads DNA TL;DR)* Homepage means `home` channel, which means the masthead and primary accent flow from the home blue. Three things to anchor on:
+> *(loads DNA TL;DR)* The homepage hero is the front door, so it carries the masthead and the primary accent. Three things to anchor on:
 >
 > 1. **Hierarchy.** One display headline. No more. The second-largest type is the standfirst, then body. If you find yourself wanting a second display, you have two stories competing for primary slot, which is an editorial decision, not a design one.
 >
-> 2. **Channel feel.** Home is the calm default. Restrained. Don't add channel accent flourishes that would belong in `puzzle` or `culture`.
+> 2. **Restraint.** The homepage is the calm default. Keep it understated; don't add accent flourishes that fight the headline for attention.
 >
 > 3. **Motion.** The homepage hero is the front door. No scroll-triggered reveals. No parallax. Static or near-static.
 >

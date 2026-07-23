@@ -15,7 +15,7 @@
 | ---------- | --------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Viewport   | `VariableCollectionId:4042:5990`  | 60        | 4 breakpoints                                                                                                                                      |
 | Mode       | `VariableCollectionId:5342:10076` | 681       | Light / Dark                                                                                                                                       |
-| Theme      | `VariableCollectionId:5342:11185` | 286       | 18 (Core, Comment, Life & Style, Puzzles, Home, UK, World, Business, Money, Sport, Travel, Culture, Obituaries, Ireland — each in light/dark pair) |
+| Theme      | `VariableCollectionId:5342:11185` | 286       | 18 (theme variants, each in a light/dark pair) |
 
 **Semantic variables live in the Theme collection, not Mode.**
 

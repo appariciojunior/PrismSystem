@@ -129,7 +129,7 @@ Each section must use bullet points.
 - Emojis allowed in bullets.
 - Keep concise and design-centric.
 - Include CTA at bottom:
-  - Questions or feedback: #ds-support ([Slack channel](https://newscorp.enterprise.slack.com/archives/C09ALD6M7CZ))
+  - Questions or feedback: #ds-support ([Slack channel](https://your-workspace.slack.example/ds-support))
 
 ## Token Library Figma Changelog Rule
 

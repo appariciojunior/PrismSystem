@@ -2790,44 +2790,6 @@
       ],
       "original_category": "design/ui"
     },
-    "channel-context": {
-      "trigger_intents": [
-        "Need to validate channel scope in a Figma frame",
-        "Need to check for cross-channel colour mixing",
-        "Need to confirm channel tokens flow correctly through semantic layer"
-      ],
-      "do_not_use_for": [
-        "Defining new channels (design decision)",
-        "Editing channel tokens (governance/token-modification-gates)"
-      ],
-      "required_inputs": [
-        "figma_url_or_node"
-      ],
-      "outputs": [
-        "channel_context_report",
-        "scope_diagnosis",
-        "findings"
-      ],
-      "approval_required": false,
-      "breaking_risks_summary": "Read-only validation. Primary risk is misidentifying the scope; mitigated by surfacing scope mechanism explicitly.",
-      "compose_after": [
-        "figma-integration/figma-console-mcp-integration",
-        "design/ui/token-mapping-audit"
-      ],
-      "compose_before": [
-        "design/handoff/frame-to-spec",
-        "design/handoff/spec-packet",
-        "design/ui/light-dark-parity"
-      ],
-      "l2_sections_required": [
-        "Purpose",
-        "Preconditions",
-        "Inputs",
-        "Procedure",
-        "Error Handling"
-      ],
-      "original_category": "design/ui"
-    },
     "spec-packet": {
       "trigger_intents": [
         "Need a complete handoff packet for engineering",
@@ -2852,7 +2814,6 @@
         "design/handoff/frame-to-spec",
         "design/ui/state-matrix",
         "design/ui/token-mapping-audit",
-        "design/ui/channel-context",
         "design/ui/a11y-check",
         "design/ui/content-style-check"
       ],
@@ -2888,8 +2849,7 @@
       "approval_required": false,
       "breaking_risks_summary": "Read-only comparison. Primary risk is wrong-pair comparison; mitigated by stopping when structural diff exceeds 50%.",
       "compose_after": [
-        "design/ui/token-mapping-audit",
-        "design/ui/channel-context"
+        "design/ui/token-mapping-audit"
       ],
       "compose_before": [
         "design/handoff/spec-packet",
@@ -2963,8 +2923,7 @@
       "compose_after": [
         "design/handoff/frame-to-spec",
         "design/ui/state-matrix",
-        "design/ui/token-mapping-audit",
-        "design/ui/channel-context"
+        "design/ui/token-mapping-audit"
       ],
       "compose_before": [
         "design/handoff/code-connect-stub",

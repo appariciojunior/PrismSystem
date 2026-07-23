@@ -52,7 +52,7 @@ Four phases. Capture runs at the end of every generating run; the other three ru
 At the end of any generating run, append exactly one record to `design-corpus/retrofit/runs.jsonl`:
 
 ```json
-{"type": "run", "run_id": "20260720-1432-live-blog-pinned-post", "ts": "2026-07-20T14:32:10Z", "entry_point": "design-router", "route": "handoff", "skills_used": ["design/foundation/design-dna", "design/handoff/handoff-flow", "design/ui/token-mapping-audit"], "agents_used": ["handoff-agent"], "objective": "produce the engineering packet for the pinned post in live blogs", "context_files": ["foundation/design-dna", "ui/state-matrix"], "artefacts": [".design/live-blog-pinned-post/PACKET.md"], "channel": "sport", "feature": "live-blog-pinned-post", "summaries": [{"skill": "design/handoff/handoff-flow", "artifacts": [".design/live-blog-pinned-post/PACKET.md"]}]}
+{"type": "run", "run_id": "20260720-1432-live-blog-pinned-post", "ts": "2026-07-20T14:32:10Z", "entry_point": "design-router", "route": "handoff", "skills_used": ["design/foundation/design-dna", "design/handoff/handoff-flow", "design/ui/token-mapping-audit"], "agents_used": ["handoff-agent"], "objective": "produce the engineering packet for the pinned post in live blogs", "context_files": ["foundation/design-dna", "ui/state-matrix"], "artefacts": [".design/live-blog-pinned-post/PACKET.md"], "feature": "live-blog-pinned-post", "summaries": [{"skill": "design/handoff/handoff-flow", "artifacts": [".design/live-blog-pinned-post/PACKET.md"]}]}
 ```
 
 Field notes:
@@ -93,11 +93,11 @@ Reading the passing runs together (patterns emerge across runs, not within one),
 Lesson format:
 
 ```markdown
-### L-014 · Naming the channel before generating lifts critique scores
+### L-014 · Naming the target surface before generating lifts critique scores
 
-- **Pattern:** the request named an editorial section before any generation started; `ui/channel-context` was in the sequence.
-- **Why it worked:** channel-aware semantic tokens resolved on first pass; no cross-channel corrections needed.
-- **Evidence:** runs `20260712-0911-money-hub`, `20260715-1404-sport-fixtures`, `20260718-1030-culture-review` (retrofit v6 · 3 runs)
+- **Pattern:** the request named the target surface (web-desktop, native-ios) before any generation started.
+- **Why it worked:** the right grid, patterns and token set resolved on first pass; no surface corrections needed.
+- **Evidence:** runs `20260712-0911-account-hub`, `20260715-1404-fixtures-list`, `20260718-1030-review-page` (retrofit v6 · 3 runs)
 ```
 
 Rules for writing lessons:
@@ -111,8 +111,8 @@ Rules for writing lessons:
 When a lesson recurs across **3 or more runs** (the same strength ladder as the corpus: 3+ is a pattern), append a concrete improvement candidate to `design-corpus/retrofit/skill-improvement-candidates.md`:
 
 ```markdown
-- [ ] SKILL · design/design-router · confirm the channel in the /design-start wizard before G4 · type: default-changed · evidence: lessons.md#l-014 (retrofit v6) · 4 runs · 2026-07-20
-      suggested edit: in the wizard's G3 context step, change "only when it helps; skip if already clear" to always ask for the check and design routes, and record the answer as `channel` in the JSON summary.
+- [ ] SKILL · design/design-router · always confirm the target surface in the /design-start wizard before generating · type: default-changed · evidence: lessons.md#l-014 (retrofit v6) · 4 runs · 2026-07-20
+      suggested edit: in the wizard's G3 target step, change "skip the question only when the request already answers it" to always confirm the inference in the plan, and record the answer as `target` in the JSON summary.
 ```
 
 Each candidate names the exact skill it would change, the exact suggested edit (an example added, a default changed, prompt guidance reworded, a sequence reordered, a new check), and the evidence. A human reviews the candidate, applies it via a normal PR, and ticks the box. The learning-agent never applies its own candidates, even trivial ones.
@@ -120,14 +120,14 @@ Each candidate names the exact skill it would change, the exact suggested edit (
 Failed-gate runs also teach. When 3 or more failed runs share a cause, append a failure-pattern candidate citing the run ids directly:
 
 ```markdown
-- [ ] SKILL · design/design-router · runs with no channel stated score on average 20 points lower on design-critique · type: guidance-reworded · evidence: runs 20260713-*, 20260716-*, 20260719-* · 5 runs · 2026-07-20
-      suggested edit: the wizard confirms the channel (or "core, no channel") before asking for the design input.
+- [ ] SKILL · design/design-router · runs with no target surface stated score on average 20 points lower on design-critique · type: guidance-reworded · evidence: runs 20260713-*, 20260716-*, 20260719-* · 5 runs · 2026-07-20
+      suggested edit: the wizard confirms the target surface before asking for the design input.
 ```
 
 ## Inputs
 
 * `mode` · `capture` | `learn` | `evaluate` | `distil` | `propose`. Default `capture` when invoked at the end of a run; `learn` (evaluate, then distil, then propose) when invoked directly.
-* `run_summary` · the run's JSON summary blocks plus entry point, objective paraphrase, context files, channel and feature. Required in `capture` mode; supplied by the caller.
+* `run_summary` · the run's JSON summary blocks plus entry point, objective paraphrase, context files and feature. Required in `capture` mode; supplied by the caller.
 * `batch_size` · max unevaluated runs per pass. Default 10.
 * `sample_rate` · fraction of the backlog to evaluate when it exceeds `batch_size` several times over. Default 1.0.
 * `score_threshold` · Craft gate pass mark on the `design-critique` 0-100 scale. Default 80.
@@ -217,7 +217,7 @@ Agent:
 >
 > *(runs)*
 >
-> 6 of 10 passed all applicable gates. 2 lessons appended (L-014 strengthened to 4 runs; L-015 new). 1 candidate proposed: L-014 crossed the 3-run threshold, so the wizard-confirms-channel change is now in `skill-improvement-candidates.md` for review. Retrofit at v7.
+> 6 of 10 passed all applicable gates. 2 lessons appended (L-014 strengthened to 4 runs; L-015 new). 1 candidate proposed: L-014 crossed the 3-run threshold, so the wizard-confirms-target change is now in `skill-improvement-candidates.md` for review. Retrofit at v7.
 
 ### Example C: learning from failures
 
@@ -225,7 +225,7 @@ Agent:
 
 Agent:
 
-> 7 runs failed a gate since 2026-07-13. 5 share a cause: no channel was stated and channel-aware tokens were guessed. Those 5 average 61 on design-critique against 81 for channel-stated runs. Failure-pattern candidate appended, citing all 5 run ids. The other 2 failures do not yet share a cause with anything; watching.
+> 7 runs failed a gate since 2026-07-13. 5 share a cause: no target surface was stated and the wrong grid was guessed. Those 5 average 61 on design-critique against 81 for target-stated runs. Failure-pattern candidate appended, citing all 5 run ids. The other 2 failures do not yet share a cause with anything; watching.
 
 ## Error handling
 

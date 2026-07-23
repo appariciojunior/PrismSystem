@@ -378,4 +378,4 @@ We're planning a brand-specific plugin that will:
 
 **Last Updated**: 2025-02-12  
 **Maintainer**: Design System Team  
-**Questions**: [#ds-support](https://newscorp.enterprise.slack.com/archives/C06S9SB5QPR)
+**Questions**: [#ds-support](https://your-workspace.slack.example/ds-support)

@@ -1,6 +1,6 @@
 ---
 name: light-dark-parity
-description: Compare the light and dark frames of the same component or feature, flag structural divergence, value divergence outside the documented channel exceptions, and missing dark variants. Enforces the Design System rule that semantic tokens are 1:1 across themes, with channel tokens as the only allowed exception.
+description: Compare the light and dark frames of the same component or feature, flag structural divergence, value divergence, and missing dark variants. Enforces the Design System rule that semantic tokens are 1:1 across themes.
 license: MIT
 metadata:
   category: design/ui
@@ -17,7 +17,7 @@ metadata:
 
 The Design System holds a strict rule:
 
-> All semantic tokens are structurally and semantically identical across all themes. Channel-specific tokens (`.channel.` in path) are the only exception where documented value divergence may apply.
+> All semantic tokens are structurally and semantically identical across all themes.
 
 That rule is enforced in the token files by `validation/semantic-theme-parity.md`. This skill enforces it in the *design* before tokens get touched. It compares the light and dark Figma frames for the same component and surfaces any divergence the designer introduced, intentionally or otherwise.
 
@@ -38,7 +38,6 @@ Required:
 
 Optional:
 
-* `allow_channel_divergence` — boolean, default true. When false, even channel tokens must match by structure (only values are allowed to differ).
 * `output_path` — defaults to `.design/<component_name>/PARITY.md`.
 
 ## Procedure
@@ -62,12 +61,10 @@ For every token reference in the light inventory, find the corresponding token i
 
 * Direct sibling: `light/ core/ surface/ primary` → `dark/ core/ surface/ primary`.
 * Neutral ramp reversal: step 50 swaps with step 1000 on the neutral ramp (per dark-mode-mapping rule).
-* Channel siblings: `light/ <channel>/ <subpath>` → `dark/ <channel>/ <subpath>`.
 
 For each mapping, classify:
 
 * **Match.** Same semantic path, expected sibling. Pass.
-* **Allowed divergence.** Channel token where `allow_channel_divergence` is true. Pass with `info` note.
 * **Mismatch.** Different semantic path between themes (a structural divergence). `error` severity.
 * **Missing sibling.** Token present in one theme, absent in the other. `error` severity.
 
@@ -92,7 +89,7 @@ Cross-reference `ui/state-matrix.md`: if a state is "not implemented" in light, 
 Even where tokens match by name, if a designer has detached a binding and overridden the value, the two themes can drift in unintended ways. For each fill/stroke/effect:
 
 * Confirm the variable binding is intact in both themes.
-* Confirm the resolved values differ in the documented direction (light values lighter, dark values darker, channel values per channel rules).
+* Confirm the resolved values differ in the documented direction (light values lighter, dark values darker).
 * Surface any case where the light value is darker than the dark value, or vice versa, as `error`.
 
 ### Step 6: Render the report
@@ -107,9 +104,8 @@ Use the **Output Contract** below.
 > Light Figma: <deep link>
 > Dark Figma: <deep link>
 > Compared: <ISO timestamp>
-> Allow channel divergence: <true | false>
 > Tokens snapshot: <git sha>
-> Result: <pass | pass-with-allowed-divergence | fail>
+> Result: <pass | fail>
 
 ## Summary
 
@@ -123,7 +119,6 @@ Use the **Output Contract** below.
 |---|---|
 | Structural mismatches | <n> |
 | Missing siblings | <n> |
-| Allowed divergence (channel) | <n> |
 | Value direction reversed | <n> |
 
 ## Token mapping
@@ -131,7 +126,6 @@ Use the **Output Contract** below.
 | Light token | Dark sibling | Status | Note |
 |---|---|---|---|
 | `light/ core/ surface/ primary` | `dark/ core/ surface/ primary` | match | |
-| `light/ comment/ accent/ primary` | `dark/ comment/ accent/ primary` | allowed divergence | channel |
 | `light/ core/ text/ primary` | missing | missing sibling | error |
 
 ## Structural diff
@@ -171,17 +165,15 @@ Use the **Output Contract** below.
 
 * **One theme missing.** Stop with a single finding: "missing <light|dark> variant". The fix is to design the missing variant, not to spec parity.
 * **Both frames have detached components.** Surface as `warning`, parity comparison is unreliable with detached components.
-* **Channel divergence in unexpected direction.** A `light/ comment/...` token that resolves to a colour lighter than its `dark/ comment/...` sibling is a likely mistake. Flag with `error`.
 * **Skill runs but light and dark are clearly different components.** If structural diff exceeds 50% of nodes, the skill is likely comparing the wrong pair. Stop and ask for confirmation.
 
 ## Composition
 
-* `compose_after`: `ui/token-mapping-audit` (run on both frames first), `ui/channel-context`
+* `compose_after`: `ui/token-mapping-audit` (run on both frames first)
 * `compose_before`: `handoff/spec-packet`, `handoff/handoff-flow`
 * `calls`: `figma-integration/design-extraction`, `color-ramps/dark-mode-mapping`, `validation/semantic-theme-parity`, `ui/state-matrix`
 
 ## Related Skills
 
-* `../ui/channel-context.md` — defines what allowed divergence looks like
 * `../../validation/semantic-theme-parity.md` — the token-level enforcement this skill mirrors at design time
 * `../../color-ramps/dark-mode-mapping.md` — the sibling-mapping logic

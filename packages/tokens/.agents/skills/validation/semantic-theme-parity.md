@@ -1,6 +1,6 @@
 ---
 name: semantic-theme-parity
-description: Validate semantic theme parity for Figma Variables export by enforcing strict structural parity while separating value decisions from structure checks.
+description: Validate semantic theme parity for Figma Variables export by enforcing strict structural parity across light and dark modes.
 license: MIT
 metadata:
   category: validation
@@ -12,13 +12,11 @@ metadata:
 
 ## Purpose
 
-Validate semantic theme token parity across light and dark modes so Figma Variables export stays stable: strict 1:1 structural parity is required, while value parity is advisory for channel-specific decisions.
+Validate semantic theme token parity across light and dark modes so Figma Variables export stays stable: strict 1:1 structural parity is required.
 
 ## Core Principle: 1:1 Semantic Token Mapping Across Themes
 
-**All semantic tokens are structurally and semantically identical across all themes.** For a given semantic token like `messaging.fill.warning`, the meaning and implementation are 1:1 across `light/ core`, `light/ comment`, `dark/ core`, `dark/ comment`, etc.
-
-Exceptions are **only** channel-specific tokens (paths containing `.channel.`, e.g., `text.channel.primary`, `icon.channel.secondary`) where design intent allows value divergence between theme contexts.
+**All semantic tokens are structurally and semantically identical across all themes.** For a given semantic token like `messaging.fill.warning`, the meaning and implementation are 1:1 across `light/ core` and `dark/ core`.
 
 Implication: When searching for a semantic token (e.g., warning modal background), do not select between themes. Always use the canonical semantic token. Theme selection does not change semantic meaning or implementation.
 
@@ -29,7 +27,6 @@ For token search/discovery agents: If a search returns the same semantic token f
 Before planning or validating semantic rollouts, read:
 
 - `packages/tokens/docs/reference/semantic-tokens.md`
-- `packages/tokens/docs/reference/channel-semantic-tokens-mapping-ref.md`
 
 Use docs as source-of-truth for semantic mapping contracts. Keep briefs generalist and avoid embedding long, token-specific tables there.
 
@@ -43,26 +40,22 @@ Use docs as source-of-truth for semantic mapping contracts. Keep briefs generali
 
 | Parameter                   | Type    | Required | Description                                                               |
 | --------------------------- | ------- | -------- | ------------------------------------------------------------------------- |
-| `file_path`                 | string  | no       | Path to token source (default: `packages/tokens/src/tokens.json`)         |
-| `require_exact_theme_count` | boolean | no       | Enforce semantic theme count check `14 light + 14 dark` (default: `true`) |
-| `contrast_threshold`        | number  | no       | Advisory contrast floor for channel value decisions (default: `3.0`)      |
-| `ask_on_uncertainty`        | boolean | no       | Ask user via `vscode_askQuestions` if value decisions remain unclear      |
+| `file_path`                    | string  | no       | Path to token source (default: `packages/tokens/src/tokens.json`)                       |
+| `require_matching_theme_count` | boolean | no       | Enforce that light and dark expose the same number of semantic themes (default: `true`) |
 
 ## Procedure
 
-### Step 1: Discover Semantic Themes and Confirm 14 + 14
+### Step 1: Discover Semantic Themes and Confirm Matching Counts
 
 Use explicit discovery and exclude non-semantic sets:
 
-- Exclude: `light/ brand`, `dark/ brand`, `light/ channels`, `dark/ channels`, `light/ marketing`, `dark/ marketing`, `light/ dataVisualisation`, `dark/ dataVisualisation`
+- Exclude: `light/ brand`, `dark/ brand`, `light/ marketing`, `dark/ marketing`, `light/ dataVisualisation`, `dark/ dataVisualisation`
 - Include only top-level token sets matching `light/ *` or `dark/ *`
 
 ```javascript
 const excluded = new Set([
   'light/ brand',
   'dark/ brand',
-  'light/ channels',
-  'dark/ channels',
   'light/ marketing',
   'dark/ marketing',
   'light/ dataVisualisation',
@@ -84,8 +77,8 @@ if (
 }
 
 if (
-  requireExactThemeCount &&
-  (lightThemes.length !== 14 || darkThemes.length !== 14)
+  requireMatchingThemeCount &&
+  lightThemes.length !== darkThemes.length
 ) {
   throw new Error(
     `Semantic theme count mismatch: light=${lightThemes.length}, dark=${darkThemes.length}`
@@ -137,27 +130,7 @@ For each token `value` that is an alias (`{...}`):
 3. Flag unresolved aliases as parity blockers.
 4. Flag mode-crossing aliases (`light/ *` referencing `dark/ *`, or vice versa) as parity blockers.
 
-### Step 5: Advisory Value Parity for Channel-Specific Tokens
-
-This step is advisory and runs only after structural + alias checks pass.
-
-- Structural parity is mandatory.
-- Value parity is not strictly 1:1 for channel tokens.
-- Focus paths typically under `.channel.` and similar channel-specific semantic branches.
-
-Decision logic for a theme `.500` value:
-
-```text
-keep_current_500 = (contrast_ratio >= 3.0) OR (visual_review_no_step_change == true)
-```
-
-Interpretation:
-
-- If contrast is at least `3:1`, `.500` may remain unchanged.
-- If visual review confirms no ramp-step adjustment is needed, `.500` may remain unchanged.
-- If neither condition is met, mark as `needs_decision` (advisory), not a structural parity failure.
-
-### Step 6: Figma Scope Correctness (Blocking)
+### Step 5: Figma Scope Correctness (Blocking)
 
 After structural parity passes, verify `$extensions.com.figma.scopes` values are
 **correct**, not just **uniform**. Uniformity-only checks return false PASSes
@@ -175,106 +148,56 @@ Run the constraint-reference #9 quick check. Accept only when it exits with
 
 If FAILs: fix scopes in all affected themes before proceeding.
 
-### Step 7: Uncertainty Escalation (Required Behavior)
-
-If any advisory value decision is uncertain, ask the user via `vscode_askQuestions` using multiple-choice with a freeform fallback.
-
-Example payload:
-
-```json
-{
-  "questions": [
-    {
-      "header": "channel_value_decision",
-      "question": "Structural parity passed, but a channel token value decision is unclear. How should I proceed?",
-      "options": [
-        {
-          "label": "Keep current .500 value",
-          "description": "Use current step because contrast is >= 3:1"
-        },
-        {
-          "label": "Adjust to a nearby ramp step",
-          "description": "Move to .400/.600 (or nearest valid step)"
-        },
-        {
-          "label": "Mirror core theme value",
-          "description": "Use core as temporary rollout baseline"
-        },
-        {
-          "label": "Other (describe your preferred action)",
-          "description": "Provide custom direction"
-        }
-      ],
-      "allowFreeformInput": true
-    }
-  ]
-}
-```
-
 ## Outputs
 
 | Output                      | Type    | Description                                                          |
 | --------------------------- | ------- | -------------------------------------------------------------------- |
-| `theme_counts`              | object  | `{ light: 14, dark: 14, total: 28 }` when counts are correct         |
+| `theme_counts`              | object  | Semantic theme counts per mode, e.g. `{ light: 1, dark: 1, total: 2 }` |
 | `core_baseline_present`     | boolean | True when `light/ core` and `dark/ core` are present                 |
 | `structural_parity_results` | array   | Per-theme missing/extra path results                                 |
 | `alias_integrity_results`   | array   | Unresolved/cross-mode alias issues                                   |
-| `advisory_value_results`    | array   | Channel token recommendations (`keep`, `adjust`, `needs_decision`)   |
-| `escalations`               | array   | User questions asked for uncertain advisory decisions                |
-| `status`                    | enum    | `success`, `failed-structure`, `failed-alias`, `needs-user-decision` |
+| `status`                    | enum    | `success`, `failed-structure`, `failed-alias`                        |
 
 ## Error Handling
 
 | Error                                 | Recovery                                                                |
 | ------------------------------------- | ----------------------------------------------------------------------- |
-| Semantic theme count not `14 + 14`    | Re-run discovery filters; verify non-semantic exclusions are correct    |
+| Light and dark theme counts differ    | Re-run discovery filters; verify non-semantic exclusions are correct    |
 | Missing `light/ core` or `dark/ core` | Stop rollout parity check and request guidance                          |
 | Missing/extra structural paths        | Fix structure first; do not resolve with value-only adjustments         |
-| Unresolved aliases                    | Correct alias path or source set before evaluating channel value advice |
-| Advisory value uncertainty            | Trigger `vscode_askQuestions` payload and wait for user instruction     |
+| Unresolved aliases                    | Correct alias path or source set before evaluating parity               |
 
 ## Examples
 
-### Example 1: Full Structural Parity, No Escalation
+### Example 1: Full Structural Parity
 
 ```
 INVOKE: skill/validation/semantic-theme-parity
-INPUTS: { require_exact_theme_count: true, contrast_threshold: 3.0 }
+INPUTS: { require_matching_theme_count: true }
 RESULT: {
   status: "success",
-  theme_counts: { light: 14, dark: 14, total: 28 },
+  theme_counts: { light: 1, dark: 1, total: 2 },
   core_baseline_present: true,
   structural_parity_results: [],
-  alias_integrity_results: [],
-  advisory_value_results: [
-    {
-      path: "light/ sport.text.channel.link",
-      contrast_ratio: 3.4,
-      decision: "keep"
-    }
-  ],
-  escalations: []
+  alias_integrity_results: []
 }
 ```
 
-### Example 2: Structural Pass, Advisory Uncertainty Escalated
+### Example 2: Cross-Mode Alias Failure
 
 ```
 INVOKE: skill/validation/semantic-theme-parity
-INPUTS: { ask_on_uncertainty: true }
+INPUTS: { require_matching_theme_count: true }
 RESULT: {
-  status: "needs-user-decision",
-  theme_counts: { light: 14, dark: 14, total: 28 },
+  status: "failed-alias",
+  theme_counts: { light: 1, dark: 1, total: 2 },
+  core_baseline_present: true,
   structural_parity_results: [],
-  alias_integrity_results: [],
-  advisory_value_results: [
+  alias_integrity_results: [
     {
-      path: "dark/ world.interactive.chip.channel.fill.default",
-      contrast_ratio: 2.8,
-      visual_review_no_step_change: null,
-      decision: "needs_decision"
+      path: "light/ core.messaging.fill.warning",
+      issue: "mode-crossing alias references dark/ core"
     }
-  ],
-  escalations: ["channel_value_decision"]
+  ]
 }
 ```

@@ -39,8 +39,6 @@ const LIGHT_SET = 'light/ core';
 const DARK_SET = 'dark/ core';
 const LIGHT_BRAND = 'light/ brand';
 const DARK_BRAND = 'dark/ brand';
-const LIGHT_CHANNELS = 'light/ channels';
-const DARK_CHANNELS = 'dark/ channels';
 const VIEWPORT_SMALL = 'viewport/ small';
 const BREAKPOINTS = {
   sm: '0',
@@ -62,9 +60,7 @@ function extractPaletteRamps(tokens) {
   const lookup = { light: {}, dark: {} };
   const paletteSets = [
     { set: LIGHT_BRAND, mode: 'light' },
-    { set: DARK_BRAND, mode: 'dark' },
-    { set: LIGHT_CHANNELS, mode: 'light' },
-    { set: DARK_CHANNELS, mode: 'dark' }
+    { set: DARK_BRAND, mode: 'dark' }
   ];
   for (const { set, mode } of paletteSets) {
     const data = tokens[set];
@@ -500,16 +496,6 @@ function resolveValue(
     }
   }
 
-  // 2. brand.channels.ramp.{channel}.{step}
-  const channelRampMatch = refPath.match(
-    /^brand\.channels\.ramp\.(\w+)\.(\d+(?:-base)?)$/
-  );
-  if (channelRampMatch) {
-    let [, channel, step] = channelRampMatch;
-    step = step.replace('-base', '');
-    if (rampColors[modeKey]?.[channel]?.[step])
-      return rampColors[modeKey][channel][step];
-  }
 
   // 3. Overlay ramps
   const overlayMatch = refPath.match(

@@ -406,4 +406,4 @@ When building components in Figma:
 
 ## Questions?
 
-Refer to the [Elevation System documentation](../reference-modules/02-elevation-system.md) for technical details, or reach out in [#ds-support](https://newscorp.enterprise.slack.com/archives/C06S9SB5QPR).
+Refer to the [Elevation System documentation](../reference-modules/02-elevation-system.md) for technical details, or reach out in [#ds-support](https://your-workspace.slack.example/ds-support).

@@ -48,32 +48,24 @@ python3 -m json.tool packages/tokens/src/tokens.json > /dev/null
 
 ### ⚠️ Pre-Implementation Verification (ALWAYS FIRST)
 
-**Before writing code that references tokens.json, ramps, or theme names, verify all dependencies exist:**
+**Before writing code that references paths in tokens.json, verify all dependencies exist:**
 
 ```python
 import json
 with open('packages/tokens/src/tokens.json') as f:
     data = json.load(f)
 
-# Verify theme→ramp mappings
-available_ramps = list(data.get('light/ channels', {}).get('brand', {}).get('channels', {}).get('ramp', {}).keys())
-print(f"✅ Available channel ramps: {sorted(available_ramps)}")
-
-# Check for naming mismatches
-theme_mapping = {
-    'puzzles': 'puzzle',
-    'lifeAndStyle': 'life-&-style'
-}
-
-print("\n⚠️ Theme Name Mappings (verify before implementing):")
-for theme, expected_ramp in theme_mapping.items():
-    if expected_ramp in available_ramps:
-        print(f"  ✅ {theme} → {expected_ramp} (confirmed)")
+# Verify the token sets you're about to reference actually exist
+required_sets = ['light/ core', 'dark/ core', 'light/ brand']
+print("Verifying required token sets:")
+for token_set in required_sets:
+    if token_set in data:
+        print(f"  ✅ {token_set} (found)")
     else:
-        print(f"  ❌ {theme}: expected ramp '{expected_ramp}' NOT FOUND")
+        print(f"  ❌ {token_set}: NOT FOUND")
 ```
 
-**Stop if any mappings fail. Fix the mapping or verify fallback is intentional.**
+**Stop if any dependency is missing. Add the token set or fix the reference before continuing.**
 
 ---
 
@@ -198,30 +190,20 @@ import json
 with open('packages/tokens/src/tokens.json') as f:
     data = json.load(f)
 
-# List all themes
-themes = set()
-for key in data.keys():
-    if key.startswith('light/ ') or key.startswith('dark/ '):
-        theme = key.split('/ ', 1)[1]
-        themes.add(theme)
+# List all token sets (top-level keys)
+token_sets = list(data.keys())
+print(f"✅ Total token sets found: {len(token_sets)}")
 
-print(f"✅ Total themes found: {len(themes)}")
-
-# Verify your target themes exist
-target_themes = ['puzzles', 'lifeAndStyle', 'business', 'sport', 'travel', 'obituaries']
-print("\nVerifying target themes:")
-for theme in target_themes:
-    light_ok = f'light/ {theme}' in data
-    dark_ok = f'dark/ {theme}' in data
-    status = "✅" if (light_ok and dark_ok) else "❌"
-    print(f"  {status} {theme}: light={light_ok}, dark={dark_ok}")
-
-# Check available channel ramps
-available_ramps = list(data.get('light/ channels', {}).get('brand', {}).get('channels', {}).get('ramp', {}).keys())
-print(f"\n✅ Available channel ramps ({len(available_ramps)}): {sorted(available_ramps)}")
+# Verify the token sets your task depends on exist
+required_sets = ['light/ core', 'dark/ core', 'light/ brand']
+print("\nVerifying required token sets:")
+for token_set in required_sets:
+    ok = token_set in data
+    status = "✅" if ok else "❌"
+    print(f"  {status} {token_set}: {ok}")
 ```
 
-**Document findings. Stop if themes or ramps missing.**
+**Document findings. Stop if any required token set is missing.**
 
 ---
 
@@ -260,10 +242,6 @@ Do exactly what ARCHITECTURE.md specifies. When implementing:
 assumptions = """
 ASSUMPTIONS LOG
 
-Theme Naming Mappings:
-- puzzles → puzzle (verified)
-- lifeAndStyle → life-&-style (verified)
-
 Contrast Thresholds:
 - Primary: 4.5:1 (strict WCAG AA)
 - Secondary: 4.4:1 (relaxed for visual differentiation)
@@ -285,10 +263,9 @@ print(assumptions)
 **Commit message must include:**
 
 ```bash
-git commit -m "feat(tokens): update channel tokens
+git commit -m "feat(tokens): update core tokens
 
 Assumptions:
-- Theme mappings: puzzles→puzzle, lifeAndStyle→life-&-style
 - Thresholds: primary=4.5:1, secondary=4.4:1 (relaxed)
 - Fallback: darker steps when lighter fails
 - Mode logic: light/dark searches reversed per inverted ramps

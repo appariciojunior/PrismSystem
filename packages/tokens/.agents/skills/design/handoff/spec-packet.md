@@ -1,6 +1,6 @@
 ---
 name: spec-packet
-description: Bundle the outputs of frame-to-spec, state-matrix, token-mapping-audit, channel-context, plus an asset export list and the Figma deep link, into a single Markdown packet ready to attach to an engineering ticket. The packet is the artefact, not a summary; engineering can build from it without opening Figma.
+description: Bundle the outputs of frame-to-spec, state-matrix, token-mapping-audit, plus an asset export list and the Figma deep link, into a single Markdown packet ready to attach to an engineering ticket. The packet is the artefact, not a summary; engineering can build from it without opening Figma.
 license: MIT
 metadata:
   category: design/handoff
@@ -22,7 +22,7 @@ The skill does not extract anything itself. It composes outputs that already exi
 ## Preconditions
 
 1. `handoff/frame-to-spec.md` has produced a SPEC.md for the frame, or can run cleanly now.
-2. `ui/state-matrix.md`, `ui/token-mapping-audit.md` and `ui/channel-context.md` outputs are available or can be run.
+2. `ui/state-matrix.md` and `ui/token-mapping-audit.md` outputs are available or can be run.
 3. Asset export list is producible from Figma (icons, images that need export). Figma MCP must be connected.
 4. Engineering ticket destination is known (URL or ID) if the packet will be auto-attached.
 
@@ -51,11 +51,10 @@ If absent, run the upstream skill now. The order is:
 
 1. `ui/token-mapping-audit.md` (every other skill depends on this)
 2. `ui/state-matrix.md`
-3. `ui/channel-context.md` (only if channel tokens present)
-4. `ui/a11y-check.md` (if `include_a11y`)
-5. `ui/content-style-check.md` (if `include_content_check`)
-6. `ui/design-critique.md` (only if `include_critique`)
-7. `handoff/frame-to-spec.md` (the central spec)
+3. `ui/a11y-check.md` (if `include_a11y`)
+4. `ui/content-style-check.md` (if `include_content_check`)
+5. `ui/design-critique.md` (only if `include_critique`)
+6. `handoff/frame-to-spec.md` (the central spec)
 
 ### Step 2: Generate the asset export list
 
@@ -86,7 +85,6 @@ If `ticket_id` is provided, also write a copy at `.design/<feature>/ticket-<tick
 > Ticket: <ticket_id or "not set">
 > Bundled: <ISO timestamp>
 > Tokens snapshot: <git sha>
-> Channel: <channel name or "none">
 
 ## What this packet contains
 
@@ -116,32 +114,28 @@ Full matrix from `ui/state-matrix.md`.
 
 From frame-to-spec.
 
-## 7. Channel context
-
-If channel tokens present, the Channel scope and Channel coverage tables from `ui/channel-context.md`. Otherwise, "not applicable".
-
-## 8. Accessibility
+## 7. Accessibility
 
 If `include_a11y`, the Summary table from `ui/a11y-check.md`. Full findings linked separately so the packet stays scannable.
 
-## 9. Content style
+## 8. Content style
 
 If `include_content_check`, the Summary and Findings tables from `ui/content-style-check.md`.
 
-## 10. Design critique (optional)
+## 9. Design critique (optional)
 
 If `include_critique`, the Summary and per-category counts from `ui/design-critique.md`. Full critique linked.
 
-## 11. Asset exports
+## 10. Asset exports
 
 | Node | Asset | Suggested format | Suggested filename |
 |---|---|---|---|
 
-## 12. Open questions
+## 11. Open questions
 
 Combined Open Questions from frame-to-spec, plus any unresolved findings from the quality skills. Engineering or design owns each before build.
 
-## 13. Provenance
+## 12. Provenance
 
 - Figma file: <url>
 - Figma node id: <id>
@@ -150,7 +144,6 @@ Combined Open Questions from frame-to-spec, plus any unresolved findings from th
   - `handoff/frame-to-spec` v<x>
   - `ui/token-mapping-audit` v<x>
   - `ui/state-matrix` v<x>
-  - `ui/channel-context` v<x> (or "not run")
   - `ui/a11y-check` v<x> (or "not run")
   - `ui/content-style-check` v<x> (or "not run")
   - `ui/design-critique` v<x> (or "not run")
@@ -172,7 +165,7 @@ Every file in `.design/<feature>/`, with one-line purpose.
 
 * `compose_after`: every Phase 1, 2 and 3 skill
 * `compose_before`: none (this is a terminal handoff artefact)
-* `calls`: `handoff/frame-to-spec`, `ui/state-matrix`, `ui/token-mapping-audit`, `ui/channel-context`, `ui/a11y-check`, `ui/content-style-check`, `ui/design-critique` (optional), `figma-integration/design-extraction`
+* `calls`: `handoff/frame-to-spec`, `ui/state-matrix`, `ui/token-mapping-audit`, `ui/a11y-check`, `ui/content-style-check`, `ui/design-critique` (optional), `figma-integration/design-extraction`
 
 ## Related Skills
 

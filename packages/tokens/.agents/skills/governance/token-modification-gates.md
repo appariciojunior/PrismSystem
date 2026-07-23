@@ -40,10 +40,7 @@ Palette indicators:
 
 - `light/ brand`
 - `dark/ brand`
-- `light/ channels`
-- `dark/ channels`
 - `brand.core.ramp`
-- `brand.channels.ramp`
 
 ## Decision Table
 

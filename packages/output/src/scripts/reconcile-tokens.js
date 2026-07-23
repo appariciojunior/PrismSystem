@@ -59,8 +59,6 @@ async function reconcileTokens() {
 
     // Clean up intermediate token sets that should not be in the output
     const setsToDelete = [
-      'light/ channels',
-      'dark/ channels',
       'light/ brand',
       'dark/ brand',
       'light/ marketing',
@@ -119,11 +117,7 @@ async function reconcileTokens() {
 const resolveColourTokens = (setData, setName) => {
   const mode = setName.split('/ ')[0];
   const theme = setName.split('/ ')[1];
-  const formattedColourTokens = JSON.stringify(colourTokens).replaceAll(
-    'life-and-style',
-    'lifeAndStyle'
-  );
-  const updatedColourTokens = JSON.parse(formattedColourTokens);
+  const updatedColourTokens = JSON.parse(JSON.stringify(colourTokens));
   const tokens = loadTokens()[`${mode}/ brand`]; // Load the original tokens to access the token structure for reference resolution
   // console.log('tokens', tokens);
 

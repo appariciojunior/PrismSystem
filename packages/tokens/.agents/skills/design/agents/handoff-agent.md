@@ -43,22 +43,21 @@ In order:
 2. **`figma-integration/figma-console-mcp-integration`** (preflight, plus the Mandatory User Gate for Figma URLs).
 3. **`ui/token-mapping-audit`** on the light frame, then on the dark frame if provided.
 4. **`ui/state-matrix`** on the component set.
-5. **`ui/channel-context`** if any channel tokens were detected.
-6. **`ui/a11y-check`**.
-7. **`ui/content-style-check`**.
-8. **`ui/design-critique`** (light pass, errors only by default; warnings if the design is brand new).
-9. **`ui/light-dark-parity`** if a dark frame was provided.
-10. **`handoff/frame-to-spec`** on the entry frame.
-11. **`handoff/spec-packet`** to bundle everything.
+5. **`ui/a11y-check`**.
+6. **`ui/content-style-check`**.
+7. **`ui/design-critique`** (light pass, errors only by default; warnings if the design is brand new).
+8. **`ui/light-dark-parity`** if a dark frame was provided.
+9. **`handoff/frame-to-spec`** on the entry frame.
+10. **`handoff/spec-packet`** to bundle everything.
 
 ## Default behaviour
 
 When the agent is invoked:
 
-1. Confirm inputs (`feature_name`, light Figma URL, optionally dark URL, optionally ticket ID, optionally channel).
+1. Confirm inputs (`feature_name`, light Figma URL, optionally dark URL, optionally ticket ID).
 2. Load DNA TL;DR.
 3. Ask the **Mandatory User Gate** for the Figma URL before any Figma call.
-4. Run the pipeline above. Pause after Phase B (audit) and Phase E (quality checks) to summarise findings and ask whether to proceed.
+4. Run the pipeline above. Pause after Phase B (audit) and Phase D (quality checks) to summarise findings and ask whether to proceed.
 5. Produce `.design/<feature-name>/PACKET.md` and an `INDEX.md`.
 
 The agent uses the orchestrator skill `handoff/handoff-flow` under the hood, with `interactive: true` and `include_critique: true` for the first run of a feature.
@@ -74,14 +73,13 @@ Optional:
 
 * `dark_figma_url` — for parity check.
 * `ticket_id` — JIRA/Linear/GitHub ID.
-* `channel` — declared channel name, if any.
 * `skip_critique` — boolean, default false. When true, skips the `design-critique` phase (useful for re-runs after a design has already been critiqued).
 
 ## Pause points
 
 The agent stops at three points for confirmation:
 
-* **After token audit.** Presents the summary of mapped/unmapped/channel tokens. Asks: continue, re-run audit, stop.
+* **After token audit.** Presents the summary of mapped/unmapped tokens. Asks: continue, re-run audit, stop.
 * **After quality checks.** Presents combined error/warning counts across a11y, content, critique, parity. Asks: continue, fix and re-run, stop.
 * **Before writing the packet.** Final summary. Asks: write packet, view the spec first, stop.
 
@@ -94,7 +92,6 @@ A populated `.design/<feature-name>/` folder, anchored by `PACKET.md`. Includes:
 * `MANIFEST.md` (run metadata)
 * `TOKEN_AUDIT_LIGHT.md`, `TOKEN_AUDIT_DARK.md` (if dark provided)
 * `STATE_MATRIX.md`
-* `CHANNEL_CONTEXT.md` (if channel tokens were present)
 * `A11Y_CHECK.md`
 * `CONTENT_STYLE.md`
 * `CRITIQUE.md` (unless skipped)
@@ -110,7 +107,7 @@ If `ticket_id` was provided, also `ticket-<id>.md` as an alias.
 
 ### Example A: standard handoff
 
-> User: "Hand off the comments-modal feature, Figma light at https://..., dark at https://..., channel comment, ticket COM-412"
+> User: "Hand off the comments-modal feature, Figma light at https://..., dark at https://..., ticket COM-412"
 
 Agent:
 

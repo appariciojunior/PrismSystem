@@ -18,11 +18,11 @@ metadata:
 
 When you start any design work, you start by asking what fits your brand. This skill is the answer. It is the shortest path to "what would our brand do here", written so a designer, a PM, an engineer, or an AI assistant can read it once and be properly oriented.
 
-This file ships with example content written for a serious, content-led product. Treat it as a template: replace the identity, channels and tone below with your own. A design system anchored in a real, specific identity produces far better work than one anchored in generic-AI aesthetics.
+This file ships with example content written for a serious, content-led product. Treat it as a template: replace the identity and tone below with your own. A design system anchored in a real, specific identity produces far better work than one anchored in generic-AI aesthetics.
 
 There are two ways to use this skill:
 
-1. **Standalone.** Call it before you start a prototype or a new design. The output is the brief version of who we are, our channels, our principles, our anti-patterns. Read it once per work session and you are calibrated.
+1. **Standalone.** Call it before you start a prototype or a new design. The output is the brief version of who we are, our principles, our anti-patterns. Read it once per work session and you are calibrated.
 2. **Preamble.** Other design skills load this skill's TL;DR section as context. When you run `ui/design-critique` or `handoff/frame-to-spec`, the output is automatically grounded in this DNA rather than in generic design advice.
 
 If you ever feel the system has given you a generic-looking answer, ask for this skill to be re-loaded. It is the cure.
@@ -36,7 +36,7 @@ None. This skill is foundational. It reads from the repo, it does not depend on 
 Optional:
 
 * `mode` — `tldr` (default for preamble) | `full` (default for standalone). The TL;DR is the bullet-pointed essentials; full is the long form below.
-* `lens` — `brand` | `channels` | `tokens` | `motion` | `voice` | `anti-patterns` | `all`. Default `all`. Narrows the response to a single area.
+* `lens` — `brand` | `tokens` | `motion` | `voice` | `anti-patterns` | `all`. Default `all`. Narrows the response to a single area.
 
 ## Procedure
 
@@ -48,11 +48,9 @@ When called standalone with no lens, return the full document below (everything 
 
 **Who we are.** Design System (DS) is a white-label design system starter. Fill this in with your own brand: its personality, its tone, what it stands for. The example identity is a content-led, serious and quietly confident product. Keep it specific.
 
-**Thirteen channels.** `home`, `uk`, `world`, `money`, `comment`, `business`, `sport`, `travel`, `puzzle`, `culture`, `obituaries`, `ireland`, `lifeAndStyle`. Each channel has its own colour, set at the section level, flowing into channel-aware semantic tokens. Components never reach for channel colour directly. (Naming note: the foundation key is `puzzle`, the semantic theme set is named `puzzles`.) These channel keys are token identifiers; rename them in `tokens.json` first if your brand's content sections differ.
-
 **Three token layers.** Foundation (primitives, raw values) → Palette (named scales) → Semantic (usage). Components only ever consume Semantic. Foundation and Palette are off-limits to components.
 
-**Themes are 1:1.** Semantic tokens are structurally identical across light and dark. The only allowed exception is `.channel.` tokens, where documented value divergence is part of the design.
+**Themes are 1:1.** Semantic tokens are structurally identical across light and dark. Structural divergence between the two is a leak, not a feature.
 
 **Voice.** British English. Plain English. Active voice. Short sentences. Never `—` (em dash). Never `DS` by default; use `Design System` in full.
 
@@ -74,34 +72,7 @@ What this means for design:
 
 * Clarity beats novelty. If a designer-friendly pattern conflicts with reader comprehension, comprehension wins.
 * Hierarchy is the most important visual decision. Multiple display sizes in one frame is a sign of a confused hierarchy.
-* Channels are personality, not decoration. A `comment` section is darker, weightier, more confident in opinion than `home`. A `puzzle` section is more playful, brighter, more interactive. The colours encode the tone, they are not arbitrary.
 * Trust is the product. Anything that makes the page feel "less real" (decorative animation, fake personalisation, faux-rich interactions) erodes the product.
-
-## The thirteen channels
-
-Each channel has a foundation colour (in `tokens.json` under `product.channel.<name>`), a set of palette ramps (`light/ channels/ ramp/ <name>` and the dark equivalent), and a set of channel-aware semantic tokens (paths containing `.channel.`).
-
-| Channel | Foundation colour | Tone | Common surfaces |
-|---|---|---|---|
-| `home` | `#135DCB` | The default brand tone. Authoritative, broad, calm. | Homepage, top stories, header. |
-| `uk` | `#407196` | Domestic news. Matter-of-fact, close to home. | Politics, society, regional reporting. |
-| `world` | `#00787C` | Global, considered, slightly more serious than home. | International news, foreign affairs. |
-| `money` | `#58A385` | Practical, advisory, grown-up. | Personal finance, markets, business advice. |
-| `comment` | `#9B1F45` | Opinionated, weighty, confident. | Op-ed, leaders, columns. |
-| `business` | `#21709C` | Sharp, transactional, professional. | Business news, markets. |
-| `sport` | `#007A3F` | Energetic but restrained. Not stadium-loud. | Match reports, columns, fixtures. |
-| `travel` | `#2c79ad` | Aspirational, beautiful, considered. | Destinations, advice, guides. |
-| `puzzle` | `#DF7334` | Playful, interactive, warm. | Crosswords, sudoku, games. |
-| `culture` | `#942364` | Cultured, reflective, opinionated. | Arts, books, theatre, film. |
-| `obituaries` | `#6c6c69` | Quiet, respectful, formal. | Obituaries section only. |
-| `ireland` | `#0f3d38` | Regional identity, distinct header, otherwise close to home. | Regional edition. |
-| `lifeAndStyle` | `#149FB5` | Lighter, personal, service-led without being frivolous. | Fashion, food, health, relationships, property. |
-
-Naming note: the foundation colour key for puzzles is `product.channel.puzzle` (singular); the semantic theme sets are named `puzzles` (`light/ puzzles`, `dark/ puzzles`). Both refer to the same channel.
-
-Setting a channel is a section-level decision, never a component-level one. A button does not say "I am a comment button". A button in a comment section gets channel-aware colour because the section sets the channel.
-
-Cross-channel mixing (a `sport` header with a `comment` accent) is an error, not a creative choice.
 
 ## How the tokens work
 
@@ -117,18 +88,17 @@ Three layers, one direction of flow. Components use semantic tokens only. If a d
 
 Source of truth: `packages/tokens/src/tokens.json`. Discovery layer: the Design System Tokens MCP server. When the two appear to disagree, the file wins.
 
-Themes are structurally identical. A token like `messaging.fill.warning` means the same thing in `light/ core`, `light/ comment`, `dark/ core`. The only exception is the channel layer: `light/ comment/ accent/ primary` and `dark/ comment/ accent/ primary` are expected to take channel-appropriate values that differ between themes. That is the documented divergence. Everywhere else, theme divergence is a leak.
+Themes are structurally identical. A token like `messaging.fill.warning` means the same thing in `light/ core` and `dark/ core`. Theme divergence is a leak.
 
 ## What good design looks like
 
-Six principles, in priority order. When two conflict, the higher-priority one wins.
+Five principles, in priority order. When two conflict, the higher-priority one wins.
 
 1. **Comprehension first.** The reader should understand the page on a single scroll. If a designer-friendly device gets in the way, remove the device.
 2. **Hierarchy is the work.** Most visual issues are hierarchy issues. Get the headline / body / metadata relationship right and the page tends to work.
 3. **Editorial rhythm.** Spacing follows the type scale, not the grid alone. A page that is 4px-perfect but visually arrhythmic is a worse page.
 4. **Components, not custom.** If a DS component exists, use it. If it does not, the design system fills the gap before the feature ships its own.
-5. **Channels carry meaning.** Channel colour is intent, not decoration. Use it where the decision warrants it, leave it alone where it does not.
-6. **Motion is invisible.** Good motion is felt, not seen. If the reader notices the animation, the animation is wrong.
+5. **Motion is invisible.** Good motion is felt, not seen. If the reader notices the animation, the animation is wrong.
 
 ## What is *not* good design
 
@@ -139,7 +109,6 @@ These are anti-patterns. The system should refuse to produce them.
 * Spring-bouncy motion. Reads as toy-like, undermines authority.
 * Decorative micro-interactions everywhere. Hover effects on every static element, scroll-triggered reveals on every paragraph.
 * Emoji in product surfaces. Allowed in user-generated content; not in UI chrome, error states, or marketing.
-* Cross-channel mixing of accent and header colours.
 * Body text below the smallest body token (verify exact size via `motion-tokens` or `discovery/token-lookup`).
 * "Friendly" copy that does the reader's thinking for them. Good copy is direct.
 * Borrowed identities. If the design could have come from any other product, the design has failed.
@@ -173,7 +142,6 @@ Specific motion tokens are in `motion/motion-tokens.md`. Specific interaction pa
 * **Reuse always.** Every primitive (Button, Input, Link, Chip, Label, Icon, Toast, Divider, Text, Flag) is in `@ds/components-react`. Use it. If you need to override, override via prop. If you cannot override via prop, that is a system gap.
 * **Composition over invention.** New patterns combine existing primitives. Inventing a new primitive requires governance approval (`governance/token-modification-gates.md`).
 * **Variants for state, not for opinion.** A Button has size, intent, state, behaviour. It does not have a `Button.LookFancy` variant. Variants encode functional difference.
-* **Channels via tokens, not via props.** A button in a comment section is the same Button component as one in a sport section. The channel colour flows in through tokens.
 
 ## Quick-start patterns (the prototyping cheat-sheet)
 
@@ -190,8 +158,6 @@ When you are starting a prototype and want to be productive in the next 15 minut
 **Hover.** Almost-instant fill change. Do not animate width, height, or position on hover.
 
 **Modal / overlay.** Use the standard interaction pattern from `motion/interaction-patterns.md` (`modal-open` + `modal-close`).
-
-**Channel.** Pick one channel and stick with it for the section. If you do not need channel colour, use core tokens and leave the channel system alone.
 
 **Reduced motion.** Wrap any animation in `@media (prefers-reduced-motion: reduce)` and replace it with opacity-only or no animation.
 
@@ -270,4 +236,4 @@ This skill is referenced by all other skills in `design/`. It is the only skill 
 
 ## A note on maintenance
 
-This skill is the most important file in `design/`. If your brand voice changes, channels are added or removed, or design principles evolve, this is the file that changes first. Every other skill follows.
+This skill is the most important file in `design/`. If your brand voice changes or design principles evolve, this is the file that changes first. Every other skill follows.

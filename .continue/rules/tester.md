@@ -62,7 +62,7 @@ When validating specific token types, reference these focused modules in `packag
 **Also reference:**
 
 - `packages/tokens/.agents/CONSTRAINTS.md` - Constraint violations checklist
-- `semantic-colour.md` - Verify channel token mappings
+- `semantic-colour.md` - Verify semantic token mappings
 - `docs/reference/semantic-tokens.md` - Complete token reference
 
 ---
@@ -199,8 +199,8 @@ with open('packages/tokens/src/tokens.json') as f:
 
 # Test a few themes from light and dark
 themes_to_check = {
-    'light': ['light/ core', 'light/ comment', 'light/ puzzles'],
-    'dark': ['dark/ core', 'dark/ comment', 'dark/ puzzles']
+    'light': ['light/ core', 'light/ brand'],
+    'dark': ['dark/ core', 'dark/ brand']
 }
 
 print("Mode-Specific Validation")
@@ -212,7 +212,7 @@ for mode, theme_list in themes_to_check.items():
         if theme in tokens:
             # Check if text.channel tokens exist and are different
             try:
-                text = tokens[theme].get('text', {}).get('channel', {})
+                text = tokens[theme].get('text', {})
                 primary = text.get('primary', {}).get('value', 'N/A')
                 secondary = text.get('secondary', {}).get('value', 'N/A')
 
@@ -222,7 +222,7 @@ for mode, theme_list in themes_to_check.items():
                 else:
                     print(f"  ✅ {theme}: primary ≠ secondary (GOOD)")
             except:
-                print(f"  ❌ {theme}: Could not parse channel tokens")
+                print(f"  ❌ {theme}: Could not parse text tokens")
         else:
             print(f"  ❌ {theme}: Theme not found")
 
@@ -237,7 +237,7 @@ print("❌ FAIL if: Any theme shows 'PRIMARY = SECONDARY' (BAD)")
 python3 test_both_modes.py
 # Expected output:
 #   ✅ light/ core: primary ≠ secondary (GOOD)
-#   ✅ light/ comment: primary ≠ secondary (GOOD)
+#   ✅ light/ brand: primary ≠ secondary (GOOD)
 #   ✅ dark/ core: primary ≠ secondary (GOOD)
 ```
 
@@ -282,9 +282,9 @@ Using `CONSTRAINTS.md` as your checklist:
 | ------------------------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | **No circular refs**      | Read ARCHITECTURE.md changes, trace references                                           | No token A→B→C→A patterns                                                                    |
 | **Mode-specific logic**   | For light/dark changes: spot-check 3 themes from EACH mode using validation script below | Values reasonable for mode (light ≠ dark semantics), primary ≠ secondary, no inverted colors |
-| **Contrast validation**   | For accessibility changes: verify resolved hex values meet WCAG requirements             | All channel tokens meet 4.5:1 against theme background                                       |
+| **Contrast validation**   | For accessibility changes: verify resolved hex values meet WCAG requirements             | All tokens meet 4.5:1 against theme background                                       |
 | **Bulk update sanity**    | For changes affecting >10 themes: verify sample themes have diverse values               | Not all themes using same step (e.g., all ramp.50 = error)                                   |
-| **Semantic→Palette only** | Search `semantic.*` in changes, verify all refs point to `brand.*` or `channel.*`        | All semantic refs go to Palette layer                                                        |
+| **Semantic→Palette only** | Search `semantic.*` in changes, verify all refs point to `brand.*`        | All semantic refs go to Palette layer                                                        |
 | **Font weights strings**  | Search `fontWeight` in changes                                                           | No numeric values, only `"Bold"`, `"Light"`, etc.                                            |
 | **No raw values**         | Search for color hex or size numbers                                                     | All values reference tokens: `{...}`                                                         |
 
@@ -421,7 +421,7 @@ For each constraint, here's how to verify:
 ### 2. Semantic→Palette Only
 
 **Check**: Search changes for `semantic.` tokens  
-**Verify**: Each one references `{brand.*}` or `{channel.*}` (Palette), never `{foundation.*}`
+**Verify**: Each one references `{brand.*}` (Palette), never `{foundation.*}`
 
 ### 3. Font Weights (Strings)
 

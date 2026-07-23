@@ -64,18 +64,15 @@ Info findings never change the score; they are surfaced for judgement. A frame w
 | DS-TYP-06 | The lead headline or primary action carries the highest visual weight in its region | warning | DNA principle 2 (hierarchy is the work) | design-critique A |
 | DS-TYP-07 | Body copy stays within a readable measure, roughly 60 to 75 characters per line | info | grid reference (reading width) | design-critique A |
 
-### COL — Colour and channels
+### COL — Colour
 
 | ID | Rule | Severity | Source | Enforced by |
 |---|---|---|---|---|
 | DS-COL-01 | Designs consume semantic tokens only; palette-direct is a smell, foundation-direct is a bug | error | DNA token model | token-mapping-audit |
 | DS-COL-02 | No raw hex values; every colour resolves to a DS token | error | token architecture | token-mapping-audit |
 | DS-COL-03 | No legacy (`NK-*`) or intermediate-collection bindings | error | Home page v2 finding; migration table | token-mapping-audit |
-| DS-COL-04 | Channel is set at section level; components never bind `product.channel.*` directly | error | DNA channels | channel-context |
-| DS-COL-05 | No cross-channel mixing of accent and masthead colours | error | DNA anti-patterns | channel-context |
-| DS-COL-06 | A frame that reads as a channel declares that channel (channel-implied-but-not-declared) | warning | design-critique F | channel-context |
 | DS-COL-07 | No purple gradients on white, or generic gradient decoration | warning | DNA anti-patterns | design-critique |
-| DS-COL-08 | Light and dark use the same semantic token; per-mode divergence only on `.channel.*` paths | error | DNA themes 1:1 | light-dark-parity |
+| DS-COL-08 | Light and dark use the same semantic token; per-mode structural divergence is a leak | error | DNA themes 1:1 | light-dark-parity |
 
 ### SPC — Spacing and rhythm
 
@@ -156,7 +153,7 @@ While motion tokens are absent from `tokens.json`, duration and easing findings 
 
 Promotion checklist: give it the next free ID in its category, name a concrete source (the corpus version counts as a source once promoted), set a severity, and note the enforcing skill. Then tick the candidate in the corpus file's "Promoted" section.
 
-_(no promoted corpus rules yet — the seed set above is 56 rules from the DNA, sibling skills and token architecture.)_
+_(no promoted corpus rules yet — the seed set above is 53 rules from the DNA, sibling skills and token architecture.)_
 
 ## Output Contract
 
@@ -167,7 +164,7 @@ When asked for the rule set (or a filtered slice), return the matching rows plus
   "skill": "design/foundation/design-rules",
   "version": "1.0.0",
   "categories": ["TYP","COL","SPC","CMP","A11Y","UX","MOT","BRD"],
-  "rule_count": 56,
+  "rule_count": 53,
   "weights": { "error": 5, "warning": 2, "info": 0 },
   "per_category_cap": 30
 }
