@@ -23,7 +23,7 @@ Generate screens with `packages/ui` (`@ds/ui`): the complete shadcn/ui new-york 
 
 ## Theming contract
 
-Components consume CSS variables only: `--background, --foreground, --card, --popover, --primary, --secondary, --muted, --accent, --destructive, --border, --input, --ring, --chart-1..5, --sidebar-*, --radius, --spacing, --font-sans, --font-heading, --font-weight-heading, --font-weight-body, --leading, --tracking, --shadow-*`. Light values live on `:root`, dark on `.dark`. Toggling dark mode is adding the `dark` class to `<html>`. Never hardcode a colour, radius or font in generated screens; if a value seems missing, it belongs in the token engine, not inline.
+Components consume CSS variables only: `--background, --foreground, --card, --popover, --primary, --secondary, --muted, --accent, --destructive, --border, --input, --ring, --chart-1..5, --sidebar-*, --radius, --spacing, --font-sans, --font-heading, --font-weight-heading, --font-weight-body, --leading, --tracking, --shadow-*, --surface-opacity, --surface-blur, --surface-tint, --surface-highlight, --page-style`. Surface material (flat/elevated/glass/soft/outline) is applied to shadcn surfaces via `data-slot` rules in `/ui/styles/shadcn.css`; for the glass material give pages a gradient or image background so the blur reads, and rely on the controller contrast audit which composites translucent surfaces. Light values live on `:root`, dark on `.dark`. Toggling dark mode is adding the `dark` class to `<html>`. Never hardcode a colour, radius or font in generated screens; if a value seems missing, it belongs in the token engine, not inline.
 
 ## Usage
 

@@ -699,6 +699,15 @@
   .mz-reply { border-top: 1px solid var(--border); padding-top: 12px; margin-top: 6px; }
   .mz-reply-row { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; }
   .mz-mute { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted-foreground); }
+
+  /* ============ Material (surface style) ============ */
+  #preview .pv-card {
+    background: var(--surface-bg, var(--card));
+    backdrop-filter: blur(var(--surface-blur, 0px));
+    -webkit-backdrop-filter: blur(var(--surface-blur, 0px));
+  }
+  #preview[data-material="glass"] .pv-card { border-top: 1px solid var(--surface-highlight, transparent); }
+  #preview { transition: background .25s ease; }
 </style>
 </head>
 <body>
@@ -1194,6 +1203,27 @@
         <button type="button" data-v="2">2px</button>
       </div>
     </details>
+    <details class="acc" open>
+      <summary>Material</summary>
+      <div class="panel-sub" style="margin-bottom:8px">How surfaces are rendered. Pick a material, then fine-tune. Applies to every component.</div>
+      <div class="seg" id="material-preset" style="flex-wrap:wrap">
+        <button type="button" data-v="flat">Flat</button>
+        <button type="button" data-v="elevated" class="active">Elevated</button>
+        <button type="button" data-v="glass">Glass</button>
+        <button type="button" data-v="soft">Soft</button>
+        <button type="button" data-v="outline">Outline</button>
+      </div>
+      <div class="dd-slider" style="margin-top:12px"><span>Surface opacity</span><input type="range" id="mt-opacity" min="30" max="100" step="1" value="100"><output id="mt-opacity-v">100</output></div>
+      <div class="dd-slider"><span>Backdrop blur</span><input type="range" id="mt-blur" min="0" max="40" step="1" value="0"><output id="mt-blur-v">0</output></div>
+      <div class="dd-slider"><span>Frost tint</span><input type="range" id="mt-tint" min="0" max="30" step="1" value="0"><output id="mt-tint-v">0</output></div>
+      <div class="dd-slider"><span>Edge highlight</span><input type="range" id="mt-highlight" min="0" max="40" step="1" value="0"><output id="mt-highlight-v">0</output></div>
+      <div class="dd-label">Page background</div>
+      <div class="seg" id="material-page">
+        <button type="button" data-v="plain" class="active">Plain</button>
+        <button type="button" data-v="gradient">Gradient</button>
+      </div>
+      <div class="hint" id="material-hint" style="margin-top:8px"></div>
+    </details>
     <details class="acc">
       <summary>Derived tokens</summary>
         <div class="panel">
@@ -1303,9 +1333,13 @@
     primary: '#005c8a', neutralTint: '#8c8c8c', tertiary: '#3292a6',
     info: '#0f4aa2', success: '#31a46f', warning: '#ffa300', error: '#e02020',
     charts: ['#254251', '#e0ab26', '#75b2dd', '#f37f2f', '#3292a6'],
-    headingFont: 'Inter', bodyFont: 'Inter',
+    headingFont: 'Inter', bodyFont: 'Inter', monoFont: 'System',
     headingWeight: 600, bodyWeight: 400,
-    typeScale: 1.25, radius: 1,
+    typeScale: 1.25, radius: 1, spacing: 1, borderWidth: 1,
+    lineHeight: 'normal', letterSpacing: 'normal',
+    shadow: { preset: 'soft', blur: 8, y: 2, op: 10 },
+    material: { preset: 'elevated', opacity: 100, blur: 0, tint: 0, highlight: 0, page: 'plain' },
+    overrides: null, presetSlug: null,
     identity: { name: '', industry: '', tagline: '', description: '', website: '', audience: '', voice: '', values: [], directives: '' },
     guidelines: ''
   };
@@ -1663,6 +1697,68 @@
       toast('note', 'Old server detected', 'This page is newer than the server. Run: lsof -ti :4400 | xargs kill -9, then npm run controller.');
     }
   }).catch(function () {});
+
+  /* ================= Material (surface style) ================= */
+  var MATERIAL_PRESETS = {
+    flat:     { material: { preset: 'flat',     opacity: 100, blur: 0,  tint: 0,  highlight: 0,  page: 'plain' },    shadow: { preset: 'none', blur: 0,  y: 0,  op: 0 },  borderWidth: 1 },
+    elevated: { material: { preset: 'elevated', opacity: 100, blur: 0,  tint: 0,  highlight: 0,  page: 'plain' },    shadow: { preset: 'soft', blur: 8,  y: 2,  op: 10 }, borderWidth: 1 },
+    glass:    { material: { preset: 'glass',    opacity: 60,  blur: 22, tint: 12, highlight: 24, page: 'gradient' }, shadow: { preset: 'custom', blur: 24, y: 8, op: 14 }, borderWidth: 1 },
+    soft:     { material: { preset: 'soft',     opacity: 100, blur: 0,  tint: 3,  highlight: 6,  page: 'plain' },    shadow: { preset: 'custom', blur: 30, y: 10, op: 9 }, borderWidth: 0 },
+    outline:  { material: { preset: 'outline',  opacity: 100, blur: 0,  tint: 0,  highlight: 0,  page: 'plain' },    shadow: { preset: 'none', blur: 0,  y: 0,  op: 0 },  borderWidth: 2 }
+  };
+  function applyMaterialPreset(name) {
+    var p = MATERIAL_PRESETS[name];
+    if (!p) return;
+    brand.material = JSON.parse(JSON.stringify(p.material));
+    brand.shadow = JSON.parse(JSON.stringify(p.shadow));
+    brand.borderWidth = p.borderWidth;
+    syncControls();
+    markDirty();
+  }
+  (function buildMaterial() {
+    var mp = document.getElementById('material-preset');
+    if (mp) mp.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () { applyMaterialPreset(b.getAttribute('data-v')); });
+    });
+    [['mt-opacity', 'opacity'], ['mt-blur', 'blur'], ['mt-tint', 'tint'], ['mt-highlight', 'highlight']].forEach(function (pair) {
+      var elx = document.getElementById(pair[0]);
+      if (!elx) return;
+      elx.addEventListener('input', function () {
+        brand.material = brand.material || { preset: 'elevated', opacity: 100, blur: 0, tint: 0, highlight: 0, page: 'plain' };
+        brand.material[pair[1]] = parseFloat(elx.value);
+        brand.material.preset = 'custom';
+        document.getElementById(pair[0] + '-v').textContent = elx.value;
+        applyThemeVars();
+        syncMaterial();
+        markDirty();
+      });
+    });
+    var pg = document.getElementById('material-page');
+    if (pg) pg.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        brand.material = brand.material || {};
+        brand.material.page = b.getAttribute('data-v');
+        applyThemeVars();
+        syncMaterial();
+        markDirty();
+      });
+    });
+  })();
+  function syncMaterial() {
+    var m = brand.material || {};
+    [['mt-opacity', 'opacity', 100], ['mt-blur', 'blur', 0], ['mt-tint', 'tint', 0], ['mt-highlight', 'highlight', 0]].forEach(function (t) {
+      var elx = document.getElementById(t[0]);
+      if (elx) { var v = m[t[1]] == null ? t[2] : m[t[1]]; elx.value = v; document.getElementById(t[0] + '-v').textContent = String(v); }
+    });
+    var mp = document.getElementById('material-preset');
+    if (mp) mp.querySelectorAll('button').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-v') === m.preset); });
+    var pg = document.getElementById('material-page');
+    if (pg) pg.querySelectorAll('button').forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-v') === (m.page || 'plain')); });
+    var hint = document.getElementById('material-hint');
+    if (hint) hint.textContent = m.preset === 'glass'
+      ? 'Glass needs a textured or gradient page to read. Contrast is checked against the see-through surface.'
+      : (m.preset === 'outline' ? 'Hard edges. Pairs with a thicker border and no shadow.' : '');
+  }
 
   /* ================= Preview sub-tabs ================= */
   (function buildSubtabs() {
@@ -2596,6 +2692,12 @@
 
   var preview = $('#preview');
 
+  function hexToRgba(hex, a) {
+    hex = (hex || '#000000').replace('#', '');
+    if (hex.length === 3) hex = hex.split('').map(function (c) { return c + c; }).join('');
+    var n = parseInt(hex, 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
   function mix(hexA, hexB, t) {
     function c(h){h=h.replace('#','');if(h.length===3)h=h.split('').map(function(x){return x+x;}).join('');var n=parseInt(h,16);return [(n>>16)&255,(n>>8)&255,n&255];}
     var a=c(hexA),b=c(hexB);
@@ -2627,6 +2729,20 @@
     r.setProperty('--sp', ((brand.spacing || 1) * 4) + 'px');
     r.setProperty('--bw', (brand.borderWidth == null ? 1 : brand.borderWidth) + 'px');
     r.setProperty('--shadow', shadowCss(brand.shadow || { blur: 8, y: 2, op: 10 }));
+    // Material: translucency, blur, tint, page background (applies to preview surfaces)
+    var mt = brand.material || {};
+    var mop = (mt.opacity == null ? 100 : mt.opacity) / 100;
+    var tinted = mix(card, tokens.primary || card, (mt.tint || 0) / 100);
+    preview.style.setProperty('--surface-bg', hexToRgba(tinted, mop));
+    preview.style.setProperty('--surface-blur', (mt.blur || 0) + 'px');
+    preview.style.setProperty('--surface-highlight', 'rgba(255,255,255,' + (((mt.highlight || 0) / 100) * 0.7).toFixed(3) + ')');
+    preview.setAttribute('data-material', mt.preset || 'elevated');
+    if ((mt.page || 'plain') === 'gradient') {
+      var pp = tokens.primary || '#888888', tt = tokens.tertiary || pp;
+      preview.style.background = 'linear-gradient(135deg, ' + hexToRgba(pp, 0.16) + ', ' + hexToRgba(tt, 0.10) + '), ' + bg;
+    } else {
+      preview.style.background = '';
+    }
     r.setProperty('--accent-fg', tokens['primary-foreground'] || bg);
     preview.style.setProperty('--radius', (brand.radius * 8).toFixed(1) + 'px');
     preview.style.setProperty('--font-heading', fontStack(brand.headingFont));
@@ -3053,7 +3169,7 @@
       var zero = ['adj-h','adj-s','adj-b'].every(function (i) { var e = document.getElementById(i); return e && e.value === '0'; });
       if (zero) captureAdjustBase();
     } catch (e) {}
-    try { syncTypeDd(); syncRadiusDd(); syncSpacingEffects(); } catch (e) {}
+    try { syncTypeDd(); syncRadiusDd(); syncSpacingEffects(); syncMaterial(); } catch (e) {}
     COLOUR_KEYS.forEach(function (c) {
       var v = normaliseHex(brand[c.key]) || CLIENT_DEFAULTS[c.key];
       brand[c.key] = v;

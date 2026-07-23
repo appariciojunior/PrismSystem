@@ -28,7 +28,9 @@ export const DEFAULT_BRAND = {
   radius: 1.0, // multiplier on the borderRadius scale
   spacing: 1.0, // density multiplier on the spacing scale
   borderWidth: 1,
-  shadow: { preset: 'soft', blur: 8, y: 2, op: 10 }
+  shadow: { preset: 'soft', blur: 8, y: 2, op: 10 },
+  // Material / surface style: how surfaces are rendered (the taste layer above tokens)
+  material: { preset: 'elevated', opacity: 100, blur: 0, tint: 0, highlight: 0, page: 'plain' }
 };
 
 // theme-layer aliases: token -> ramp reference (mode-aware via ramp tables)
@@ -61,6 +63,14 @@ export function saveBrand(b) {
 }
 
 const readJson = (f) => JSON.parse(fs.readFileSync(f, 'utf8'));
+
+// Alpha-composite `over` (at `alpha`) on top of `base`. Hex in, hex out.
+function blendHex(base, over, alpha) {
+  const rgb = (h) => { h = (h || '#000000').replace('#', ''); return [0, 2, 4].map((i) => parseInt(h.slice(i, i + 2), 16)); };
+  const [br, bg, bb] = rgb(base), [or, og, ob] = rgb(over);
+  const m = (a, b) => Math.round(b * alpha + a * (1 - alpha)).toString(16).padStart(2, '0');
+  return `#${m(br, or)}${m(bg, og)}${m(bb, ob)}`;
+}
 
 /** Discover existing ramp step names from the hex cache (e.g. neutral -> [50..950]). */
 function rampSteps(hexes, family) {
@@ -165,11 +175,21 @@ export function computeSystem(brand) {
     ['destructive-foreground', 'destructive'], ['info-foreground', 'info'],
     ['success-foreground', 'success'], ['warning-foreground', 'warning']
   ];
+  // When surfaces are translucent (glass), text sits on the surface composited
+  // over the page background, so audit against that effective colour, not the token.
+  const mat = brand.material || {};
+  const op = (mat.opacity == null ? 100 : mat.opacity) / 100;
+  const translucent = op < 0.99 && ['card', 'popover'].length;
+  const effBg = (mode, bg) => {
+    if (op >= 0.99 || (bg !== 'card' && bg !== 'popover')) return theme[mode][bg];
+    return blendHex(theme[mode].background, theme[mode][bg], op); // surface over page
+  };
   const audits = {};
   for (const mode of ['light', 'dark']) {
     audits[mode] = pairs.map(([fg, bg]) => {
-      const r = contrast(theme[mode][fg], theme[mode][bg]);
-      return { fg, bg, ratio: Math.round(r * 10) / 10, aa: r >= 4.5, aaLarge: r >= 3 };
+      const bgHex = effBg(mode, bg);
+      const r = contrast(theme[mode][fg], bgHex);
+      return { fg, bg, ratio: Math.round(r * 10) / 10, aa: r >= 4.5, aaLarge: r >= 3, translucent: bgHex !== theme[mode][bg] };
     });
   }
 
@@ -339,6 +359,11 @@ export function writeShadcnTheme(brand, system) {
   --shadow-lg: ${shadow(1.6)};
   --shadow-xl: ${shadow(2.1)};
   --shadow-2xl: ${shadow(2.8, 1.4)};
+  --surface-opacity: ${(((brand.material || {}).opacity ?? 100) / 100).toFixed(3)};
+  --surface-blur: ${(brand.material || {}).blur || 0}px;
+  --surface-tint: ${(brand.material || {}).tint || 0};
+  --surface-highlight: rgba(255,255,255,${((((brand.material || {}).highlight || 0) / 100) * 0.7).toFixed(3)});
+  --page-style: ${(brand.material || {}).page || 'plain'};
 ${block('light')}
 }
 

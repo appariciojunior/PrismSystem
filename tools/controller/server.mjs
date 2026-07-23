@@ -127,6 +127,12 @@ const server = http.createServer(async (req, res) => {
         id.voice ? `\n## Voice and tone\n${id.voice}` : '',
         (id.values || []).length ? `\n## Values\n${id.values.map((v) => `- ${v}`).join('\n')}` : '',
         id.directives ? `\n## AI directives\n${id.directives}` : '',
+        (function () {
+          const m = brand.material || {};
+          const desc = { flat: 'flat, no elevation', elevated: 'elevated with soft shadows', glass: 'iOS-style glass: translucent, backdrop blur, needs a textured or gradient page background', soft: 'soft neumorphic', outline: 'outlined, hard edges' }[m.preset] || m.preset;
+          return `\n## Material\nSurface style: ${m.preset} (${desc}). Surface opacity ${m.opacity ?? 100}%, backdrop blur ${m.blur || 0}px.` +
+            (m.preset === 'glass' ? ' When composing pages, give the page a gradient or image background so the blur reads, and check text contrast against the composited surface.' : '');
+        })(),
         brand.guidelines ? `\n## Rules\n${brand.guidelines}` : ''
       ].filter(Boolean).join('\n');
       const gdir = path.join(ROOT, 'design-corpus/brand');

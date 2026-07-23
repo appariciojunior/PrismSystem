@@ -74,3 +74,23 @@
   * { border-color: var(--border); outline-color: color-mix(in srgb, var(--ring) 50%, transparent); }
   body { background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
 }
+
+@layer base {
+  /* Material / surface style, driven by the Design System Controller.
+     Every shadcn surface (via data-slot) picks up translucency, blur and tint. */
+  [data-slot="card"],
+  [data-slot="popover-content"],
+  [data-slot="dialog-content"],
+  [data-slot="sheet-content"],
+  [data-slot="dropdown-menu-content"],
+  [data-slot="alert"],
+  [data-slot="hover-card-content"],
+  [data-slot="menubar-content"],
+  [data-slot="select-content"] {
+    background-color: color-mix(in srgb,
+      color-mix(in srgb, var(--card), var(--primary) calc(var(--surface-tint, 0) * 1%))
+      calc(var(--surface-opacity, 1) * 100%), transparent);
+    backdrop-filter: blur(var(--surface-blur, 0px));
+    -webkit-backdrop-filter: blur(var(--surface-blur, 0px));
+  }
+}

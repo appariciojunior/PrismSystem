@@ -186,19 +186,19 @@
       "description": "Black"
     },
     "fontFamily010": {
-      "value": "'Inter', system-ui, sans-serif",
+      "value": "'Geist', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontFamily020": {
-      "value": "'Inter', system-ui, sans-serif",
+      "value": "'Geist', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontFamily030": {
-      "value": "'Inter', system-ui, sans-serif",
+      "value": "'Geist', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontFamily040": {
-      "value": "'Inter', system-ui, sans-serif",
+      "value": "'Geist', system-ui, sans-serif",
       "type": "fontFamilies"
     },
     "fontLineHeight010": {
@@ -532,7 +532,7 @@
           "description": "Form input background at placeholder/rest state."
         },
         "error": {
-          "value": "#FDD0CA",
+          "value": "#FCD5D2",
           "type": "color",
           "description": "Form input background in error state. Uses messaging error fill semantics."
         },
@@ -574,7 +574,7 @@
           "description": "Form input border at rest. Defines field boundary with neutral contrast."
         },
         "error": {
-          "value": "#4C0304",
+          "value": "#52020C",
           "type": "color",
           "description": "Form input border in error state. Uses messaging error border semantics."
         },
@@ -697,7 +697,7 @@
     "messaging": {
       "fill": {
         "error": {
-          "value": "#FDD0CA",
+          "value": "#FCD5D2",
           "type": "color",
           "description": "Error message background. Signals critical issue, validation failure, or danger."
         },
@@ -719,7 +719,7 @@
       },
       "border": {
         "error": {
-          "value": "#4C0304",
+          "value": "#52020C",
           "type": "color",
           "description": "Error message border. Reinforces error intent with colour accent."
         },
@@ -741,7 +741,7 @@
       },
       "icon": {
         "error": {
-          "value": "#5D0B0A",
+          "value": "#650C15",
           "type": "color",
           "description": "Status icon used within error messaging surfaces."
         },
@@ -834,7 +834,7 @@
       "primary": {
         "fill": {
           "default": {
-            "value": "#005C8A",
+            "value": "#000000",
             "type": "color",
             "description": "High-emphasis button background. Primary action colour used for main CTAs."
           },
@@ -991,7 +991,7 @@
         },
         "border": {
           "default": {
-            "value": "#5D0B0A",
+            "value": "#650C15",
             "type": "color",
             "description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation."
           },
@@ -1008,7 +1008,7 @@
         },
         "text": {
           "default": {
-            "value": "#5D0B0A",
+            "value": "#650C15",
             "type": "color",
             "description": "Text for destructive action buttons. High contrast ensures readability and signals danger."
           },
@@ -1045,7 +1045,7 @@
         "primary": {
           "text": {
             "default": {
-              "value": "#2F709B",
+              "value": "#170007",
               "type": "color",
               "description": "Standalone primary link text. Used in prose and navigation. Brand colour."
             },
@@ -1510,7 +1510,7 @@
       },
       "callout": {
         "fill": {
-          "value": "#4C0304",
+          "value": "#52020C",
           "type": "color",
           "description": "Fill token for LIVE Flag."
         },
@@ -1544,7 +1544,7 @@
           "description": "Warning toast background."
         },
         "error": {
-          "value": "#5D0B0A",
+          "value": "#650C15",
           "type": "color",
           "description": "Error toast background."
         }
@@ -1566,7 +1566,7 @@
           "description": "Icon on warning toast."
         },
         "error": {
-          "value": "#FC7264",
+          "value": "#FC8481",
           "type": "color",
           "description": "Icon on error toast."
         }
@@ -1683,37 +1683,37 @@
     },
     "theme": {
       "background": {
-        "value": "#ffffff",
+        "value": "#fcfcfc",
         "type": "color",
         "description": "App/page base surface."
       },
       "foreground": {
-        "value": "#101010",
+        "value": "#000000",
         "type": "color",
         "description": "Default text on background."
       },
       "card": {
-        "value": "#ebebeb",
+        "value": "#ffffff",
         "type": "color",
         "description": "Card surface."
       },
       "card-foreground": {
-        "value": "#101010",
+        "value": "#000000",
         "type": "color",
         "description": "Text on card."
       },
       "popover": {
-        "value": "#ffffff",
+        "value": "#fcfcfc",
         "type": "color",
         "description": "Popover/menu surface."
       },
       "popover-foreground": {
-        "value": "#101010",
+        "value": "#000000",
         "type": "color",
         "description": "Text on popover."
       },
       "primary": {
-        "value": "#005c8a",
+        "value": "#000000",
         "type": "color",
         "description": "Primary brand tier. Main CTAs."
       },
@@ -1723,47 +1723,47 @@
         "description": "Text/icon on primary."
       },
       "secondary": {
-        "value": "#cecece",
+        "value": "#ebebeb",
         "type": "color",
         "description": "Secondary tier."
       },
       "secondary-foreground": {
-        "value": "#101010",
+        "value": "#000000",
         "type": "color",
         "description": "Text/icon on secondary."
       },
       "tertiary": {
-        "value": "#3292a6",
+        "value": "#ebebeb",
         "type": "color",
         "description": "Tertiary accent tier."
       },
       "tertiary-foreground": {
-        "value": "#ffffff",
+        "value": "#000000",
         "type": "color",
         "description": "Text/icon on tertiary."
       },
       "muted": {
-        "value": "#dcdcdc",
+        "value": "#f5f5f5",
         "type": "color",
         "description": "Muted surface."
       },
       "muted-foreground": {
-        "value": "#606060",
+        "value": "#525252",
         "type": "color",
         "description": "Muted/secondary text."
       },
       "border": {
-        "value": "#b1b1b1",
+        "value": "#e4e4e4",
         "type": "color",
         "description": "Default border colour."
       },
       "input": {
-        "value": "#b1b1b1",
+        "value": "#ebebeb",
         "type": "color",
         "description": "Form input border."
       },
       "ring": {
-        "value": "#606060",
+        "value": "#000000",
         "type": "color",
         "description": "Focus ring."
       },
@@ -1798,7 +1798,7 @@
         "description": "Text on warning."
       },
       "error": {
-        "value": "#e02020",
+        "value": "#e54b4f",
         "type": "color",
         "description": "Error feedback."
       },
@@ -1808,7 +1808,7 @@
         "description": "Text on error."
       },
       "destructive": {
-        "value": "#e02020",
+        "value": "#e54b4f",
         "type": "color",
         "description": "Destructive action."
       },
@@ -1818,27 +1818,27 @@
         "description": "Text on destructive."
       },
       "chart-1": {
-        "value": "#254251",
+        "value": "#f9b138",
         "type": "color",
         "description": "Data-vis series 1."
       },
       "chart-2": {
-        "value": "#e0ab26",
+        "value": "#2d62ef",
         "type": "color",
         "description": "Data-vis series 2."
       },
       "chart-3": {
-        "value": "#75b2dd",
+        "value": "#a4a4a4",
         "type": "color",
         "description": "Data-vis series 3."
       },
       "chart-4": {
-        "value": "#f37f2f",
+        "value": "#e4e4e4",
         "type": "color",
         "description": "Data-vis series 4."
       },
       "chart-5": {
-        "value": "#3292a6",
+        "value": "#747474",
         "type": "color",
         "description": "Data-vis series 5."
       }
@@ -2002,7 +2002,7 @@
           "description": "Form input background at placeholder/rest state."
         },
         "error": {
-          "value": "#170000",
+          "value": "#140001",
           "type": "color",
           "description": "Form input background in error state. Uses messaging error fill semantics."
         },
@@ -2044,7 +2044,7 @@
           "description": "Form input border at rest. Defines field boundary with neutral contrast."
         },
         "error": {
-          "value": "#E86256",
+          "value": "#D46260",
           "type": "color",
           "description": "Form input border in error state. Uses messaging error border semantics."
         },
@@ -2167,7 +2167,7 @@
     "messaging": {
       "fill": {
         "error": {
-          "value": "#170000",
+          "value": "#140001",
           "type": "color",
           "description": "Error message background. Signals critical issue, validation failure, or danger."
         },
@@ -2189,7 +2189,7 @@
       },
       "border": {
         "error": {
-          "value": "#E86256",
+          "value": "#D46260",
           "type": "color",
           "description": "Error message border. Reinforces error intent with colour accent."
         },
@@ -2211,7 +2211,7 @@
       },
       "icon": {
         "error": {
-          "value": "#E86256",
+          "value": "#D46260",
           "type": "color",
           "description": "Status icon used within error messaging surfaces."
         },
@@ -2461,7 +2461,7 @@
         },
         "border": {
           "default": {
-            "value": "#B91617",
+            "value": "#A01C27",
             "type": "color",
             "description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation."
           },
@@ -2478,7 +2478,7 @@
         },
         "text": {
           "default": {
-            "value": "#B91617",
+            "value": "#A01C27",
             "type": "color",
             "description": "Text for destructive action buttons. High contrast ensures readability and signals danger."
           },
@@ -2980,7 +2980,7 @@
       },
       "callout": {
         "fill": {
-          "value": "#B91617",
+          "value": "#A01C27",
           "type": "color",
           "description": "Fill token for LIVE Flag."
         },
@@ -3011,7 +3011,7 @@
           "type": "color"
         },
         "error": {
-          "value": "#680607",
+          "value": "#570810",
           "type": "color"
         }
       },
@@ -3029,7 +3029,7 @@
           "type": "color"
         },
         "error": {
-          "value": "#FDE0DC",
+          "value": "#FFDFDD",
           "type": "color"
         }
       },
@@ -3131,32 +3131,32 @@
         "description": "App/page base surface."
       },
       "foreground": {
-        "value": "#d8d8d8",
+        "value": "#ffffff",
         "type": "color",
         "description": "Default text on background."
       },
       "card": {
-        "value": "#030303",
+        "value": "#090909",
         "type": "color",
         "description": "Card surface."
       },
       "card-foreground": {
-        "value": "#d8d8d8",
+        "value": "#ffffff",
         "type": "color",
         "description": "Text on card."
       },
       "popover": {
-        "value": "#000000",
+        "value": "#121212",
         "type": "color",
         "description": "Popover/menu surface."
       },
       "popover-foreground": {
-        "value": "#d8d8d8",
+        "value": "#ffffff",
         "type": "color",
         "description": "Text on popover."
       },
       "primary": {
-        "value": "#9ed0f5",
+        "value": "#ffffff",
         "type": "color",
         "description": "Primary brand tier. Main CTAs."
       },
@@ -3166,47 +3166,47 @@
         "description": "Text/icon on primary."
       },
       "secondary": {
-        "value": "#131313",
+        "value": "#222222",
         "type": "color",
         "description": "Secondary tier."
       },
       "secondary-foreground": {
-        "value": "#d8d8d8",
+        "value": "#ffffff",
         "type": "color",
         "description": "Text/icon on secondary."
       },
       "tertiary": {
-        "value": "#004b58",
+        "value": "#333333",
         "type": "color",
         "description": "Tertiary accent tier."
       },
       "tertiary-foreground": {
-        "value": "#000000",
+        "value": "#ffffff",
         "type": "color",
         "description": "Text/icon on tertiary."
       },
       "muted": {
-        "value": "#0a0a0a",
+        "value": "#1d1d1d",
         "type": "color",
         "description": "Muted surface."
       },
       "muted-foreground": {
-        "value": "#747474",
+        "value": "#a4a4a4",
         "type": "color",
         "description": "Muted/secondary text."
       },
       "border": {
-        "value": "#292929",
+        "value": "#242424",
         "type": "color",
         "description": "Default border colour."
       },
       "input": {
-        "value": "#292929",
+        "value": "#333333",
         "type": "color",
         "description": "Form input border."
       },
       "ring": {
-        "value": "#747474",
+        "value": "#a4a4a4",
         "type": "color",
         "description": "Focus ring."
       },
@@ -3241,7 +3241,7 @@
         "description": "Text on warning."
       },
       "error": {
-        "value": "#8e080c",
+        "value": "#ff5b5b",
         "type": "color",
         "description": "Error feedback."
       },
@@ -3251,7 +3251,7 @@
         "description": "Text on error."
       },
       "destructive": {
-        "value": "#8e080c",
+        "value": "#ff5b5b",
         "type": "color",
         "description": "Destructive action."
       },
@@ -3261,27 +3261,27 @@
         "description": "Text on destructive."
       },
       "chart-1": {
-        "value": "#61889d",
+        "value": "#f9b138",
         "type": "color",
         "description": "Data-vis series 1."
       },
       "chart-2": {
-        "value": "#423002",
+        "value": "#2671f4",
         "type": "color",
         "description": "Data-vis series 2."
       },
       "chart-3": {
-        "value": "#023753",
+        "value": "#747474",
         "type": "color",
         "description": "Data-vis series 3."
       },
       "chart-4": {
-        "value": "#522404",
+        "value": "#525252",
         "type": "color",
         "description": "Data-vis series 4."
       },
       "chart-5": {
-        "value": "#004b58",
+        "value": "#e4e4e4",
         "type": "color",
         "description": "Data-vis series 5."
       }
