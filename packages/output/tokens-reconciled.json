@@ -1,0 +1,5668 @@
+{
+  "foundation": {
+    "underline": {
+      "value": "underline",
+      "type": "textDecoration"
+    },
+    "fontSize0025": {
+      "value": "1rem*0.5",
+      "type": "fontSizes"
+    },
+    "fontSize005": {
+      "value": "1rem*0.625",
+      "type": "fontSizes"
+    },
+    "fontSize010": {
+      "value": "1rem*0.75",
+      "type": "fontSizes"
+    },
+    "fontSize020": {
+      "value": "1rem*0.875",
+      "type": "fontSizes"
+    },
+    "fontSize025": {
+      "value": "1rem*0.9375",
+      "type": "fontSizes"
+    },
+    "fontSize030": {
+      "value": "1rem",
+      "type": "fontSizes"
+    },
+    "fontSize035": {
+      "value": "1rem*1.0625",
+      "type": "fontSizes"
+    },
+    "fontSize040": {
+      "value": "1rem*1.125",
+      "type": "fontSizes"
+    },
+    "fontSize045": {
+      "value": "1rem*1.1875",
+      "type": "fontSizes"
+    },
+    "fontSize050": {
+      "value": "1rem*1.25",
+      "type": "fontSizes"
+    },
+    "fontSize060": {
+      "value": "1rem*1.375",
+      "type": "fontSizes"
+    },
+    "fontSize070": {
+      "value": "1rem*1.5",
+      "type": "fontSizes"
+    },
+    "fontSize080": {
+      "value": "1rem*1.75",
+      "type": "fontSizes"
+    },
+    "fontSize090": {
+      "value": "1rem*2.0",
+      "type": "fontSizes"
+    },
+    "fontSize095": {
+      "value": "1rem*2.125",
+      "type": "fontSizes"
+    },
+    "fontSize100": {
+      "value": "1rem*2.25",
+      "type": "fontSizes"
+    },
+    "fontSize105": {
+      "value": "1rem*2.875",
+      "type": "fontSizes"
+    },
+    "fontSize110": {
+      "value": "1rem*2.5",
+      "type": "fontSizes"
+    },
+    "fontSize120": {
+      "value": "1rem*2.75",
+      "type": "fontSizes"
+    },
+    "fontSize125": {
+      "value": "1rem*2.8125",
+      "type": "fontSizes"
+    },
+    "fontSize130": {
+      "value": "1rem*3.0",
+      "type": "fontSizes"
+    },
+    "fontSize140": {
+      "value": "1rem*3.5",
+      "type": "fontSizes"
+    },
+    "fontSize150": {
+      "value": "1rem*4.0",
+      "type": "fontSizes"
+    },
+    "fontSize155": {
+      "value": "1rem*4.375",
+      "type": "fontSizes"
+    },
+    "fontSize160": {
+      "value": "1rem*5.0",
+      "type": "fontSizes"
+    },
+    "fontSize170": {
+      "value": "1rem*5.875",
+      "type": "fontSizes"
+    },
+    "fontSize180": {
+      "value": "1rem*7.5",
+      "type": "fontSizes"
+    },
+    "fontSize190": {
+      "value": "1rem*9.0625",
+      "type": "fontSizes"
+    },
+    "fontSize200": {
+      "value": "1rem*10.6875",
+      "type": "fontSizes"
+    },
+    "fontSize210": {
+      "value": "1rem*12.3125",
+      "type": "fontSizes"
+    },
+    "fontSize220": {
+      "value": "1rem*13.9375",
+      "type": "fontSizes"
+    },
+    "fontSize230": {
+      "value": "1rem*15.5",
+      "type": "fontSizes"
+    },
+    "fontSize240": {
+      "value": "1rem*17.125",
+      "type": "fontSizes"
+    },
+    "fontSize250": {
+      "value": "1rem*18.75",
+      "type": "fontSizes"
+    },
+    "fontWeight010": {
+      "value": "Thin",
+      "type": "fontWeights",
+      "description": "Thin"
+    },
+    "fontWeight020": {
+      "value": "ExtraLight",
+      "type": "fontWeights",
+      "description": "Extra Light"
+    },
+    "fontWeight030": {
+      "value": "Light",
+      "type": "fontWeights",
+      "description": "Light"
+    },
+    "fontWeight040": {
+      "value": "Regular",
+      "type": "fontWeights",
+      "description": "Regular"
+    },
+    "fontWeight050": {
+      "value": "Medium",
+      "type": "fontWeights",
+      "description": "Medium"
+    },
+    "fontWeight060": {
+      "value": "SemiBold",
+      "type": "fontWeights",
+      "description": "Semi Bold"
+    },
+    "fontWeight070": {
+      "value": "Bold",
+      "type": "fontWeights",
+      "description": "Bold"
+    },
+    "fontWeight080": {
+      "value": "ExtraBold",
+      "type": "fontWeights",
+      "description": "Extra Bold"
+    },
+    "fontWeight090": {
+      "value": "Black",
+      "type": "fontWeights",
+      "description": "Black"
+    },
+    "fontFamily010": {
+      "value": "'Geist', system-ui, sans-serif",
+      "type": "fontFamilies"
+    },
+    "fontFamily020": {
+      "value": "'Geist', system-ui, sans-serif",
+      "type": "fontFamilies"
+    },
+    "fontFamily030": {
+      "value": "'Geist', system-ui, sans-serif",
+      "type": "fontFamilies"
+    },
+    "fontFamily040": {
+      "value": "'Geist', system-ui, sans-serif",
+      "type": "fontFamilies"
+    },
+    "fontLineHeight010": {
+      "value": "100%",
+      "type": "lineHeights"
+    },
+    "fontLineHeight020": {
+      "value": "100%*1.125",
+      "type": "lineHeights"
+    },
+    "fontLineHeight030": {
+      "value": "100%*1.25",
+      "type": "lineHeights"
+    },
+    "fontLineHeight040": {
+      "value": "100%*1.5",
+      "type": "lineHeights"
+    },
+    "fontLineHeight050": {
+      "value": "100%*1.75",
+      "type": "lineHeights"
+    },
+    "fontLineHeight060": {
+      "value": "100%*2.0",
+      "type": "lineHeights"
+    },
+    "down": {
+      "shadow010": {
+        "value": {
+          "x": "0",
+          "y": "0.5",
+          "blur": "2",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Minimum downward shadow. Cards at rest and active buttons."
+      },
+      "shadow020": {
+        "value": {
+          "x": "0",
+          "y": "2",
+          "blur": "4",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Compact downward shadow for badges."
+      },
+      "shadow030": {
+        "value": {
+          "x": "0",
+          "y": "4",
+          "blur": "8",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Moderate downward shadow for sticky navigation."
+      },
+      "shadow040": {
+        "value": {
+          "x": "0",
+          "y": "8",
+          "blur": "16",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Deeper downward shadow for card and button hover."
+      },
+      "shadow050": {
+        "value": {
+          "x": "0",
+          "y": "16",
+          "blur": "24",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Deep downward shadow for pickers and popovers."
+      },
+      "shadow060": {
+        "value": {
+          "x": "0",
+          "y": "20",
+          "blur": "32",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Maximum downward shadow for modals and dialogs."
+      }
+    },
+    "up": {
+      "shadow010": {
+        "value": {
+          "x": "0",
+          "y": "-0.5",
+          "blur": "2",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Minimum upward shadow. Anchored elements at rest."
+      },
+      "shadow020": {
+        "value": {
+          "x": "0",
+          "y": "-2",
+          "blur": "4",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Compact upward shadow for badges."
+      },
+      "shadow030": {
+        "value": {
+          "x": "0",
+          "y": "-4",
+          "blur": "8",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Moderate upward shadow for bottom navigation."
+      },
+      "shadow040": {
+        "value": {
+          "x": "0",
+          "y": "-8",
+          "blur": "16",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Deeper upward shadow for interactive hover feedback."
+      },
+      "shadow050": {
+        "value": {
+          "x": "0",
+          "y": "-16",
+          "blur": "24",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Deep upward shadow for bottom sheets."
+      },
+      "shadow060": {
+        "value": {
+          "x": "0",
+          "y": "-20",
+          "blur": "32",
+          "spread": "0",
+          "color": "rgba(#000000,0.08)",
+          "type": "dropShadow"
+        },
+        "type": "boxShadow",
+        "description": "Maximum upward shadow for bottom modals."
+      }
+    }
+  },
+  "light/ core": {
+    "surface": {
+      "undercanvas": {
+        "value": "#EBEBEB",
+        "type": "color",
+        "description": "Level -1. Deepest background, beneath canvas. Fill only."
+      },
+      "canvas": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Level 0. Page base. Fill only."
+      },
+      "transparent": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Transparent variant of surface.canvas. Use as gradient endpoint to fade into the page base."
+      },
+      "level-1": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Level 1. Pair with border.elevation for edge definition."
+      },
+      "level-2": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Level 2. Pair with shadow.elevation.level-2."
+      },
+      "level-3": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Level 3. Pair with shadow.elevation.level-3."
+      },
+      "level-4": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Level 4. Pair with shadow.elevation.level-4 and surface.overlay."
+      },
+      "inverse": {
+        "value": "#070707",
+        "type": "color",
+        "description": "Fixed dark surface in light mode. Does not respond to dark mode."
+      },
+      "overlay": {
+        "value": "rgba(0, 0, 0, 0.45)",
+        "type": "color",
+        "description": "Scrim for modals and Level 4 surfaces. Semi-transparent."
+      },
+      "static": {
+        "dark": {
+          "value": "#070707",
+          "type": "color",
+          "description": "Fixed dark surface. Always black regardless of mode."
+        },
+        "light": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Fixed light surface. Always white regardless of mode."
+        }
+      }
+    },
+    "text": {
+      "primary": {
+        "value": "#101010",
+        "type": "color",
+        "description": "Primary text token for labels and badges."
+      },
+      "inverse": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Inverse text token for content placed on inverse (dark) surfaces in light mode contexts."
+      },
+      "secondary": {
+        "value": "#303030",
+        "type": "color",
+        "description": "Supporting text, captions, and metadata on canvas. Mid-tone neutral."
+      },
+      "tertiary": {
+        "value": "#606060",
+        "type": "color",
+        "description": "Tertiary text for supporting captions and disabled states."
+      },
+      "static": {
+        "dark": {
+          "value": "#070707",
+          "type": "color",
+          "description": "Fixed dark text. Always black regardless of mode."
+        },
+        "light": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Fixed light text. Always white regardless of mode."
+        }
+      }
+    },
+    "icon": {
+      "primary": {
+        "value": "#1A1A1A",
+        "type": "color",
+        "description": "Primary icon colour. Highest contrast for primary iconography."
+      },
+      "inverse": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Inverse icon token for iconography placed on inverse (dark) surfaces in light mode contexts."
+      },
+      "secondary": {
+        "value": "#404040",
+        "type": "color",
+        "description": "Supporting icon colour. Reduced emphasis for secondary iconography."
+      },
+      "tertiary": {
+        "value": "#737373",
+        "type": "color",
+        "description": "Tertiary icon colour for least-prominent iconography."
+      }
+    },
+    "border": {
+      "primary": {
+        "value": "#A3A3A3",
+        "type": "color",
+        "description": "Default border for dividers and structural UI elements."
+      },
+      "secondary": {
+        "value": "#BFBFBF",
+        "type": "color",
+        "description": "Subtle border for secondary dividers and light separation."
+      },
+      "tertiary": {
+        "value": "#DCDCDC",
+        "type": "color",
+        "description": "Delicate border for near-invisible dividers and minimal emphasis."
+      },
+      "elevation": {
+        "value": "#DCDCDC",
+        "type": "color",
+        "description": "Edge definition for Level 1 surfaces. Use instead of shadow at the lowest elevation."
+      },
+      "static": {
+        "dark": {
+          "value": "#070707",
+          "type": "color",
+          "description": "Fixed dark border. Always black regardless of mode."
+        },
+        "light": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Fixed light border. Always white regardless of mode."
+        }
+      }
+    },
+    "input": {
+      "fill": {
+        "default": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Form input background at placeholder/rest state."
+        },
+        "error": {
+          "value": "#FCD5D2",
+          "type": "color",
+          "description": "Form input background in error state. Uses messaging error fill semantics."
+        },
+        "hover": {
+          "value": "#EBEBEB",
+          "type": "color",
+          "description": "Form input background on hover. Indicates the field is interactive."
+        },
+        "active": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Form input background on focus/active edit. Matches hover treatment."
+        },
+        "completed": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Form input background after completion."
+        },
+        "success": {
+          "value": "#96EABB",
+          "type": "color",
+          "description": "Form input background in success state. Uses messaging success fill semantics."
+        },
+        "warning": {
+          "value": "#FEE8D0",
+          "type": "color",
+          "description": "Form input background in warning state. Uses messaging warning fill semantics."
+        },
+        "info": {
+          "value": "#B8D3FF",
+          "type": "color",
+          "description": "Form input background in info state. Uses messaging info fill semantics."
+        }
+      },
+      "border": {
+        "default": {
+          "value": "#7A7A7A",
+          "type": "color",
+          "description": "Form input border at rest. Defines field boundary with neutral contrast."
+        },
+        "error": {
+          "value": "#52020C",
+          "type": "color",
+          "description": "Form input border in error state. Uses messaging error border semantics."
+        },
+        "hover": {
+          "value": "#6D6D6D",
+          "type": "color",
+          "description": "Form input border on hover. Increased contrast for interactivity."
+        },
+        "active": {
+          "value": "#484848",
+          "type": "color",
+          "description": "Form input border on focus/active edit. Focus ring is provided by focus.border."
+        },
+        "completed": {
+          "value": "#1B1B1B",
+          "type": "color",
+          "description": "Form input border after completion."
+        },
+        "success": {
+          "value": "#044228",
+          "type": "color",
+          "description": "Form input border in success state. Uses messaging success border semantics."
+        },
+        "warning": {
+          "value": "#613D0A",
+          "type": "color",
+          "description": "Form input border in warning state. Uses messaging warning border semantics."
+        },
+        "info": {
+          "value": "#023379",
+          "type": "color",
+          "description": "Form input border in info state. Uses messaging info border semantics."
+        }
+      },
+      "text": {
+        "default": {
+          "value": "#737373",
+          "type": "color",
+          "description": "Form input text at rest. Neutral tone for readability."
+        },
+        "error": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Form input text in error state. Remains neutral while border/icon carry feedback colour."
+        },
+        "hover": {
+          "value": "#404040",
+          "type": "color",
+          "description": "Form input text on hover. Maintains readability during interaction."
+        },
+        "active": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Form input text on focus/active edit. Maintains readability while typing."
+        },
+        "completed": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Form input text after completion. Remains neutral for consistency."
+        },
+        "success": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Form input text in success state. Remains neutral while border/icon carry feedback colour."
+        },
+        "warning": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Form input text in warning state. Remains neutral while border/icon carry feedback colour."
+        },
+        "info": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Form input text in info state. Remains neutral while border/icon carry feedback colour."
+        }
+      },
+      "icon": {
+        "default": {
+          "value": "#8C8C8C",
+          "type": "color",
+          "description": "Form input icon at rest. Matches neutral input text tone."
+        },
+        "hover": {
+          "value": "#6D6D6D",
+          "type": "color",
+          "description": "Form input icon on hover. Coordinates with input interaction state."
+        },
+        "active": {
+          "value": "#595959",
+          "type": "color",
+          "description": "Form input icon on focus/active edit. Coordinates with active interaction state."
+        },
+        "completed": {
+          "value": "#262626",
+          "type": "color",
+          "description": "Form input icon after completion."
+        },
+        "error": {
+          "value": "#B20908",
+          "type": "color",
+          "description": "Form input icon in error state. Uses messaging error icon semantics."
+        },
+        "success": {
+          "value": "#298458",
+          "type": "color",
+          "description": "Form input icon in success state. Uses messaging success icon semantics."
+        },
+        "warning": {
+          "value": "#CC8103",
+          "type": "color",
+          "description": "Form input icon in warning state. Uses messaging warning icon semantics."
+        },
+        "info": {
+          "value": "#2658A9",
+          "type": "color",
+          "description": "Form input icon in info state. Uses messaging info icon semantics."
+        }
+      }
+    },
+    "messaging": {
+      "fill": {
+        "error": {
+          "value": "#FCD5D2",
+          "type": "color",
+          "description": "Error message background. Signals critical issue, validation failure, or danger."
+        },
+        "success": {
+          "value": "#96EABB",
+          "type": "color",
+          "description": "Success message background. Signals positive completion or confirmation."
+        },
+        "warning": {
+          "value": "#FEE8D0",
+          "type": "color",
+          "description": "Warning message background. Signals caution, blocked action, or attention need."
+        },
+        "info": {
+          "value": "#B8D3FF",
+          "type": "color",
+          "description": "Info message background. Signals neutral information or helpful guidance."
+        }
+      },
+      "border": {
+        "error": {
+          "value": "#52020C",
+          "type": "color",
+          "description": "Error message border. Reinforces error intent with colour accent."
+        },
+        "success": {
+          "value": "#044228",
+          "type": "color",
+          "description": "Success message border. Reinforces success intent with colour accent."
+        },
+        "warning": {
+          "value": "#794D0B",
+          "type": "color",
+          "description": "Warning message border. Reinforces warning intent with colour accent."
+        },
+        "info": {
+          "value": "#052C67",
+          "type": "color",
+          "description": "Info message border. Reinforces info intent with colour accent."
+        }
+      },
+      "icon": {
+        "error": {
+          "value": "#650C15",
+          "type": "color",
+          "description": "Status icon used within error messaging surfaces."
+        },
+        "success": {
+          "value": "#0F613E",
+          "type": "color",
+          "description": "Status icon used within success messaging surfaces."
+        },
+        "warning": {
+          "value": "#794D0B",
+          "type": "color",
+          "description": "Status icon used within warning messaging surfaces."
+        },
+        "info": {
+          "value": "#052C67",
+          "type": "color",
+          "description": "Status icon used within informational messaging surfaces."
+        }
+      },
+      "link": {
+        "text": {
+          "default": {
+            "value": "#1A1A1A",
+            "type": "color",
+            "description": "Link text inside messaging surfaces, default state."
+          },
+          "hover": {
+            "value": "#161616",
+            "type": "color",
+            "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+          },
+          "pressed": {
+            "value": "#151515",
+            "type": "color",
+            "description": "Secondary link on press. Completes secondary state progression."
+          },
+          "visited": {
+            "value": "#484848",
+            "type": "color",
+            "description": "Link text inside messaging surfaces, visited state."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#1A1A1A",
+            "type": "color",
+            "description": "Link icon inside messaging surfaces, default state."
+          },
+          "hover": {
+            "value": "#161616",
+            "type": "color",
+            "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+          },
+          "pressed": {
+            "value": "#151515",
+            "type": "color",
+            "description": "Secondary link on press. Completes secondary state progression."
+          },
+          "visited": {
+            "value": "#484848",
+            "type": "color",
+            "description": "Link icon inside messaging surfaces, visited state."
+          }
+        },
+        "underline": {
+          "default": {
+            "value": "#1A1A1A",
+            "type": "color",
+            "description": "Link underline inside messaging surfaces, default state."
+          },
+          "hover": {
+            "value": "#3C3C3C",
+            "type": "color",
+            "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+          },
+          "pressed": {
+            "value": "#484848",
+            "type": "color",
+            "description": "Secondary link on press. Completes secondary state progression."
+          },
+          "visited": {
+            "value": "#4E4E4E",
+            "type": "color",
+            "description": "Link underline inside messaging surfaces, visited state."
+          }
+        }
+      }
+    },
+    "interactive": {
+      "primary": {
+        "fill": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "High-emphasis button background. Primary action colour used for main CTAs."
+          },
+          "hover": {
+            "value": "#004E75",
+            "type": "color",
+            "description": "Primary button on hover. Increased contrast for interactive state feedback."
+          },
+          "pressed": {
+            "value": "#00496E",
+            "type": "color",
+            "description": "Primary button on press/active. Maximum contrast shift to signal interaction."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Text/icon on primary fills. Ensures contrast on primary background."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary text on hover state. Maintains contrast over hover fill."
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary text on pressed state. Maintains contrast over pressed fill."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Icon on primary action fill. Ensures contrast on primary background."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Interactive element primary icon hover"
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Interactive element primary icon pressed"
+          }
+        }
+      },
+      "secondary": {
+        "fill": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Medium-emphasis button background. Used for secondary actions and outline button fills."
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color",
+            "description": "Secondary button on hover. Provides visual feedback without primary emphasis."
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color",
+            "description": "Secondary button on press/active. Completes state progression."
+          }
+        },
+        "border": {
+          "default": {
+            "value": "#7A7A7A",
+            "type": "color",
+            "description": "Border for secondary buttons. Defines button edge without fill."
+          },
+          "hover": {
+            "value": "#777777",
+            "type": "color",
+            "description": "Secondary border on hover. Visual distinction for interactive state."
+          },
+          "pressed": {
+            "value": "#707070",
+            "type": "color",
+            "description": "Secondary border on pressed. Completes feedback state progression."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#1A1A1A",
+            "type": "color",
+            "description": "Text/icon on secondary fills. Contrast on secondary background."
+          },
+          "hover": {
+            "value": "#161616",
+            "type": "color",
+            "description": "Secondary text on hover. Maintains readability on hover state."
+          },
+          "pressed": {
+            "value": "#151515",
+            "type": "color",
+            "description": "Secondary text on pressed. Maintains readability on pressed state."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#1A1A1A",
+            "type": "color",
+            "description": "Icon on secondary fill. Contrast on secondary background."
+          },
+          "hover": {
+            "value": "#161616",
+            "type": "color",
+            "description": "Interactive element secondary icon hover"
+          },
+          "pressed": {
+            "value": "#111111",
+            "type": "color",
+            "description": "Interactive element secondary icon pressed"
+          }
+        }
+      },
+      "disabled": {
+        "a": {
+          "value": "#CECECE",
+          "type": "color",
+          "description": "Disabled button fill (type A). Low contrast to signal unavailability."
+        },
+        "b": {
+          "value": "#B1B1B1",
+          "type": "color",
+          "description": "Disabled text/link (type B). Reduced contrast for disabled text content."
+        },
+        "c": {
+          "value": "#959595",
+          "type": "color",
+          "description": "Disabled border (type C). Subtle border for disabled inputs/fields."
+        }
+      },
+      "negative": {
+        "fill": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Background for destructive action buttons. Medium-emphasis visual treatment for actions requiring user confirmation."
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color",
+            "description": "Background hover state for destructive actions. Provides visual feedback for interactive danger elements."
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color",
+            "description": "Background pressed state for destructive actions. Completes interaction feedback before user confirmation."
+          }
+        },
+        "border": {
+          "default": {
+            "value": "#650C15",
+            "type": "color",
+            "description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation."
+          },
+          "hover": {
+            "value": "#AD0604",
+            "type": "color",
+            "description": "Border hover state for destructive actions. Reinforces interactive danger state."
+          },
+          "pressed": {
+            "value": "#A20604",
+            "type": "color",
+            "description": "Border pressed state for destructive actions. Maximum emphasis for imminent critical action."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#650C15",
+            "type": "color",
+            "description": "Text for destructive action buttons. High contrast ensures readability and signals danger."
+          },
+          "hover": {
+            "value": "#AD0604",
+            "type": "color",
+            "description": "Text hover state for destructive actions. Maintains readability during interaction."
+          },
+          "pressed": {
+            "value": "#A20604",
+            "type": "color",
+            "description": "Text pressed state for destructive actions. Maximum emphasis confirms critical action intent."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#CB0705",
+            "type": "color",
+            "description": "Icon colour for destructive actions. Matches text for visual consistency."
+          },
+          "hover": {
+            "value": "#AD0604",
+            "type": "color",
+            "description": "Icon hover state for destructive actions. Unified visual feedback with text and border."
+          },
+          "pressed": {
+            "value": "#A20604",
+            "type": "color",
+            "description": "Icon pressed state for destructive actions. Maximum emphasis aligns with text state."
+          }
+        }
+      },
+      "link": {
+        "primary": {
+          "text": {
+            "default": {
+              "value": "#170007",
+              "type": "color",
+              "description": "Standalone primary link text. Used in prose and navigation. Brand colour."
+            },
+            "hover": {
+              "value": "#205C7F",
+              "type": "color",
+              "description": "Primary link on hover. Indicates interactive state for text links."
+            },
+            "pressed": {
+              "value": "#1E5777",
+              "type": "color",
+              "description": "Primary link on press/visited. Completes link state progression."
+            },
+            "visited": {
+              "value": "#2D7FAF",
+              "type": "color",
+              "description": "Primary link on press/visited. Completes link state progression."
+            }
+          },
+          "icon": {
+            "default": {
+              "value": "#266D95",
+              "type": "color",
+              "description": "Standalone primary link icon. Used in prose and navigation. Brand colour."
+            },
+            "hover": {
+              "value": "#205C7F",
+              "type": "color",
+              "description": "Primary link icon on hover. Indicates interactive state."
+            },
+            "pressed": {
+              "value": "#1E5777",
+              "type": "color",
+              "description": "Primary link icon on press. Completes link state progression."
+            },
+            "visited": {
+              "value": "#2D7FAF",
+              "type": "color",
+              "description": "Primary link icon on visited state. Completes link state progression."
+            }
+          },
+          "underline": {
+            "default": {
+              "value": "#266D95",
+              "type": "color",
+              "description": "Standalone primary link underline. Used in prose and navigation. Brand colour."
+            },
+            "hover": {
+              "value": "#205C7F",
+              "type": "color",
+              "description": "Primary link underline on hover. Indicates interactive state."
+            },
+            "pressed": {
+              "value": "#1E5777",
+              "type": "color",
+              "description": "Primary link underline on press. Completes link state progression."
+            },
+            "visited": {
+              "value": "#2D7FAF",
+              "type": "color",
+              "description": "Primary link underline on visited state. Completes link state progression."
+            }
+          }
+        },
+        "secondary": {
+          "text": {
+            "default": {
+              "value": "#1A1A1A",
+              "type": "color",
+              "description": "Standalone secondary link text. Lower emphasis than primary."
+            },
+            "hover": {
+              "value": "#161616",
+              "type": "color",
+              "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+            },
+            "pressed": {
+              "value": "#151515",
+              "type": "color",
+              "description": "Secondary link on press. Completes secondary state progression."
+            },
+            "visited": {
+              "value": "#484848",
+              "type": "color",
+              "description": "Secondary link on press. Completes secondary state progression."
+            }
+          },
+          "icon": {
+            "default": {
+              "value": "#1A1A1A",
+              "type": "color",
+              "description": "Standalone secondary link icon. Lower emphasis than primary."
+            },
+            "hover": {
+              "value": "#161616",
+              "type": "color",
+              "description": "Secondary link icon on hover. Visual feedback for secondary interactive state."
+            },
+            "pressed": {
+              "value": "#151515",
+              "type": "color",
+              "description": "Secondary link icon on press. Completes secondary state progression."
+            },
+            "visited": {
+              "value": "#484848",
+              "type": "color",
+              "description": "Secondary link icon on visited state. Completes secondary state progression."
+            }
+          },
+          "underline": {
+            "default": {
+              "value": "#1A1A1A",
+              "type": "color",
+              "description": "Standalone secondary link underline. Lower emphasis than primary."
+            },
+            "hover": {
+              "value": "#3C3C3C",
+              "type": "color",
+              "description": "Secondary link underline on hover. Visual feedback for secondary interactive state."
+            },
+            "pressed": {
+              "value": "#484848",
+              "type": "color",
+              "description": "Secondary link underline on press. Completes secondary state progression."
+            },
+            "visited": {
+              "value": "#4E4E4E",
+              "type": "color",
+              "description": "Secondary link underline on visited state. Completes secondary state progression."
+            }
+          }
+        }
+      },
+      "chip": {
+        "primary": {
+          "on": {
+            "fill": {
+              "default": {
+                "value": "#005C8A",
+                "type": "color",
+                "description": "Primary solid chip fill in selected state."
+              },
+              "hover": {
+                "value": "#004E75",
+                "type": "color",
+                "description": "Primary link on hover. Indicates interactive state for text links."
+              },
+              "pressed": {
+                "value": "#00496E",
+                "type": "color",
+                "description": "Primary link on press/visited. Completes link state progression."
+              }
+            },
+            "text": {
+              "default": {
+                "value": "#FFFFFF",
+                "type": "color",
+                "description": "Text on primary solid chip in selected state."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#FFFFFF",
+                "type": "color",
+                "description": "Primary solid chip icon in default state. Uses primary action colour."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Primary solid chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Primary solid chip icon on press. Maximum darkening for active feedback."
+              }
+            }
+          },
+          "off": {
+            "fill": {
+              "default": {
+                "value": "#EBEBEB",
+                "type": "color",
+                "description": "Primary solid chip fill in unselected state."
+              },
+              "hover": {
+                "value": "#CECECE",
+                "type": "color",
+                "description": "Primary link on hover. Indicates interactive state for text links."
+              },
+              "pressed": {
+                "value": "#C2C2C2",
+                "type": "color",
+                "description": "Primary link on press/visited. Completes link state progression."
+              }
+            },
+            "text": {
+              "default": {
+                "value": "#005C8A",
+                "type": "color",
+                "description": "Text on primary solid chip in unselected state."
+              },
+              "hover": {
+                "value": "#004E75",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#00496E",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#005C8A",
+                "type": "color",
+                "description": "Primary solid chip icon in default state. Uses primary action colour."
+              },
+              "hover": {
+                "value": "#004E75",
+                "type": "color",
+                "description": "Primary solid chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#00496E",
+                "type": "color",
+                "description": "Primary solid chip icon on press. Maximum darkening for active feedback."
+              }
+            },
+            "border": {
+              "default": {
+                "value": "#005C8A",
+                "type": "color",
+                "description": "Border on primary solid chip in unselected state."
+              },
+              "hover": {
+                "value": "#004E75",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#00496E",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            }
+          }
+        },
+        "secondary": {
+          "on": {
+            "text": {
+              "default": {
+                "value": "#1A1A1A",
+                "type": "color",
+                "description": "Text on secondary outline chip in selected state."
+              },
+              "hover": {
+                "value": "#161616",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#151515",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "fill": {
+              "default": {
+                "value": "#FFFFFF",
+                "type": "color",
+                "description": "Secondary outline chip fill in selected state."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "border": {
+              "default": {
+                "value": "#8C8C8C",
+                "type": "color",
+                "description": "Border on secondary outline chip in selected state."
+              },
+              "hover": {
+                "value": "#777777",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#707070",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#1A1A1A",
+                "type": "color",
+                "description": "Secondary outline chip icon in default state. Uses secondary action colour."
+              },
+              "hover": {
+                "value": "#161616",
+                "type": "color",
+                "description": "Secondary outline chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#151515",
+                "type": "color",
+                "description": "Secondary outline chip icon on press. Maximum darkening for active feedback."
+              }
+            }
+          },
+          "off": {
+            "fill": {
+              "default": {
+                "value": "#EBEBEB",
+                "type": "color",
+                "description": "Secondary outline chip fill in unselected state."
+              },
+              "hover": {
+                "value": "#CECECE",
+                "type": "color",
+                "description": "Primary link on hover. Indicates interactive state for text links."
+              },
+              "pressed": {
+                "value": "#C2C2C2",
+                "type": "color",
+                "description": "Primary link on press/visited. Completes link state progression."
+              }
+            },
+            "text": {
+              "default": {
+                "value": "#404040",
+                "type": "color",
+                "description": "Text on secondary outline chip in unselected state."
+              },
+              "hover": {
+                "value": "#363636",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#333333",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#404040",
+                "type": "color",
+                "description": "Icon on secondary outline chip in unselected state."
+              },
+              "hover": {
+                "value": "#363636",
+                "type": "color",
+                "description": "Primary solid chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#333333",
+                "type": "color",
+                "description": "Primary solid chip icon on press. Maximum darkening for active feedback."
+              }
+            }
+          }
+        }
+      }
+    },
+    "active": {
+      "fill": {
+        "value": "#070707",
+        "type": "color",
+        "description": "Background for elements in a latched active state (e.g., current tab) no longer interactive."
+      },
+      "text": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Text for active, non-interactive elements. White on black fill for high contrast."
+      },
+      "border": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Border for active, non-interactive elements, providing edge definition."
+      },
+      "icon": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Icons for active, non-interactive elements. White on black fill for high contrast."
+      }
+    },
+    "focus": {
+      "border": {
+        "value": "#606060",
+        "type": "color",
+        "description": "Focus indicator border in light mode. Passes 4.5:1 contrast on white canvas."
+      }
+    },
+    "label": {
+      "primary": {
+        "value": "#1A1A1A",
+        "type": "color",
+        "description": "Primary text token for labels and badges."
+      },
+      "secondary": {
+        "value": "#737373",
+        "type": "color",
+        "description": "Secondary text token for labels and badges."
+      },
+      "callout": {
+        "value": "#B20908",
+        "type": "color",
+        "description": "Text colour for callout labels. Uses callout flag fill colour."
+      }
+    },
+    "flag": {
+      "primary": {
+        "fill": {
+          "value": "#070707",
+          "type": "color",
+          "description": "Fill token for primary Flag."
+        },
+        "text": {
+          "value": "#EBEBEB",
+          "type": "color",
+          "description": "Text token for primary Flag."
+        },
+        "icon": {
+          "value": "#F2F2F2",
+          "type": "color",
+          "description": "Icon token for primary Flag."
+        }
+      },
+      "secondary": {
+        "text": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Text/icon token for secondary Flag."
+        },
+        "icon": {
+          "value": "#1A1A1A",
+          "type": "color",
+          "description": "Text/icon token for secondary Flag."
+        }
+      },
+      "callout": {
+        "fill": {
+          "value": "#52020C",
+          "type": "color",
+          "description": "Fill token for LIVE Flag."
+        },
+        "text": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Text/icon token for LIVE Flag."
+        },
+        "icon": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Text/icon token for LIVE Flag."
+        }
+      }
+    },
+    "toast": {
+      "fill": {
+        "info": {
+          "value": "#02183F",
+          "type": "color",
+          "description": "Info toast background."
+        },
+        "success": {
+          "value": "#05331E",
+          "type": "color",
+          "description": "Success toast background."
+        },
+        "warning": {
+          "value": "#794D0B",
+          "type": "color",
+          "description": "Warning toast background."
+        },
+        "error": {
+          "value": "#650C15",
+          "type": "color",
+          "description": "Error toast background."
+        }
+      },
+      "icon": {
+        "info": {
+          "value": "#3770C9",
+          "type": "color",
+          "description": "Icon on info toast."
+        },
+        "success": {
+          "value": "#51BC86",
+          "type": "color",
+          "description": "Icon on success toast."
+        },
+        "warning": {
+          "value": "#FDC380",
+          "type": "color",
+          "description": "Icon on warning toast."
+        },
+        "error": {
+          "value": "#FC8481",
+          "type": "color",
+          "description": "Icon on error toast."
+        }
+      },
+      "text": {
+        "info": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Text on info toast."
+        },
+        "success": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Text on success toast."
+        },
+        "error": {
+          "value": "#FFFFFF",
+          "type": "color",
+          "description": "Text on error toast."
+        },
+        "warning": {
+          "value": "#070707",
+          "type": "color",
+          "description": "Text on warning toast."
+        }
+      },
+      "link": {
+        "info": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Link on info toast, default state."
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color",
+            "description": "Link on info toast, hover state."
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color",
+            "description": "Link on info toast, pressed state."
+          }
+        },
+        "success": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Link on success toast, default state."
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color",
+            "description": "Link on success toast, hover state."
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color",
+            "description": "Link on success toast, pressed state."
+          }
+        },
+        "error": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Link on error toast, default state."
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color",
+            "description": "Link on error toast, hover state."
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color",
+            "description": "Link on error toast, pressed state."
+          }
+        },
+        "warning": {
+          "default": {
+            "value": "#070707",
+            "type": "color",
+            "description": "Link on warning toast, default state."
+          },
+          "hover": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Link on warning toast, hover state."
+          },
+          "pressed": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Link on warning toast, pressed state."
+          }
+        }
+      }
+    },
+    "tooltip": {
+      "fill": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Tooltip background. Always uses inverse surface."
+      },
+      "text": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Tooltip text. Always uses inverse text colour."
+      },
+      "icon": {
+        "value": "#FFFFFF",
+        "type": "color",
+        "description": "Tooltip icon. Always uses inverse icon colour."
+      }
+    },
+    "theme": {
+      "background": {
+        "value": "#fcfcfc",
+        "type": "color",
+        "description": "App/page base surface."
+      },
+      "foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Default text on background."
+      },
+      "card": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Card surface."
+      },
+      "card-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text on card."
+      },
+      "popover": {
+        "value": "#fcfcfc",
+        "type": "color",
+        "description": "Popover/menu surface."
+      },
+      "popover-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text on popover."
+      },
+      "primary": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Primary brand tier. Main CTAs."
+      },
+      "primary-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text/icon on primary."
+      },
+      "secondary": {
+        "value": "#ebebeb",
+        "type": "color",
+        "description": "Secondary tier."
+      },
+      "secondary-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text/icon on secondary."
+      },
+      "tertiary": {
+        "value": "#ebebeb",
+        "type": "color",
+        "description": "Tertiary accent tier."
+      },
+      "tertiary-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text/icon on tertiary."
+      },
+      "muted": {
+        "value": "#f5f5f5",
+        "type": "color",
+        "description": "Muted surface."
+      },
+      "muted-foreground": {
+        "value": "#525252",
+        "type": "color",
+        "description": "Muted/secondary text."
+      },
+      "border": {
+        "value": "#e4e4e4",
+        "type": "color",
+        "description": "Default border colour."
+      },
+      "input": {
+        "value": "#ebebeb",
+        "type": "color",
+        "description": "Form input border."
+      },
+      "ring": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Focus ring."
+      },
+      "info": {
+        "value": "#0f4aa2",
+        "type": "color",
+        "description": "Informational feedback."
+      },
+      "info-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text on info."
+      },
+      "success": {
+        "value": "#31a46f",
+        "type": "color",
+        "description": "Success feedback."
+      },
+      "success-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text on success."
+      },
+      "warning": {
+        "value": "#ffa300",
+        "type": "color",
+        "description": "Warning feedback."
+      },
+      "warning-foreground": {
+        "value": "#101010",
+        "type": "color",
+        "description": "Text on warning."
+      },
+      "error": {
+        "value": "#e54b4f",
+        "type": "color",
+        "description": "Error feedback."
+      },
+      "error-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text on error."
+      },
+      "destructive": {
+        "value": "#e54b4f",
+        "type": "color",
+        "description": "Destructive action."
+      },
+      "destructive-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text on destructive."
+      },
+      "chart-1": {
+        "value": "#f9b138",
+        "type": "color",
+        "description": "Data-vis series 1."
+      },
+      "chart-2": {
+        "value": "#2d62ef",
+        "type": "color",
+        "description": "Data-vis series 2."
+      },
+      "chart-3": {
+        "value": "#a4a4a4",
+        "type": "color",
+        "description": "Data-vis series 3."
+      },
+      "chart-4": {
+        "value": "#e4e4e4",
+        "type": "color",
+        "description": "Data-vis series 4."
+      },
+      "chart-5": {
+        "value": "#747474",
+        "type": "color",
+        "description": "Data-vis series 5."
+      }
+    }
+  },
+  "dark/ core": {
+    "surface": {
+      "undercanvas": {
+        "value": "#0A0A0A",
+        "type": "color",
+        "description": "Deepest background beneath canvas. Rarely visible; used for special contexts."
+      },
+      "canvas": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Primary background layer. Page/application base."
+      },
+      "transparent": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Transparent variant of surface.canvas. Use as gradient endpoint to fade into the page base."
+      },
+      "level-1": {
+        "value": "#030303",
+        "type": "color",
+        "description": "First elevation above canvas. Subtle lift for cards and contained components."
+      },
+      "level-2": {
+        "value": "#0A0A0A",
+        "type": "color",
+        "description": "Second elevation. Modest lift for grouped content and secondary panels."
+      },
+      "level-3": {
+        "value": "#131313",
+        "type": "color",
+        "description": "Third elevation. Prominent lift for popovers and tertiary containers."
+      },
+      "level-4": {
+        "value": "#0A0A0A",
+        "type": "color",
+        "description": "Fourth elevation. Highest lift for modals, dropdowns, and overlays."
+      },
+      "inverse": {
+        "value": "#E8E8E8",
+        "type": "color",
+        "description": "Inverse surface token for fixed dark surfaces in dark mode contexts when switching mode is not possible."
+      },
+      "overlay": {
+        "value": "rgba(0, 0, 0, 0.55)",
+        "type": "color",
+        "description": "Semi-transparent overlay. Used for modals, backdrop scrim, dimming."
+      },
+      "static": {
+        "dark": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Static dark surface - always black (#000000) regardless of mode"
+        },
+        "light": {
+          "value": "#E8E8E8",
+          "type": "color",
+          "description": "Static light surface - always white (#ffffff) regardless of mode"
+        }
+      }
+    },
+    "text": {
+      "primary": {
+        "value": "#E8E8E8",
+        "type": "color",
+        "description": "Primary text token for labels and badges."
+      },
+      "inverse": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Inverse text token for content placed on inverse (dark) surfaces in dark mode contexts."
+      },
+      "secondary": {
+        "value": "#C9C9C9",
+        "type": "color",
+        "description": "Supporting text, captions, and metadata on canvas. Mid-tone neutral."
+      },
+      "tertiary": {
+        "value": "#909090",
+        "type": "color",
+        "description": "Secondary text token for labels and badges."
+      },
+      "static": {
+        "dark": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Static dark text - always black (#000000) regardless of mode"
+        },
+        "light": {
+          "value": "#E8E8E8",
+          "type": "color",
+          "description": "Static light text - always white (#ffffff) regardless of mode"
+        }
+      }
+    },
+    "icon": {
+      "primary": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Primary icon colour. Highest contrast for primary iconography."
+      },
+      "inverse": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Inverse icon token for iconography placed on inverse (dark) surfaces in dark mode contexts."
+      },
+      "secondary": {
+        "value": "#262626",
+        "type": "color",
+        "description": "Supporting icon colour. Reduced emphasis for secondary iconography."
+      },
+      "tertiary": {
+        "value": "#595959",
+        "type": "color",
+        "description": "Tertiary icon colour. Least prominent icons."
+      }
+    },
+    "border": {
+      "primary": {
+        "value": "#414141",
+        "type": "color",
+        "description": "Standard UI borders and dividers."
+      },
+      "secondary": {
+        "value": "#1E1E1E",
+        "type": "color",
+        "description": "Subtle borders and light dividers."
+      },
+      "tertiary": {
+        "value": "#0A0A0A",
+        "type": "color",
+        "description": "Very subtle borders and dividers. Minimal emphasis."
+      },
+      "elevation": {
+        "value": "#1E1E1E",
+        "type": "color",
+        "description": "Borders for elevated surfaces and cards. Defines depth and separation."
+      },
+      "static": {
+        "dark": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Static dark border - always black (#000000) regardless of mode"
+        },
+        "light": {
+          "value": "#E8E8E8",
+          "type": "color",
+          "description": "Static light border - always white (#ffffff) regardless of mode"
+        }
+      }
+    },
+    "input": {
+      "fill": {
+        "default": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input background at placeholder/rest state."
+        },
+        "error": {
+          "value": "#140001",
+          "type": "color",
+          "description": "Form input background in error state. Uses messaging error fill semantics."
+        },
+        "hover": {
+          "value": "#030303",
+          "type": "color",
+          "description": "Form input background on hover. Indicates the field is interactive."
+        },
+        "active": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input background on focus/active edit. Matches hover treatment."
+        },
+        "completed": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input background after completion."
+        },
+        "success": {
+          "value": "#000803",
+          "type": "color",
+          "description": "Form input background in success state. Uses messaging success fill semantics."
+        },
+        "warning": {
+          "value": "#090300",
+          "type": "color",
+          "description": "Form input background in warning state. Uses messaging warning fill semantics."
+        },
+        "info": {
+          "value": "#000B27",
+          "type": "color",
+          "description": "Form input background in info state. Uses messaging info fill semantics."
+        }
+      },
+      "border": {
+        "default": {
+          "value": "#5A5A5A",
+          "type": "color",
+          "description": "Form input border at rest. Defines field boundary with neutral contrast."
+        },
+        "error": {
+          "value": "#D46260",
+          "type": "color",
+          "description": "Form input border in error state. Uses messaging error border semantics."
+        },
+        "hover": {
+          "value": "#676767",
+          "type": "color",
+          "description": "Form input border on hover. Increased contrast for interactivity."
+        },
+        "active": {
+          "value": "#909090",
+          "type": "color",
+          "description": "Form input border on focus/active edit. Focus ring is provided by focus.border."
+        },
+        "completed": {
+          "value": "#C9C9C9",
+          "type": "color",
+          "description": "Form input border after completion."
+        },
+        "success": {
+          "value": "#4E9B73",
+          "type": "color",
+          "description": "Form input border in success state. Uses messaging success border semantics."
+        },
+        "warning": {
+          "value": "#C58737",
+          "type": "color",
+          "description": "Form input border in warning state. Uses messaging warning border semantics."
+        },
+        "info": {
+          "value": "#6496E6",
+          "type": "color",
+          "description": "Form input border in info state. Uses messaging info border semantics."
+        }
+      },
+      "text": {
+        "default": {
+          "value": "#595959",
+          "type": "color",
+          "description": "Form input text at rest. Neutral tone for readability."
+        },
+        "error": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input text in error state. Remains neutral while border/icon carry feedback color."
+        },
+        "hover": {
+          "value": "#262626",
+          "type": "color",
+          "description": "Form input text on hover. Maintains readability during interaction."
+        },
+        "active": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input text on focus/active edit. Maintains readability while typing."
+        },
+        "completed": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input text after completion. Remains neutral for consistency."
+        },
+        "success": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input text in success state. Remains neutral while border/icon carry feedback color."
+        },
+        "warning": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input text in warning state. Remains neutral while border/icon carry feedback color."
+        },
+        "info": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Form input text in info state. Remains neutral while border/icon carry feedback color."
+        }
+      },
+      "icon": {
+        "default": {
+          "value": "#8C8C8C",
+          "type": "color",
+          "description": "Form input icon at rest. Matches neutral input text tone."
+        },
+        "hover": {
+          "value": "#6D6D6D",
+          "type": "color",
+          "description": "Form input icon on hover. Coordinates with input interaction state."
+        },
+        "active": {
+          "value": "#595959",
+          "type": "color",
+          "description": "Form input icon on focus/active edit. Coordinates with active interaction state."
+        },
+        "completed": {
+          "value": "#262626",
+          "type": "color",
+          "description": "Form input icon after completion."
+        },
+        "error": {
+          "value": "#E70300",
+          "type": "color",
+          "description": "Form input icon in error state. Uses messaging error icon semantics."
+        },
+        "success": {
+          "value": "#2C9365",
+          "type": "color",
+          "description": "Form input icon in success state. Uses messaging success icon semantics."
+        },
+        "warning": {
+          "value": "#CC8103",
+          "type": "color",
+          "description": "Form input icon in warning state. Uses messaging warning icon semantics."
+        },
+        "info": {
+          "value": "#2658A9",
+          "type": "color",
+          "description": "Form input icon in info state. Uses messaging info icon semantics."
+        }
+      }
+    },
+    "messaging": {
+      "fill": {
+        "error": {
+          "value": "#140001",
+          "type": "color",
+          "description": "Error message background. Signals critical issue, validation failure, or danger."
+        },
+        "success": {
+          "value": "#000803",
+          "type": "color",
+          "description": "Success message background. Signals positive completion or confirmation."
+        },
+        "warning": {
+          "value": "#090300",
+          "type": "color",
+          "description": "Warning message background. Signals caution, blocked action, or attention need."
+        },
+        "info": {
+          "value": "#000B27",
+          "type": "color",
+          "description": "Info message background. Signals neutral information or helpful guidance."
+        }
+      },
+      "border": {
+        "error": {
+          "value": "#D46260",
+          "type": "color",
+          "description": "Error message border. Reinforces error intent with colour accent."
+        },
+        "success": {
+          "value": "#4E9B73",
+          "type": "color",
+          "description": "Success message border. Reinforces success intent with colour accent."
+        },
+        "warning": {
+          "value": "#523204",
+          "type": "color",
+          "description": "Warning message border. Reinforces warning intent with colour accent."
+        },
+        "info": {
+          "value": "#80AEF7",
+          "type": "color",
+          "description": "Info message border. Reinforces info intent with colour accent."
+        }
+      },
+      "icon": {
+        "error": {
+          "value": "#D46260",
+          "type": "color",
+          "description": "Status icon used within error messaging surfaces."
+        },
+        "success": {
+          "value": "#4E9B73",
+          "type": "color",
+          "description": "Status icon used within success messaging surfaces."
+        },
+        "warning": {
+          "value": "#523204",
+          "type": "color",
+          "description": "Status icon used within warning messaging surfaces."
+        },
+        "info": {
+          "value": "#80AEF7",
+          "type": "color",
+          "description": "Status icon used within informational messaging surfaces."
+        }
+      },
+      "link": {
+        "text": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Link text inside messaging surfaces, default state."
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color",
+            "description": "Primary link on hover. Indicates interactive state for text links."
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color",
+            "description": "Primary link on press/visited. Completes link state progression."
+          },
+          "visited": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Link text inside messaging surfaces, visited state."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Link icon inside messaging surfaces, default state."
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color",
+            "description": "Primary link on hover. Indicates interactive state for text links."
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color",
+            "description": "Primary link on press/visited. Completes link state progression."
+          },
+          "visited": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Link icon inside messaging surfaces, visited state."
+          }
+        },
+        "underline": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Link underline inside messaging surfaces, default state."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary link on hover. Indicates interactive state for text links."
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary link on press/visited. Completes link state progression."
+          },
+          "visited": {
+            "value": "#E6E6E6",
+            "type": "color",
+            "description": "Link underline inside messaging surfaces, visited state."
+          }
+        }
+      }
+    },
+    "interactive": {
+      "primary": {
+        "fill": {
+          "default": {
+            "value": "#E8E8E8",
+            "type": "color",
+            "description": "High-emphasis button background. Primary action colour used for main CTAs."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary button on hover. Increased contrast for interactive state feedback."
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary button on press/active. Maximum contrast shift to signal interaction."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Text/icon on primary fills. Ensures contrast on primary background."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary text on hover state. Maintains contrast over hover fill."
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Primary text on pressed state. Maintains contrast over pressed fill."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Icon on primary action fill. Ensures contrast on primary background."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Interactive element primary icon hover"
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Interactive element primary icon pressed"
+          }
+        }
+      },
+      "secondary": {
+        "fill": {
+          "default": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Medium-emphasis button background. Used for secondary actions and outline button fills."
+          },
+          "hover": {
+            "value": "#262626",
+            "type": "color",
+            "description": "Secondary button on hover. Provides visual feedback without primary emphasis."
+          },
+          "pressed": {
+            "value": "#333333",
+            "type": "color",
+            "description": "Secondary button on press/active. Completes state progression."
+          }
+        },
+        "border": {
+          "default": {
+            "value": "#747474",
+            "type": "color",
+            "description": "Border for secondary buttons. Defines button edge without fill."
+          },
+          "hover": {
+            "value": "#9D9D9D",
+            "type": "color",
+            "description": "Secondary border on hover. Visual distinction for interactive state."
+          },
+          "pressed": {
+            "value": "#A3A3A3",
+            "type": "color",
+            "description": "Secondary border on pressed. Completes feedback state progression."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Text/icon on secondary fills. Contrast on secondary background."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Secondary text on hover. Maintains readability on hover state."
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Secondary text on pressed. Maintains readability on pressed state."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Icon on secondary fill. Contrast on secondary background."
+          },
+          "hover": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Interactive element secondary icon hover"
+          },
+          "pressed": {
+            "value": "#FFFFFF",
+            "type": "color",
+            "description": "Interactive element secondary icon pressed"
+          }
+        }
+      },
+      "disabled": {
+        "a": {
+          "value": "#131313",
+          "type": "color",
+          "description": "Disabled button fill (type A). Low contrast to signal unavailability."
+        },
+        "b": {
+          "value": "#292929",
+          "type": "color",
+          "description": "Disabled text/link (type B). Reduced contrast for disabled text content."
+        },
+        "c": {
+          "value": "#414141",
+          "type": "color",
+          "description": "Disabled border (type C). Subtle border for disabled inputs/fields."
+        }
+      },
+      "negative": {
+        "fill": {
+          "default": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Background for destructive action buttons. Medium-emphasis visual treatment for actions requiring user confirmation."
+          },
+          "hover": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Background hover state for destructive actions. Provides visual feedback for interactive danger elements."
+          },
+          "pressed": {
+            "value": "#000000",
+            "type": "color",
+            "description": "Background pressed state for destructive actions. Completes interaction feedback before user confirmation."
+          }
+        },
+        "border": {
+          "default": {
+            "value": "#A01C27",
+            "type": "color",
+            "description": "Border for destructive action buttons. Signals critical actions requiring user attention and confirmation."
+          },
+          "hover": {
+            "value": "#FF0C05",
+            "type": "color",
+            "description": "Border hover state for destructive actions. Reinforces interactive danger state."
+          },
+          "pressed": {
+            "value": "#F50700",
+            "type": "color",
+            "description": "Border pressed state for destructive actions. Maximum emphasis for imminent critical action."
+          }
+        },
+        "text": {
+          "default": {
+            "value": "#A01C27",
+            "type": "color",
+            "description": "Text for destructive action buttons. High contrast ensures readability and signals danger."
+          },
+          "hover": {
+            "value": "#FF0C05",
+            "type": "color",
+            "description": "Text hover state for destructive actions. Maintains readability during interaction."
+          },
+          "pressed": {
+            "value": "#F50700",
+            "type": "color",
+            "description": "Text pressed state for destructive actions. Maximum emphasis confirms critical action intent."
+          }
+        },
+        "icon": {
+          "default": {
+            "value": "#FF403A",
+            "type": "color",
+            "description": "Icon colour for destructive actions. Matches text for visual consistency."
+          },
+          "hover": {
+            "value": "#FF0C05",
+            "type": "color",
+            "description": "Icon hover state for destructive actions. Unified visual feedback with text and border."
+          },
+          "pressed": {
+            "value": "#F50700",
+            "type": "color",
+            "description": "Icon pressed state for destructive actions. Maximum emphasis aligns with text state."
+          }
+        }
+      },
+      "link": {
+        "secondary": {
+          "text": {
+            "default": {
+              "value": "#5A5A5A",
+              "type": "color",
+              "description": "Standalone primary link text. Used in prose and navigation. Brand colour."
+            },
+            "hover": {
+              "value": "#626262",
+              "type": "color",
+              "description": "Primary link on hover. Indicates interactive state for text links."
+            },
+            "pressed": {
+              "value": "#5C5C5C",
+              "type": "color",
+              "description": "Primary link on press/visited. Completes link state progression."
+            },
+            "visited": {
+              "value": "#858585",
+              "type": "color",
+              "description": "Primary link on press/visited. Completes link state progression."
+            }
+          },
+          "icon": {
+            "default": {
+              "value": "#8C8C8C",
+              "type": "color",
+              "description": "Standalone secondary link icon. Lower emphasis than primary."
+            },
+            "hover": {
+              "value": "#626262",
+              "type": "color",
+              "description": "Secondary link icon on hover. Visual feedback for secondary interactive state."
+            },
+            "pressed": {
+              "value": "#5C5C5C",
+              "type": "color",
+              "description": "Secondary link icon on press. Completes secondary state progression."
+            },
+            "visited": {
+              "value": "#858585",
+              "type": "color",
+              "description": "Secondary link icon on visited state. Completes secondary state progression."
+            }
+          },
+          "underline": {
+            "default": {
+              "value": "#8C8C8C",
+              "type": "color",
+              "description": "Standalone secondary link underline. Lower emphasis than primary."
+            },
+            "hover": {
+              "value": "#888888",
+              "type": "color",
+              "description": "Secondary link underline on hover. Visual feedback for secondary interactive state."
+            },
+            "pressed": {
+              "value": "#8F8F8F",
+              "type": "color",
+              "description": "Secondary link underline on press. Completes secondary state progression."
+            },
+            "visited": {
+              "value": "#686868",
+              "type": "color",
+              "description": "Secondary link underline on visited state. Completes secondary state progression."
+            }
+          }
+        },
+        "primary": {
+          "text": {
+            "default": {
+              "value": "#000000",
+              "type": "color",
+              "description": "Standalone primary link text. Used in prose and navigation. Brand colour."
+            },
+            "hover": {
+              "value": "#D9D9D9",
+              "type": "color",
+              "description": "Primary link on hover. Indicates interactive state for text links."
+            },
+            "pressed": {
+              "value": "#CCCCCC",
+              "type": "color",
+              "description": "Primary link on press/visited. Completes link state progression."
+            },
+            "visited": {
+              "value": "#FFFFFF",
+              "type": "color",
+              "description": "Primary link on press/visited. Completes link state progression."
+            }
+          },
+          "icon": {
+            "default": {
+              "value": "#000000",
+              "type": "color",
+              "description": "Standalone primary link icon. Used in prose and navigation. Brand colour."
+            },
+            "hover": {
+              "value": "#D9D9D9",
+              "type": "color",
+              "description": "Primary link icon on hover. Indicates interactive state."
+            },
+            "pressed": {
+              "value": "#CCCCCC",
+              "type": "color",
+              "description": "Primary link icon on press. Completes link state progression."
+            },
+            "visited": {
+              "value": "#FFFFFF",
+              "type": "color",
+              "description": "Primary link icon on visited state. Completes link state progression."
+            }
+          },
+          "underline": {
+            "default": {
+              "value": "#000000",
+              "type": "color",
+              "description": "Standalone primary link underline. Used in prose and navigation. Brand colour."
+            },
+            "hover": {
+              "value": "#FFFFFF",
+              "type": "color",
+              "description": "Primary link underline on hover. Indicates interactive state."
+            },
+            "pressed": {
+              "value": "#FFFFFF",
+              "type": "color",
+              "description": "Primary link underline on press. Completes link state progression."
+            },
+            "visited": {
+              "value": "#E6E6E6",
+              "type": "color",
+              "description": "Primary link underline on visited state. Completes link state progression."
+            }
+          }
+        }
+      },
+      "chip": {
+        "primary": {
+          "on": {
+            "fill": {
+              "default": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Primary solid chip fill in selected state."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Primary link on hover. Indicates interactive state for text links."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Primary link on press/visited. Completes link state progression."
+              }
+            },
+            "text": {
+              "default": {
+                "value": "#FFFFFF",
+                "type": "color",
+                "description": "Text on primary solid chip in selected state."
+              },
+              "hover": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#FFFFFF",
+                "type": "color",
+                "description": "Primary solid chip icon in default state. Uses primary action colour."
+              },
+              "hover": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Primary solid chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Primary solid chip icon on press. Maximum darkening for active feedback."
+              }
+            }
+          },
+          "off": {
+            "fill": {
+              "default": {
+                "value": "#FFFFFF",
+                "type": "color",
+                "description": "Primary solid chip fill in unselected state."
+              },
+              "hover": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Primary link on hover. Indicates interactive state for text links."
+              },
+              "pressed": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Primary link on press/visited. Completes link state progression."
+              }
+            },
+            "text": {
+              "default": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Text on primary solid chip in unselected state."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Primary solid chip icon in default state. Uses primary action colour."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Primary solid chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Primary solid chip icon on press. Maximum darkening for active feedback."
+              }
+            },
+            "border": {
+              "default": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Border on primary solid chip in unselected state."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            }
+          }
+        },
+        "secondary": {
+          "on": {
+            "text": {
+              "default": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Text on secondary outline chip in selected state."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "fill": {
+              "default": {
+                "value": "#131313",
+                "type": "color",
+                "description": "Secondary outline chip fill in selected state."
+              },
+              "hover": {
+                "value": "#202020",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#1E1E1E",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "border": {
+              "default": {
+                "value": "#737373",
+                "type": "color",
+                "description": "Border on secondary outline chip in selected state."
+              },
+              "hover": {
+                "value": "#777777",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#707070",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#000000",
+                "type": "color",
+                "description": "Secondary outline chip icon in default state. Uses secondary action colour."
+              },
+              "hover": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Secondary outline chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#CCCCCC",
+                "type": "color",
+                "description": "Secondary outline chip icon on press. Maximum darkening for active feedback."
+              }
+            }
+          },
+          "off": {
+            "fill": {
+              "default": {
+                "value": "#D9D9D9",
+                "type": "color",
+                "description": "Secondary outline chip fill in unselected state."
+              },
+              "hover": {
+                "value": "#202020",
+                "type": "color",
+                "description": "Primary link on hover. Indicates interactive state for text links."
+              },
+              "pressed": {
+                "value": "#1E1E1E",
+                "type": "color",
+                "description": "Primary link on press/visited. Completes link state progression."
+              }
+            },
+            "text": {
+              "default": {
+                "value": "#595959",
+                "type": "color",
+                "description": "Text on secondary outline chip in unselected state."
+              },
+              "hover": {
+                "value": "#8D8D8D",
+                "type": "color",
+                "description": "Secondary link on hover. Visual feedback for secondary interactive state."
+              },
+              "pressed": {
+                "value": "#858585",
+                "type": "color",
+                "description": "Secondary link on press. Completes secondary state progression."
+              }
+            },
+            "icon": {
+              "default": {
+                "value": "#595959",
+                "type": "color",
+                "description": "Icon on secondary outline chip in unselected state."
+              },
+              "hover": {
+                "value": "#8D8D8D",
+                "type": "color",
+                "description": "Primary solid chip icon on hover. Darkened for interactive feedback."
+              },
+              "pressed": {
+                "value": "#858585",
+                "type": "color",
+                "description": "Primary solid chip icon on press. Maximum darkening for active feedback."
+              }
+            }
+          }
+        }
+      }
+    },
+    "active": {
+      "fill": {
+        "value": "#E8E8E8",
+        "type": "color",
+        "description": "Background for active, non-interactive elements in dark mode. White (neutral.1000 = #ffffff in dark mode) for high visual distinction."
+      },
+      "text": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text on active elements in dark mode. Black (neutral.50 = #000000 in dark mode) for contrast on white fill."
+      },
+      "border": {
+        "value": "#747474",
+        "type": "color",
+        "description": "Border for active elements in dark mode. Passes 5.32:1 contrast on black canvas."
+      },
+      "icon": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Icons on active elements in dark mode. Black for contrast on white fill."
+      }
+    },
+    "focus": {
+      "border": {
+        "value": "#747474",
+        "type": "color",
+        "description": "Focus indicator border in dark mode. Passes 4.5:1 contrast on black canvas (neutral.600 = #808080)."
+      }
+    },
+    "label": {
+      "primary": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Primary text token for labels and badges."
+      },
+      "secondary": {
+        "value": "#262626",
+        "type": "color",
+        "description": "Secondary text token for labels and badges."
+      },
+      "callout": {
+        "value": "#FF403A",
+        "type": "color",
+        "description": "Form input text in error state. Remains neutral while border/icon carry feedback color."
+      }
+    },
+    "flag": {
+      "primary": {
+        "fill": {
+          "value": "#E8E8E8",
+          "type": "color",
+          "description": "Fill token for primary Flag."
+        },
+        "text": {
+          "value": "#030303",
+          "type": "color",
+          "description": "Text token for primary Flag."
+        },
+        "icon": {
+          "value": "#F2F2F2",
+          "type": "color",
+          "description": "Icon token for primary Flag."
+        }
+      },
+      "secondary": {
+        "text": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Text/icon token for secondary Flag."
+        },
+        "icon": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Text/icon token for secondary Flag."
+        }
+      },
+      "callout": {
+        "fill": {
+          "value": "#A01C27",
+          "type": "color",
+          "description": "Fill token for LIVE Flag."
+        },
+        "text": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Text/icon token for LIVE Flag."
+        },
+        "icon": {
+          "value": "#000000",
+          "type": "color",
+          "description": "Text/icon token for LIVE Flag."
+        }
+      }
+    },
+    "toast": {
+      "fill": {
+        "info": {
+          "value": "#3B6EC0",
+          "type": "color"
+        },
+        "success": {
+          "value": "#06331F",
+          "type": "color"
+        },
+        "warning": {
+          "value": "#3E2503",
+          "type": "color"
+        },
+        "error": {
+          "value": "#570810",
+          "type": "color"
+        }
+      },
+      "icon": {
+        "info": {
+          "value": "#B7D2FB",
+          "type": "color"
+        },
+        "success": {
+          "value": "#B0E2C5",
+          "type": "color"
+        },
+        "warning": {
+          "value": "#F8C995",
+          "type": "color"
+        },
+        "error": {
+          "value": "#FFDFDD",
+          "type": "color"
+        }
+      },
+      "text": {
+        "info": {
+          "value": "#E8E8E8",
+          "type": "color"
+        },
+        "success": {
+          "value": "#E8E8E8",
+          "type": "color"
+        },
+        "error": {
+          "value": "#E8E8E8",
+          "type": "color"
+        },
+        "warning": {
+          "value": "#000000",
+          "type": "color"
+        }
+      },
+      "link": {
+        "info": {
+          "default": {
+            "value": "#E8E8E8",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color"
+          }
+        },
+        "success": {
+          "default": {
+            "value": "#000000",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color"
+          }
+        },
+        "error": {
+          "default": {
+            "value": "#000000",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#D9D9D9",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#CCCCCC",
+            "type": "color"
+          }
+        },
+        "warning": {
+          "default": {
+            "value": "#000000",
+            "type": "color"
+          },
+          "hover": {
+            "value": "#000000",
+            "type": "color"
+          },
+          "pressed": {
+            "value": "#000000",
+            "type": "color"
+          }
+        }
+      }
+    },
+    "tooltip": {
+      "fill": {
+        "value": "#000000",
+        "type": "color"
+      },
+      "text": {
+        "value": "#FFFFFF",
+        "type": "color"
+      },
+      "icon": {
+        "value": "#FFFFFF",
+        "type": "color"
+      }
+    },
+    "theme": {
+      "background": {
+        "value": "#000000",
+        "type": "color",
+        "description": "App/page base surface."
+      },
+      "foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Default text on background."
+      },
+      "card": {
+        "value": "#090909",
+        "type": "color",
+        "description": "Card surface."
+      },
+      "card-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text on card."
+      },
+      "popover": {
+        "value": "#121212",
+        "type": "color",
+        "description": "Popover/menu surface."
+      },
+      "popover-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text on popover."
+      },
+      "primary": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Primary brand tier. Main CTAs."
+      },
+      "primary-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text/icon on primary."
+      },
+      "secondary": {
+        "value": "#222222",
+        "type": "color",
+        "description": "Secondary tier."
+      },
+      "secondary-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text/icon on secondary."
+      },
+      "tertiary": {
+        "value": "#333333",
+        "type": "color",
+        "description": "Tertiary accent tier."
+      },
+      "tertiary-foreground": {
+        "value": "#ffffff",
+        "type": "color",
+        "description": "Text/icon on tertiary."
+      },
+      "muted": {
+        "value": "#1d1d1d",
+        "type": "color",
+        "description": "Muted surface."
+      },
+      "muted-foreground": {
+        "value": "#a4a4a4",
+        "type": "color",
+        "description": "Muted/secondary text."
+      },
+      "border": {
+        "value": "#242424",
+        "type": "color",
+        "description": "Default border colour."
+      },
+      "input": {
+        "value": "#333333",
+        "type": "color",
+        "description": "Form input border."
+      },
+      "ring": {
+        "value": "#a4a4a4",
+        "type": "color",
+        "description": "Focus ring."
+      },
+      "info": {
+        "value": "#3b6ec0",
+        "type": "color",
+        "description": "Informational feedback."
+      },
+      "info-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text on info."
+      },
+      "success": {
+        "value": "#09472d",
+        "type": "color",
+        "description": "Success feedback."
+      },
+      "success-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text on success."
+      },
+      "warning": {
+        "value": "#482c03",
+        "type": "color",
+        "description": "Warning feedback."
+      },
+      "warning-foreground": {
+        "value": "#d8d8d8",
+        "type": "color",
+        "description": "Text on warning."
+      },
+      "error": {
+        "value": "#ff5b5b",
+        "type": "color",
+        "description": "Error feedback."
+      },
+      "error-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text on error."
+      },
+      "destructive": {
+        "value": "#ff5b5b",
+        "type": "color",
+        "description": "Destructive action."
+      },
+      "destructive-foreground": {
+        "value": "#000000",
+        "type": "color",
+        "description": "Text on destructive."
+      },
+      "chart-1": {
+        "value": "#f9b138",
+        "type": "color",
+        "description": "Data-vis series 1."
+      },
+      "chart-2": {
+        "value": "#2671f4",
+        "type": "color",
+        "description": "Data-vis series 2."
+      },
+      "chart-3": {
+        "value": "#747474",
+        "type": "color",
+        "description": "Data-vis series 3."
+      },
+      "chart-4": {
+        "value": "#525252",
+        "type": "color",
+        "description": "Data-vis series 4."
+      },
+      "chart-5": {
+        "value": "#e4e4e4",
+        "type": "color",
+        "description": "Data-vis series 5."
+      }
+    }
+  },
+  "viewport/ small": {
+    "spacing": {
+      "10": {
+        "value": "18",
+        "type": "spacing"
+      },
+      "11": {
+        "value": "20",
+        "type": "spacing"
+      },
+      "12": {
+        "value": "23",
+        "type": "spacing"
+      },
+      "13": {
+        "value": "24",
+        "type": "spacing"
+      },
+      "14": {
+        "value": "28",
+        "type": "spacing"
+      },
+      "15": {
+        "value": "32",
+        "type": "spacing"
+      },
+      "16": {
+        "value": "36",
+        "type": "spacing"
+      },
+      "17": {
+        "value": "40",
+        "type": "spacing"
+      },
+      "18": {
+        "value": "48",
+        "type": "spacing"
+      },
+      "19": {
+        "value": "56",
+        "type": "spacing"
+      },
+      "20": {
+        "value": "64",
+        "type": "spacing"
+      },
+      "21": {
+        "value": "80",
+        "type": "spacing"
+      },
+      "01": {
+        "value": "2",
+        "type": "spacing"
+      },
+      "02": {
+        "value": "3",
+        "type": "spacing"
+      },
+      "03": {
+        "value": "4",
+        "type": "spacing"
+      },
+      "04": {
+        "value": "6",
+        "type": "spacing"
+      },
+      "05": {
+        "value": "8",
+        "type": "spacing"
+      },
+      "06": {
+        "value": "10",
+        "type": "spacing"
+      },
+      "07": {
+        "value": "12",
+        "type": "spacing"
+      },
+      "08": {
+        "value": "14",
+        "type": "spacing"
+      },
+      "09": {
+        "value": "16",
+        "type": "spacing"
+      }
+    },
+    "grid": {
+      "columns": {
+        "value": "4",
+        "type": "number"
+      },
+      "gutter": {
+        "value": "24",
+        "type": "number"
+      },
+      "margin": {
+        "value": "20",
+        "type": "number"
+      },
+      "viewport": {
+        "value": "433",
+        "type": "number"
+      },
+      "maxWidth": {
+        "value": "767",
+        "type": "number"
+      },
+      "contentArea": {
+        "value": "393",
+        "type": "number"
+      }
+    },
+    "fontSize0025": {
+      "value": "0.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize005": {
+      "value": "0.625rem",
+      "type": "fontSizes"
+    },
+    "fontSize010": {
+      "value": "0.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize020": {
+      "value": "0.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize025": {
+      "value": "0.9375rem",
+      "type": "fontSizes"
+    },
+    "fontSize030": {
+      "value": "1rem",
+      "type": "fontSizes"
+    },
+    "fontSize035": {
+      "value": "1.0625rem",
+      "type": "fontSizes"
+    },
+    "fontSize040": {
+      "value": "1.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize045": {
+      "value": "1.1875rem",
+      "type": "fontSizes"
+    },
+    "fontSize050": {
+      "value": "1.25rem",
+      "type": "fontSizes"
+    },
+    "fontSize060": {
+      "value": "1.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize070": {
+      "value": "1.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize080": {
+      "value": "1.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize090": {
+      "value": "2rem",
+      "type": "fontSizes",
+      "description": "32px at Small viewport"
+    },
+    "fontSize095": {
+      "value": "2.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize100": {
+      "value": "2.25rem",
+      "type": "fontSizes",
+      "description": "36px at Small viewport"
+    },
+    "fontSize105": {
+      "value": "2.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize110": {
+      "value": "2rem",
+      "type": "fontSizes",
+      "description": "32px at Small viewport"
+    },
+    "fontSize120": {
+      "value": "2.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize125": {
+      "value": "2.8125rem",
+      "type": "fontSizes"
+    },
+    "fontSize130": {
+      "value": "3rem",
+      "type": "fontSizes"
+    },
+    "fontSize140": {
+      "value": "2.5rem",
+      "type": "fontSizes",
+      "description": "40px at Small viewport"
+    },
+    "fontSize150": {
+      "value": "4rem",
+      "type": "fontSizes"
+    },
+    "fontSize155": {
+      "value": "4.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize160": {
+      "value": "5rem",
+      "type": "fontSizes"
+    }
+  },
+  "viewport/ medium": {
+    "spacing": {
+      "10": {
+        "value": "18",
+        "type": "spacing"
+      },
+      "11": {
+        "value": "20",
+        "type": "spacing"
+      },
+      "12": {
+        "value": "23",
+        "type": "spacing"
+      },
+      "13": {
+        "value": "24",
+        "type": "spacing"
+      },
+      "14": {
+        "value": "28",
+        "type": "spacing"
+      },
+      "15": {
+        "value": "32",
+        "type": "spacing"
+      },
+      "16": {
+        "value": "36",
+        "type": "spacing"
+      },
+      "17": {
+        "value": "40",
+        "type": "spacing"
+      },
+      "18": {
+        "value": "48",
+        "type": "spacing"
+      },
+      "19": {
+        "value": "56",
+        "type": "spacing"
+      },
+      "20": {
+        "value": "64",
+        "type": "spacing"
+      },
+      "21": {
+        "value": "80",
+        "type": "spacing"
+      },
+      "01": {
+        "value": "2",
+        "type": "spacing"
+      },
+      "02": {
+        "value": "3",
+        "type": "spacing"
+      },
+      "03": {
+        "value": "4",
+        "type": "spacing"
+      },
+      "04": {
+        "value": "6",
+        "type": "spacing"
+      },
+      "05": {
+        "value": "8",
+        "type": "spacing"
+      },
+      "06": {
+        "value": "10",
+        "type": "spacing"
+      },
+      "07": {
+        "value": "12",
+        "type": "spacing"
+      },
+      "08": {
+        "value": "14",
+        "type": "spacing"
+      },
+      "09": {
+        "value": "16",
+        "type": "spacing"
+      }
+    },
+    "grid": {
+      "columns": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter": {
+        "value": "32",
+        "type": "number"
+      },
+      "margin": {
+        "value": "24",
+        "type": "number"
+      },
+      "viewport": {
+        "value": "816",
+        "type": "number"
+      },
+      "maxWidth": {
+        "value": "1023",
+        "type": "number"
+      },
+      "contentArea": {
+        "value": "768",
+        "type": "number"
+      }
+    },
+    "fontSize0025": {
+      "value": "0.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize005": {
+      "value": "0.625rem",
+      "type": "fontSizes"
+    },
+    "fontSize010": {
+      "value": "0.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize020": {
+      "value": "0.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize025": {
+      "value": "0.9375rem",
+      "type": "fontSizes"
+    },
+    "fontSize030": {
+      "value": "1rem",
+      "type": "fontSizes"
+    },
+    "fontSize035": {
+      "value": "1.0625rem",
+      "type": "fontSizes"
+    },
+    "fontSize040": {
+      "value": "1.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize045": {
+      "value": "1.1875rem",
+      "type": "fontSizes"
+    },
+    "fontSize050": {
+      "value": "1.25rem",
+      "type": "fontSizes"
+    },
+    "fontSize060": {
+      "value": "1.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize070": {
+      "value": "1.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize080": {
+      "value": "1.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize090": {
+      "value": "2rem",
+      "type": "fontSizes",
+      "description": "32px at Medium viewport"
+    },
+    "fontSize095": {
+      "value": "2.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize100": {
+      "value": "2.5rem",
+      "type": "fontSizes",
+      "description": "40px at Medium viewport"
+    },
+    "fontSize105": {
+      "value": "2.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize110": {
+      "value": "2rem",
+      "type": "fontSizes",
+      "description": "32px at Medium viewport"
+    },
+    "fontSize120": {
+      "value": "2.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize125": {
+      "value": "2.8125rem",
+      "type": "fontSizes"
+    },
+    "fontSize130": {
+      "value": "3rem",
+      "type": "fontSizes"
+    },
+    "fontSize140": {
+      "value": "2.5rem",
+      "type": "fontSizes",
+      "description": "40px at Medium viewport"
+    },
+    "fontSize150": {
+      "value": "4rem",
+      "type": "fontSizes"
+    },
+    "fontSize155": {
+      "value": "4.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize160": {
+      "value": "5rem",
+      "type": "fontSizes"
+    }
+  },
+  "viewport/ large": {
+    "spacing": {
+      "10": {
+        "value": "18",
+        "type": "spacing"
+      },
+      "11": {
+        "value": "20",
+        "type": "spacing"
+      },
+      "12": {
+        "value": "23",
+        "type": "spacing"
+      },
+      "13": {
+        "value": "24",
+        "type": "spacing"
+      },
+      "14": {
+        "value": "28",
+        "type": "spacing"
+      },
+      "15": {
+        "value": "32",
+        "type": "spacing"
+      },
+      "16": {
+        "value": "36",
+        "type": "spacing"
+      },
+      "17": {
+        "value": "40",
+        "type": "spacing"
+      },
+      "18": {
+        "value": "48",
+        "type": "spacing"
+      },
+      "19": {
+        "value": "56",
+        "type": "spacing"
+      },
+      "20": {
+        "value": "64",
+        "type": "spacing"
+      },
+      "21": {
+        "value": "80",
+        "type": "spacing"
+      },
+      "01": {
+        "value": "2",
+        "type": "spacing"
+      },
+      "02": {
+        "value": "3",
+        "type": "spacing"
+      },
+      "03": {
+        "value": "4",
+        "type": "spacing"
+      },
+      "04": {
+        "value": "6",
+        "type": "spacing"
+      },
+      "05": {
+        "value": "8",
+        "type": "spacing"
+      },
+      "06": {
+        "value": "10",
+        "type": "spacing"
+      },
+      "07": {
+        "value": "12",
+        "type": "spacing"
+      },
+      "08": {
+        "value": "14",
+        "type": "spacing"
+      },
+      "09": {
+        "value": "16",
+        "type": "spacing"
+      }
+    },
+    "grid": {
+      "columns": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter": {
+        "value": "32",
+        "type": "number"
+      },
+      "margin": {
+        "value": "24",
+        "type": "number"
+      },
+      "viewport": {
+        "value": "1072",
+        "type": "number"
+      },
+      "maxWidth": {
+        "value": "1439",
+        "type": "number"
+      },
+      "contentArea": {
+        "value": "1024",
+        "type": "number"
+      }
+    },
+    "fontSize0025": {
+      "value": "0.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize005": {
+      "value": "0.625rem",
+      "type": "fontSizes"
+    },
+    "fontSize010": {
+      "value": "0.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize020": {
+      "value": "0.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize025": {
+      "value": "0.9375rem",
+      "type": "fontSizes"
+    },
+    "fontSize030": {
+      "value": "1rem",
+      "type": "fontSizes"
+    },
+    "fontSize035": {
+      "value": "1.0625rem",
+      "type": "fontSizes"
+    },
+    "fontSize040": {
+      "value": "1.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize045": {
+      "value": "1.1875rem",
+      "type": "fontSizes"
+    },
+    "fontSize050": {
+      "value": "1.25rem",
+      "type": "fontSizes"
+    },
+    "fontSize060": {
+      "value": "1.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize070": {
+      "value": "1.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize080": {
+      "value": "1.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize090": {
+      "value": "2rem",
+      "type": "fontSizes",
+      "description": "32px at Large viewport"
+    },
+    "fontSize095": {
+      "value": "2.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize100": {
+      "value": "2.875rem",
+      "type": "fontSizes",
+      "description": "46px at Large viewport"
+    },
+    "fontSize105": {
+      "value": "2.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize110": {
+      "value": "2rem",
+      "type": "fontSizes",
+      "description": "32px at Large viewport"
+    },
+    "fontSize120": {
+      "value": "2.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize125": {
+      "value": "2.8125rem",
+      "type": "fontSizes"
+    },
+    "fontSize130": {
+      "value": "3rem",
+      "type": "fontSizes"
+    },
+    "fontSize140": {
+      "value": "2.5rem",
+      "type": "fontSizes",
+      "description": "40px at Large viewport"
+    },
+    "fontSize150": {
+      "value": "4rem",
+      "type": "fontSizes"
+    },
+    "fontSize155": {
+      "value": "4.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize160": {
+      "value": "5rem",
+      "type": "fontSizes"
+    }
+  },
+  "viewport/ xlarge": {
+    "spacing": {
+      "10": {
+        "value": "18",
+        "type": "spacing"
+      },
+      "11": {
+        "value": "20",
+        "type": "spacing"
+      },
+      "12": {
+        "value": "23",
+        "type": "spacing"
+      },
+      "13": {
+        "value": "24",
+        "type": "spacing"
+      },
+      "14": {
+        "value": "28",
+        "type": "spacing"
+      },
+      "15": {
+        "value": "32",
+        "type": "spacing"
+      },
+      "16": {
+        "value": "36",
+        "type": "spacing"
+      },
+      "17": {
+        "value": "40",
+        "type": "spacing"
+      },
+      "18": {
+        "value": "48",
+        "type": "spacing"
+      },
+      "19": {
+        "value": "56",
+        "type": "spacing"
+      },
+      "20": {
+        "value": "64",
+        "type": "spacing"
+      },
+      "21": {
+        "value": "80",
+        "type": "spacing"
+      },
+      "01": {
+        "value": "2",
+        "type": "spacing"
+      },
+      "02": {
+        "value": "3",
+        "type": "spacing"
+      },
+      "03": {
+        "value": "4",
+        "type": "spacing"
+      },
+      "04": {
+        "value": "6",
+        "type": "spacing"
+      },
+      "05": {
+        "value": "8",
+        "type": "spacing"
+      },
+      "06": {
+        "value": "10",
+        "type": "spacing"
+      },
+      "07": {
+        "value": "12",
+        "type": "spacing"
+      },
+      "08": {
+        "value": "14",
+        "type": "spacing"
+      },
+      "09": {
+        "value": "16",
+        "type": "spacing"
+      }
+    },
+    "grid": {
+      "columns": {
+        "value": "12",
+        "type": "number"
+      },
+      "gutter": {
+        "value": "32",
+        "type": "number"
+      },
+      "margin": {
+        "value": "24",
+        "type": "number"
+      },
+      "viewport": {
+        "value": "1440",
+        "type": "number"
+      },
+      "maxWidth": {
+        "value": "1920",
+        "type": "number"
+      },
+      "contentArea": {
+        "value": "1144",
+        "type": "number"
+      }
+    },
+    "fontSize0025": {
+      "value": "0.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize005": {
+      "value": "0.625rem",
+      "type": "fontSizes"
+    },
+    "fontSize010": {
+      "value": "0.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize020": {
+      "value": "0.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize025": {
+      "value": "0.9375rem",
+      "type": "fontSizes"
+    },
+    "fontSize030": {
+      "value": "1rem",
+      "type": "fontSizes"
+    },
+    "fontSize035": {
+      "value": "1.0625rem",
+      "type": "fontSizes"
+    },
+    "fontSize040": {
+      "value": "1.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize045": {
+      "value": "1.1875rem",
+      "type": "fontSizes"
+    },
+    "fontSize050": {
+      "value": "1.25rem",
+      "type": "fontSizes"
+    },
+    "fontSize060": {
+      "value": "1.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize070": {
+      "value": "1.5rem",
+      "type": "fontSizes"
+    },
+    "fontSize080": {
+      "value": "1.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize090": {
+      "value": "2.25rem",
+      "type": "fontSizes",
+      "description": "36px at XLarge viewport"
+    },
+    "fontSize095": {
+      "value": "2.125rem",
+      "type": "fontSizes"
+    },
+    "fontSize100": {
+      "value": "3.5rem",
+      "type": "fontSizes",
+      "description": "56px at XLarge viewport"
+    },
+    "fontSize105": {
+      "value": "2.875rem",
+      "type": "fontSizes"
+    },
+    "fontSize110": {
+      "value": "2.5rem",
+      "type": "fontSizes",
+      "description": "40px at XLarge viewport"
+    },
+    "fontSize120": {
+      "value": "2.75rem",
+      "type": "fontSizes"
+    },
+    "fontSize125": {
+      "value": "2.8125rem",
+      "type": "fontSizes"
+    },
+    "fontSize130": {
+      "value": "3rem",
+      "type": "fontSizes"
+    },
+    "fontSize140": {
+      "value": "3.5rem",
+      "type": "fontSizes",
+      "description": "56px at XLarge viewport"
+    },
+    "fontSize150": {
+      "value": "4rem",
+      "type": "fontSizes"
+    },
+    "fontSize155": {
+      "value": "4.375rem",
+      "type": "fontSizes"
+    },
+    "fontSize160": {
+      "value": "5rem",
+      "type": "fontSizes"
+    }
+  },
+  "typographyTokens": {
+    "brand": {
+      "heading": {
+        "fluid": {
+          "light": {
+            "2xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "{foundation.fontSize045}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Subtle subheading for sections and tertiary content. Typically h5, h6."
+            },
+            "xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "{foundation.fontSize050}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Article subheading or secondary headline for opinion pieces. Typically h4, h5."
+            },
+            "small": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "{foundation.fontSize070}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Standard heading for sections and cards. Typically h3, h4."
+            },
+            "medium": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "{foundation.fontSize080}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Prominent section heading for major stories and category pages. Typically h2, h3."
+            },
+            "large": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "{foundation.fontSize090}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Lead heading for hero and top-level content. Typically h1, h2."
+            },
+            "xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "{foundation.fontSize095}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Hero headline for breaking news and major investigations. Typically h1."
+            },
+            "2xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "{foundation.fontSize100}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Maximum impact headline for front-page stories and special reports. Typically h1."
+            }
+          },
+          "regular": {
+            "2xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "{foundation.fontSize045}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Body-weight subheading for accessible hierarchy. Typically h5, h6."
+            },
+            "xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "{foundation.fontSize050}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Regular article subheading for balanced typographic rhythm. Typically h4, h5."
+            },
+            "small": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "{foundation.fontSize070}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Standard news headline with approachable weight. Typically h3, h4."
+            },
+            "medium": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "{foundation.fontSize080}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Lead heading balancing authority and readability. Typically h2, h3."
+            },
+            "large": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "{foundation.fontSize090}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Major heading for hero sections. Typically h1, h2."
+            },
+            "xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "{foundation.fontSize095}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Breaking news headline with commanding presence. Typically h1."
+            },
+            "2xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "{foundation.fontSize100}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Front-page impact headline for watershed moments. Typically h1."
+            }
+          },
+          "bold": {
+            "2xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "{foundation.fontSize045}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Emphasized subheading for visual hierarchy in dense layouts. Typically h5, h6."
+            },
+            "xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "{foundation.fontSize050}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Strong article subheading for analysis and opinion pieces. Typically h4, h5."
+            },
+            "small": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "{foundation.fontSize070}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Bold news headline for sidebar stories and related content. Typically h3, h4."
+            },
+            "medium": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "{foundation.fontSize080}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Prominent lead headline for section fronts and topic pages. Typically h2, h3."
+            },
+            "large": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "{foundation.fontSize090}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "High-impact headline for exclusive stories and investigations. Typically h1, h2."
+            },
+            "xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "{foundation.fontSize095}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Bold breaking news headline for crisis coverage. Typically h1."
+            },
+            "2xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "{foundation.fontSize100}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Maximum emphasis front-page headline for historic events. Typically h1."
+            }
+          },
+          "black": {
+            "2xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "{foundation.fontSize045}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Ultra-bold micro headline for badges and compact callouts. Typically h5, h6."
+            },
+            "xsmall": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "{foundation.fontSize050}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Extra-bold subheading for emphasis and callouts. Typically h4, h5."
+            },
+            "small": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "{foundation.fontSize070}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Heavy-weight headline for opinion columns and features. Typically h3, h4."
+            },
+            "medium": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "{foundation.fontSize080}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Ultra-bold lead headline for major statements. Typically h2, h3."
+            },
+            "large": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "{foundation.fontSize090}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Maximum impact headline for flagship investigations. Typically h1, h2."
+            },
+            "xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "{foundation.fontSize095}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Black-weight breaking news for critical national events. Typically h1."
+            },
+            "2xlarge": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "{foundation.fontSize100}",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Absolute maximum impact headline for once-in-generation stories. Typically h1."
+            }
+          }
+        },
+        "static": {
+          "light": {
+            "100": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "56",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 56px. Typically h1."
+            },
+            "010": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "19",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 19px. Typically h5, h6."
+            },
+            "020": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "20",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 20px. Typically h5, h6."
+            },
+            "030": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "24",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 24px. Typically h4, h5."
+            },
+            "040": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "28",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 28px. Typically h4."
+            },
+            "050": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "32",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 32px. Typically h3, h4."
+            },
+            "060": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "36",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 36px. Typically h3."
+            },
+            "070": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "40",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 40px. Typically h2, h3."
+            },
+            "080": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "46",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 46px. Typically h2."
+            },
+            "090": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight030}",
+                "fontSize": "48",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed light-weight heading at 48px. Typically h1, h2."
+            }
+          },
+          "regular": {
+            "100": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "56",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 56px. Typically h1."
+            },
+            "010": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "19",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 19px. Typically h5, h6."
+            },
+            "020": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "20",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 20px. Typically h5, h6."
+            },
+            "030": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "24",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 24px. Typically h4, h5."
+            },
+            "040": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "28",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 28px. Typically h4."
+            },
+            "050": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "32",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 32px. Typically h3, h4."
+            },
+            "060": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "36",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 36px. Typically h3."
+            },
+            "070": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "40",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 40px. Typically h2, h3."
+            },
+            "080": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "46",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 46px. Typically h2."
+            },
+            "090": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight040}",
+                "fontSize": "48",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed regular-weight heading at 48px. Typically h1, h2."
+            }
+          },
+          "bold": {
+            "100": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "56",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 56px. Typically h1."
+            },
+            "010": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "19",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 19px. Typically h5, h6."
+            },
+            "020": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "20",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 20px. Typically h5, h6."
+            },
+            "030": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "24",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 24px. Typically h4, h5."
+            },
+            "040": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "28",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 28px. Typically h4."
+            },
+            "050": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "32",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 32px. Typically h3, h4."
+            },
+            "060": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "36",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 36px. Typically h3."
+            },
+            "070": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "40",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 40px. Typically h2, h3."
+            },
+            "080": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "46",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 46px. Typically h2."
+            },
+            "090": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight070}",
+                "fontSize": "48",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed bold-weight heading at 48px. Typically h1, h2."
+            }
+          },
+          "black": {
+            "100": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "56",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 56px. Typically h1."
+            },
+            "010": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "19",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 19px. Typically h5, h6."
+            },
+            "020": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "20",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 20px. Typically h5, h6."
+            },
+            "030": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "24",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 24px. Typically h4, h5."
+            },
+            "040": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "28",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 28px. Typically h4."
+            },
+            "050": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "32",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 32px. Typically h3, h4."
+            },
+            "060": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "36",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 36px. Typically h3."
+            },
+            "070": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "40",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 40px. Typically h2, h3."
+            },
+            "080": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "46",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 46px. Typically h2."
+            },
+            "090": {
+              "value": {
+                "fontFamily": "{foundation.fontFamily010}",
+                "fontWeight": "{foundation.fontWeight080}",
+                "fontSize": "48",
+                "lineHeight": "{foundation.fontLineHeight020}"
+              },
+              "type": "typography",
+              "description": "Fixed black-weight heading at 48px. Typically h1, h2."
+            }
+          }
+        }
+      },
+      "subheading": {
+        "light": {
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight030}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Light-weight subheading. Typically h5, h6."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight030}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Light-weight subheading, mid size. Typically h4."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight030}",
+              "fontSize": "{foundation.fontSize050}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Light-weight subheading, prominent. Typically h3, h4."
+          },
+          "xlarge": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight030}",
+              "fontSize": "{foundation.fontSize070}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Light-weight subheading, large. Typically h3."
+          }
+        },
+        "regular": {
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Regular-weight subheading. Typically h5, h6."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Regular-weight subheading, mid size. Typically h4."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize050}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Regular-weight subheading, prominent. Typically h3, h4."
+          },
+          "xlarge": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize070}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Regular-weight subheading, large. Typically h3."
+          }
+        },
+        "bold": {
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Bold-weight subheading. Typically h5, h6."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Bold-weight subheading, mid size. Typically h4."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize050}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Bold-weight subheading, prominent. Typically h3, h4."
+          },
+          "xlarge": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily010}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize070}",
+              "lineHeight": "{foundation.fontLineHeight020}"
+            },
+            "type": "typography",
+            "description": "Bold-weight subheading, large. Typically h3."
+          }
+        }
+      },
+      "intro": {
+        "large": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily010}",
+            "fontWeight": "{foundation.fontWeight040}",
+            "fontSize": "{foundation.fontSize050}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Article intro paragraph, large. Use p."
+        },
+        "medium": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily010}",
+            "fontWeight": "{foundation.fontWeight040}",
+            "fontSize": "{foundation.fontSize020}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Article intro paragraph, standard. Use p."
+        }
+      },
+      "paragraph": {
+        "regular": {
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "paragraphSpacing": "1rem"
+            },
+            "type": "typography",
+            "description": "Regular-weight body paragraph, small. Use p."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontSize": "{foundation.fontSize035}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "paragraphSpacing": "1rem"
+            },
+            "type": "typography",
+            "description": "Regular-weight body paragraph, standard. Use p."
+          }
+        },
+        "bold": {
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily030}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "paragraphSpacing": "1rem"
+            },
+            "type": "typography",
+            "description": "Bold-weight body paragraph, small. Use p."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily030}",
+              "fontSize": "{foundation.fontSize035}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "paragraphSpacing": "1rem"
+            },
+            "type": "typography",
+            "description": "Bold-weight body paragraph, standard. Use p."
+          }
+        }
+      },
+      "caption": {
+        "medium": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight040}",
+            "fontSize": "{foundation.fontSize020}",
+            "lineHeight": "{foundation.fontLineHeight040}"
+          },
+          "type": "typography",
+          "description": "Image caption text, standard size. Use figcaption or span."
+        },
+        "small": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight040}",
+            "fontSize": "{foundation.fontSize010}",
+            "lineHeight": "{foundation.fontLineHeight040}"
+          },
+          "type": "typography",
+          "description": "Image caption text, compact. Use figcaption or span."
+        }
+      },
+      "meta": {
+        "medium": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight040}",
+            "fontSize": "{foundation.fontSize020}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Author attribution, standard size. Use span or p."
+        },
+        "small": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight040}",
+            "fontSize": "{foundation.fontSize010}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Author attribution, compact. Use span or p."
+        }
+      }
+    },
+    "utility": {
+      "heading": {
+        "small": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight070}",
+            "fontSize": "{foundation.fontSize040}",
+            "lineHeight": "{foundation.fontLineHeight030}"
+          },
+          "type": "typography",
+          "description": "Compact utility heading for mobile navigation. Typically h4, h5."
+        },
+        "medium": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight070}",
+            "fontSize": "{foundation.fontSize070}",
+            "lineHeight": "{foundation.fontLineHeight030}"
+          },
+          "type": "typography",
+          "description": "Standard utility heading for card titles. Typically h3, h4."
+        },
+        "large": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight070}",
+            "fontSize": "{foundation.fontSize080}",
+            "lineHeight": "{foundation.fontLineHeight030}"
+          },
+          "type": "typography",
+          "description": "Prominent utility heading for page sections. Typically h2, h3."
+        }
+      },
+      "subheading": {
+        "xsmall": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize010}",
+            "lineHeight": "{foundation.fontLineHeight030}"
+          },
+          "type": "typography",
+          "description": "Micro utility subheading. Typically h6 or span."
+        },
+        "small": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize020}",
+            "lineHeight": "{foundation.fontLineHeight030}"
+          },
+          "type": "typography",
+          "description": "Small utility subheading. Typically h5, h6."
+        },
+        "medium": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize030}",
+            "lineHeight": "{foundation.fontLineHeight030}"
+          },
+          "type": "typography",
+          "description": "Standard utility subheading. Typically h4, h5."
+        },
+        "large": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize050}",
+            "lineHeight": "{foundation.fontLineHeight030}"
+          },
+          "type": "typography",
+          "description": "Prominent utility subheading. Typically h4."
+        }
+      },
+      "body": {
+        "regular": {
+          "xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize010}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Compact regular body. Use p or span."
+          },
+          "2xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize005}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Minimum-size regular body. Use p or span."
+          },
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Small regular body. Use p or span."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Standard regular body. Use p."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Large regular body. Use p."
+          }
+        },
+        "bold": {
+          "2xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize005}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Minimum-size bold body. Use p or span."
+          },
+          "xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize010}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Compact bold body. Use p or span."
+          },
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Small bold body. Use p or span."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Standard bold body. Use p."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Large bold body. Use p."
+          }
+        }
+      },
+      "button": {
+        "xsmall": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize010}",
+            "lineHeight": "{foundation.fontLineHeight010}"
+          },
+          "type": "typography",
+          "description": "Compact button text for space-constrained UI. Use span inside button."
+        },
+        "small": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize020}",
+            "lineHeight": "{foundation.fontLineHeight010}"
+          },
+          "type": "typography",
+          "description": "Standard button text for secondary and mobile actions. Use span inside button."
+        },
+        "medium": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize030}",
+            "lineHeight": "{foundation.fontLineHeight010}"
+          },
+          "type": "typography",
+          "description": "Primary button text for desktop CTAs. Use span inside button."
+        },
+        "large": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize040}",
+            "lineHeight": "{foundation.fontLineHeight010}"
+          },
+          "type": "typography",
+          "description": "Prominent button text for hero CTAs. Use span inside button."
+        }
+      },
+      "label": {
+        "xsmall": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize010}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Micro label for badges and tags. Use label or span."
+        },
+        "small": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize020}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Standard label for form fields and captions. Use label or span."
+        },
+        "medium": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize030}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Prominent form label and card section heading. Use label or span."
+        },
+        "large": {
+          "value": {
+            "fontFamily": "{foundation.fontFamily040}",
+            "fontWeight": "{foundation.fontWeight050}",
+            "fontSize": "{foundation.fontSize040}",
+            "lineHeight": "{foundation.fontLineHeight020}"
+          },
+          "type": "typography",
+          "description": "Large label for emphasised metadata. Use label or span."
+        }
+      },
+      "linkInline": {
+        "utility": {
+          "xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize010}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Inline links within footnotes and compact navigation. Use a inside p."
+          },
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Inline links within body text. Use a inside p."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Inline links within primary content. Use a inside p."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Large inline links for callouts. Use a inside p."
+          }
+        },
+        "brand": {
+          "xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize010}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Inline links within footnotes and compact navigation. Use a inside p."
+          },
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Inline links within body text. Use a inside p."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Inline links within primary content. Use a inside p."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight040}",
+              "textDecoration": "underline"
+            },
+            "type": "typography",
+            "description": "Large inline links for callouts. Use a inside p."
+          }
+        }
+      },
+      "linkStandalone": {
+        "utility": {
+          "xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize010}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Compact standalone link for tight navigation. Use a outside paragraph flow."
+          },
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Standard standalone link for navigation and secondary actions. Use a."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Primary standalone link for navigation. Use a."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily040}",
+              "fontWeight": "{foundation.fontWeight070}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Large standalone link for hero callouts. Use a."
+          }
+        },
+        "brand": {
+          "xsmall": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize010}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Compact standalone link for tight navigation. Use a outside paragraph flow."
+          },
+          "small": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize020}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Standard standalone link for navigation and secondary actions. Use a."
+          },
+          "medium": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize030}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Primary standalone link for navigation. Use a."
+          },
+          "large": {
+            "value": {
+              "fontFamily": "{foundation.fontFamily020}",
+              "fontWeight": "{foundation.fontWeight040}",
+              "fontSize": "{foundation.fontSize040}",
+              "lineHeight": "{foundation.fontLineHeight040}"
+            },
+            "type": "typography",
+            "description": "Large standalone link for hero callouts. Use a."
+          }
+        }
+      }
+    }
+  },
+  "shadows": {
+    "shadow": {
+      "elevation": {
+        "down": {
+          "level-2": {
+            "value": {
+              "x": "0",
+              "y": "4",
+              "blur": "8",
+              "spread": "0",
+              "color": "rgba(#000000,0.08)",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "description": "Downward shadow for Level 2 surfaces. Pairs with surface.level-2."
+          },
+          "level-3": {
+            "value": {
+              "x": "0",
+              "y": "16",
+              "blur": "24",
+              "spread": "0",
+              "color": "rgba(#000000,0.08)",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "description": "Downward shadow for Level 3 surfaces. Pairs with surface.level-3."
+          },
+          "level-4": {
+            "value": {
+              "x": "0",
+              "y": "20",
+              "blur": "32",
+              "spread": "0",
+              "color": "rgba(#000000,0.08)",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "description": "Downward shadow for Level 4 surfaces. Pair with surface.overlay."
+          }
+        },
+        "up": {
+          "level-2": {
+            "value": {
+              "x": "0",
+              "y": "-4",
+              "blur": "8",
+              "spread": "0",
+              "color": "rgba(#000000,0.08)",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "description": "Upward shadow for Level 2 surfaces. For anchored bottom elements."
+          },
+          "level-3": {
+            "value": {
+              "x": "0",
+              "y": "-16",
+              "blur": "24",
+              "spread": "0",
+              "color": "rgba(#000000,0.08)",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "description": "Upward shadow for Level 3 surfaces. For bottom sheets and drawers."
+          },
+          "level-4": {
+            "value": {
+              "x": "0",
+              "y": "-20",
+              "blur": "32",
+              "spread": "0",
+              "color": "rgba(#000000,0.08)",
+              "type": "dropShadow"
+            },
+            "type": "boxShadow",
+            "description": "Upward shadow for Level 4 surfaces. Pair with surface.overlay."
+          }
+        }
+      }
+    }
+  },
+  "borderRadius": {
+    "border-radius": {
+      "50": {
+        "value": "4*0.5",
+        "type": "borderRadius"
+      },
+      "100": {
+        "value": "4",
+        "type": "borderRadius"
+      },
+      "150": {
+        "value": "4*1.5",
+        "type": "borderRadius"
+      },
+      "200": {
+        "value": "4*2.0",
+        "type": "borderRadius"
+      },
+      "300": {
+        "value": "4*3.0",
+        "type": "borderRadius"
+      },
+      "400": {
+        "value": "4*4.0",
+        "type": "borderRadius"
+      },
+      "full": {
+        "value": "9999",
+        "type": "borderRadius"
+      }
+    }
+  }
+}

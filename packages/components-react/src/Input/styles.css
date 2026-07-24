@@ -1,0 +1,67 @@
+/* Input component styles using design tokens */
+
+.ds-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-05);
+}
+
+/* Label styles */
+.ds-input-label {
+  color: var(--text-primary, #1a1a1a);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-03);
+}
+
+/* Required asterisk */
+.ds-input-required {
+  color: var(--text-error, #cc0000);
+}
+
+/* Input field styles */
+.ds-input {
+  width: 100%;
+  padding: var(--spacing-05) var(--spacing-07);
+  color: var(--text-primary, #1a1a1a);
+  background-color: var(--interactive-background-default, #ffffff);
+  border: 1px solid var(--border-primary, #999999);
+  border-radius: 0;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+/* Input focus state */
+.ds-input:focus {
+  outline: none;
+  border-color: var(--text-interactive-primary, #0f4aa2);
+  box-shadow: 0 0 0 var(--spacing-01) rgba(15, 74, 162, 0.1);
+}
+
+/* Input hover state */
+.ds-input:hover:not(:disabled) {
+  border-color: var(--text-interactive-primary, #0f4aa2);
+}
+
+/* Input disabled state */
+.ds-input:disabled {
+  background-color: var(--interactive-background-disabled, #f2f2f2);
+  color: var(--text-disabled, #999999);
+  border-color: var(--border-disabled, #cccccc);
+  cursor: not-allowed;
+}
+
+/* Input placeholder */
+.ds-input::placeholder {
+  color: var(--text-secondary, #666666);
+}
+
+/* Input error state (optional class to apply) */
+.ds-input.error {
+  border-color: var(--text-error, #cc0000);
+}
+
+.ds-input.error:focus {
+  border-color: var(--text-error, #cc0000);
+  box-shadow: 0 0 0 var(--spacing-01) rgba(204, 0, 0, 0.1);
+}

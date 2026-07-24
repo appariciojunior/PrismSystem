@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design System · the system map</title>
+<style>
+  :root{
+    --bg:#f5f3ee; --surface:#fff; --surface2:#fbfaf7; --ink:#1a1a18; --muted:#6b6862; --faint:#94908a;
+    --border:#e4e0d7; --border2:#d4cfc3; --accent:#135dcb; --accent-soft:#e9f0fc;
+    --green:#58a385; --orange:#df7334; --red:#9b1f45; --teal:#00787c; --purple:#942364;
+    --shadow:0 1px 2px rgba(26,26,24,.05),0 6px 20px rgba(26,26,24,.06);
+    --serif:Georgia,'Brand New Roman',serif; --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+    --mono:'SFMono-Regular',ui-monospace,Menlo,monospace;
+  }
+  body.dark{
+    --bg:#15151a; --surface:#1d1d23; --surface2:#232329; --ink:#f1efe9; --muted:#a6a29a; --faint:#77746d;
+    --border:#2d2d35; --border2:#3a3a44; --accent:#6aa6ee; --accent-soft:#1c2c44;
+    --green:#6fc09b; --orange:#e8894e; --red:#d15578; --teal:#3aa8ac; --purple:#c05a96;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 26px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 26px 90px}
+  header{border-bottom:2px solid var(--ink);padding:28px 0 20px;margin-bottom:14px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  .brand{font-family:var(--serif);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  h1{font-family:var(--serif);font-size:clamp(28px,4.5vw,42px);margin:0;line-height:1.05}
+  .sub{color:var(--muted);font-size:15.5px;margin-top:10px;max-width:62ch}
+  .toggle{font-size:13px;font-weight:600;background:var(--surface);color:var(--ink);border:1px solid var(--border2);border-radius:999px;padding:8px 15px;cursor:pointer;white-space:nowrap}
+  .toggle:hover{border-color:var(--accent);color:var(--accent)}
+
+  .how{font-size:12.5px;color:var(--faint);margin:14px 0 26px}
+
+  /* Layer bands */
+  .band{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:12px;box-shadow:var(--shadow);padding:18px 20px 16px;margin:0 0 0 60px}
+  .band.lvl{border-left:3px solid var(--band,var(--accent))}
+  .lvl-tag{position:absolute;left:-60px;top:14px;width:44px;text-align:center}
+  .lvl-tag .n{font-family:var(--serif);font-weight:700;font-size:16px;color:var(--band,var(--accent))}
+  .lvl-tag .t{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);line-height:1.2;display:block;margin-top:2px}
+  .band h2{font-family:var(--serif);font-size:19px;margin:0 0 2px}
+  .band .role{font-size:13px;color:var(--muted);margin:0 0 12px;max-width:78ch}
+  .nodes{display:flex;flex-wrap:wrap;gap:8px}
+  .node{background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:7px 11px;font-size:12.5px;cursor:default;transition:border-color .15s}
+  .node:hover{border-color:var(--band,var(--accent))}
+  .node b{display:block;font-size:12.5px}
+  .node span{display:block;font-size:11px;color:var(--muted);max-width:24ch}
+  .node.wide span{max-width:40ch}
+  .node code{font-family:var(--mono);font-size:11px;color:var(--band,var(--accent))}
+  .node.new::after{content:"new";font-size:9px;letter-spacing:.06em;color:var(--orange);border:1px solid var(--orange);border-radius:4px;padding:0 4px;margin-left:6px;vertical-align:1px}
+
+  /* connectors between bands */
+  .link{display:flex;align-items:center;gap:10px;margin:2px 0 2px 60px;padding:6px 4px}
+  .link .arrow{font-size:15px;color:var(--faint)}
+  .link .verb{font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+  .link .what{font-size:12.5px;color:var(--muted)}
+
+  /* the loop rail */
+  .diagram{position:relative}
+  .looprail{position:absolute;right:-14px;top:70px;bottom:40px;width:0;border-right:2px dashed var(--green);opacity:.65}
+  .looprail::before{content:"▲";position:absolute;top:-14px;right:-7px;color:var(--green);font-size:12px}
+  .looplabel{position:absolute;right:-38px;top:45%;transform:rotate(90deg);transform-origin:center;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+
+  /* pillars grid inside skills band */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+  .pillar{background:var(--surface2);border:1px solid var(--border);border-radius:9px;padding:10px 12px}
+  .pillar h3{margin:0 0 2px;font-size:13px}
+  .pillar h3 code{font-family:var(--mono);font-size:11.5px;color:var(--band,var(--accent))}
+  .pillar p{margin:0 0 6px;font-size:11px;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:4px}
+  .chip{font-family:var(--mono);font-size:10px;background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:1px 5px;color:var(--muted)}
+  .chip.hl{color:var(--orange);border-color:var(--orange)}
+
+  .rules{margin-top:34px;background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--red);border-radius:10px;padding:16px 20px;box-shadow:var(--shadow)}
+  .rules h2{font-family:var(--serif);font-size:16px;margin:0 0 8px}
+  .rules p{font-size:13px;color:var(--muted);margin:4px 0}
+  .rules b{color:var(--ink)}
+  footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--border);font-size:12px;color:var(--faint);font-family:var(--serif)}
+  @media(max-width:640px){.band{margin-left:44px}.lvl-tag{left:-44px;width:36px}.link{margin-left:44px}.looprail,.looplabel{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <div class="brand">Design System · architecture</div>
+    <h1>The system map</h1>
+    <p class="sub">Six levels, one direction of flow, and a learning loop that runs back up the side. Every box states its role; nothing here is decoration.</p>
+  </div>
+  <button class="toggle" id="themeBtn">◑ Dark</button>
+</header>
+
+<p class="how">Read it top to bottom: people ask, the router picks one path, orchestration runs the skills, the skills stand on the grounding, deterministic tools do the maths, and everything produced lands in the sandbox. The green dashed rail on the right is the loop that makes the system better every week.</p>
+
+<div class="diagram">
+  <div class="looprail"></div>
+  <div class="looplabel">the learning loop</div>
+
+  <!-- LEVEL 0 -->
+  <div class="band lvl" style="--band:var(--accent)">
+    <div class="lvl-tag"><span class="n">0</span><span class="t">Entry</span></div>
+    <h2>People and front doors</h2>
+    <p class="role">Nobody needs to know a skill name. Two guided wizards and one typed route cover everyone; calling a skill directly stays possible for experts.</p>
+    <div class="nodes">
+      <div class="node"><b><code>/design-start</code></b><span>the designer's wizard: create, evolve, versions, check, hand off</span></div>
+      <div class="node new"><b><code>/engineer-start</code></b><span>the engineer's mirror: pick up handoffs, convert prototypes to the stack</span></div>
+      <div class="node"><b><code>/design &lt;ask&gt;</code></b><span>typed route for people who know what they want</span></div>
+      <div class="node"><b>Direct skill call</b><span>expert shortcut, no wizard</span></div>
+    </div>
+  </div>
+
+  <div class="link"><span class="arrow">↓</span><span class="verb">asks</span><span class="what">a request in plain language, plus a screenshot, Figma tab or prototype</span></div>
+
+  <!-- LEVEL 1 -->
+  <div class="band lvl" style="--band:var(--teal)">
+    <div class="lvl-tag"><span class="n">1</span><span class="t">Router</span></div>
+    <h2>The router</h2>
+    <p class="role">One brain at the front: loads the DNA TL;DR, reads the ask, picks exactly one focal path, prints a receipt (what will load, what will be skipped, what comes out), then hands over. It never does design work itself.</p>
+    <div class="nodes">
+      <div class="node wide"><b><code>design-router</code></b><span>classifies intent into a path; guided mode powers both wizards; asks at most one clarifying question</span></div>
+      <div class="node"><b>The receipt</b><span>loads, skips, deliverable, weight: cost visible before running</span></div>
+    </div>
+  </div>
+
+  <div class="link"><span class="arrow">↓</span><span class="verb">routes</span><span class="what">to one agent for whole flows, or straight to a single skill for one job</span></div>
+
+  <!-- LEVEL 2 -->
+  <div class="band lvl" style="--band:var(--purple)">
+    <div class="lvl-tag"><span class="n">2</span><span class="t">Orchestr.</span></div>
+    <h2>Orchestration: the agents</h2>
+    <p class="role">Each agent runs a whole flow by composing skills, in parallel where possible. The lifecycle reads left to right: explore, judge, package, build, learn.</p>
+    <div class="nodes">
+      <div class="node"><b>prototyping-agent</b><span>fast read-only exploration, token suggestions</span></div>
+      <div class="node"><b>critique-agent</b><span>the quality battery: critique + a11y + content + parity, one scored report</span></div>
+      <div class="node"><b>handoff-agent</b><span>frame to spec to complete engineering packet</span></div>
+      <div class="node"><b>build-agent</b><span>packet to production component; approval-gated, the only writer</span></div>
+      <div class="node new"><b>learning-agent</b><span>reads finished runs, distils lessons, proposes improvements</span></div>
+    </div>
+  </div>
+
+  <div class="link"><span class="arrow">↓</span><span class="verb">runs</span><span class="what">only the skills the chosen path names; the rest of the suite stays out of context</span></div>
+
+  <!-- LEVEL 3 -->
+  <div class="band lvl" style="--band:var(--accent)">
+    <div class="lvl-tag"><span class="n">3</span><span class="t">Skills</span></div>
+    <h2>The skills, by pillar</h2>
+    <p class="role">Each skill does one job and writes one report. Authored once, symlinked into Claude, Cursor, Copilot and Codex, so every IDE reads the same source.</p>
+    <div class="pillars">
+      <div class="pillar"><h3><code>ui/</code> · is this right?</h3><p>the check battery</p>
+        <div class="chips"><span class="chip">design-critique</span><span class="chip">a11y-check</span><span class="chip">content-style-check</span><span class="chip">token-mapping-audit</span><span class="chip">state-matrix</span><span class="chip">light-dark-parity</span><span class="chip">motion-review</span><span class="chip">visual-vs-built</span><span class="chip">monthly-audit</span></div></div>
+      <div class="pillar"><h3><code>ux/</code> · design something new</h3><p>flows, pages, patterns, words</p>
+        <div class="chips"><span class="chip">experience-principles</span><span class="chip">flow-design</span><span class="chip">page-templates</span><span class="chip">pattern-library</span><span class="chip">microcopy</span></div></div>
+      <div class="pillar"><h3><code>handoff/</code> · to engineering</h3><p>the designer-engineer bridge</p>
+        <div class="chips"><span class="chip">frame-to-spec</span><span class="chip">spec-packet</span><span class="chip">component-scaffold</span><span class="chip">code-connect-stub</span><span class="chip">handoff-flow</span><span class="chip hl">stack-convert</span></div></div>
+      <div class="pillar"><h3><code>motion/</code> + <code>corpus/</code></h3><p>movement rules; learning from real screens</p>
+        <div class="chips"><span class="chip">motion-tokens</span><span class="chip">interaction-patterns</span><span class="chip">prototype-spec</span><span class="chip">distill-corpus</span></div></div>
+      <div class="pillar"><h3><code>reference/</code> + <code>coordination/</code></h3><p>prior art and housekeeping</p>
+        <div class="chips"><span class="chip hl">mobbin-patterns</span><span class="chip hl">usage-log</span><span class="chip hl">usage-report</span><span class="chip">+ briefs, protocols</span></div></div>
+      <div class="pillar"><h3><code>rebrand/</code> + engineer families</h3><p>fork the system; govern the tokens</p>
+        <div class="chips"><span class="chip hl">rebrand-system</span><span class="chip">discovery</span><span class="chip">editing</span><span class="chip">governance</span><span class="chip">validation</span><span class="chip">+ 5 more</span></div></div>
+    </div>
+  </div>
+
+  <div class="link"><span class="arrow">↓</span><span class="verb">grounds in</span><span class="what">loaded first, always; this is why the output is brand-specific and every judgement cites a source</span></div>
+
+  <!-- LEVEL 4 -->
+  <div class="band lvl" style="--band:var(--red)">
+    <div class="lvl-tag"><span class="n">4</span><span class="t">Ground</span></div>
+    <h2>The grounding</h2>
+    <p class="role">The brand-specific layer. Swap these five and the whole machine speaks a different brand (that is exactly what rebrand-system does). On any conflict, tokens and the styleguide outrank everything, including the DNA.</p>
+    <div class="nodes">
+      <div class="node"><b><code>tokens.json</code></b><span>the source of truth: foundation, palette, semantic</span></div>
+      <div class="node"><b><code>design-dna</code></b><span>who your brand is; every skill loads its TL;DR first</span></div>
+      <div class="node"><b><code>design-rules</code></b><span>56 numbered rules; every finding cites one</span></div>
+      <div class="node"><b><code>content-styleguide</code></b><span>voice: British English, no em dashes, full brand names</span></div>
+      <div class="node"><b><code>design-corpus/</code></b><span>versioned evidence distilled from real product screens</span></div>
+    </div>
+  </div>
+
+  <div class="link"><span class="arrow">↓</span><span class="verb">verified by</span><span class="what">deterministic tools do the maths so results cannot drift between runs</span></div>
+
+  <!-- LEVEL 5 -->
+  <div class="band lvl" style="--band:var(--orange)">
+    <div class="lvl-tag"><span class="n">5</span><span class="t">Tools</span></div>
+    <h2>Deterministic tools and eyes</h2>
+    <p class="role">Judgement stays in the skills; counting, lookups and reading real values belong to tools. Three sources of truth the model cannot fake.</p>
+    <div class="nodes">
+      <div class="node wide"><b>Tokens MCP server</b><span>token_lookup, search_tokens, contrast_check, design_score, design_rules, dependency_graph and friends</span></div>
+      <div class="node"><b>Figma desktop MCP</b><span>reads real variable bindings from the active tab; pixels cannot show a binding</span></div>
+      <div class="node new"><b>Mobbin MCP</b><span>600k+ shipped screens as prior art; corpus beats Mobbin beats guessing</span></div>
+    </div>
+  </div>
+
+  <div class="link"><span class="arrow">↓</span><span class="verb">produces</span><span class="what">every generation secured in its own immutable, dated folder</span></div>
+
+  <!-- OUTPUTS -->
+  <div class="band lvl" style="--band:var(--green)">
+    <div class="lvl-tag"><span class="n">✓</span><span class="t">Output</span></div>
+    <h2>Where the work lands</h2>
+    <p class="role">Append-only by rule: a past run is never edited; iterating means a new dated folder beside the old one, with a manifest telling its story.</p>
+    <div class="nodes">
+      <div class="node new"><b><code>sandbox/&lt;project&gt;/&lt;date&gt;-&lt;run&gt;/</code></b><span>the generation, its reports/ and its MANIFEST.md</span></div>
+      <div class="node"><b><code>.design/</code></b><span>quick checks with no project attached</span></div>
+      <div class="node"><b><code>packages/*</code></b><span>approved production code: React, WordPress, iOS, Android themes</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- THE LOOP -->
+<div class="rules" style="border-left-color:var(--green)">
+  <h2>The learning loop (the green rail)</h2>
+  <p>Every run appends one line to the week's <b>usage.jsonl</b> → <b>usage-report</b> turns a week of lines into evidence and a friction list → <b>learning-agent</b> evaluates finished sandbox runs against three gates (objective met, critique score, token connectedness) and distils passing runs into lessons → recurring lessons become <b>proposed improvements</b> to skills and rule candidates for the corpus → <b>a human promotes</b> the good ones into the grounding. Nothing edits itself; the loop proposes, people decide. Then the next generation starts from a slightly smarter system.</p>
+</div>
+
+<div class="rules">
+  <h2>The three laws that hold it together</h2>
+  <p><b>Every judgement traces to a source.</b> A finding cites a rule ID and a brand source, or it does not ship. No "feels off".</p>
+  <p><b>Semantic tokens only.</b> Raw hex is a bug, palette-direct is a smell, legacy names are drift; components consume semantic tokens, never raw palette values.</p>
+  <p><b>Propose, never self-modify.</b> The corpus and the learning loop suggest; humans promote. The DNA, rules and skills change only by human hand.</p>
+</div>
+
+<footer>Design System · the system map · lives in the design suite portal. Toggle the theme to check parity, as the system itself would insist.</footer>
+</div>
+<script>
+  var b=document.getElementById('themeBtn');
+  b.addEventListener('click',function(){document.body.classList.toggle('dark');b.textContent=document.body.classList.contains('dark')?'◐ Light':'◑ Dark';});
+</script>
+</body>
+</html>

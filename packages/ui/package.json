@@ -1,0 +1,38 @@
+{
+  "name": "@ds/ui",
+  "version": "1.0.0",
+  "description": "The design system's component library: the full shadcn/ui set, themed by the token engine.",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/*": "./src/components/*.tsx",
+    "./styles/*": "./src/styles/*",
+    "./lib/utils": "./src/lib/utils.ts",
+    "./hooks/use-mobile": "./src/hooks/use-mobile.ts",
+    "./blocks/*": "./src/blocks/*"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
+  },
+  "dependencies": {
+    "radix-ui": "^1.4.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.6.0",
+    "lucide-react": "0.474.0",
+    "recharts": "3.8.0",
+    "vaul": "^1.1.2",
+    "sonner": "^2.0.7",
+    "react-resizable-panels": "^4",
+    "next-themes": "^0.4.6",
+    "input-otp": "^1.4.2",
+    "cmdk": "^1.1.1",
+    "@base-ui/react": "1.6.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4"
+  }
+}

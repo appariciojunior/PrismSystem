@@ -1,0 +1,128 @@
+{
+  "name": "@ds/components-react",
+  "version": "1.1.1",
+  "type": "module",
+  "description": "Design System components",
+  "keywords": [
+    "design-system",
+    "react",
+    "components"
+  ],
+  "author": "douglasmik <michael@viaverso.co.uk>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./Button": {
+      "import": "./dist/Button/Button.js",
+      "require": "./dist/Button/Button.cjs",
+      "types": "./dist/Button/Button.d.ts"
+    },
+    "./IconButton": {
+      "import": "./dist/IconButton/IconButton.js",
+      "require": "./dist/IconButton/IconButton.cjs",
+      "types": "./dist/IconButton/IconButton.d.ts"
+    },
+    "./AdContainer": {
+      "import": "./dist/AdContainer/AdContainer.js",
+      "require": "./dist/AdContainer/AdContainer.cjs",
+      "types": "./dist/AdContainer/AdContainer.d.ts"
+    },
+    "./CommentsDisabled": {
+      "import": "./dist/CommentsDisabled/CommentsDisabled.js",
+      "require": "./dist/CommentsDisabled/CommentsDisabled.cjs",
+      "types": "./dist/CommentsDisabled/CommentsDisabled.d.ts"
+    },
+    "./Text": {
+      "import": "./dist/Text/Text.js",
+      "require": "./dist/Text/Text.cjs",
+      "types": "./dist/Text/Text.d.ts"
+    },
+    "./Input": {
+      "import": "./dist/Input/Input.js",
+      "require": "./dist/Input/Input.cjs",
+      "types": "./dist/Input/Input.d.ts"
+    },
+    "./Divider": {
+      "import": "./dist/Divider/Divider.js",
+      "require": "./dist/Divider/Divider.cjs",
+      "types": "./dist/Divider/Divider.d.ts"
+    },
+    "./Link": {
+      "import": "./dist/Link/Link.js",
+      "require": "./dist/Link/Link.cjs",
+      "types": "./dist/Link/Link.d.ts"
+    },
+    "./Chip": {
+      "import": "./dist/Chip/Chip.js",
+      "require": "./dist/Chip/Chip.cjs",
+      "types": "./dist/Chip/Chip.d.ts"
+    },
+    "./Flag": {
+      "import": "./dist/Flag/Flag.js",
+      "require": "./dist/Flag/Flag.cjs",
+      "types": "./dist/Flag/Flag.d.ts"
+    },
+    "./Toast": {
+      "import": "./dist/Toast/Toast.js",
+      "require": "./dist/Toast/Toast.cjs",
+      "types": "./dist/Toast/Toast.d.ts"
+    },
+    "./Icon": {
+      "import": "./dist/Icon/Icon.js",
+      "require": "./dist/Icon/Icon.cjs",
+      "types": "./dist/Icon/Icon.d.ts"
+    },
+    "./Article": {
+      "import": "./dist/Article/UpNextArticles.js",
+      "require": "./dist/Article/UpNextArticles.cjs",
+      "types": "./dist/Article/UpNextArticles.d.ts"
+    },
+    "./utils": {
+      "import": "./dist/utils/hooks.js",
+      "require": "./dist/utils/hooks.cjs",
+      "types": "./dist/utils/hooks.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/design-system.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run build:rollup",
+    "build:rollup": "rollup -c",
+    "clean": "rimraf dist",
+    "clean:figma": "rimraf dist-figma",
+    "dev": "rollup -c --watch",
+    "prepublishOnly": "npm run build",
+    "test": "node ./__tests__/*.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/design-system/issues"
+  },
+  "homepage": "https://github.com/your-org/design-system#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@ds/icons": "*",
+    "animate.css": "4.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@babel/preset-react": "^7.22.0",
+    "@types/react": "19.2.5",
+    "postcss": "^8.4.31",
+    "typescript": "^5.0.0"
+  }
+}

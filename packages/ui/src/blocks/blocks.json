@@ -1,0 +1,139 @@
+{
+  "blocks": [
+    {
+      "name": "dashboard-01",
+      "entry": "page.tsx",
+      "kind": "dashboard"
+    },
+    {
+      "name": "login-01",
+      "entry": "page.tsx",
+      "kind": "login"
+    },
+    {
+      "name": "login-02",
+      "entry": "page.tsx",
+      "kind": "login"
+    },
+    {
+      "name": "login-03",
+      "entry": "page.tsx",
+      "kind": "login"
+    },
+    {
+      "name": "login-04",
+      "entry": "page.tsx",
+      "kind": "login"
+    },
+    {
+      "name": "login-05",
+      "entry": "page.tsx",
+      "kind": "login"
+    },
+    {
+      "name": "sidebar-01",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-02",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-03",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-04",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-05",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-06",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-07",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-08",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-09",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-10",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-11",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-12",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-13",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-14",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-15",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "sidebar-16",
+      "entry": "page.tsx",
+      "kind": "sidebar"
+    },
+    {
+      "name": "signup-01",
+      "entry": "page.tsx",
+      "kind": "signup"
+    },
+    {
+      "name": "signup-02",
+      "entry": "page.tsx",
+      "kind": "signup"
+    },
+    {
+      "name": "signup-03",
+      "entry": "page.tsx",
+      "kind": "signup"
+    },
+    {
+      "name": "signup-04",
+      "entry": "page.tsx",
+      "kind": "signup"
+    },
+    {
+      "name": "signup-05",
+      "entry": "page.tsx",
+      "kind": "signup"
+    }
+  ]
+}

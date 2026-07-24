@@ -1,0 +1,26 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as ToastStories from './Toast.stories.tsx';
+import toastDocRaw from '../../packages/tokens/docs/components/toast/Toast.md?raw';
+import toastChangelogRaw from '../../packages/tokens/docs/components/toast/toast-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={ToastStories} />
+<Title />
+<Canvas of={ToastStories.Success} />
+<Controls of={ToastStories.Success} />
+<Markdown>
+  {getStorybookComponentDoc(toastDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{toastChangelogRaw}</Markdown>
+<Stories includePrimary={false} />

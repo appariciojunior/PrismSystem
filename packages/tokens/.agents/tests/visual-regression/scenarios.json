@@ -1,0 +1,43 @@
+{
+  "$schema": "https://agentskills.io/schema/v1",
+  "version": "1.0.0",
+  "defaultViewport": {
+    "width": 1440,
+    "height": 1024
+  },
+  "thresholdProfiles": {
+    "strict": {
+      "thresholdPixels": 0,
+      "thresholdPercent": 0.0
+    },
+    "near-zero": {
+      "thresholdPixels": 100,
+      "thresholdPercent": 0.1
+    }
+  },
+  "scenarios": [
+    {
+      "id": "figma-component-build",
+      "triggerType": "figma-build",
+      "target": "storybook:components-button--docs",
+      "thresholdProfile": "strict",
+      "notes": "Use for Figma MCP to implementation fidelity checks."
+    },
+    {
+      "id": "visual-prompt-typography-spacing",
+      "triggerType": "visual-prompt",
+      "target": "storybook:components-text--docs",
+      "thresholdProfile": "near-zero",
+      "notes": "Use after prompts like font size or spacing updates."
+    },
+    {
+      "id": "reference-build-verification",
+      "triggerType": "reference-build",
+      "target": "storybook:components-article--docs",
+      "thresholdProfile": "custom",
+      "thresholdPixels": 120,
+      "thresholdPercent": 0.15,
+      "notes": "Custom threshold for reference implementations with acceptable micro-render drift."
+    }
+  ]
+}

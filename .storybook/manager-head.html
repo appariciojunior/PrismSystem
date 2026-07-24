@@ -1,0 +1,245 @@
+<!--
+  Storybook Manager styles (sidebar + toolbar UI)
+  - Keep color/theme primitives in .storybook/manager.js
+  - Keep selector-based nav typography overrides in this file
+-->
+<style>
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(/static/fonts/Inter-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(/static/fonts/Inter-Italic.woff2) format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(/static/fonts/Inter-Medium.woff2) format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(/static/fonts/Inter-SemiBold.woff2) format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+    src: url(/static/fonts/Inter-Bold.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+
+  /* ── Global anti-aliasing ── */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    font-size: 16px;
+  }
+
+  /* ── Heading hierarchy ── */
+
+  /* H1: Inter Bold, 2rem */
+  h1 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 2rem !important;
+    letter-spacing: -0.03rem !important;
+    line-height: 112.5% !important;
+  }
+
+  /* H2: Inter, 1.75rem */
+  h2 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.75rem !important;
+    letter-spacing: -0.01rem !important;
+    line-height: 112.5% !important;
+  }
+
+  /* H3: Inter, 1.375rem */
+  h3 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.375rem !important;
+    letter-spacing: -0.01rem !important;
+    line-height: 112.5% !important;
+  }
+
+  /* H4: Inter, 1.125rem */
+  h4 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 1.125rem !important;
+    line-height: 112.5% !important;
+  }
+
+  /* H5–H6: Inter */
+  h5, h6 {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 600 !important;
+    line-height: 112.5% !important;
+  }
+
+  /* ── Navigation CSS (single selector-edit surface) ────────── */
+  :root {
+    --ds-manager-canvas: var(--surface-canvas, #ffffff);
+    --ds-manager-undercanvas: var(--surface-undercanvas, #f2f2f2);
+    --ds-manager-text-primary: var(--text-primary, #1a1a1a);
+    --ds-manager-text-secondary: var(--text-secondary, #404040);
+    --ds-manager-border: var(--border-tertiary, #e6e6e6);
+    --ds-manager-selected-fill: var(--active-fill, #000000);
+    --ds-manager-selected-text: var(--active-text, #ffffff);
+    --ds-manager-link: var(--interactive-link-primary-default, #005C8A);
+  }
+
+  body {
+    background: var(--ds-manager-undercanvas) !important;
+    color: var(--ds-manager-text-primary) !important;
+  }
+
+  #root {
+    background: var(--ds-manager-canvas) !important;
+    color: var(--ds-manager-text-primary) !important;
+  }
+
+  #root > div {
+    background: var(--ds-manager-canvas) !important;
+  }
+
+  #root > div > div:first-child {
+    background: var(--ds-manager-undercanvas) !important;
+  }
+
+  #root > div > div:last-child {
+    background: var(--ds-manager-canvas) !important;
+  }
+
+  section.sb-bar {
+    background: var(--ds-manager-canvas) !important;
+    border-bottom: 1px solid var(--ds-manager-border) !important;
+  }
+
+  #storybook-preview-iframe {
+    background: var(--ds-manager-canvas) !important;
+  }
+
+  nav.sidebar-container {
+    background: var(--ds-manager-undercanvas);
+    border-right: 1px solid var(--ds-manager-border);
+  }
+
+  /* Navigation links */
+  a {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1rem;
+    color: var(--ds-manager-link);
+    text-decoration: underline;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    transition:
+      color 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      text-decoration-color 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+      text-decoration-thickness 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  a:hover {
+    text-decoration-thickness: 3px !important;
+  }
+
+  /* Sidebar tree labels, tabs, and nav item text */
+  button,
+  [role="tab"],
+  label,
+  .sidebar-item,
+  .sidebar-container .sidebar-item a,
+  [data-nodetype] > span {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1rem;
+    color: var(--ds-manager-text-secondary) !important;
+  }
+
+  nav[aria-label="Global"] a,
+  nav[aria-label="Global"] button,
+  nav[aria-label="Global"] [role="button"],
+  nav[aria-label="Global"] [role="link"],
+  nav[aria-label="Global"] [tabindex] {
+    font-size: 1rem !important;
+  }
+
+  .sidebar-item[data-selected="true"] {
+    --ds-manager-link: var(--ds-manager-selected-text);
+    background: var(--ds-manager-selected-fill) !important;
+    color: var(--ds-manager-selected-text) !important;
+  }
+
+  .sidebar-item[data-selected="true"] * {
+    color: var(--ds-manager-selected-text) !important;
+    -webkit-text-fill-color: var(--ds-manager-selected-text) !important;
+  }
+
+  .sidebar-item[data-selected="true"] a,
+  .sidebar-item[data-selected="true"] a:link,
+  .sidebar-item[data-selected="true"] a:visited,
+  .sidebar-item[data-selected="true"] a:hover,
+  .sidebar-item[data-selected="true"] a:focus {
+    color: var(--ds-manager-selected-text) !important;
+    -webkit-text-fill-color: var(--ds-manager-selected-text) !important;
+  }
+
+  .sidebar-item[data-selected="true"] a[href="#storybook-preview-wrapper"] {
+    background: transparent !important;
+    color: var(--ds-manager-selected-text) !important;
+    -webkit-text-fill-color: var(--ds-manager-selected-text) !important;
+  }
+
+  [role="tab"][aria-selected="true"],
+  [role="tab"][tabindex="0"] {
+    color: var(--ds-manager-selected-text) !important;
+    -webkit-text-fill-color: var(--ds-manager-selected-text) !important;
+  }
+
+  .search-field input {
+    background: var(--ds-manager-canvas);
+    color: var(--ds-manager-text-secondary);
+    border-color: var(--ds-manager-border);
+  }
+
+  :root[data-color-mode="dark"] img[src$="logo.svg"],
+  :root[data-color-mode="dark"] img[src*="/logo.svg"],
+  body[data-color-mode="dark"] img[src$="logo.svg"],
+  body[data-color-mode="dark"] img[src*="/logo.svg"] {
+    filter: invert(1) brightness(1.05) !important;
+  }
+</style>
+
+<script>
+  (function () {
+    var MODE_ATTR = 'data-color-mode';
+    document.documentElement.setAttribute(MODE_ATTR, 'light');
+    if (document.body) {
+      document.body.setAttribute(MODE_ATTR, 'light');
+    }
+  })();
+</script>

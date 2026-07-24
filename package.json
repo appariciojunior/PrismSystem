@@ -1,0 +1,98 @@
+{
+  "name": "prism-system",
+  "private": true,
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Prism System: a white-label, multi-platform design system (web + iOS) with tokens, themes, components and an AI agent toolchain.",
+  "main": "index.js",
+  "scripts": {
+    "test": "lerna run test",
+    "controller": "node tools/controller/server.mjs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "build": "lerna run build && node scripts/copy-variables-css.js",
+    "build:style-dictionary": "style-dictionary build --config packages/output/config.js",
+    "reconcile": "npm run reconcile --workspace=packages/output",
+    "test:output": "npm test --workspace=packages/output",
+    "build:output": "npm run reconcile --workspace=packages/output && npm run build:style-dictionary && node scripts/copy-variables-css.js",
+    "build:figma-make": "node packages/tokens/scripts/generate-figma-make-css.js",
+    "build:semantic-scope-table": "node packages/tokens/scripts/generate-semantic-scope-master-table.js",
+    "verify:toast-rollout": "python3 packages/tokens/scripts/verify_toast_rollout_hidden.py",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "deploy:storybook": "gh-pages -d storybook-static",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "clean": "npm run clean --workspaces --if-present",
+    "sync:skills": "bash packages/tokens/scripts/sync-skills.sh",
+    "sync:component-doc": "node packages/tokens/scripts/component-doc-to-figma.js",
+    "sync:component-docs:batch": "node -e \"import('./packages/tokens/scripts/component-doc-api.js').then(m => m.batchSyncComponentDocs({ dryRun: process.argv.includes('--execute') ? false : true }))\"",
+    "smoke:docmancer": "bash scripts/docmancer-agent-smoke-test.sh",
+    "mcp:tokens": "node packages/tokens/mcp-server/index.js",
+    "prepare": "husky"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "resolutions": {
+    "strip-ansi": "^6.0.1",
+    "string-width": "^4.2.3",
+    "wrap-ansi": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/design-system.git"
+  },
+  "author": "your-org",
+  "license": "MIT",
+  "dependencies": {
+    "eslint-plugin-react": "7.37.5",
+    "lodash.merge": "4.6.2",
+    "next": "15.5.4",
+    "storybook": "^10.2.19",
+    "typescript-eslint": "8.45.0"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.0.1",
+    "@rollup/plugin-babel": "^6.0.0",
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-json": "6.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@storybook/addon-a11y": "^10.2.19",
+    "@storybook/addon-designs": "^11.1.2",
+    "@storybook/addon-docs": "^10.2.19",
+    "@storybook/addon-vitest": "^10.2.19",
+    "@storybook/nextjs-vite": "^10.2.19",
+    "@tokens-studio/sd-transforms": "2.0.3",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.2.4",
+    "baseline-browser-mapping": "2.9.6",
+    "eslint": "9.37.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
+    "gh-pages": "^6.1.1",
+    "husky": "9.1.7",
+    "jest": "30.2.0",
+    "jiti": "2.6.1",
+    "lerna": "^8.2.4",
+    "lint-staged": "16.2.3",
+    "playwright": "^1.55.0",
+    "prettier": "3.6.2",
+    "rimraf": "^5.0.0",
+    "rollup": "^4.26.1",
+    "rollup-plugin-copy": "^3.5.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "style-dictionary": "5.1.1",
+    "vitest": "^3.2.4"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  }
+}

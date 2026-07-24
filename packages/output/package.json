@@ -1,0 +1,45 @@
+{
+  "name": "@ds/output",
+  "version": "1.10.0",
+  "private": true,
+  "type": "module",
+  "description": "Theme package for Design System",
+  "keywords": [
+    "design-system",
+    "output",
+    "times"
+  ],
+  "author": "douglasmik <michael@viaverso.co.uk>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/design-system.git"
+  },
+  "scripts": {
+    "reconcile": "node src/scripts/reconcile-tokens.js",
+    "clean": "rimraf dist themes",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "node src/__tests__/theme.test.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "fs-extra": "^11.0.0",
+    "rimraf": "^5.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/design-system/issues"
+  },
+  "homepage": "https://github.com/your-org/design-system#readme",
+  "dependencies": {
+    "colorjs.io": "0.6.0"
+  }
+}

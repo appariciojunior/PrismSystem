@@ -1,0 +1,20 @@
+{
+  "$schema_note": "Each screen: sha256 (identity, dedup key), surface (web|ios|android), channel (a generic content-section slug, one of the neutral sections below plus core|unknown), journey (freeform slug, e.g. reader-journey, paywall, live-blog), captured (ISO date if known else null), filed_path (relative to design-corpus/), distilled_into (list of distilled doc anchors), added_in_corpus_version (int). Written by corpus/distill-corpus; do not hand-edit the screens array.",
+  "corpus_version": 0,
+  "surfaces": [
+    "web",
+    "ios",
+    "android"
+  ],
+  "channels": [
+    "section-a",
+    "section-b",
+    "section-c",
+    "section-d",
+    "section-e",
+    "section-f",
+    "core",
+    "unknown"
+  ],
+  "screens": []
+}

@@ -1,0 +1,151 @@
+.video-article-container .video-article-up-next {
+  width: 100%;
+  background-color: rgb(29, 29, 27);
+  position: relative;
+}
+.video-article-container .video-article-up-next * {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .video-article-container .video-article-up-next {
+    background-color: unset;
+    flex-shrink: 0;
+    width: 220px;
+    order: 0;
+  }
+}
+@media (min-width: 1320px) {
+  .video-article-container .video-article-up-next {
+    width: 270px;
+  }
+}
+.video-article-container .video-article-up-next .vertical-divider {
+  display: none;
+}
+@media (min-width: 768px) {
+  .video-article-container .video-article-up-next .vertical-divider {
+    position: absolute;
+    display: block;
+    height: 100%;
+    width: var(--spacing-01);
+    background-color: #222;
+    margin: 0 var(--spacing-14);
+    left: calc(-1 * var(--spacing-17));
+  }
+}
+
+.up-next-articles-container {
+  padding: var(--spacing-09);
+  position: relative;
+}
+@media (min-width: 768px) {
+  .up-next-articles-container {
+    padding: var(--spacing-13);
+  }
+}
+@media (min-width: 1024px) {
+  .up-next-articles-container {
+    padding: 0;
+  }
+}
+.up-next-articles-container .up-next-article-image {
+  padding-bottom: 56.25%;
+  position: relative;
+  overflow: hidden;
+  background-color: #333;
+}
+.up-next-articles-container .up-next-article-image picture {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.up-next-articles-container .up-next-article-image img {
+  max-width: 100%;
+}
+.up-next-articles-container .up-next-articles-overlay {
+  display: none;
+}
+@media (max-width: 1023px) {
+  .up-next-articles-container .up-next-articles-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 75px;
+    z-index: 1;
+  }
+}
+.up-next-articles-container .up-next-articles-overlay.up-next-articles-overlay-left {
+  left: 0;
+  background-image: linear-gradient(to right, rgb(29, 29, 27), transparent);
+}
+.up-next-articles-container .up-next-articles-overlay.up-next-articles-overlay-right {
+  right: 0;
+  background-image: linear-gradient(to left, rgb(29, 29, 27), transparent);
+}
+.up-next-articles-container.show-left-overlay .up-next-articles-overlay-left, .up-next-articles-container.show-right-overlay .up-next-articles-overlay-right {
+  display: flex;
+}
+.up-next-articles-container .up-next-articles-scroll {
+  overflow-x: auto;
+  position: relative;
+  scrollbar-width: none;
+}
+.up-next-articles-container .up-next-articles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(156px, 1fr));
+  -moz-column-gap: var(--spacing-13);
+       column-gap: var(--spacing-13);
+}
+@media (min-width: 1024px) {
+  .up-next-articles-container .up-next-articles {
+    gap: var(--spacing-13) 0;
+    grid-template-columns: 1fr;
+  }
+}
+.up-next-articles-container .up-next-articles .up-next-article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-03);
+  position: relative;
+}
+.up-next-articles-container .up-next-articles .up-next-article:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  background-color: #222;
+  z-index: 1;
+  height: 100%;
+  width: var(--spacing-01);
+  right: calc(-1 * var(--spacing-05));
+}
+@media (min-width: 1024px) {
+  .up-next-articles-container .up-next-articles .up-next-article:not(:last-child)::after {
+    height: var(--spacing-01);
+    width: 100%;
+    left: 0;
+    bottom: calc(-1 * var(--spacing-05));
+  }
+}
+.up-next-articles-container .up-next-articles .up-next-article .up-next-article-image-container {
+  position: relative;
+  margin-bottom: var(--spacing-09);
+}
+.up-next-articles-container .up-next-articles .up-next-article .up-next-article-image-container .up-next-article-duration {
+  z-index: 2;
+  bottom: 0;
+  left: var(--spacing-05);
+  position: absolute;
+}
+.up-next-articles-container .up-next-articles .up-next-article .up-next-article-image-container .up-next-article-image-overlay {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  z-index: 1;
+}
+.up-next-articles-container .up-next-articles .up-next-article .up-next-article-image-container .up-next-article-image-container:hover .up-next-article-image-overlay {
+  opacity: 1;
+}

@@ -1,0 +1,26 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as DividerStories from './Divider.stories.tsx';
+import dividerDocRaw from '../../packages/tokens/docs/components/divider/Divider.md?raw';
+import dividerChangelogRaw from '../../packages/tokens/docs/components/divider/divider-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={DividerStories} />
+<Title />
+<Canvas of={DividerStories.Primary} />
+<Controls of={DividerStories.Primary} />
+<Markdown>
+  {getStorybookComponentDoc(dividerDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{dividerChangelogRaw}</Markdown>
+<Stories includePrimary={false} />

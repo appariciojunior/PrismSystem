@@ -1,0 +1,1313 @@
+{
+  "$schema": "https://agentskills.io/schema/v1",
+  "name": "ds-skills",
+  "version": "6.1.0",
+  "description": "Skills for the Design System: token architecture (Foundation → Palette → Semantic), component workflows, and the designer-facing design suite (UI, UX, handoff, motion)",
+  "repository": "https://github.com/your-org/design-system",
+  "note": "Lean registry. Extended metadata (intents, compose graph, io, gates) lives in skills.extended.json, keyed by skill name.",
+  "skills": [
+    {
+      "name": "contrast-check",
+      "description": "Verify color combinations meet WCAG accessibility contrast requirements. Supports AA (4.5:1) and AAA (7:1) levels.",
+      "category": "foundations",
+      "path": "color-ramps/contrast-check.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "dark-mode-mapping",
+      "description": "CRITICAL - Map between light/dark mode ramp steps correctly. Documents the neutral ramp REVERSAL where step 50 and 1000 swap between white/black.",
+      "category": "foundations",
+      "path": "color-ramps/dark-mode-mapping.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "ramp-generation",
+      "description": "Generate or modify color ramps with proper foundation references. Maintains consistent step intervals (50-1000) and applies OKLCH lightness modifiers.",
+      "category": "foundations",
+      "path": "color-ramps/ramp-generation.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "extend-ramps",
+      "description": "Extend the colour ranges of the white-label system: add a new accent tier, add shades to an existing ramp, add data-vis chart slots, and wire new tokens through source so a rebuild emits them across web and iOS.",
+      "category": "foundations",
+      "path": "color-ramps/extend-ramps.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "brief-updater",
+      "description": "Update agent briefs when skills change or patterns evolve. Propagates changes from skills library to brief references.",
+      "category": "workflow",
+      "path": "coordination/brief-updater.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "handoff-protocol",
+      "description": "Standardize agent-to-agent handoffs with structured state transfer. Ensures context preservation and clear task boundaries.",
+      "category": "workflow",
+      "path": "coordination/handoff-protocol.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "release-process",
+      "description": "Complete checklist for releasing a new Token Library version, including tokens, changelog, announcement, and Figma Make assets.",
+      "category": "workflow",
+      "path": "coordination/release-process.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "rollback",
+      "description": "Safely revert token changes when issues are discovered. Supports commit/file/session level rollbacks with proper documentation.",
+      "category": "workflow",
+      "path": "coordination/rollback.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "slack-announcements",
+      "description": "Create and format Slack release announcements for design system updates following the standard template.",
+      "category": "workflow",
+      "path": "coordination/slack-announcements.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "ui-kit-release-artifacts",
+      "description": "Create or update UI Kit release changelogs, Slack announcements, and Figma publish messages by compiling all per-component changelog entries since the last UI Kit publish date.",
+      "category": "workflow",
+      "path": "coordination/ui-kit-release-artifacts.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "Figma Executor"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "dependency-graph",
+      "description": "Trace token references to build upstream/downstream dependency graphs. Detects circular references and calculates change impact.",
+      "category": "discovery",
+      "path": "discovery/dependency-graph.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "semantic-token-search",
+      "description": "Use search_tokens for intent-first token discovery, then narrow with precision filters for faster and more accurate context.",
+      "category": "discovery",
+      "path": "discovery/semantic-token-search.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "token-lookup",
+      "description": "Find tokens by path, name pattern, or value. Returns metadata and location for efficient context gathering without reading full tokens.json.",
+      "category": "discovery",
+      "path": "discovery/token-lookup.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "bulk-transform",
+      "description": "Apply batch transformations across multiple tokens with atomic commit and rollback. Requires human approval when affecting more than 10 tokens.",
+      "category": "quality",
+      "path": "editing/bulk-transform.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "description-guidelines",
+      "description": "Rules for writing token descriptions that maintain semantic abstraction and theme compatibility.",
+      "category": "quality",
+      "path": "editing/description-guidelines.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "reference"
+    },
+    {
+      "name": "safe-token-edit",
+      "description": "Safely edit tokens in tokens.json with validation gates. Includes pre-edit checklist, scripted approach, and post-edit validation.",
+      "category": "quality",
+      "path": "editing/safe-token-edit.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "component-lifecycle-orchestration",
+      "description": "Mandatory orchestration workflow for Figma Executor on MAKE/UPDATE component tasks, including VS Code question gates, semver classification, multi-agent delegation, and release communications.",
+      "category": "figma",
+      "path": "figma-integration/component-lifecycle-orchestration.md",
+      "agents": [
+        "Architect",
+        "Figma Executor",
+        "Code",
+        "React Expert",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "design-extraction",
+      "description": "Figma Console MCP operating playbook with mode/status checks, tool routing, and FOM 2026 execution contracts for any Figma-facing task.",
+      "category": "figma",
+      "path": "figma-integration/design-extraction.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "React Expert"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "design-linting",
+      "description": "Workflow for design quality and accessibility auditing using figma_lint_design and figma_audit_design_system before handoff.",
+      "category": "figma",
+      "path": "figma-integration/design-linting.md",
+      "agents": [
+        "Figma Executor",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-api-reference",
+      "description": "Reference skill for figma-integration/figma-use/references/api-reference.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/api-reference.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-common-patterns",
+      "description": "Reference skill for figma-integration/figma-use/references/common-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/common-patterns.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-component-patterns",
+      "description": "Reference skill for figma-integration/figma-use/references/component-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/component-patterns.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-console-mcp-integration",
+      "description": "End-to-end Figma Console MCP integration proposal and operating standard for setup, mode-aware execution, reliability gates, and deterministic troubleshooting.",
+      "category": "figma",
+      "path": "figma-integration/figma-console-mcp-integration.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "React Expert",
+        "Figma Executor"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-effect-style-patterns",
+      "description": "Reference skill for figma-integration/figma-use/references/effect-style-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/effect-style-patterns.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-gotchas",
+      "description": "Reference skill for figma-integration/figma-use/references/gotchas.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/gotchas.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-make-workflow",
+      "description": "End-to-end workflow for building React components from Figma designs for Figma Make integration.",
+      "category": "figma",
+      "path": "figma-integration/figma-make-workflow.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-plugin-api-patterns",
+      "description": "Reference skill for figma-integration/figma-use/references/plugin-api-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/plugin-api-patterns.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-text-style-patterns",
+      "description": "Reference skill for figma-integration/figma-use/references/text-style-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/text-style-patterns.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-use",
+      "description": "MANDATORY prerequisite — load before every figma_execute (Console MCP) or use_figma (Desktop Bridge MCP) call. Covers Plugin API critical rules (17), incremental workflow, error recovery, pre-flight checklist, and Design System variable bindings. Reference docs cover gotchas, common patterns, component/variant patterns, variable patterns, plugin API patterns, text/effect style patterns, and complete API surface.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/SKILL.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-validation-and-recovery",
+      "description": "Reference skill for figma-integration/figma-use/references/validation-and-recovery.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/validation-and-recovery.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-variable-patterns",
+      "description": "Reference skill for figma-integration/figma-use/references/variable-patterns.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/variable-patterns.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-wwds",
+      "description": "Reference skill for figma-integration/figma-use/references/working-with-design-systems/wwds.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/working-with-design-systems/wwds.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-wwds-variables",
+      "description": "Reference skill for figma-integration/figma-use/references/working-with-design-systems/wwds-variables.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "figma",
+      "path": "figma-integration/figma-use/references/working-with-design-systems/wwds-variables.md",
+      "agents": [
+        "Figma Executor",
+        "React Expert",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "token-mapping",
+      "description": "Map Figma design values to design system tokens dynamically using tokens.json as source of truth, with FOM 2026 MCP-aware mapping guidance.",
+      "category": "figma",
+      "path": "figma-integration/token-mapping.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "approval-workflow",
+      "description": "Manage approval workflow for token changes. Determines required labels, reviews, and sign-offs based on change type and scope.",
+      "category": "quality",
+      "path": "governance/approval-workflow.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "constraint-reference",
+      "description": "Complete reference of token system constraints and violations. Invoke when validating changes or unsure about rules.",
+      "category": "quality",
+      "path": "governance/constraint-reference.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "foundation-gate",
+      "description": "Compatibility wrapper delegating foundation layer decisions to token-modification-gates.",
+      "category": "quality",
+      "path": "governance/foundation-gate.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "blocked"
+    },
+    {
+      "name": "palette-gate",
+      "description": "Compatibility wrapper delegating palette layer decisions to token-modification-gates.",
+      "category": "quality",
+      "path": "governance/palette-gate.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "token-modification-gates",
+      "description": "Unified canonical gate for protected token layers (foundation and palette), including approval labels and escalation rules.",
+      "category": "quality",
+      "path": "governance/token-modification-gates.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "accessibility",
+      "description": "WCAG 2.1 AA compliance patterns for React components. Covers ARIA, keyboard navigation, and focus management.",
+      "category": "react",
+      "path": "react/accessibility.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "component-patterns",
+      "description": "Design patterns for composable React components. Covers compound components, render props, HOCs, and controlled/uncontrolled.",
+      "category": "react",
+      "path": "react/component-patterns.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "hooks-quick-reference",
+      "description": "Compact decision matrix for built-in React hooks used in design system components.",
+      "category": "react",
+      "path": "react/hooks-quick-reference.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "hooks-reference",
+      "description": "Custom hook architecture and safe hook composition patterns for design system components.",
+      "category": "react",
+      "path": "react/hooks-reference.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "state-management",
+      "description": "Patterns for managing state in React components from local state to complex state machines and context.",
+      "category": "react",
+      "path": "react/state-management.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "testing",
+      "description": "Behavior-level unit and integration testing guidance for React components using Testing Library.",
+      "category": "react",
+      "path": "react/testing.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "typescript-patterns",
+      "description": "TypeScript patterns for React components including props typing, generics, and discriminated unions.",
+      "category": "react",
+      "path": "react/typescript-patterns.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "shadcn-ui",
+      "description": "Build screens with the @ds/ui shadcn component library themed by the design-system tokens. Imports, theming contract, composition patterns.",
+      "category": "react",
+      "path": "react/shadcn-ui.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "compose-screen",
+      "description": "Compose a designed product screen from the design system: tokens, material, captured design language and vendored blocks. Use to build a page/dashboard/feature that should look designed, not raw shadcn.",
+      "category": "react",
+      "path": "react/compose-screen.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "react-loop",
+      "description": "ReAct (Reasoning + Acting) pattern for grounded problem-solving. Interleaves explicit reasoning traces with tool actions and observations.",
+      "category": "discovery",
+      "path": "reasoning/react-loop.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "mobbin-mcp",
+      "description": "Mobbin MCP workflow for grounding component and pattern decisions in shipped product examples before reference or execution responses.",
+      "category": "discovery",
+      "path": "reference/mobbin-mcp.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "Figma Executor",
+        "React Expert"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "npm-packages",
+      "description": "Curated list of battle-tested npm packages for React component development, organized by category.",
+      "category": "discovery",
+      "path": "reference/npm-packages.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "informational"
+    },
+    {
+      "name": "react-cheatsheet",
+      "description": "Quick reference for React patterns, hooks, TypeScript types, and common scenarios.",
+      "category": "discovery",
+      "path": "reference/react-cheatsheet.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "informational"
+    },
+    {
+      "name": "token-reference-fast-path",
+      "description": "Deterministic MCP-only workflow for token reference queries with grouped table output.",
+      "category": "discovery",
+      "path": "reference/token-reference-fast-path.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "component-documentation",
+      "description": "Index skill. Delegates to component-documentation-writing (content) and component-documentation-figma (Figma/Storybook sync).",
+      "category": "react",
+      "path": "storybook/component-documentation.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "React Expert"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "component-documentation-figma",
+      "description": "Sync the canonical component doc to Figma configuration tables and Storybook controls. Enforces layout contracts, chip/plain-text formatting, and MCP safeguards.",
+      "category": "react",
+      "path": "storybook/component-documentation-figma.md",
+      "agents": [
+        "Code",
+        "React Expert"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "component-documentation-writing",
+      "description": "Write clear, multi-audience component docs (designers, developers, product owners) using the 9-section canonical structure. The component doc is the single source of truth.",
+      "category": "react",
+      "path": "storybook/component-documentation-writing.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "React Expert"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "figma-to-storybook",
+      "description": "End-to-end workflow for translating Figma component designs into Storybook stories with all variants and states.",
+      "category": "react",
+      "path": "storybook/figma-to-storybook.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "natural-language-stories",
+      "description": "Generate Storybook stories and React components from plain English descriptions. Enables non-coders to create UI via prompting.",
+      "category": "react",
+      "path": "storybook/natural-language-stories.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "story-writing",
+      "description": "Write Storybook stories using modern CSF3 format. Generates type-safe story files from component specs or designer descriptions.",
+      "category": "react",
+      "path": "storybook/story-writing.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "storybook-component-changelog-design",
+      "description": "Reference skill for storybook/component-changelog-design.md. Use when this exact subdomain is required; do not use as a generic replacement for procedural workflow skills.",
+      "category": "react",
+      "path": "storybook/component-changelog-design.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "Figma Executor"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "storybook-config",
+      "description": "Manage Storybook configuration — main.js, preview.js, addons, fonts, CSS token integration, dark mode toggle.",
+      "category": "react",
+      "path": "storybook/storybook-config.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "token-showcase",
+      "description": "Create Storybook stories that visually showcase design tokens — colours, typography, spacing, shadows, and palettes.",
+      "category": "react",
+      "path": "storybook/token-showcase.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "visual-regression-gate",
+      "description": "Mandatory post-task visual regression gate for Figma builds, visual prompt changes, and reference-output fidelity checks.",
+      "category": "react",
+      "path": "storybook/visual-regression-gate.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "visual-testing",
+      "description": "Set up and run accessibility, interaction, and visual tests in Storybook using play functions and a11y addon.",
+      "category": "react",
+      "path": "storybook/visual-testing.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "build-verify",
+      "description": "Run npm build and test commands to verify token changes. Ensures JSON syntax, tests pass, and theme.js is generated correctly.",
+      "category": "quality",
+      "path": "validation/build-verify.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "constraint-check",
+      "description": "Verify token changes comply with constraint rules. Detects circular references, layer violations, and font weight format errors.",
+      "category": "quality",
+      "path": "validation/constraint-check.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "json-validate",
+      "description": "Validate tokens.json JSON syntax and structural integrity.",
+      "category": "quality",
+      "path": "validation/json-validate.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "semantic-theme-parity",
+      "description": "Validate semantic theme parity required for Figma Variables export, including strict structural checks.",
+      "category": "quality",
+      "path": "validation/semantic-theme-parity.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "React Expert"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "token-audit-workflow",
+      "description": "Run audit_design_system to detect duplicate values, naming drift, and contrast risks before implementation or sign-off.",
+      "category": "quality",
+      "path": "validation/token-audit-workflow.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "ask-first-protocol",
+      "description": "Structured question format standard for agent-to-user decisions. Present every architectural decision, trade-off, ambiguity, or gate as structured options, not prose.",
+      "category": "workflow",
+      "path": "coordination/ask-first-protocol.md",
+      "agents": [
+        "Architect",
+        "Code",
+        "Testing",
+        "Figma Executor"
+      ],
+      "autonomy": "informational"
+    },
+    {
+      "name": "component-doc-mcp-workflow",
+      "description": "Convert component property docs (Markdown) into Figma template updates via Figma Console MCP figma_execute. No plugin or REST API needed.",
+      "category": "figma",
+      "path": "figma-integration/component-doc-mcp-workflow.md",
+      "agents": [
+        "Figma Executor",
+        "Code"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "figma-variables-implementation-guide",
+      "description": "Internalised Figma Help knowledge: variables vs styles, modes, scoping, and design token implementation in Figma. Foundational reference for figma-executor work.",
+      "category": "figma",
+      "path": "figma-integration/figma-variables-implementation-guide.md",
+      "agents": [
+        "Figma Executor",
+        "Architect"
+      ],
+      "autonomy": "informational"
+    },
+    {
+      "name": "variable-binding-reference",
+      "description": "Design System Figma file keys, variable collections, and binding patterns. Internalised reference for figma-executor, including Token Library and UI Kit keys.",
+      "category": "figma",
+      "path": "figma-integration/variable-binding-reference.md",
+      "agents": [
+        "Figma Executor",
+        "Architect",
+        "Code"
+      ],
+      "autonomy": "informational"
+    },
+    {
+      "name": "token-governance-and-scaling",
+      "description": "Internalised industry knowledge on token system lifecycle, governance, and scaling. Foundational reference for architect-level governance decisions.",
+      "category": "quality",
+      "path": "governance/token-governance-and-scaling.md",
+      "agents": [
+        "Architect"
+      ],
+      "autonomy": "informational"
+    },
+    {
+      "name": "design-token-naming-architecture",
+      "description": "Internalised industry knowledge on three-tier token naming architecture. Tool-agnostic foundational reference to load before planning token changes.",
+      "category": "foundations",
+      "path": "token-foundations/design-token-naming-architecture.md",
+      "agents": [
+        "Architect",
+        "Code"
+      ],
+      "autonomy": "informational"
+    },
+    {
+      "name": "design-dna",
+      "description": "The single source of truth for who the Design System is, how your brand designs, and what good design means here. Identity, content sections, design principles, anti-patterns, motion philosophy. Standalone prototyping companion and always-on preamble for every design/ skill.",
+      "category": "foundations",
+      "path": "design/foundation/design-dna.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "PM",
+        "Testing",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "design-router",
+      "description": "Single entry point for design work. Classifies a designer's request into prototype, ui-craft, new-experience, handoff, or corpus-distill, loads the Design DNA, and composes the ordered skill sequence. Surfaced as /design.",
+      "category": "design",
+      "path": "design/design-router.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "PM",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "frame-to-spec",
+      "description": "Turn a Figma frame into a complete, no-questions-asked developer spec packet. Pulls layout, tokens, states, breakpoints, edge cases and a11y notes from the frame and renders them as a single Markdown file that links back to the Figma node.",
+      "category": "handoff",
+      "path": "design/handoff/frame-to-spec.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "token-mapping-audit",
+      "description": "For a given Figma frame, list every raw colour, spacing, radius, type and shadow value, map each one to a DS token via Token MCP, flag values with no token match, and recommend the closest semantic token.",
+      "category": "design",
+      "path": "design/ui/token-mapping-audit.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "state-matrix",
+      "description": "Generate the full interactive state grid for a Figma component (default, hover, focus-visible, active, disabled, loading, error, empty) with the token controlling the difference in each cell.",
+      "category": "design",
+      "path": "design/ui/state-matrix.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "design-critique",
+      "description": "Structured critique of a Figma frame against Design System rules. Covers visual hierarchy, spacing rhythm, alignment, density, component reuse and gradient decoration. Returns a categorised findings list with node IDs.",
+      "category": "design",
+      "path": "design/ui/design-critique.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "a11y-check",
+      "description": "Design-time accessibility audit for a Figma frame. Checks colour contrast, text size, hit target size, focus indicator design, alt text placeholders, screen reader notes, and reduced-motion intent. Complements react/accessibility which covers WCAG 2.1 AA in implementation.",
+      "category": "design",
+      "path": "design/ui/a11y-check.md",
+      "agents": [
+        "Designer",
+        "Testing",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "content-style-check",
+      "description": "Run the copy in a Figma frame against the Design System content styleguide. Checks voice, tone, British English, brand name usage, em dash avoidance, headline structure, table label rules, and typography token description format.",
+      "category": "design",
+      "path": "design/ui/content-style-check.md",
+      "agents": [
+        "Designer",
+        "Content",
+        "PM",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "spec-packet",
+      "description": "Bundle the outputs of frame-to-spec, state-matrix, token-mapping-audit, plus asset export list and the Figma deep link, into a single Markdown packet ready to attach to an engineering ticket.",
+      "category": "handoff",
+      "path": "design/handoff/spec-packet.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "PM",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "light-dark-parity",
+      "description": "Compare light and dark frames of the same component, flag structural divergence and missing dark variants. Enforces the 1:1 semantic token rule at design time.",
+      "category": "design",
+      "path": "design/ui/light-dark-parity.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "handoff-flow",
+      "description": "End-to-end orchestrator for the design-workflow skill suite. Runs every check and produces a complete handoff packet for a feature in one guided pass, stopping between phases for confirmation. Persists every artefact to .design/<feature>/.",
+      "category": "handoff",
+      "path": "design/handoff/handoff-flow.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "PM",
+        "Architect"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "component-scaffold",
+      "description": "Scaffold a new Design System React component from a completed handoff packet. Creates the component file, CSS, story, docs MDX and changelog stub. Never invents, never overwrites, everything traces to upstream SPEC.md and STATE_MATRIX.md.",
+      "category": "handoff",
+      "path": "design/handoff/component-scaffold.md",
+      "agents": [
+        "Design Engineer",
+        "Code",
+        "Architect"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "code-connect-stub",
+      "description": "Generate the Figma Code Connect entry for a Design System component using the documentUrlSubstitutions in figma.config.json. Maps Figma component properties to React props, produces a .figma.tsx file alongside the component source.",
+      "category": "handoff",
+      "path": "design/handoff/code-connect-stub.md",
+      "agents": [
+        "Design Engineer",
+        "Code",
+        "Architect"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "dev-spec",
+      "description": "Generate DEV-SPEC.html, the engineer's quick view of a generated screen or feature: components used with match status, tokens used with binding status, target surface, and open questions. Produced automatically alongside every full-page or feature generation, in the same sandbox run folder. The quick view, not the packet.",
+      "category": "handoff",
+      "path": "design/handoff/dev-spec.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "visual-vs-built",
+      "description": "Compare a Figma frame against the live Storybook story for the same component. Structured diff covering token usage, spacing, typography, layout, with supporting fuzzy pixel diff. Catches drift after a component has landed in code.",
+      "category": "design",
+      "path": "design/ui/visual-vs-built.md",
+      "agents": [
+        "Design Engineer",
+        "Testing",
+        "Designer"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "motion-tokens",
+      "description": "Reference and lookup skill for Design System motion tokens (durations, easings, named transitions). Mirrors reference/token-reference-fast-path but for motion. Returns deterministic tables. Currently scaffolded; fully active once motion tokens land in tokens.json.",
+      "category": "design",
+      "path": "design/motion/motion-tokens.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect",
+        "Code"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "interaction-patterns",
+      "description": "Reference library of named interaction patterns (modal-open, toast-appear, optimistic-save, in-place-edit, sheet-drag, list-reorder, chip-toggle, hover-feedback, focus-ring-appear) with DS-recommended motion tokens and behavioural rules.",
+      "category": "design",
+      "path": "design/motion/interaction-patterns.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Code",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "prototype-spec",
+      "description": "Given a Figma prototype with smart animate or interactive components, emit a textual motion spec for engineering. Captures every animated property, duration, easing, trigger, and reduced-motion fallback.",
+      "category": "design",
+      "path": "design/motion/prototype-spec.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "motion-review",
+      "description": "Score the motion in a Figma frame or prototype against Design System motion standards. Checks durations against the motion-token scale, easings against the standard set, reduced-motion fallback documentation, and divergence from interaction-patterns.",
+      "category": "design",
+      "path": "design/ui/motion-review.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "monthly-audit",
+      "description": "Roll up every design-workflow finding across all features touched in the last month into a single Markdown digest with trends, top issues, and an action list. Designed to run on a scheduled task and feed a monthly retro.",
+      "category": "design",
+      "path": "design/ui/monthly-audit.md",
+      "agents": [
+        "Designer",
+        "PM",
+        "Design Engineer",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "prototyping-agent",
+      "description": "Fast, conversational agent for early-stage design and prototyping. Loads Design DNA, then helps a designer iterate quickly on layout, tokens, interactions and motion ideas. Read-only, low-ceremony, designed for the first thirty minutes of a new design.",
+      "category": "workflow",
+      "path": "design/agents/prototyping-agent.md",
+      "agents": [
+        "Designer",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "critique-agent",
+      "description": "Read-only critique agent. Runs design-critique, a11y-check, content-style-check and light-dark-parity (when relevant) against a Figma frame, grounded in the Design DNA, and returns a consolidated findings report.",
+      "category": "workflow",
+      "path": "design/agents/critique-agent.md",
+      "agents": [
+        "Designer",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "handoff-agent",
+      "description": "Drives a Figma design to a complete engineering handoff packet. Composes the DNA preamble with token-mapping-audit, design-critique, a11y-check, content-style-check, light-dark-parity and frame-to-spec, then bundles PACKET.md.",
+      "category": "workflow",
+      "path": "design/agents/handoff-agent.md",
+      "agents": [
+        "Designer",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "build-agent",
+      "description": "The only design agent that writes code. Takes an approved handoff packet and builds the React component end-to-end: scaffold, Code Connect stub, visual verification against Storybook. Requires approval at every write step; dry-run by default.",
+      "category": "workflow",
+      "path": "design/agents/build-agent.md",
+      "agents": [
+        "Designer",
+        "Design Engineer"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "design-rules",
+      "description": "The Design System rule set: eight categories of concrete, sourced design rules with IDs, severities and weights. Scoring backbone for design-critique and promotion target for corpus observations.",
+      "category": "foundations",
+      "path": "design/foundation/design-rules.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "PM",
+        "Testing",
+        "Architect"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "corpus-guide",
+      "description": "The citation contract for the design corpus: how skills cite distilled evidence, what authority it carries, and how corpus versions are referenced.",
+      "category": "foundations",
+      "path": "design/foundation/corpus-guide.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "PM",
+        "Testing"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "distill-corpus",
+      "description": "Turn a batch of real Brand product screenshots into versioned design knowledge: classify by surface/journey, file with a content hash, distil into the corpus reference docs, and propose rule candidates.",
+      "category": "discovery",
+      "path": "design/corpus/distill-corpus.md",
+      "agents": [
+        "Designer",
+        "Design Engineer",
+        "Architect"
+      ],
+      "autonomy": "requires-approval"
+    },
+    {
+      "name": "experience-principles",
+      "description": "Journey-level principles for new Brand experiences, extending the six DNA principles up to flows: modality heuristics, progressive disclosure, state completeness, subscription dignity, reader-first pacing and continuity. Preamble for the other ux/ skills.",
+      "category": "design",
+      "path": "design/ux/experience-principles.md",
+      "agents": [
+        "Designer",
+        "PM",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "flow-design",
+      "description": "Turn an experience brief into a designed flow for a new Brand experience: screen sequence, states, decision points, component mapping and open questions, grounded in Mobbin prior art and the design corpus. The entry skill for the new-experience route.",
+      "category": "design",
+      "path": "design/ux/flow-design.md",
+      "agents": [
+        "Designer",
+        "PM",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "pattern-library",
+      "description": "Catalogue of Brand experience patterns one altitude above component motions: navigation, content lists and cards, article anatomy, forms and auth, paywall and subscriber touchpoints, the empty/error/loading trio, and live-updating content. Each pattern names its anatomy in DS components, states, a11y and motion.",
+      "category": "design",
+      "path": "design/ux/pattern-library.md",
+      "agents": [
+        "Designer",
+        "PM",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "page-templates",
+      "description": "Page-level layout templates for Brand experiences on the DS responsive grid: article, section front, media, account and settings, and puzzle hub, each with per-viewport reflow. Grounded in the grid reference and the corpus.",
+      "category": "design",
+      "path": "design/ux/page-templates.md",
+      "agents": [
+        "Designer",
+        "PM",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    },
+    {
+      "name": "microcopy",
+      "description": "Author the interface copy for a product experience - button labels, form labels, errors, empty states, confirmations, permission asks and paywall copy - in the brand voice. Writes the words; ui/content-style-check checks them. Extends content-styleguide.md to product-surface microcopy.",
+      "category": "design",
+      "path": "design/ux/microcopy.md",
+      "agents": [
+        "Designer",
+        "Content",
+        "PM",
+        "Design Engineer"
+      ],
+      "autonomy": "autonomous"
+    }
+  ]
+}

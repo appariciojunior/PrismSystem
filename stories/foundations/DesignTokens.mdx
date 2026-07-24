@@ -1,0 +1,21 @@
+import { Meta, Markdown } from '@storybook/addon-docs/blocks';
+import rawDoc from '../../packages/tokens/docs/design-tokens/DesignTokens.md?raw';
+import TokenDiscoveryWidget from './TokenDiscoveryWidget';
+
+<Meta title="Foundations/Design Tokens" />
+
+<Markdown>
+	{(() => {
+		const content = rawDoc.replace(/^---[\s\S]*?---\n+/, '');
+		const sectionSplit = content.split('\n## 1. What Is a Design Token?\n');
+		return sectionSplit[0] || content;
+	})()}
+</Markdown>
+<TokenDiscoveryWidget />
+{(() => {
+	const content = rawDoc.replace(/^---[\s\S]*?---\n+/, '');
+	const sectionSplit = content.split('\n## 1. What Is a Design Token?\n');
+	if (!sectionSplit[1]) return null;
+	const restOfDoc = `## 1. What Is a Design Token?\n${sectionSplit[1]}`;
+	return <Markdown>{restOfDoc}</Markdown>;
+})()}

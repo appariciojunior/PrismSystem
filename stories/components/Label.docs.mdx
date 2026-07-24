@@ -1,0 +1,26 @@
+import {
+  Canvas,
+  Controls,
+  Markdown,
+  Meta,
+  Stories,
+  Title
+} from '@storybook/addon-docs/blocks';
+
+import * as LabelStories from './Label.stories.tsx';
+import labelDocRaw from '../../packages/tokens/docs/components/label/Label.md?raw';
+import labelChangelogRaw from '../../packages/tokens/docs/components/label/label-changelog.md?raw';
+import { getStorybookComponentDoc } from './docs-utils/componentDocContent';
+
+<Meta of={LabelStories} />
+<Title />
+<Canvas of={LabelStories.Primary} />
+<Controls of={LabelStories.Primary} />
+<Markdown>
+  {getStorybookComponentDoc(labelDocRaw, {
+    includePropertiesSection: false,
+    includeMarkdownTables: true
+  })}
+</Markdown>
+<Markdown>{labelChangelogRaw}</Markdown>
+<Stories includePrimary={false} />

@@ -1,0 +1,38 @@
+{
+  "chat.agent.maxRequests": 999,
+
+  // GitHub Copilot - Skills and Instructions
+  "github.copilot.chat.codeGeneration.instructions": [
+    { "file": ".github/copilot-instructions.md" }
+  ],
+
+  // Exclude from search (performance)
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/lib": true,
+    "**/dist": true,
+    "packages/output/lib": true
+  },
+
+  // Enable ALL agent tools
+  "chat.agent.tools.enabled": true,
+
+  // Global allow-all for tool and terminal confirmations (VS Code 1.110+)
+  "chat.tools.global.autoApprove": true,
+
+  // Specific tool permissions
+  "github.copilot.chat.runCommand.enabled": true,
+  "github.copilot.chat.terminalAgent.enabled": true,
+  "github.copilot.chat.codeGeneration.useCodeActions": true,
+
+  // File editing access
+  "github.copilot.editor.enableAutoCompletions": true,
+  "chat.mcp.serverSampling": {
+    "ds/.vscode/mcp.json: ds-tokens-mcp": {
+      "allowedModels": ["copilot/auto"]
+    },
+    "ds/.vscode/mcp.json: figma-desktop": {
+      "allowedModels": ["copilot/auto"]
+    }
+  }
+}

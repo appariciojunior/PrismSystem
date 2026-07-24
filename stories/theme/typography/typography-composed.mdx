@@ -1,0 +1,23 @@
+import { Meta, Unstyled } from "@storybook/addon-docs/blocks";
+import { TypographyDisplayComposed } from "../tokens-display"
+
+<Meta title="Theme/Typography/Composed" />
+
+# Typography
+
+<Unstyled>
+  <div style={{
+    fontFamily: 'system-ui, -apple-system, sans-serif',
+    fontSize: '14px',
+    lineHeight: '1.4',
+    marginTop: '2rem'
+  }}>
+    <div className="typography-section">
+      <div className="typography-description">
+        Our responsive typography system ensures consistent layout behavior across all device sizes. These typography define the foundation for adaptive design and optimal user experience across mobile, tablet, and desktop viewports.
+      </div>
+
+      <TypographyDisplayComposed />
+    </div>
+  </div> 
+</Unstyled>

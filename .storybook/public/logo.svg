@@ -1,0 +1,8 @@
+<svg width="300" height="65" viewBox="0 0 300 65" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M30 14 L48 46 H12 Z" fill="none" stroke="#111111" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M3 31 H21" stroke="#111111" stroke-width="3" stroke-linecap="round"/>
+  <path d="M39 27 L57 21" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M40 32 H58" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M39 37 L57 43" stroke="#111111" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="74" y="41" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-0.6" fill="#111111">Prism System</text>
+</svg>

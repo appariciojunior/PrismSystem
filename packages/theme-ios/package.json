@@ -1,0 +1,46 @@
+{
+  "name": "@ds/theme-ios",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Design System theme package - iOS xcassets theme files",
+  "keywords": [
+    "design-system",
+    "theme",
+    "tokens",
+    "times",
+    "ios",
+    "swift"
+  ],
+  "author": "douglasmik <michael@viaverso.co.uk>",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./DS*/*": "./dist/DS*/*"
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/design-system.git"
+  },
+  "scripts": {
+    "build": "npm run clean && npm run populate:themes && npm run build:rollup",
+    "populate:themes": "node scripts/populate-themes.js",
+    "build:rollup": "rollup -c",
+    "clean": "rimraf dist",
+    "dev": "rollup -c --watch",
+    "prepublishOnly": "npm run build",
+    "test": "node ./__tests__/*.test.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/design-system/issues"
+  },
+  "homepage": "https://github.com/your-org/design-system#readme"
+}

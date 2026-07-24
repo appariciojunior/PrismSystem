@@ -1,0 +1,34 @@
+# dependencies
+node_modules/
+# builds
+dist/
+build/
+storybook-static/
+*.tsbuildinfo
+# controller state
+tools/controller/backups/
+tools/controller/.tmp/
+# archives & scratch
+_to_delete/
+.docmancer/
+# os / editor
+.DS_Store
+*.log
+.fuse_hidden*
+
+# secrets
+.figma.env
+*.env
+.figma-console-mcp.env
+
+# additional secret hygiene
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+credentials.json
+service-account*.json
+.aws/
+*.env.local

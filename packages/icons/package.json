@@ -1,0 +1,47 @@
+{
+  "name": "@ds/icons",
+  "version": "1.1.1",
+  "type": "module",
+  "description": "Icon components for Design System, backed by Phosphor Icons",
+  "keywords": [
+    "design-system",
+    "react",
+    "components",
+    "icons",
+    "phosphor"
+  ],
+  "author": "douglasmik <michael@viaverso.co.uk>",
+  "license": "ISC",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    }
+  },
+  "files": [
+    "src/",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-org/design-system.git"
+  },
+  "scripts": {
+    "build": "echo \"@ds/icons has no build step: it re-exports @phosphor-icons/react\""
+  },
+  "bugs": {
+    "url": "https://github.com/your-org/design-system/issues"
+  },
+  "homepage": "https://github.com/your-org/design-system#readme",
+  "dependencies": {
+    "@phosphor-icons/react": "^2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  }
+}

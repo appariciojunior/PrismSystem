@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+coverage
+*.min.js
+*.min.css
+themes/*.json
+packages/*/dist
+packages/*/node_modules
+packages/icons/src/index.js
+.git

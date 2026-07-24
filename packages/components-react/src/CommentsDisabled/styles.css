@@ -1,0 +1,85 @@
+
+
+/**
+ * CommentsDisabled Component Styles
+ * Maps Design System tokens to semantic styles
+ */
+
+/* Base Container */
+.ds-comments-disabled {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-inline: auto;
+  padding-inline: var(--spacing-19);
+  width: 100%;
+}
+
+/* Heading */
+.ds-comments-disabled__heading {
+  margin: 0;
+  padding-top: var(--spacing-21);
+  padding-bottom: var(--spacing-05);
+  text-align: center;
+  color: var(--text-primary);
+}
+
+/* Divider */
+.ds-comments-disabled__divider {
+  margin: var(--spacing-03);
+  max-width: 522px;
+  width: 100%;
+  border: none;
+  border-top: var(--spacing-01) solid var(--border-secondary);
+  opacity: 1;
+}
+
+/* Content Text */
+.ds-comments-disabled__content {
+  margin: 0;
+  padding-bottom: var(--spacing-21);
+  padding-top: var(--spacing-05);
+  text-align: center;
+  color: var(--text-neutral-700);
+}
+
+/* Guidelines Link */
+.ds-comments-disabled__link {
+  text-decoration: underline;
+  color: var(--ds-foundation-brand-digital-blue);
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.ds-comments-disabled__link:hover {
+  color: color-mix(
+    in srgb,
+    var(--ds-foundation-brand-digital-blue) calc(100% - var(--ds-colour-modifier-interactive-hover) * 100%),
+    var(--ds-foundation-brand-black)
+  );
+}
+
+.ds-comments-disabled__link:active {
+  color: color-mix(
+    in srgb,
+    var(--ds-foundation-brand-digital-blue) calc(100% - var(--ds-colour-modifier-interactive-pressed) * 100%),
+    var(--ds-foundation-brand-black)
+  );
+}
+
+/* Focus State */
+.ds-comments-disabled__link:focus-visible {
+  outline: var(--spacing-02) solid var(--ds-foundation-brand-digital-blue);
+  outline-offset: var(--spacing-03);
+}
+
+/* Responsive */
+/* @media (max-width: 768px) {
+  .ds-comments-disabled__heading {
+    font-size: calc(var(--font-size040) * var(--ds-viewport-multiplier-small));
+  }
+
+  .ds-comments-disabled__content {
+    font-size: calc(var(--font-size030) * var(--ds-viewport-multiplier-small));
+  }
+} */

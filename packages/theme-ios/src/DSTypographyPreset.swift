@@ -1,0 +1,145 @@
+import UIKit
+ 
+public enum DSTypographyPreset: String, CaseIterable {
+ case brandHeadingFluidLight2xsmall
+ case brandHeadingFluidLightXsmall
+ case brandHeadingFluidLightSmall
+ case brandHeadingFluidLightMedium
+ case brandHeadingFluidLightLarge
+ case brandHeadingFluidLightXlarge
+ case brandHeadingFluidLight2xlarge
+ case brandHeadingFluidRegular2xsmall
+ case brandHeadingFluidRegularXsmall
+ case brandHeadingFluidRegularSmall
+ case brandHeadingFluidRegularMedium
+ case brandHeadingFluidRegularLarge
+ case brandHeadingFluidRegularXlarge
+ case brandHeadingFluidRegular2xlarge
+ case brandHeadingFluidBold2xsmall
+ case brandHeadingFluidBoldXsmall
+ case brandHeadingFluidBoldSmall
+ case brandHeadingFluidBoldMedium
+ case brandHeadingFluidBoldLarge
+ case brandHeadingFluidBoldXlarge
+ case brandHeadingFluidBold2xlarge
+ case brandHeadingFluidBlack2xsmall
+ case brandHeadingFluidBlackXsmall
+ case brandHeadingFluidBlackSmall
+ case brandHeadingFluidBlackMedium
+ case brandHeadingFluidBlackLarge
+ case brandHeadingFluidBlackXlarge
+ case brandHeadingFluidBlack2xlarge
+ case brandHeadingStaticLight100
+ case brandHeadingStaticLight010
+ case brandHeadingStaticLight020
+ case brandHeadingStaticLight030
+ case brandHeadingStaticLight040
+ case brandHeadingStaticLight050
+ case brandHeadingStaticLight060
+ case brandHeadingStaticLight070
+ case brandHeadingStaticLight080
+ case brandHeadingStaticLight090
+ case brandHeadingStaticRegular100
+ case brandHeadingStaticRegular010
+ case brandHeadingStaticRegular020
+ case brandHeadingStaticRegular030
+ case brandHeadingStaticRegular040
+ case brandHeadingStaticRegular050
+ case brandHeadingStaticRegular060
+ case brandHeadingStaticRegular070
+ case brandHeadingStaticRegular080
+ case brandHeadingStaticRegular090
+ case brandHeadingStaticBold100
+ case brandHeadingStaticBold010
+ case brandHeadingStaticBold020
+ case brandHeadingStaticBold030
+ case brandHeadingStaticBold040
+ case brandHeadingStaticBold050
+ case brandHeadingStaticBold060
+ case brandHeadingStaticBold070
+ case brandHeadingStaticBold080
+ case brandHeadingStaticBold090
+ case brandHeadingStaticBlack100
+ case brandHeadingStaticBlack010
+ case brandHeadingStaticBlack020
+ case brandHeadingStaticBlack030
+ case brandHeadingStaticBlack040
+ case brandHeadingStaticBlack050
+ case brandHeadingStaticBlack060
+ case brandHeadingStaticBlack070
+ case brandHeadingStaticBlack080
+ case brandHeadingStaticBlack090
+ case brandSubheadingLightSmall
+ case brandSubheadingLightMedium
+ case brandSubheadingLightLarge
+ case brandSubheadingLightXlarge
+ case brandSubheadingRegularSmall
+ case brandSubheadingRegularMedium
+ case brandSubheadingRegularLarge
+ case brandSubheadingRegularXlarge
+ case brandSubheadingBoldSmall
+ case brandSubheadingBoldMedium
+ case brandSubheadingBoldLarge
+ case brandSubheadingBoldXlarge
+ case brandIntroLarge
+ case brandIntroMedium
+ case brandParagraphRegularSmall
+ case brandParagraphRegularMedium
+ case brandParagraphBoldSmall
+ case brandParagraphBoldMedium
+ case brandCaptionMedium
+ case brandCaptionSmall
+ case brandMetaMedium
+ case brandMetaSmall
+ case utilityHeadingSmall
+ case utilityHeadingMedium
+ case utilityHeadingLarge
+ case utilitySubheadingXsmall
+ case utilitySubheadingSmall
+ case utilitySubheadingMedium
+ case utilitySubheadingLarge
+ case utilityBodyRegularXsmall
+ case utilityBodyRegular2xsmall
+ case utilityBodyRegularSmall
+ case utilityBodyRegularMedium
+ case utilityBodyRegularLarge
+ case utilityBodyBold2xsmall
+ case utilityBodyBoldXsmall
+ case utilityBodyBoldSmall
+ case utilityBodyBoldMedium
+ case utilityBodyBoldLarge
+ case utilityButtonXsmall
+ case utilityButtonSmall
+ case utilityButtonMedium
+ case utilityButtonLarge
+ case utilityLabelXsmall
+ case utilityLabelSmall
+ case utilityLabelMedium
+ case utilityLabelLarge
+ case utilityLinkInlineUtilityXsmall
+ case utilityLinkInlineUtilitySmall
+ case utilityLinkInlineUtilityMedium
+ case utilityLinkInlineUtilityLarge
+ case utilityLinkInlineBrandXsmall
+ case utilityLinkInlineBrandSmall
+ case utilityLinkInlineBrandMedium
+ case utilityLinkInlineBrandLarge
+ case utilityLinkStandaloneUtilityXsmall
+ case utilityLinkStandaloneUtilitySmall
+ case utilityLinkStandaloneUtilityMedium
+ case utilityLinkStandaloneUtilityLarge
+ case utilityLinkStandaloneBrandXsmall
+ case utilityLinkStandaloneBrandSmall
+ case utilityLinkStandaloneBrandMedium
+ case utilityLinkStandaloneBrandLarge
+
+ var style: UIFont.TextStyle {
+ switch self {
+ case .brandHeadingFluidLight2xsmall, .brandHeadingFluidLightXsmall, .brandHeadingFluidLightSmall, .brandHeadingFluidLightMedium, .brandHeadingFluidLightLarge, .brandHeadingFluidLightXlarge, .brandHeadingFluidLight2xlarge, .brandHeadingFluidRegular2xsmall, .brandHeadingFluidRegularXsmall, .brandHeadingFluidRegularSmall, .brandHeadingFluidRegularMedium, .brandHeadingFluidRegularLarge, .brandHeadingFluidRegularXlarge, .brandHeadingFluidRegular2xlarge, .brandHeadingFluidBold2xsmall, .brandHeadingFluidBoldXsmall, .brandHeadingFluidBoldSmall, .brandHeadingFluidBoldMedium, .brandHeadingFluidBoldLarge, .brandHeadingFluidBoldXlarge, .brandHeadingFluidBold2xlarge, .brandHeadingFluidBlack2xsmall, .brandHeadingFluidBlackXsmall, .brandHeadingFluidBlackSmall, .brandHeadingFluidBlackMedium, .brandHeadingFluidBlackLarge, .brandHeadingFluidBlackXlarge, .brandHeadingFluidBlack2xlarge, .brandHeadingStaticLight100, .brandHeadingStaticLight010, .brandHeadingStaticLight020, .brandHeadingStaticLight030, .brandHeadingStaticLight040, .brandHeadingStaticLight050, .brandHeadingStaticLight060, .brandHeadingStaticLight070, .brandHeadingStaticLight080, .brandHeadingStaticLight090, .brandHeadingStaticRegular100, .brandHeadingStaticRegular010, .brandHeadingStaticRegular020, .brandHeadingStaticRegular030, .brandHeadingStaticRegular040, .brandHeadingStaticRegular050, .brandHeadingStaticRegular060, .brandHeadingStaticRegular070, .brandHeadingStaticRegular080, .brandHeadingStaticRegular090, .brandHeadingStaticBold100, .brandHeadingStaticBold010, .brandHeadingStaticBold020, .brandHeadingStaticBold030, .brandHeadingStaticBold040, .brandHeadingStaticBold050, .brandHeadingStaticBold060, .brandHeadingStaticBold070, .brandHeadingStaticBold080, .brandHeadingStaticBold090, .brandHeadingStaticBlack100, .brandHeadingStaticBlack010, .brandHeadingStaticBlack020, .brandHeadingStaticBlack030, .brandHeadingStaticBlack040, .brandHeadingStaticBlack050, .brandHeadingStaticBlack060, .brandHeadingStaticBlack070, .brandHeadingStaticBlack080, .brandHeadingStaticBlack090, .utilityHeadingSmall, .utilityHeadingMedium, .utilityHeadingLarge: return .headline
+ case .brandSubheadingLightSmall, .brandSubheadingLightMedium, .brandSubheadingLightLarge, .brandSubheadingLightXlarge, .brandSubheadingRegularSmall, .brandSubheadingRegularMedium, .brandSubheadingRegularLarge, .brandSubheadingRegularXlarge, .brandSubheadingBoldSmall, .brandSubheadingBoldMedium, .brandSubheadingBoldLarge, .brandSubheadingBoldXlarge, .utilitySubheadingXsmall, .utilitySubheadingSmall, .utilitySubheadingMedium, .utilitySubheadingLarge: return .subheadline
+ case .brandIntroLarge, .brandIntroMedium, .brandParagraphRegularSmall, .brandParagraphRegularMedium, .brandParagraphBoldSmall, .brandParagraphBoldMedium, .utilityBodyRegularXsmall, .utilityBodyRegular2xsmall, .utilityBodyRegularSmall, .utilityBodyRegularMedium, .utilityBodyRegularLarge, .utilityBodyBold2xsmall, .utilityBodyBoldXsmall, .utilityBodyBoldSmall, .utilityBodyBoldMedium, .utilityBodyBoldLarge, .utilityLinkInlineUtilityXsmall, .utilityLinkInlineUtilitySmall, .utilityLinkInlineUtilityMedium, .utilityLinkInlineUtilityLarge, .utilityLinkInlineBrandXsmall, .utilityLinkInlineBrandSmall, .utilityLinkInlineBrandMedium, .utilityLinkInlineBrandLarge, .utilityLinkStandaloneUtilityXsmall, .utilityLinkStandaloneUtilitySmall, .utilityLinkStandaloneUtilityMedium, .utilityLinkStandaloneUtilityLarge, .utilityLinkStandaloneBrandXsmall, .utilityLinkStandaloneBrandSmall, .utilityLinkStandaloneBrandMedium, .utilityLinkStandaloneBrandLarge: return .body
+ case .brandMetaMedium, .brandMetaSmall, .utilityButtonXsmall, .utilityButtonSmall, .utilityButtonMedium, .utilityButtonLarge, .utilityLabelXsmall, .utilityLabelSmall, .utilityLabelMedium, .utilityLabelLarge: return .callout
+ case .brandIntroLarge, .brandIntroMedium, .brandCaptionMedium, .brandCaptionSmall: return .footnote
+ }
+ }
+}
