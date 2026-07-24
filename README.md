@@ -16,7 +16,7 @@ The mental model is a bubble you step inside. You run the controller, feed it yo
 
 | Layer | What it is | Count |
 | --- | --- | --- |
-| Skills | Task recipes the agents follow, in `packages/tokens/.agents/skills/` | 108 across 8 categories |
+| Skills | Task recipes the agents follow, in `packages/tokens/.agents/skills/` | 107 across 8 categories |
 | Agents | Personas that own the work | 9 |
 | Routes | The entry classifier that picks a skill sequence | 5 |
 | MCP tools | The engine: token lookup, contrast, scoring, gating, audit | 24 |
@@ -33,8 +33,8 @@ Entry            /design-start  ·  /engineer-start        (one command per edit
 Router           prototype · ui-craft · new-experience · handoff · corpus-distill
    |             (keyword classifier -> a fixed skill sequence per route)
    |
-Skills (108)     8 categories
-   |             foundations 8 · design 19 · handoff 6 · react 20
+Skills (107)     8 categories
+   |             foundations 8 · design 18 · handoff 6 · react 20
    |             figma 21 · discovery 9 · quality 14 · workflow 11
    |
 Agents (9)       Architect · Code · Content · Design Engineer · Designer
@@ -59,6 +59,17 @@ Because the outputs are plain tokens (CSS variables, SCSS, Swift) and a standard
 One source, every platform. The controller writes your brand into `packages/tokens/src/tokens.json` and `packages/tokens/data/resolved-hexes.json`. A reconcile step in `packages/output` merges the two, then Style Dictionary builds the platform outputs: CSS variables into `packages/theme-css`, SCSS into `packages/theme-scss`, Swift into `packages/theme-ios`. The same build regenerates `packages/ui/src/styles/theme.css`, so the shadcn/ui components and everything built from them pick up the brand automatically.
 
 The engine does real colour work, not just find-and-replace. From your seed colours it generates full perceptual ramps in OKLCH, checks WCAG contrast, and derives the semantic theme tokens (background, card, primary, muted, borders, the chart slots) for both light and dark. A material layer sits on top for surface style: flat, elevated, glass, soft or outline, with fine control over blur, opacity, tint and highlight, so you can dial in the iOS-glass look or keep it flat.
+
+## Component library and Storybook
+
+The components are the vendored shadcn/ui set in `@ds/ui`, with React components in `@ds/components-react` and Phosphor icons in `@ds/icons`, all themed from your tokens. To browse them, build the workspace packages once, then open Storybook:
+
+```sh
+npm run build       # builds the packages
+npm run storybook   # http://localhost:6006
+```
+
+Storybook documents the components alongside the token foundations, the colour palette and the type scale.
 
 ## The Prism Controller: kick off your design language
 
@@ -111,6 +122,10 @@ The tokens in `packages/tokens/src` are the single source of truth: when anythin
 ## Requirements
 
 Node 22 or later and npm. The Figma desktop app with its Dev Mode MCP server enabled is optional, and only needed if you want the controller to read design language straight from a Figma file. The local `claude` CLI is optional too; without it, image analysis falls back to client-side colour extraction.
+
+## Contributing
+
+Prism System is public and open to contributions. Fork it, branch off `main`, and open a pull request. `CONTRIBUTING.md` covers the setup and the house rules (keep it brand-neutral, bind to tokens, never commit secrets), `SECURITY.md` explains how to report anything sensitive privately, and issue and pull-request templates live under `.github/`.
 
 ## Open source, not for sale
 
