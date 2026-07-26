@@ -115,13 +115,44 @@ Describe what you want to build. Because everything is themed from the same toke
 
 Every run lands in a dated folder under `sandbox/`, with a manifest of what was asked and what came out. Nothing overwrites anything, so you can generate freely and keep what works.
 
+## Checking the system
+
+Colour maths goes wrong in ways nothing complains about. A focus ring can sit at an opacity nobody can see, a stylesheet can claim one value and paint another, and every test still passes. So there is a battery you can run at any point:
+
+```sh
+npm run check                 # all eight
+npm run check tokens gallery  # just the ones you name
+```
+
+Cheapest first. `tokens` recomputes every derived token from its own recipe and fails if the two disagree. `gallery` proves the preview is bound to tokens, with no stray literals. `browser` loads the generated theme into real Chromium and compares the pixel it paints with the hex the engine computed, for every derived token in both modes, which is the only honest way to know the resolved hex and the live `color-mix()` really are the same colour. `behaviour` and `rail` prove the controller's own layers are a no-op until you change something, so a fresh clone ships nothing you did not ask for. `variables` drives the Variables panel and checks that every token the system emits is explained there. `audit` renders the contrast audit for light and dark and fails on any pairing a derived state broke.
+
+Six of those drive a real browser. Playwright is a devDependency so the package is already present, but the browser it drives is a separate install:
+
+```sh
+npx playwright install chromium
+```
+
+Until you run that, the six browser checks skip rather than fail, and the summary tells you why. A missing binary is a setup fact, not a regression, and the run should not dress it up as six failures.
+
 ## What lands where
 
 The tokens in `packages/tokens/src` are the single source of truth: when anything disagrees with them, they win. The brand, once saved, lives in the token sources and in `design-corpus/brand/GUIDELINES.md` and `DESIGN-LANGUAGE.md`. Generated work lands in `sandbox/`, one folder per run. `START-HERE.md` is the one-page orientation; `design-start.md` and `engineer-start.md` carry the two intake flows.
 
 ## Requirements
 
-Node 22 or later and npm. The Figma desktop app with its Dev Mode MCP server enabled is optional, and only needed if you want the controller to read design language straight from a Figma file. The local `claude` CLI is optional too; without it, image analysis falls back to client-side colour extraction.
+Node 22 or later and npm. The Figma desktop app with its Dev Mode MCP server enabled is optional, and only needed if you want the controller to read design language straight from a Figma file. The local `claude` CLI is optional too; without it, image analysis falls back to client-side colour extraction. Chromium is wanted only by the six browser checks: run `npx playwright install chromium` once and they run instead of skipping.
+
+## Changelog
+
+### 26 July 2026
+
+- **The focus ring is visible now.** It was a flat 30% wash of `--ring`, which measured between 1.31:1 and 2.17:1 against the surfaces it lands on, well under the 3:1 that WCAG 2.2 asks of a focus indicator. It had been passing every test in the repo while being close to useless to anyone navigating by keyboard. It now solves its own opacity upward until the halo clears 3:1 on the page, the cards and the popovers, and it grades both emissions, because the resolved hex and the live `color-mix()` are genuinely different colours once they land on a card. Three places that were still mixing their own wash, at 25%, 30% and 50%, now read the token.
+- **A derivation layer.** `tools/controller/lib/derive.mjs` turns the 34 chosen tokens into 96, of which 62 are derived. Every number in it is solved rather than declared: tier and hover mixes walk until the result is visibly distinct from what it came from, soft fills solve their alpha for a target ratio against the page, soft foregrounds walk until they clear AA on their own fill, and a hover is never allowed to break a pairing that passed before. Whatever the solver moved is reported, so the Variables panel shows its working instead of asking you to take a hex on trust.
+- **Every derived token ships twice.** A resolved hex for Style Dictionary, SCSS and Swift, and a live `color-mix()` for the web and the controller preview. The `browser` check exists to keep that claim honest.
+- **Real gamut mapping.** Colours that fall outside sRGB are now mapped with a binary chroma search against deltaEOK, the way CSS Color 4 specifies, rather than having their channels clipped. Ramps shift wherever a swatch used to be clipped, `warning light 450` going from `#fab053` to `#ffaa1a` among them.
+- **The modal scrim dims in both modes.** It washed the page in `--foreground`, which in dark mode is near white, so it lifted the backdrop above the dialog sitting on it and inverted the depth cue a scrim exists to give. It now takes whichever pole of the page is actually the darker one.
+- **Label inks flipped where they had to.** Success, error and destructive were carrying white labels in light mode where a dark label reads better, and dark labels in dark mode where a light one does.
+- **The checks battery.** Nine scripts under `tools/controller/checks/`, wired to `npm run check`, described above.
 
 ## Contributing
 
