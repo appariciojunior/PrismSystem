@@ -71,7 +71,11 @@
 }
 
 @layer base {
-  * { border-color: var(--border); outline-color: color-mix(in srgb, var(--ring) 50%, transparent); }
+  /* --focus-ring rather than a wash mixed here. The engine solves that token's
+     opacity until the halo clears 3:1 against the page, the cards and the
+     popovers, which a flat 50% did not on any brand we tried. Mixing a second
+     opinion at this level would quietly override the solved one. */
+  * { border-color: var(--border); outline-color: var(--focus-ring); }
   body { background: var(--background); color: var(--foreground); font-family: var(--font-sans); }
 }
 
@@ -92,5 +96,128 @@
       calc(var(--surface-opacity, 1) * 100%), transparent);
     backdrop-filter: blur(var(--surface-blur, 0px));
     -webkit-backdrop-filter: blur(var(--surface-blur, 0px));
+  }
+}
+
+/* ------------------------------------------------------------------ *
+   Behaviour layer, driven by the Design System Controller.
+
+   Deliberately unlayered. Tailwind puts its utilities in a cascade layer,
+   and anything inside @layer base loses to them no matter how specific it
+   is, so a rule meant to redefine what `rounded-md` or `disabled:opacity-50`
+   resolves to has to sit outside the layers altogether.
+
+   Every rule here computes to exactly what the component already did at
+   default settings. --radius-field falls back to --radius and is consumed
+   at the same 0.8 the `md` step uses, --field-border-width falls back to
+   the general border width which is 1px, --disabled-opacity resolves to
+   .5, and the skeleton sweep is transparent until someone asks for
+   shimmer. Nothing moves for a brand that has not opted in.
+ * ------------------------------------------------------------------ */
+
+/* Corners on the things you type into, so forms can stay calm while the
+   rest of the system goes round, or the other way about. */
+[data-slot="input"],
+[data-slot="textarea"],
+[data-slot="select-trigger"] {
+  border-radius: calc(var(--radius-field, var(--radius)) * 0.8);
+}
+
+/* The OTP field rounds its outer edges only, so it gets the corners one at
+   a time rather than a blanket radius that would round the joins too. */
+[data-slot="input-otp-slot"]:first-child {
+  border-top-left-radius: calc(var(--radius-field, var(--radius)) * 0.8);
+  border-bottom-left-radius: calc(var(--radius-field, var(--radius)) * 0.8);
+}
+[data-slot="input-otp-slot"]:last-child {
+  border-top-right-radius: calc(var(--radius-field, var(--radius)) * 0.8);
+  border-bottom-right-radius: calc(var(--radius-field, var(--radius)) * 0.8);
+}
+
+/* Field border weight. Separate from the general one because a heavier
+   input reads as more deliberate without making every card look boxed in. */
+[data-slot="input"],
+[data-slot="textarea"],
+[data-slot="select-trigger"],
+[data-slot="checkbox"],
+[data-slot="radio-group-item"],
+[data-slot="switch"] {
+  border-width: var(--field-border-width, var(--border-width, 1px));
+}
+
+/* Again the OTP field, which draws three sides on every slot and the fourth
+   only on the first, so the joins stay single-width. */
+[data-slot="input-otp-slot"] {
+  border-top-width: var(--field-border-width, var(--border-width, 1px));
+  border-bottom-width: var(--field-border-width, var(--border-width, 1px));
+  border-right-width: var(--field-border-width, var(--border-width, 1px));
+}
+[data-slot="input-otp-slot"]:first-child {
+  border-left-width: var(--field-border-width, var(--border-width, 1px));
+}
+
+/* Surfaces pick up the general border width. The controller has had a border
+   width control since Phase 1 but nothing was reading it, so the setting has
+   been sitting there doing nothing to real components. Sheet is left out: it
+   draws one edge depending on which side it slides in from, and a blanket
+   width would give it four. */
+[data-slot="card"],
+[data-slot="popover-content"],
+[data-slot="dialog-content"],
+[data-slot="dropdown-menu-content"],
+[data-slot="alert"],
+[data-slot="hover-card-content"],
+[data-slot="menubar-content"],
+[data-slot="select-content"] {
+  border-width: var(--border-width, 1px);
+}
+
+/* How far a disabled control fades. Scoped by the utility already on the
+   element rather than by :disabled alone, so this only ever reaches things
+   that had opted into fading in the first place, and never dims something
+   that was meant to stay solid. */
+[class*="disabled:opacity-50"]:disabled,
+[class*="disabled:opacity-50"][data-disabled],
+[class*="aria-disabled:opacity-50"][aria-disabled="true"],
+[class*="has-disabled:opacity-50"]:has(*:disabled),
+.peer:disabled ~ [class*="peer-disabled:opacity-50"] {
+  opacity: var(--disabled-opacity, 0.5);
+}
+
+/* Loading placeholders. The sweep is a gradient that is fully transparent
+   at sheen 0, which is what pulse and none emit, so the default is the same
+   pulse Tailwind was already running. */
+[data-slot="skeleton"] {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    color-mix(in oklab, var(--foreground) calc(var(--skeleton-sheen, 0) * 1%), transparent) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: var(--skeleton-anim, ds-skeleton-pulse)
+             var(--skeleton-duration, 2s)
+             var(--skeleton-easing, cubic-bezier(0.4, 0, 0.6, 1)) infinite;
+}
+
+@keyframes ds-skeleton-pulse {
+  50% { opacity: 0.5; }
+}
+@keyframes ds-skeleton-shimmer {
+  from { background-position: 150% 0; }
+  to   { background-position: -50% 0; }
+}
+
+/* Someone who has asked their operating system to calm things down has
+   already answered this question, and their answer outranks the brand's.
+   Durations rather than display, so anything waiting on a transitionend
+   still gets one. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -18,6 +18,19 @@
   }
   function d(label, note, html) { return { label: label, note: note, html: html }; }
 
+  // The page a scrim is dimming. Without it --overlay paints an empty box and the
+  // demo cannot show whether the tint is right, only what colour it is. Inert and
+  // hidden from assistive tech: it is scenery, not content.
+  var UNDER =
+    '<div class="pv-under" aria-hidden="true">' +
+    '<div class="pv-under-bar"><span class="pv-under-dot"></span><span class="pv-under-line w30"></span></div>' +
+    '<div class="pv-under-body">' +
+    '<div class="pv-under-h"></div>' +
+    '<div class="pv-under-line w70"></div>' +
+    '<div class="pv-under-line w50"></div>' +
+    '<div class="pv-under-grid"><div class="pv-under-card"></div><div class="pv-under-card"></div></div>' +
+    '</div></div>';
+
   var SCREENS = [
     { slug: 'brand',        name: 'Brand overview', kind: 'page' },
     { slug: 'dashboard',    name: 'Dashboard',      kind: 'pane', pane: 'pane-dash' },
@@ -267,7 +280,7 @@
 
   C('alert-dialog', 'Alert dialog', 'A modal that interrupts to confirm something consequential. Unlike a dialog it has no dismiss affordance in the corner: the person must choose.', ['modal', 'confirm', 'destructive'], [
     d('Destructive confirm', 'Cancel first, the destructive action last.',
-      '<div class="pv-scrim"><div class="pv-surface pv-dialog">' +
+      '<div class="pv-scrim">' + UNDER + '<div class="pv-surface pv-dialog">' +
       '<div class="pv-dialog-t">Delete this theme?</div>' +
       '<div class="pv-dialog-d">Prism will remove the seed, every generated ramp and the exported token set. This cannot be undone.</div>' +
       '<div class="pv-dialog-foot"><button type="button" class="pv-btn outline">Cancel</button><button type="button" class="pv-btn destructive">Delete theme</button></div>' +
@@ -535,7 +548,7 @@
 
   C('dialog', 'Dialog', 'A modal for a task that needs the whole of someone attention but is not destructive. It can be dismissed.', ['modal', 'overlay', 'form'], [
     d('With a form', '',
-      '<div class="pv-scrim"><div class="pv-surface pv-dialog">' +
+      '<div class="pv-scrim">' + UNDER + '<div class="pv-surface pv-dialog">' +
       '<div class="pv-dialog-t">New theme</div>' +
       '<div class="pv-dialog-d">Give it a name and a seed. Everything else is generated.</div>' +
       '<div class="gx-col" style="margin-top:18px">' +
@@ -559,7 +572,7 @@
 
   C('drawer', 'Drawer', 'A panel that comes up from the bottom edge. Built for touch, where a centred modal is awkward to reach.', ['overlay', 'mobile', 'sheet'], [
     d('Bottom drawer', 'The grip signals that it can be dragged.',
-      '<div class="pv-scrim bottom"><div class="pv-surface pv-drawer">' +
+      '<div class="pv-scrim bottom">' + UNDER + '<div class="pv-surface pv-drawer">' +
       '<div class="pv-drawer-grip"></div>' +
       '<div class="pv-dialog-t">Material</div>' +
       '<div class="pv-dialog-d">How surfaces catch light. This changes blur, highlight and the shadow set together.</div>' +
@@ -898,7 +911,7 @@
 
   C('sheet', 'Sheet', 'A panel that slides in from an edge. Use it for secondary work that should not lose the page behind it.', ['overlay', 'panel', 'drawer'], [
     d('From the right', '',
-      '<div class="pv-scrim right"><div class="pv-surface pv-sheet">' +
+      '<div class="pv-scrim right">' + UNDER + '<div class="pv-surface pv-sheet">' +
       '<div class="pv-dialog-t">Token detail</div>' +
       '<div class="pv-dialog-d">--primary</div>' +
       '<div class="gx-col" style="margin-top:18px">' +

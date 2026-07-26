@@ -147,7 +147,7 @@
 .pv-bgroup.vert .pv-btn:last-child { border-radius: 0 0 calc(var(--radius) * .9) calc(var(--radius) * .9); }
 
 /* badge extras */
-.pv-badge.ghost { background: color-mix(in srgb, var(--primary) 14%, transparent); color: var(--primary); }
+.pv-badge.ghost { background: var(--primary-soft); color: var(--primary-soft-foreground); }
 .pv-badge.link { background: transparent; color: var(--primary); text-decoration: underline; text-underline-offset: 3px; }
 .pv-badge.success { background: var(--success); color: var(--success-foreground, #fff); }
 .pv-badge.warning { background: var(--warning); color: var(--warning-foreground, #1a1a1a); }
@@ -215,9 +215,14 @@
   background: var(--card);
 }
 .pv-alert .pv-alert-ic { flex: none; width: 16px; height: 16px; border-radius: 50%; background: var(--muted-foreground); margin-top: 2px; }
-.pv-alert.destructive { border-color: color-mix(in srgb, var(--destructive) 45%, var(--border)); }
+/* The soft family exists for precisely this: a fill tinted by a role, with an
+   ink the engine has already checked against it. The old version mixed the
+   border 45% of the way to destructive by hand and left the fill alone, which
+   read as a card someone had drawn a pinkish line around. */
+.pv-alert.destructive { border-color: var(--destructive); background: var(--destructive-soft); }
 .pv-alert.destructive .pv-alert-ic { background: var(--destructive); }
-.pv-alert.destructive .pv-alert-t { color: var(--destructive); }
+.pv-alert.destructive .pv-alert-t,
+.pv-alert.destructive .pv-alert-d { color: var(--destructive-soft-foreground); }
 .pv-alert-t { font-weight: 600; font-size: 13px; margin-bottom: 2px; }
 .pv-alert-d { font-size: 12.5px; color: var(--muted-foreground); }
 
@@ -275,7 +280,7 @@
 .pv-bubble.default { background: var(--primary); color: var(--primary-foreground); }
 .pv-bubble.secondary { background: var(--secondary); color: var(--secondary-foreground); }
 .pv-bubble.muted { background: var(--muted); color: var(--foreground); }
-.pv-bubble.tinted { background: color-mix(in srgb, var(--primary) 14%, transparent); color: var(--foreground); }
+.pv-bubble.tinted { background: var(--primary-soft); color: var(--primary-soft-foreground); }
 .pv-bubble.outline { background: transparent; border-color: var(--border); color: var(--foreground); }
 .pv-bubble.ghost { background: transparent; color: var(--foreground); padding-left: 0; padding-right: 0; }
 .pv-bubble.destructive { background: var(--destructive); color: var(--destructive-foreground); }
@@ -303,7 +308,9 @@
 .pv-cal-day.out { color: var(--muted-foreground); opacity: .45; }
 .pv-cal-day.today { box-shadow: inset 0 0 0 var(--bw) var(--border); font-weight: 600; }
 .pv-cal-day.sel { background: var(--primary); color: var(--primary-foreground); font-weight: 600; }
-.pv-cal-day.range { background: color-mix(in srgb, var(--primary) 16%, transparent); border-radius: 0; }
+.pv-cal-day.sel:hover { background: var(--primary-hover); }
+.pv-cal-day.range { background: var(--primary-soft); border-radius: 0; }
+.pv-cal-day.range:hover { background: var(--primary-soft-hover); }
 .pv-cal-day.range.start { border-radius: calc(var(--radius) * .8) 0 0 calc(var(--radius) * .8); }
 .pv-cal-day.range.end { border-radius: 0 calc(var(--radius) * .8) calc(var(--radius) * .8) 0; }
 
@@ -347,7 +354,7 @@
 .pv-check input:checked + .pv-box::after { opacity: 1; transform: rotate(-45deg) translateY(-1px) scale(1); }
 .pv-check input:indeterminate + .pv-box { background: var(--primary); border-color: var(--primary); }
 .pv-check input:indeterminate + .pv-box::after { opacity: 1; width: 9px; height: 0; border-left: 0; border-bottom: 2px solid var(--primary-foreground); transform: none; }
-.pv-check input:focus-visible + .pv-box { box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 28%, transparent); }
+.pv-check input:focus-visible + .pv-box { box-shadow: 0 0 0 3px var(--focus-ring); }
 .pv-check.disabled { opacity: .5; pointer-events: none; }
 .pv-check .pv-check-d { font-size: 12px; color: var(--muted-foreground); display: block; margin-top: 2px; }
 
@@ -369,7 +376,7 @@
 }
 .pv-switch input:checked + .pv-track { background: var(--primary); border-color: var(--primary); }
 .pv-switch input:checked + .pv-track::after { left: calc(100% - 17px); }
-.pv-switch input:focus-visible + .pv-track { box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 28%, transparent); }
+.pv-switch input:focus-visible + .pv-track { box-shadow: 0 0 0 3px var(--focus-ring); }
 .pv-switch.disabled { opacity: .5; pointer-events: none; }
 
 /* command palette / combobox / popover surfaces */
@@ -394,6 +401,7 @@
   border-radius: calc(var(--radius) * .8); margin: 0 6px;
 }
 .pv-menu-item:hover, .pv-menu-item.on { background: var(--muted); }
+.pv-menu-item.on:hover { background: var(--muted-hover); }
 .pv-menu-item .ic { width: 15px; opacity: .6; text-align: center; }
 .pv-menu-item .kb { margin-left: auto; }
 .pv-menu-item.danger { color: var(--destructive); }
@@ -405,10 +413,12 @@
 .pv-menubar { display: flex; gap: 2px; border: var(--bw) solid var(--border); border-radius: calc(var(--radius) * 1.1); padding: 3px; background: var(--card); width: fit-content; }
 .pv-menubar button { border: 0; background: transparent; color: inherit; font-size: 13px; padding: 5px 11px; border-radius: calc(var(--radius) * .8); }
 .pv-menubar button:hover, .pv-menubar button.on { background: var(--muted); }
+.pv-menubar button.on:hover { background: var(--muted-hover); }
 
 .pv-navmenu { display: flex; gap: calc(var(--sp) * 1); align-items: center; }
 .pv-navmenu > a { font-size: 13px; padding: 7px 12px; border-radius: calc(var(--radius) * .9); color: var(--foreground); text-decoration: none; }
 .pv-navmenu > a:hover, .pv-navmenu > a.on { background: var(--muted); }
+.pv-navmenu > a.on:hover { background: var(--muted-hover); }
 .pv-navpanel { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--sp) * 2); padding: calc(var(--sp) * 3); width: 420px; }
 .pv-navpanel a { display: block; padding: 10px; border-radius: calc(var(--radius) * 1.1); text-decoration: none; color: inherit; }
 .pv-navpanel a:hover { background: var(--muted); }
@@ -416,11 +426,42 @@
 .pv-navpanel .d { font-size: 12px; color: var(--muted-foreground); }
 
 /* dialogs, drawers, sheets */
+/* A scrim is defined by what it dims, so the demo has to have something under it.
+   Painting --overlay straight onto an empty box draws a grey slab and tells you
+   nothing about whether the value is right. The mock page below is inert and
+   aria-hidden; it exists so the tint reads as a dimmed page rather than a fill. */
 .pv-scrim {
   position: relative; border-radius: calc(var(--radius) * 1.5); overflow: hidden;
-  background: color-mix(in srgb, var(--foreground) 22%, transparent);
+  background: var(--background);
   padding: calc(var(--sp) * 8) calc(var(--sp) * 5);
   display: flex; align-items: center; justify-content: center;
+}
+.pv-scrim::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: var(--overlay);
+}
+.pv-scrim > * { position: relative; z-index: 2; }
+.pv-under {
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.pv-under-bar {
+  display: flex; align-items: center; gap: calc(var(--sp) * 2.5);
+  padding: calc(var(--sp) * 3) calc(var(--sp) * 4);
+  border-bottom: var(--bw) solid var(--border);
+  background: var(--background-secondary);
+}
+.pv-under-dot { width: 18px; height: 18px; border-radius: 6px; background: var(--primary); flex: none; }
+.pv-under-body { padding: calc(var(--sp) * 5); display: flex; flex-direction: column; gap: calc(var(--sp) * 3); }
+.pv-under-h { height: 15px; width: 42%; border-radius: 5px; background: var(--muted-foreground); opacity: 0.55; }
+.pv-under-line { height: 9px; border-radius: 5px; background: var(--muted); }
+.pv-under-line.w70 { width: 70%; }
+.pv-under-line.w50 { width: 50%; }
+.pv-under-line.w30 { width: 30%; }
+.pv-under-grid { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--sp) * 3); margin-top: calc(var(--sp) * 2); }
+.pv-under-card {
+  height: 76px; border-radius: var(--radius);
+  border: var(--bw) solid var(--border); background: var(--card);
 }
 .pv-dialog { width: 100%; max-width: 400px; padding: calc(var(--sp) * 5.5); }
 .pv-dialog-t { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: 16px; letter-spacing: -0.01em; }
@@ -485,7 +526,7 @@
   display: flex; align-items: center; justify-content: center;
   font-family: var(--mono); font-size: 17px;
 }
-.pv-otp .cell.on { border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 22%, transparent); }
+.pv-otp .cell.on { border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
 .pv-otp .dash { display: flex; align-items: center; color: var(--muted-foreground); }
 
 /* item */
@@ -542,6 +583,7 @@
 }
 .pv-pager a:hover { background: var(--muted); }
 .pv-pager a.on { background: var(--primary); color: var(--primary-foreground); font-weight: 600; }
+.pv-pager a.on:hover { background: var(--primary-hover); }
 .pv-pager .gap { color: var(--muted-foreground); }
 
 /* progress / meter / slider */
@@ -603,7 +645,7 @@
   background-position: right 15px center, right 10px center;
   background-repeat: no-repeat;
 }
-.pv-select:focus { outline: none; border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 22%, transparent); }
+.pv-select:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
 .pv-trigger {
   display: inline-flex; align-items: center; gap: calc(var(--sp) * 2);
   height: 36px; padding: 0 12px; min-width: 190px;
@@ -621,35 +663,50 @@
   padding: 7px 10px; border-radius: calc(var(--radius) * .9);
   font-size: 12.5px; color: var(--foreground); text-decoration: none;
 }
-.pv-sidebar a:hover { background: color-mix(in srgb, var(--foreground) 7%, transparent); }
+.pv-sidebar a:hover { background: var(--muted-hover); }
 .pv-sidebar a.on { background: var(--primary); color: var(--primary-foreground); font-weight: 600; }
+.pv-sidebar a.on:hover { background: var(--primary-hover); }
 .pv-sidebar .sq { width: 14px; height: 14px; border-radius: 4px; background: currentColor; opacity: .55; flex: none; }
 .pv-sidebar a.on .sq { opacity: .9; }
 .pv-appmain { padding: calc(var(--sp) * 5); overflow: auto; }
 
-/* skeleton */
-.pv-skel { background: var(--muted); border-radius: calc(var(--radius) * .8); position: relative; overflow: hidden; }
-.pv-skel::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--foreground) 8%, transparent), transparent);
-  transform: translateX(-100%);
-  animation: pv-shimmer 1.6s infinite;
+/* skeleton
+   Driven by the Behaviour controls, and shaped the same way the shipped stylesheet
+   does it: the sweep is a gradient whose strength is a number rather than a colour,
+   so it is fully transparent at the pulse and none settings and the default costs
+   nothing. The element animates itself instead of an ::after, because pulse fades
+   the placeholder and shimmer slides a highlight across it, and one element cannot
+   do both from two different rules. */
+.pv-skel {
+  background-color: var(--muted);
+  border-radius: calc(var(--radius) * .8);
+  position: relative; overflow: hidden;
+  background-image: linear-gradient(90deg,
+    transparent 0%,
+    color-mix(in oklab, var(--foreground) calc(var(--skeleton-sheen, 8) * 1%), transparent) 50%,
+    transparent 100%);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: var(--skeleton-anim, pv-skel-shimmer)
+             var(--skeleton-duration, 1.6s)
+             var(--skeleton-easing, linear) infinite;
 }
-@keyframes pv-shimmer { 100% { transform: translateX(100%); } }
+@keyframes pv-skel-pulse { 50% { opacity: .5; } }
+@keyframes pv-skel-shimmer { from { background-position: 150% 0; } to { background-position: -50% 0; } }
 .pv-skel.line { height: 11px; }
 .pv-skel.circle { border-radius: 50%; }
 
 /* spinner */
 .pv-spin {
   width: 20px; height: 20px; border-radius: 50%;
-  border: 2px solid color-mix(in srgb, var(--foreground) 18%, transparent);
+  border: 2px solid var(--border-strong);
   border-top-color: var(--primary);
   animation: pv-rot .7s linear infinite;
   display: inline-block;
 }
 .pv-spin.sm { width: 14px; height: 14px; border-width: 1.6px; }
 .pv-spin.lg { width: 30px; height: 30px; border-width: 3px; }
-.pv-spin.on-primary { border-color: color-mix(in srgb, var(--primary-foreground) 35%, transparent); border-top-color: var(--primary-foreground); }
+.pv-spin.on-primary { border-color: color-mix(in oklab, var(--primary-foreground) 35%, transparent); border-top-color: var(--primary-foreground); }
 @keyframes pv-rot { to { transform: rotate(360deg); } }
 .pv-dots { display: inline-flex; gap: 4px; }
 .pv-dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary); animation: pv-bounce 1s infinite ease-in-out; }
@@ -689,6 +746,7 @@
 .pv-toggle:hover { background: var(--muted); }
 .pv-toggle.outline { border-color: var(--border); }
 .pv-toggle.on { background: var(--muted); font-weight: 600; }
+.pv-toggle.on:hover { background: var(--muted-hover); }
 .pv-toggle.sm { height: 30px; min-width: 30px; font-size: 12px; padding: 0 9px; }
 .pv-toggle.lg { height: 42px; min-width: 42px; font-size: 15px; padding: 0 14px; }
 .pv-tgroup { display: inline-flex; border: var(--bw) solid var(--border); border-radius: calc(var(--radius) * .95); padding: 2px; gap: 2px; }
@@ -747,5 +805,5 @@
 .gx-sw .v { font-family: var(--mono); font-size: 10.5px; color: var(--muted-foreground); }
 .gx-rule { display: flex; gap: calc(var(--sp) * 3); padding: calc(var(--sp) * 3.5) 0; border-bottom: var(--bw) solid var(--border); font-size: 13px; }
 .gx-rule .k { flex: none; width: 26px; height: 20px; border-radius: 999px; font-size: 10px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; }
-.gx-rule .k.do { background: color-mix(in srgb, var(--success) 20%, transparent); color: var(--success); }
-.gx-rule .k.dont { background: color-mix(in srgb, var(--destructive) 18%, transparent); color: var(--destructive); }
+.gx-rule .k.do { background: var(--success-soft); color: var(--success-soft-foreground); }
+.gx-rule .k.dont { background: var(--destructive-soft); color: var(--destructive-soft-foreground); }

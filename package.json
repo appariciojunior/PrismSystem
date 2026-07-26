@@ -8,6 +8,7 @@
   "scripts": {
     "test": "lerna run test",
     "controller": "node tools/controller/server.mjs",
+    "check": "node tools/controller/checks/run.mjs",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "lerna run build && node scripts/copy-variables-css.js",

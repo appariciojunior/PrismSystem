@@ -51,19 +51,61 @@ export function oklchToRgb({ L, C, H }) {
   ].map(linearToSrgb);
 }
 
-/** Clamp chroma until the colour is inside sRGB gamut. */
+const inGamut = (rgb) => rgb.every((v) => v >= -0.000075 && v <= 1.000075);
+const clip = (rgb) => rgb.map((v) => Math.max(0, Math.min(1, v)));
+
+/**
+ * Bring an out-of-gamut OKLCH colour into sRGB, the way CSS Color 4 does.
+ *
+ * This is the gamut mapping algorithm from the spec rather than a convenient
+ * approximation, and the difference matters here: the engine now ships a resolved
+ * hex and a live color-mix() for the same token, and a browser asked to mix two
+ * colours that land outside sRGB will map the result with exactly this procedure.
+ * An approximation that merely looks close puts the two emissions on different
+ * colours, which is the one thing dual emission cannot afford.
+ *
+ * Binary search for the most chroma that still fits, allowing a result to be
+ * clipped while it stays inside a just-noticeable difference of the unclipped
+ * colour. In-gamut colours return untouched on the first test, so nothing that
+ * already worked moves.
+ */
 function toGamut(lch) {
-  let { L, C, H } = lch;
-  for (let i = 0; i < 20; i++) {
-    const rgb = oklchToRgb({ L, C, H });
-    if (rgb.every((v) => v >= -0.001 && v <= 1.001)) break;
-    C *= 0.9;
+  const { L, C, H } = lch;
+  if (L >= 1) return [1, 1, 1];
+  if (L <= 0) return [0, 0, 0];
+  const direct = oklchToRgb({ L, C, H });
+  if (inGamut(direct)) return direct;
+
+  const JND = 0.02;
+  const EPS = 0.0001;
+  const lab = (c) => {
+    const r = (H * Math.PI) / 180;
+    return [L, c * Math.cos(r), c * Math.sin(r)];
+  };
+  let lo = 0;
+  let hi = C;
+  while (hi - lo > EPS) {
+    const mid = (lo + hi) / 2;
+    const rgb = oklchToRgb({ L, C: mid, H });
+    if (inGamut(rgb)) { lo = mid; continue; }
+    const clipped = clip(rgb);
+    const a = rgbToOklch(clipped);
+    const ar = (a.H * Math.PI) / 180;
+    const p = [a.L, a.C * Math.cos(ar), a.C * Math.sin(ar)];
+    const q = lab(mid);
+    const dE = Math.hypot(p[0] - q[0], p[1] - q[1], p[2] - q[2]);
+    if (dE < JND) {
+      if (JND - dE < EPS) return clipped;
+      lo = mid;
+    } else {
+      hi = mid;
+    }
   }
-  return { L, C, H };
+  return clip(oklchToRgb({ L, C: lo, H }));
 }
 
 export const hexToOklch = (hex) => rgbToOklch(hexToRgb(hex));
-export const oklchToHex = (lch) => rgbToHex(oklchToRgb(toGamut(lch)));
+export const oklchToHex = (lch) => rgbToHex(toGamut(lch));
 
 /**
  * Generate a ramp for arbitrary step names (e.g. 50..1000).

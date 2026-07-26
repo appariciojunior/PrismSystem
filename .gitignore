@@ -8,6 +8,7 @@ storybook-static/
 # controller state
 tools/controller/backups/
 tools/controller/.tmp/
+tools/controller/checks/.out/
 # archives & scratch
 _to_delete/
 .docmancer/

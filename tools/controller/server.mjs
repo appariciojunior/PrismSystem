@@ -7,7 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import { spawn } from 'child_process';
 import {
-  ROOT, loadBrand, saveBrand, computeSystem, applySystem, DEFAULT_BRAND
+  ROOT, loadBrand, saveBrand, computeSystem, applySystem, variablesFor, DEFAULT_BRAND
 } from './lib/engine.mjs';
 import { extractFigmaTokens } from './lib/figma-tokens.mjs';
 
@@ -304,12 +304,12 @@ const server = http.createServer(async (req, res) => {
     if (url.pathname === '/api/state') {
       const brand = loadBrand();
       const system = computeSystem(brand);
-      return json(res, 200, { brand, theme: system.theme, ramps: system.ramps, audits: system.audits, building, lastBuild });
+      return json(res, 200, { brand, theme: system.theme, ramps: system.ramps, audits: system.audits, vars: variablesFor(system), building, lastBuild });
     }
     if (url.pathname === '/api/preview' && req.method === 'POST') {
       const brand = { ...DEFAULT_BRAND, ...(await readBody(req)) };
       const system = computeSystem(brand);
-      return json(res, 200, { theme: system.theme, ramps: system.ramps, audits: system.audits });
+      return json(res, 200, { theme: system.theme, ramps: system.ramps, audits: system.audits, vars: variablesFor(system) });
     }
     if (url.pathname === '/api/save' && req.method === 'POST') {
       if (building) return json(res, 409, { error: 'build already running' });
@@ -486,7 +486,7 @@ const server = http.createServer(async (req, res) => {
       const build = await runBuild();
       const brand = loadBrand();
       const system = computeSystem(brand);
-      return json(res, 200, { restored: id, build, brand, theme: system.theme, ramps: system.ramps, audits: system.audits });
+      return json(res, 200, { restored: id, build, brand, theme: system.theme, ramps: system.ramps, audits: system.audits, vars: variablesFor(system) });
     }
     if (url.pathname === '/api/upload' && req.method === 'POST') {
       const { name, dataUrl, note } = await readBody(req);

@@ -4,6 +4,7 @@
 import fs from 'fs';
 import path from 'path';
 import { generateRamp, contrast } from './color.mjs';
+import { deriveMode, recipeLabel, GROUPS } from './derive.mjs';
 
 export const ROOT = path.resolve(
   path.dirname(new URL(import.meta.url).pathname),
@@ -28,6 +29,16 @@ export const DEFAULT_BRAND = {
   radius: 1.0, // multiplier on the borderRadius scale
   spacing: 1.0, // density multiplier on the spacing scale
   borderWidth: 1,
+  // Behaviour: how the system acts rather than how it looks at rest.
+  // radiusField and fieldBorderWidth are null on purpose, meaning "whatever the
+  // general setting is". A brand only carries a number here once someone has
+  // deliberately split inputs away from everything else, so every brand.json
+  // written before this existed keeps behaving exactly as it did.
+  radiusField: null,
+  fieldBorderWidth: null,
+  disabledOpacity: 50, // percent, matches Tailwind's disabled:opacity-50
+  skeleton: 'pulse', // pulse | shimmer | none
+  motion: true,
   shadow: { preset: 'soft', blur: 8, y: 2, op: 10 },
   // Material / surface style: how surfaces are rendered (the taste layer above tokens)
   material: { preset: 'elevated', opacity: 100, blur: 0, tint: 0, highlight: 0, page: 'plain' }
@@ -52,6 +63,17 @@ const THEME_REFS = {
   'chart-1': ['chart1', 500], 'chart-2': ['chart2', 500],
   'chart-3': ['chart3', 500], 'chart-4': ['chart4', 500], 'chart-5': ['chart5', 500]
 };
+
+// Every ink that sits on a surface this table also names, as [ink, surface, ref].
+// The page's own `foreground` is not in here: it pairs with `background`, and both
+// ends of that pairing are the poles of the same ramp, so there is nothing to
+// choose between. Derived from the table rather than listed by hand so a role
+// added above cannot quietly opt out of the check.
+const INK_REFS = Object.entries(THEME_REFS)
+  .filter(([tok]) => tok.endsWith('-foreground') && THEME_REFS[tok.slice(0, -11)])
+  .map(([tok, ref]) => [tok, tok.slice(0, -11), ref]);
+
+const AA = 4.5;
 
 export function loadBrand() {
   try { return { ...DEFAULT_BRAND, ...JSON.parse(fs.readFileSync(BRAND, 'utf8')) }; }
@@ -156,44 +178,218 @@ export function computeSystem(brand) {
 
   // Theme layer
   const theme = { light: {}, dark: {} };
+  // Everything the derivation layer works out from the base tokens, kept apart
+  // from `theme` as well as merged into it: the recipes and the solver's audits
+  // are what the Variables panel shows, and the CSS expressions are what the web
+  // target emits instead of a frozen hex.
+  const derived = { light: null, dark: null };
+  // The theme exactly as it stood before derivation ran. Once the derived tokens
+  // are merged into `theme` there is no way to tell a hand-picked colour from a
+  // solved one by looking at it, and both the harness and the Variables panel need
+  // that distinction: one to prove derivation never overwrites a base name, the
+  // other to label a row's origin.
+  const base = { light: null, dark: null };
+  // Every ink the measurement moved, so the panel can show that the colour on a
+  // button is not the one the table asked for and say why.
+  const inkNotes = { light: {}, dark: {} };
   for (const mode of ['light', 'dark']) {
     for (const [tok, [fam, step]] of Object.entries(THEME_REFS)) {
       theme[mode][tok] = ramps[fam][mode][step] ?? Object.values(ramps[fam][mode])[0];
     }
     // Per-token overrides (e.g. from a selected preset) win over derived values
     const ov = (brand.overrides || {})[mode] || {};
-    for (const [tok, hex] of Object.entries(ov)) {
-      if (typeof hex === 'string' && /^#[0-9a-fA-F]{6}$/.test(hex)) theme[mode][tok] = hex.toLowerCase();
+    const pinned = (tok) => {
+      const hex = ov[tok];
+      return typeof hex === 'string' && /^#[0-9a-fA-F]{6}$/.test(hex) ? hex.toLowerCase() : null;
+    };
+    for (const tok of Object.keys(ov)) {
+      const hex = pinned(tok);
+      if (hex) theme[mode][tok] = hex;
+    }
+
+    // The ink each role carries is declared as a neutral ramp step, which is a
+    // guess made before anyone knows what colour the role itself will come out.
+    // Usually the guess holds. It stops holding as soon as a seed lands somewhere
+    // the table did not expect: white on a near-white tertiary reads at 1.2:1,
+    // and in dark mode the whole table inverts, so the near-black ink meant for a
+    // bright green ends up on a dark green at 2:1. Neither is a solver bug, both
+    // are a fixed table meeting a colour it was not written for.
+    //
+    // So the ink is measured rather than assumed, and only where the declared one
+    // has actually failed. Passing inks are left exactly as they are, because a
+    // table that reads correctly is a design decision and beating it by half a
+    // point is not worth overruling anybody.
+    //
+    // What a failed ink should become depends on what it was asking for. A step
+    // at either end of the ramp is not asking for a weight, it is asking for a
+    // pole: the light one or the dark one. When that fails the honest answer is
+    // the other pole, because a mid-grey label that scrapes past 4.6:1 on a dark
+    // green button reads as a mistake even though it measures fine. A deliberate
+    // mid-ramp ink is the opposite case: muted-foreground was picked at neutral
+    // 600 because that weight was the point, so it walks one step at a time
+    // towards whichever end helps and stops as soon as it can be read.
+    //
+    // Some pairings cannot be solved from a neutral ramp at all. A mid-blue sits
+    // far enough from both ends that neither white nor black clears AA on it.
+    // The walk keeps the best value it found and says so, rather than exiting
+    // quietly and leaving a failure with nothing attached to explain it.
+    for (const [tok, role, [fam, refStep]] of INK_REFS) {
+      if (fam !== 'neutral' || pinned(tok)) continue;
+      const bg = theme[mode][role];
+      const was = theme[mode][tok];
+      if (!bg || !was || contrast(was, bg) >= AA) continue;
+
+      const steps = Object.keys(ramps.neutral[mode]).map(Number).sort((a, b) => a - b);
+      const at = (s) => ramps.neutral[mode][s];
+      const on = (s) => contrast(at(s), bg);
+      const i = steps.indexOf(refStep);
+      // Positional, never the literal 50 and 950: the ramp's dark end moves as
+      // soon as anyone changes how many steps it has.
+      const opposite = i === 0 ? steps[steps.length - 1] : i === steps.length - 1 ? steps[0] : null;
+
+      let step;
+      if (opposite !== null) {
+        // Contrast climbs away from the surface's own lightness in both
+        // directions, so the far pole is the best this ramp holds on that side.
+        // If even that is worse than the pole we started on, there is nothing to
+        // gain by moving and the declared ink stays.
+        step = on(opposite) >= AA || on(opposite) > on(refStep) ? opposite : refStep;
+      } else {
+        const darkerHelps = on(steps[steps.length - 1]) >= on(steps[0]);
+        const ahead = i < 0
+          ? (darkerHelps ? steps : [...steps].reverse())
+          : (darkerHelps ? steps.slice(i + 1) : steps.slice(0, i).reverse());
+        const order = ahead.length ? ahead : steps;
+        step = order.find((s) => on(s) >= AA)
+          ?? order.reduce((best, s) => (on(s) > on(best) ? s : best), order[0]);
+      }
+
+      const wasRatio = Math.round(contrast(was, bg) * 10) / 10;
+      const nowRatio = Math.round(on(step) * 10) / 10;
+      const moved = at(step) !== was;
+      const ok = on(step) >= AA;
+      if (moved) theme[mode][tok] = at(step);
+      inkNotes[mode][tok] = {
+        from: was, to: at(step), step, was: wasRatio, now: nowRatio, ok, moved,
+        note: moved
+          ? `neutral ${refStep} only reached ${wasRatio.toFixed(1)}:1 on ${role}, so the ink walked to neutral ${step}`
+            + (ok ? '' : `, which is as far as the neutral ramp goes here at ${nowRatio.toFixed(1)}:1`)
+          : `no step of the neutral ramp reads on ${role}: neutral ${refStep} is already the closest at `
+            + `${wasRatio.toFixed(1)}:1, so the ink stayed where it was`
+      };
+    }
+
+    // Derivation runs after the overrides, never before: a pinned primary has to
+    // be the colour its own hover and soft fill are worked out from, otherwise
+    // the variants belong to a base colour the page never shows.
+    base[mode] = { ...theme[mode] };
+    const d = deriveMode(theme[mode]);
+    derived[mode] = d;
+    for (const [tok, hex] of Object.entries(d.tokens)) theme[mode][tok] = hex;
+
+    // A derived token can itself be pinned. When that happens the hand-picked
+    // value wins and its recipe is dropped, so the CSS layer emits the literal
+    // rather than a color-mix() that would quietly overrule it.
+    for (const tok of Object.keys(ov)) {
+      const hex = pinned(tok);
+      if (!hex || d.tokens[tok] === undefined) continue;
+      theme[mode][tok] = hex;
+      d.tokens[tok] = hex;
+      delete d.recipes[tok];
+      delete d.css[tok];
     }
   }
 
-  // Contrast audits on key pairings
+  // Contrast audits. The base pairings first, because those are the ones a person
+  // picked; then every pairing the derivation layer created, because a hover state
+  // nobody can read is exactly as broken as a rest state nobody can read, and it is
+  // the one a fixed percentage table will never tell you about.
+  const ROLES = ['primary', 'secondary', 'tertiary', 'accent', 'muted', 'info', 'success', 'warning', 'error', 'destructive'];
   const pairs = [
-    ['foreground', 'background'], ['primary-foreground', 'primary'],
-    ['secondary-foreground', 'secondary'], ['tertiary-foreground', 'tertiary'],
-    ['muted-foreground', 'muted'], ['card-foreground', 'card'],
-    ['destructive-foreground', 'destructive'], ['info-foreground', 'info'],
-    ['success-foreground', 'success'], ['warning-foreground', 'warning']
-  ];
+    ['foreground', 'background', 'base'], ['card-foreground', 'card', 'base'],
+    ['foreground', 'background-secondary', 'base'], ['foreground', 'background-tertiary', 'base'],
+    ['field-foreground', 'field-background', 'base'], ['field-placeholder', 'field-background', 'base'],
+    ...ROLES.flatMap((r) => [
+      [`${r}-foreground`, r, 'rest'],
+      [`${r}-foreground`, `${r}-hover`, 'state'],
+      [`${r}-foreground`, `${r}-active`, 'state'],
+      [`${r}-soft-foreground`, `${r}-soft`, 'soft'],
+      [`${r}-soft-foreground`, `${r}-soft-hover`, 'soft']
+    ])
+  ].filter(([fg, bg]) => theme.light[fg] && theme.light[bg]);
   // When surfaces are translucent (glass), text sits on the surface composited
   // over the page background, so audit against that effective colour, not the token.
   const mat = brand.material || {};
   const op = (mat.opacity == null ? 100 : mat.opacity) / 100;
-  const translucent = op < 0.99 && ['card', 'popover'].length;
   const effBg = (mode, bg) => {
     if (op >= 0.99 || (bg !== 'card' && bg !== 'popover')) return theme[mode][bg];
     return blendHex(theme[mode].background, theme[mode][bg], op); // surface over page
   };
   const audits = {};
   for (const mode of ['light', 'dark']) {
-    audits[mode] = pairs.map(([fg, bg]) => {
+    audits[mode] = pairs.map(([fg, bg, group]) => {
       const bgHex = effBg(mode, bg);
       const r = contrast(theme[mode][fg], bgHex);
-      return { fg, bg, ratio: Math.round(r * 10) / 10, aa: r >= 4.5, aaLarge: r >= 3, translucent: bgHex !== theme[mode][bg] };
+      return {
+        fg, bg, group,
+        ratio: Math.round(r * 10) / 10,
+        aa: r >= 4.5, aaLarge: r >= 3,
+        translucent: bgHex !== theme[mode][bg],
+        ...(inkNotes[mode][fg] ? { ink: inkNotes[mode][fg] } : {})
+      };
     });
+    // A state that reads worse than the rest colour it came from is a fault in the
+    // recipe. A state that reads badly because the rest colour already did is a
+    // fault in the seed. Flagging which is which stops the panel blaming the wrong
+    // thing, and stops anyone chasing a solver bug that is really a colour choice.
+    const rest = {};
+    for (const a of audits[mode]) if (a.group === 'rest') rest[a.bg] = a.ratio;
+    for (const a of audits[mode]) {
+      if (a.group !== 'state') continue;
+      const base = rest[a.bg.replace(/-(hover|active)$/, '')];
+      if (base != null && base >= 4.5 && !a.aa) a.regression = true;
+      else if (base != null && base < 4.5 && !a.aa) a.inherited = true;
+    }
   }
 
-  return { ramps, semantic, theme, audits };
+  return { ramps, semantic, theme, base, derived, audits, inks: inkNotes };
+}
+
+/**
+ * The Variables panel's payload: everything the browser needs to explain a token
+ * without re-deriving anything.
+ *
+ * The labels are computed here rather than in the page so the panel and the
+ * command-line harness say the same sentence about the same token. Reimplementing
+ * recipeLabel in the page would be a second source of truth that drifts the first
+ * time a recipe kind is added.
+ *
+ * Hex values are left out on purpose: the page already holds them in `theme`, and
+ * sending them again would be roughly six kilobytes of duplication per preview.
+ */
+export function variablesFor(system) {
+  const out = { groups: GROUPS, light: null, dark: null };
+  for (const mode of ['light', 'dark']) {
+    const d = system.derived[mode];
+    const labels = {};
+    for (const [name, r] of Object.entries(d.recipes)) labels[name] = recipeLabel(r);
+    out[mode] = {
+      // Order matters twice over: base names come out in the order the theme was
+      // assembled, and derived names in the order the recipes ran, which is the
+      // order a person would read them in.
+      base: Object.keys(system.base[mode]),
+      recipes: d.recipes,
+      labels,
+      css: d.css,
+      // Notes the solver left, keyed by token, so a row can say why it is not
+      // sitting on its nominal percentage.
+      notes: d.audits.reduce((acc, a) => {
+        if (a.note) (acc[a.token] = acc[a.token] || []).push(a.note);
+        return acc;
+      }, {})
+    };
+  }
+  return out;
 }
 
 /** Write the computed system into the repo sources (with timestamped backups). */
@@ -298,11 +494,17 @@ export function applySystem(brand, system) {
   return { backupDir: bdir };
 }
 
-/** Emit packages/ui/src/styles/theme.css — the shadcn variable values, both modes. */
-export function writeShadcnTheme(brand, system) {
-  const dir = path.join(ROOT, 'packages/ui/src/styles');
-  if (!fs.existsSync(path.join(ROOT, 'packages/ui'))) return;
-  fs.mkdirSync(dir, { recursive: true });
+/**
+ * Build the contents of packages/ui/src/styles/theme.css — the shadcn variable
+ * values, both modes — and hand them back rather than writing them.
+ *
+ * Kept separate from the write so the checks can ask what a hypothetical brand
+ * would emit without touching the file that is committed. They used to call
+ * writeShadcnTheme with a made-up brand and read the result off disk, which left
+ * the working tree holding a theme nobody asked for and made the run order of
+ * the battery matter.
+ */
+export function shadcnThemeCss(brand, system) {
   const font = (f) => `'${f}', system-ui, sans-serif`;
   const block = (mode) => {
     const t = system.theme[mode];
@@ -316,6 +518,17 @@ export function writeShadcnTheme(brand, system) {
       muted: m('muted'), 'muted-foreground': m('muted-foreground'),
       accent: m('accent') || m('muted'), 'accent-foreground': m('accent-foreground') || m('foreground'),
       destructive: m('destructive'), 'destructive-foreground': m('destructive-foreground'),
+      // The roles beyond shadcn's own set. They were in the token engine from the
+      // start but never reached CSS, so anything painting with var(--success) was
+      // painting with an invalid value and quietly getting nothing. Emitting them
+      // is additive: no existing declaration changes, several broken ones start
+      // working, and the derived hover and soft variants below now have something
+      // real to refer to.
+      tertiary: m('tertiary'), 'tertiary-foreground': m('tertiary-foreground'),
+      info: m('info'), 'info-foreground': m('info-foreground'),
+      success: m('success'), 'success-foreground': m('success-foreground'),
+      warning: m('warning'), 'warning-foreground': m('warning-foreground'),
+      error: m('error'), 'error-foreground': m('error-foreground'),
       border: m('border'), input: m('input'), ring: m('ring'),
       'chart-1': m('chart-1'), 'chart-2': m('chart-2'), 'chart-3': m('chart-3'),
       'chart-4': m('chart-4'), 'chart-5': m('chart-5'),
@@ -323,12 +536,31 @@ export function writeShadcnTheme(brand, system) {
       'sidebar-primary': m('primary'), 'sidebar-primary-foreground': m('primary-foreground'),
       'sidebar-accent': m('accent') || m('muted'), 'sidebar-accent-foreground': m('accent-foreground') || m('foreground'),
       'sidebar-border': m('border'), 'sidebar-ring': m('ring'),
-      surface: m('muted'), 'surface-foreground': m('foreground'),
       code: m('muted'), 'code-foreground': m('foreground'),
       'code-highlight': m('secondary'), 'code-number': m('muted-foreground'),
       selection: m('primary'), 'selection-foreground': m('primary-foreground')
     };
     return Object.entries(lines).map(([k, v]) => `  --${k}: ${v};`).join('\n');
+  };
+
+  // The derived half. These go out as live color-mix() rather than the resolved
+  // hex, so retinting one base token moves its whole family without a rebuild, and
+  // a soft fill stays genuinely translucent instead of being flattened against
+  // whatever the page happened to be at build time. The percentages are the ones
+  // the solver verified, so the browser lands on the same colour the audit graded.
+  // Platform targets that cannot do color-mix still get the resolved hex, out of
+  // system.theme, which is why both forms exist.
+  const derivedBlock = (mode) => {
+    const d = (system.derived || {})[mode];
+    if (!d) return '';
+    const byGroup = new Map();
+    for (const k of Object.keys(d.tokens)) {
+      const g = (d.recipes[k] || {}).group || 'other';
+      if (!byGroup.has(g)) byGroup.set(g, []);
+      byGroup.get(g).push(`  --${k}: ${d.css[k] || d.tokens[k]};`);
+    }
+    return [...byGroup].map(([g, rows]) =>
+      `\n  /* ${GROUPS[g] || g} */\n${rows.join('\n')}`).join('');
   };
   // Shadow ladder from the brand's shadow settings (tweakcn-style scale)
   const sh = brand.shadow || { blur: 8, y: 2, op: 10 };
@@ -337,12 +569,56 @@ export function writeShadcnTheme(brand, system) {
     if (op <= 0) return '0 0 0 0 rgba(0,0,0,0)';
     return `0 ${Math.round(sh.y * mult)}px ${Math.round(sh.blur * mult)}px rgba(0,0,0,${op.toFixed(3)})`;
   };
+  // Behaviour layer. Every one of these has to compute to what the components
+  // already do at default settings, or turning the feature on would move the
+  // whole system for people who never asked for it. So the field radius falls
+  // back to the general radius, the field border falls back to the general
+  // border, disabled resolves to .5 to match `disabled:opacity-50`, and the
+  // skeleton default is the pulse Tailwind was already animating.
+  const bw = brand.borderWidth == null ? 1 : brand.borderWidth;
+  const skeleton = brand.skeleton || 'pulse';
+  // `sheen` is a percentage rather than a colour on purpose. A colour worked out
+  // here would be mixed against whichever --foreground :root happens to hold,
+  // which is the wrong one the moment .dark sits on anything but the html
+  // element. Handing the stylesheet a number lets the mix happen on the skeleton
+  // itself, where the right foreground is in scope. At 0 the sweep is fully
+  // transparent, so pulse and none cost nothing.
+  const SKELETON = {
+    pulse: { name: 'ds-skeleton-pulse', dur: '2s', ease: 'cubic-bezier(.4,0,.6,1)', sheen: 0 },
+    shimmer: { name: 'ds-skeleton-shimmer', dur: '1.6s', ease: 'linear', sheen: 12 },
+    none: { name: 'none', dur: '0s', ease: 'linear', sheen: 0 }
+  };
+  const sk = SKELETON[skeleton] || SKELETON.pulse;
+  // A global switch, not a per-component one. Someone who turns animation off
+  // wants the product still, and reaching for it component by component would
+  // miss the next component anyone adds. The OS preference gets the same
+  // treatment in shadcn.css regardless of what this says, because a user setting
+  // outranks a brand setting.
+  const stillness = brand.motion === false ? `
+/* Animation switched off for this brand. Unlayered so it beats the utilities
+   that set these, and scoped to duration rather than display so nothing that
+   relies on a transition ending silently stops working. */
+*, *::before, *::after {
+  animation-duration: .01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: .01ms !important;
+  scroll-behavior: auto !important;
+}
+` : '';
+
   const css = `/* GENERATED by the Design System Controller. Do not edit by hand.
    Regenerated on every Save & apply from the brand tokens. */
 :root {
   --radius: ${(0.625 * brand.radius).toFixed(3)}rem;
+  --radius-field: ${(0.625 * (brand.radiusField ?? brand.radius)).toFixed(3)}rem;
   --spacing: ${(0.25 * (brand.spacing || 1)).toFixed(4)}rem;
-  --border-width: ${brand.borderWidth == null ? 1 : brand.borderWidth}px;
+  --border-width: ${bw}px;
+  --field-border-width: ${brand.fieldBorderWidth ?? bw}px;
+  --disabled-opacity: ${((brand.disabledOpacity ?? 50) / 100).toFixed(3)};
+  --skeleton-anim: ${sk.name};
+  --skeleton-duration: ${sk.dur};
+  --skeleton-easing: ${sk.ease};
+  --skeleton-sheen: ${sk.sheen};
   --font-sans: ${font(brand.bodyFont)};
   --font-heading: ${font(brand.headingFont)};
   --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
@@ -365,11 +641,21 @@ export function writeShadcnTheme(brand, system) {
   --surface-highlight: rgba(255,255,255,${((((brand.material || {}).highlight || 0) / 100) * 0.7).toFixed(3)});
   --page-style: ${(brand.material || {}).page || 'plain'};
 ${block('light')}
+${derivedBlock('light')}
 }
 
 .dark {
 ${block('dark')}
+${derivedBlock('dark')}
 }
-`;
-  fs.writeFileSync(path.join(dir, 'theme.css'), css);
+${stillness}`;
+  return css;
+}
+
+/** Write what shadcnThemeCss built, when there is a packages/ui to write it to. */
+export function writeShadcnTheme(brand, system) {
+  const dir = path.join(ROOT, 'packages/ui/src/styles');
+  if (!fs.existsSync(path.join(ROOT, 'packages/ui'))) return;
+  fs.mkdirSync(dir, { recursive: true });
+  fs.writeFileSync(path.join(dir, 'theme.css'), shadcnThemeCss(brand, system));
 }

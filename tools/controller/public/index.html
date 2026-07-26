@@ -236,19 +236,82 @@
   .charts-row { display: flex; gap: 8px; margin-top: 10px; }
   .charts-row input[type="color"] { flex: 1; width: auto; height: 34px; }
 
-  /* token table */
-  .token-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-  .token-table th {
-    text-align: left; padding: 6px 8px;
-    font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-    color: var(--text-3); border-bottom: 1px solid var(--line);
+  /* ============ Variables panel ============
+     A hundred and fifty-odd tokens is too many to read as a table, and a table
+     could not have carried the recipe anyway: knowing that --primary-hover is
+     #004a6f tells you nothing, knowing it is primary mixed 88% with its own
+     foreground tells you whether it is right. So every row is a small block
+     rather than a line, and search and the group chips are what keep the list
+     navigable. */
+  .vp-tools { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
+  .vp-search {
+    width: 100%; padding: 7px 10px; box-sizing: border-box;
+    background: var(--bg); border: var(--bw) solid var(--line-2); border-radius: calc(var(--r) * 0.85);
+    color: var(--text); font-size: 12px; font-family: var(--mono);
   }
-  .token-table td { padding: 5px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
-  .token-table tr:last-child td { border-bottom: 0; }
-  .token-name { font-family: var(--mono); font-size: 11.5px; color: var(--text-2); }
-  .token-val { display: inline-flex; align-items: center; gap: 8px; }
-  .token-val .sw { width: 16px; height: 16px; border-radius: calc(var(--r) * 0.6); border: var(--bw) solid rgba(255,255,255,.14); flex: none; }
-  .token-val code { font-family: var(--mono); font-size: 11px; color: var(--text-2); }
+  .vp-search:focus { outline: none; border-color: #525252; box-shadow: 0 0 0 2px rgba(255,255,255,.07); }
+  .vp-search::placeholder { font-family: var(--sans, inherit); color: var(--text-3); }
+  .vp-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .vp-chip {
+    font: inherit; font-size: 11px; line-height: 1;
+    padding: 5px 9px; border-radius: calc(var(--r) * 3);
+    background: transparent; color: var(--text-3);
+    border: var(--bw) solid var(--line-2); cursor: pointer;
+    transition: color .12s, border-color .12s, background .12s;
+  }
+  .vp-chip:hover { color: var(--text-2); border-color: #4a4a4a; }
+  .vp-chip.on { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .vp-chip .n { opacity: .55; margin-left: 5px; font-variant-numeric: tabular-nums; }
+  .vp-count { font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+
+  .vp-group { margin-top: 14px; }
+  .vp-group:first-child { margin-top: 0; }
+  .vp-group-head {
+    font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--text-3); padding-bottom: 5px; border-bottom: 1px solid var(--line); margin-bottom: 6px;
+  }
+  .vp-row {
+    display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+    column-gap: 9px; row-gap: 3px; padding: 6px 6px; margin: 0 -6px;
+    border-radius: calc(var(--r) * 0.7); cursor: pointer;
+  }
+  .vp-row:hover { background: rgba(255,255,255,.035); }
+  .vp-sw { display: flex; flex: none; grid-row: 1 / span 2; }
+  /* A row with nothing on its second line should not reserve one. */
+  .vp-row.solo .vp-sw { grid-row: 1; }
+  /* Two halves of one square, light on the left and dark on the right, because
+     the pair is the thing worth seeing: a token that reads well in one mode and
+     vanishes in the other is the failure this panel should make obvious. */
+  .vp-sw i {
+    width: 11px; height: 22px; display: block;
+    border: var(--bw) solid rgba(255,255,255,.14);
+  }
+  .vp-sw i:first-child { border-right: 0; border-radius: calc(var(--r) * 0.6) 0 0 calc(var(--r) * 0.6); }
+  .vp-sw i:last-child  { border-radius: 0 calc(var(--r) * 0.6) calc(var(--r) * 0.6) 0; }
+  .vp-name {
+    font-family: var(--mono); font-size: 11.5px; color: var(--text-2);
+    min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .vp-name b { font-weight: 600; color: var(--text); background: rgba(250,204,21,.18); border-radius: 2px; }
+  .vp-hex { font-family: var(--mono); font-size: 11px; color: var(--text-3); flex: none; font-variant-numeric: tabular-nums; }
+  /* The recipe text gives up its tail before the flags give up anything: a row
+     that had to be solved away from its nominal percentage is exactly the row
+     whose sentence is longest, so letting the ellipsis eat the flag would hide
+     the badge on precisely the tokens that needed it. */
+  .vp-recipe {
+    grid-column: 2 / span 2; font-size: 11px; color: var(--text-3);
+    min-width: 0; display: flex; align-items: baseline;
+  }
+  .vp-recipe .t { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .vp-recipe .pin { color: var(--text-2); }
+  .vp-flags { display: inline-flex; gap: 4px; margin-left: 6px; flex: none; }
+  .vp-flag {
+    font-size: 9px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase;
+    padding: 1px 5px; border-radius: calc(var(--r) * 2.5);
+    background: rgba(255,255,255,.07); color: var(--text-2);
+  }
+  .vp-flag.solved { background: rgba(250,204,21,.16); color: #facc15; }
+  .vp-empty { font-size: 11.5px; color: var(--text-3); padding: 10px 0; }
 
   /* sliders */
   .slider-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; }
@@ -413,7 +476,7 @@
     transition: border-color .12s, box-shadow .12s;
   }
   .pv-input::placeholder { color: var(--muted-foreground); }
-  .pv-input:focus { outline: none; border-color: var(--ring); box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 25%, transparent); }
+  .pv-input:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring); }
   .pv-label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 6px; }
   .pv-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
@@ -423,7 +486,7 @@
     transition: opacity .12s, background .12s;
     cursor: pointer;
   }
-  .pv-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--ring) 30%, transparent); }
+  .pv-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
   .pv-btn.primary { background: var(--primary); color: var(--primary-foreground); }
   .pv-btn.primary:hover { opacity: .88; }
   .pv-btn.secondary { background: var(--secondary); color: var(--secondary-foreground); }
@@ -479,8 +542,19 @@
   .spec-sample { font-family: var(--font-heading); font-weight: var(--weight-heading); letter-spacing: -0.02em; line-height: 1.15; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .spec-sample.body-sample, .spec-sample.caption-sample { font-family: var(--font-body); font-weight: var(--weight-body); letter-spacing: 0; white-space: normal; }
   .spec-sample.caption-sample { color: var(--muted-foreground); }
-  .audit-list { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; }
-  @media (max-width: 900px) { .audit-list { grid-template-columns: 1fr; } }
+  .audit-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 2px; }
+  .audit-head #audit-desc { flex: 1 1 320px; }
+  .audit-toggle { flex: none; margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: var(--muted-foreground); cursor: pointer; user-select: none; }
+  .audit-toggle input { accent-color: var(--primary); }
+  .audit-group { margin-top: 14px; }
+  .audit-group:first-child { margin-top: 4px; }
+  .audit-group-head { display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px; }
+  .audit-group-name { font-size: 11.5px; font-weight: 600; letter-spacing: .02em; }
+  .audit-group-note { font-size: 11px; color: var(--muted-foreground); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .audit-group-count { flex: none; font-size: 11px; color: var(--muted-foreground); font-variant-numeric: tabular-nums; }
+  .audit-rows { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; }
+  @media (max-width: 900px) { .audit-rows { grid-template-columns: 1fr; } }
+  .audit-empty { font-size: 11.5px; color: var(--muted-foreground); padding: 4px 0; }
   .audit-row {
     display: flex; align-items: center; gap: 10px;
     padding: 7px 10px; border: var(--bw) solid var(--border);
@@ -503,6 +577,12 @@
   .audit-chip.pass  { background: rgba(34,197,94,.16);  color: #4ade80; }
   .audit-chip.large { background: rgba(245,158,11,.16); color: #fbbf24; }
   .audit-chip.fail  { background: rgba(239,68,68,.16);  color: #f87171; }
+  /* Why it failed, not just that it did. A regression is the derivation layer's
+     fault and worth chasing; an inherited failure came in with the seed colour and
+     no recipe change will fix it. */
+  .audit-cause { flex: none; font-size: 10px; font-weight: 600; letter-spacing: .03em; padding: 2px 7px; border-radius: calc(var(--r) * 2.75); }
+  .audit-cause.regression { background: rgba(239,68,68,.16); color: #f87171; }
+  .audit-cause.inherited  { background: var(--muted); color: var(--muted-foreground); }
 
   /* imagery */
   .dropzone {
@@ -609,8 +689,23 @@
   .alert { padding: calc(var(--sp) * 3.5) calc(var(--sp) * 4); border-width: var(--bw); }
   .field { margin-bottom: calc(var(--sp) * 3.5); }
   .pv-btn, .btn { padding-left: calc(var(--sp) * 3.5); padding-right: calc(var(--sp) * 3.5); }
-  .pv-input, .field input[type="text"], .field textarea, .select { border-width: var(--bw); }
+  .field input[type="text"], .field textarea, .select { border-width: var(--bw); }
   .colour-row { margin-bottom: calc(var(--sp) * 2.5); }
+
+  /* ============ Behaviour (controller-driven) ============
+     Fields are allowed to differ from everything else, so they read the field
+     variables and fall back to the general ones. At default settings the two are
+     the same value, which is why nothing moves until someone splits them. The rail's
+     own inputs are left on --bw on purpose: changing what a brand's forms look like
+     should not restyle the tool you are changing it in. */
+  .pv-input { border-width: var(--bw-field, var(--bw)); border-radius: var(--r-field, var(--radius)); }
+  .pv-input:disabled, .pv-btn:disabled, [data-disabled] .pv-input { opacity: var(--disabled-opacity, .5); }
+  /* Animation off is a preview of the stillness block the engine writes, so the
+     control is not a promise the tool cannot show. */
+  #preview[data-motion="off"] *, #preview[data-motion="off"] *::before, #preview[data-motion="off"] *::after {
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 
   /* ============ Preview sub-tabs + example screens ============ */
   .subtabs { display: flex; gap: 4px; padding: 4px; margin-bottom: calc(var(--sp) * 4);
@@ -1035,7 +1130,10 @@
           </div>
           <div class="pv-card span-2">
             <div class="pv-card-title">Accessibility</div>
-            <div class="pv-card-desc" id="audit-desc">Contrast audit for the light theme.</div>
+            <div class="audit-head">
+              <div class="pv-card-desc" id="audit-desc">Contrast audit for the light theme.</div>
+              <label class="audit-toggle"><input type="checkbox" id="audit-only-fail"> Only what fails</label>
+            </div>
             <div class="audit-list" id="audit-list"></div>
           </div>
         </div>
@@ -1214,7 +1312,11 @@
     </details>
     <details class="acc" open>
       <summary>Shape</summary>
+      <div class="dd-label">Everything</div>
       <div id="dd-radius" class="radlist"></div>
+      <div class="dd-label" style="margin-top:10px">Fields</div>
+      <div id="dd-radius-field" class="radlist"></div>
+      <span class="hint">Inputs, textareas and selects. Left on Match they follow the general corner, which is what every brand did before this control existed.</span>
     </details>
     <details class="acc" open>
       <summary>Spacing</summary>
@@ -1248,6 +1350,30 @@
       </div>
     </details>
     <details class="acc" open>
+      <summary>Behaviour</summary>
+      <div class="panel-sub" style="margin-bottom:8px">How the system acts rather than how it looks at rest. Every setting here starts where the components already were, so nothing moves until you move it.</div>
+      <div class="dd-label">Field border width</div>
+      <div class="seg" id="field-border-width">
+        <button type="button" data-v="" class="active">Match</button>
+        <button type="button" data-v="0">None</button>
+        <button type="button" data-v="1">1px</button>
+        <button type="button" data-v="2">2px</button>
+      </div>
+      <div class="dd-slider" style="margin-top:12px"><span>Disabled fade</span><input type="range" id="disabled-opacity" min="20" max="80" step="5" value="50"><output id="disabled-opacity-v">50</output></div>
+      <div class="dd-label">Loading placeholders</div>
+      <div class="seg" id="skeleton-style">
+        <button type="button" data-v="pulse" class="active">Pulse</button>
+        <button type="button" data-v="shimmer">Shimmer</button>
+        <button type="button" data-v="none">None</button>
+      </div>
+      <div class="dd-label">Animation</div>
+      <div class="seg" id="motion-toggle">
+        <button type="button" data-v="on" class="active">On</button>
+        <button type="button" data-v="off">Off</button>
+      </div>
+      <span class="hint">Off stills every animation and transition in the built system. Someone who has asked their operating system to reduce motion gets that regardless, because a user setting outranks a brand one.</span>
+    </details>
+    <details class="acc" open>
       <summary>Material</summary>
       <div class="panel-sub" style="margin-bottom:8px">How surfaces are rendered. Pick a material, then fine-tune. Applies to every component.</div>
       <div class="seg" id="material-preset" style="flex-wrap:wrap">
@@ -1269,15 +1395,14 @@
       <div class="hint" id="material-hint" style="margin-top:8px"></div>
     </details>
     <details class="acc">
-      <summary>Derived tokens</summary>
-        <div class="panel">
-          <div class="panel-title">Derived tokens</div>
-          <div class="panel-sub">Read-only. Recomputed by the engine on every preview.</div>
-          <table class="token-table">
-            <thead><tr><th>Token</th><th>Light</th><th>Dark</th></tr></thead>
-            <tbody id="token-tbody"></tbody>
-          </table>
-        </div>
+      <summary>Variables</summary>
+      <div class="panel-sub" style="margin-bottom:10px">Every token the system emits, with the recipe that made it. Read-only: change the colour above and this follows. Click a row to copy its <code style="font-family:var(--mono)">var()</code>.</div>
+      <div class="vp-tools">
+        <input type="search" class="vp-search" id="vp-search" placeholder="Search tokens and recipes" autocomplete="off" spellcheck="false">
+        <div class="vp-chips" id="vp-chips"></div>
+        <div class="vp-count" id="vp-count"></div>
+      </div>
+      <div id="vp-list"></div>
     </details>
       <details class="acc">
       <summary>Versions</summary>
@@ -1380,6 +1505,11 @@
     headingFont: 'Inter', bodyFont: 'Inter', monoFont: 'System',
     headingWeight: 600, bodyWeight: 400,
     typeScale: 1.25, radius: 1, spacing: 1, borderWidth: 1,
+    // radiusField and fieldBorderWidth are null on purpose. Null means "whatever the
+    // general setting is", so a brand.json written before these existed keeps behaving
+    // exactly as it did, and the rail shows Match rather than inventing a number.
+    radiusField: null, fieldBorderWidth: null,
+    disabledOpacity: 50, skeleton: 'pulse', motion: true,
     lineHeight: 'normal', letterSpacing: 'normal',
     shadow: { preset: 'soft', blur: 8, y: 2, op: 10 },
     material: { preset: 'elevated', opacity: 100, blur: 0, tint: 0, highlight: 0, page: 'plain' },
@@ -1405,6 +1535,10 @@
   var theme = null;
   var ramps = null;
   var audits = null;
+  // The recipes and labels behind the derived half of the theme. Null until the
+  // first response, which is why the Variables panel says so rather than drawing
+  // an empty list that looks like a system with no tokens in it.
+  var vars = null;
   var mode = 'light';
   var saving = false;
   var building = false;
@@ -1687,6 +1821,41 @@
       var d = Math.abs(brand.radius - r[1]);
       if (d < bd) { bd = d; bi = i; }
     });
+    items.forEach(function (it, i) { it.classList.toggle('sel', i === bi); });
+  }
+
+  // Field corners. The list is the same five shapes with Match sitting above them,
+  // and Match is the only entry that writes null, because null is what "follow the
+  // general radius" means everywhere else in the pipeline.
+  (function buildRadiusFieldDd() {
+    var host = document.getElementById('dd-radius-field');
+    if (!host) return;
+    [['Match', null]].concat(RADIUS_OPTS).forEach(function (r) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'rad-item';
+      var swatch = r[1] == null
+        ? '<span class="rg" style="border-radius:0;border-style:dashed;opacity:.55"></span>'
+        : '<span class="rg" style="border-radius:' + (r[1] * 5) + 'px"></span>';
+      b.innerHTML = swatch + r[0] + '<span class="tick">✓</span>';
+      b.addEventListener('click', function () {
+        brand.radiusField = r[1];
+        syncControls();
+        markDirty();
+      });
+      host.appendChild(b);
+    });
+  })();
+  function syncRadiusFieldDd() {
+    var items = document.querySelectorAll('#dd-radius-field .rad-item');
+    if (!items.length) return;
+    var bi = 0;
+    if (brand.radiusField != null) {
+      var bd = Infinity;
+      RADIUS_OPTS.forEach(function (r, i) {
+        var d = Math.abs(brand.radiusField - r[1]);
+        if (d < bd) { bd = d; bi = i + 1; }
+      });
+    }
     items.forEach(function (it, i) { it.classList.toggle('sel', i === bi); });
   }
   function syncTypeDd() {
@@ -2132,6 +2301,69 @@
     });
   }
 
+  /* ================= Behaviour ================= */
+  (function buildBehaviour() {
+    var fbw = document.getElementById('field-border-width');
+    if (fbw) fbw.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        // Empty string is Match, and Match has to store null rather than copying the
+        // current border width, or the field would stop following it the moment
+        // someone changed the general setting.
+        var v = b.getAttribute('data-v');
+        brand.fieldBorderWidth = v === '' ? null : parseInt(v, 10);
+        syncBehaviour();
+        applyThemeVars();
+        markDirty();
+      });
+    });
+    var op = document.getElementById('disabled-opacity');
+    if (op) op.addEventListener('input', function () {
+      brand.disabledOpacity = parseInt(op.value, 10);
+      document.getElementById('disabled-opacity-v').textContent = op.value;
+      applyThemeVars();
+      markDirty();
+    });
+    var sk = document.getElementById('skeleton-style');
+    if (sk) sk.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        brand.skeleton = b.getAttribute('data-v');
+        syncBehaviour();
+        applyThemeVars();
+        markDirty();
+      });
+    });
+    var mo = document.getElementById('motion-toggle');
+    if (mo) mo.querySelectorAll('button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        brand.motion = b.getAttribute('data-v') === 'on';
+        syncBehaviour();
+        applyThemeVars();
+        markDirty();
+      });
+    });
+  })();
+  function syncBehaviour() {
+    var fbw = document.getElementById('field-border-width');
+    var want = brand.fieldBorderWidth == null ? '' : String(brand.fieldBorderWidth);
+    if (fbw) fbw.querySelectorAll('button').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-v') === want);
+    });
+    var op = document.getElementById('disabled-opacity');
+    if (op) {
+      var dv = brand.disabledOpacity == null ? 50 : brand.disabledOpacity;
+      op.value = dv;
+      document.getElementById('disabled-opacity-v').textContent = String(dv);
+    }
+    var sk = document.getElementById('skeleton-style');
+    if (sk) sk.querySelectorAll('button').forEach(function (b) {
+      b.classList.toggle('active', b.getAttribute('data-v') === (brand.skeleton || 'pulse'));
+    });
+    var mo = document.getElementById('motion-toggle');
+    if (mo) mo.querySelectorAll('button').forEach(function (b) {
+      b.classList.toggle('active', (b.getAttribute('data-v') === 'on') === (brand.motion !== false));
+    });
+  }
+
   /* ================= Presets (tweakcn built-in themes) ================= */
   var TWEAKCN = {"modern-minimal":{"label":"Modern Minimal","light":{"background":"#ffffff","foreground":"#333333","card":"#ffffff","card-foreground":"#333333","popover":"#ffffff","popover-foreground":"#333333","primary":"#3b82f6","primary-foreground":"#ffffff","secondary":"#f3f4f6","secondary-foreground":"#4b5563","muted":"#f9fafb","muted-foreground":"#6b7280","accent":"#e0f2fe","accent-foreground":"#1e3a8a","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#e5e7eb","input":"#e5e7eb","ring":"#3b82f6","chart-1":"#3b82f6","chart-2":"#2563eb","chart-3":"#1d4ed8","chart-4":"#1e40af","chart-5":"#1e3a8a"},"dark":{"background":"#171717","foreground":"#e5e5e5","card":"#262626","card-foreground":"#e5e5e5","popover":"#262626","popover-foreground":"#e5e5e5","primary":"#3b82f6","primary-foreground":"#ffffff","secondary":"#262626","secondary-foreground":"#e5e5e5","muted":"#1f1f1f","muted-foreground":"#a3a3a3","accent":"#1e3a8a","accent-foreground":"#bfdbfe","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#404040","input":"#404040","ring":"#3b82f6","chart-1":"#60a5fa","chart-2":"#3b82f6","chart-3":"#2563eb","chart-4":"#1d4ed8","chart-5":"#1e40af"},"fonts":{"sans":"Inter","serif":"Source Serif 4"},"radius":0.6},"violet-bloom":{"label":"Violet Bloom","light":{"background":"#fdfdfd","foreground":"#000000","card":"#fdfdfd","card-foreground":"#000000","popover":"#fcfcfc","popover-foreground":"#000000","primary":"#7033ff","primary-foreground":"#ffffff","secondary":"#edf0f4","secondary-foreground":"#080808","muted":"#f5f5f5","muted-foreground":"#525252","accent":"#e2ebff","accent-foreground":"#1e69dc","destructive":"#e54b4f","destructive-foreground":"#ffffff","border":"#e7e7ee","input":"#ebebeb","ring":"#000000","chart-1":"#4ac885","chart-2":"#7033ff","chart-3":"#fd822b","chart-4":"#3276e4","chart-5":"#747474"},"dark":{"background":"#1a1b1e","foreground":"#f0f0f0","card":"#222327","card-foreground":"#f0f0f0","popover":"#222327","popover-foreground":"#f0f0f0","primary":"#8c5cff","primary-foreground":"#ffffff","secondary":"#2a2c33","secondary-foreground":"#f0f0f0","muted":"#2a2c33","muted-foreground":"#a0a0a0","accent":"#1e293b","accent-foreground":"#79c0ff","destructive":"#f87171","destructive-foreground":"#ffffff","border":"#33353a","input":"#33353a","ring":"#8c5cff","chart-1":"#4ade80","chart-2":"#8c5cff","chart-3":"#fca5a5","chart-4":"#5993f4","chart-5":"#a0a0a0"},"fonts":{"sans":"Plus Jakarta Sans","serif":"Lora"},"radius":2},"t3-chat":{"label":"T3 Chat","light":{"background":"#faf5fa","foreground":"#501854","card":"#faf5fa","card-foreground":"#501854","popover":"#ffffff","popover-foreground":"#501854","primary":"#a84370","primary-foreground":"#ffffff","secondary":"#f1c4e6","secondary-foreground":"#77347c","muted":"#f6e5f3","muted-foreground":"#834588","accent":"#f1c4e6","accent-foreground":"#77347c","destructive":"#ab4347","destructive-foreground":"#ffffff","border":"#efbdeb","input":"#e7c1dc","ring":"#db2777","chart-1":"#d926a2","chart-2":"#6c12b9","chart-3":"#274754","chart-4":"#e8c468","chart-5":"#f4a462"},"dark":{"background":"#221d27","foreground":"#d2c4de","card":"#2c2632","card-foreground":"#dbc5d2","popover":"#100a0e","popover-foreground":"#f8f1f5","primary":"#a3004c","primary-foreground":"#efc0d8","secondary":"#362d3d","secondary-foreground":"#d4c7e1","muted":"#28222d","muted-foreground":"#c2b6cf","accent":"#463753","accent-foreground":"#f8f1f5","destructive":"#301015","destructive-foreground":"#ffffff","border":"#3b3237","input":"#3e343c","ring":"#db2777","chart-1":"#a84370","chart-2":"#934dcb","chart-3":"#e88c30","chart-4":"#af57db","chart-5":"#e23670"},"fonts":{"sans":"","serif":""},"radius":0.8},"twitter":{"label":"Twitter","light":{"background":"#ffffff","foreground":"#0f1419","card":"#f7f8f8","card-foreground":"#0f1419","popover":"#ffffff","popover-foreground":"#0f1419","primary":"#1e9df1","primary-foreground":"#ffffff","secondary":"#0f1419","secondary-foreground":"#ffffff","muted":"#e5e5e6","muted-foreground":"#0f1419","accent":"#e3ecf6","accent-foreground":"#1e9df1","destructive":"#f4212e","destructive-foreground":"#ffffff","border":"#e1eaef","input":"#f7f9fa","ring":"#1da1f2","chart-1":"#1e9df1","chart-2":"#00b87a","chart-3":"#f7b928","chart-4":"#17bf63","chart-5":"#e0245e"},"dark":{"background":"#000000","foreground":"#e7e9ea","card":"#17181c","card-foreground":"#d9d9d9","popover":"#000000","popover-foreground":"#e7e9ea","primary":"#1c9cf0","primary-foreground":"#ffffff","secondary":"#f0f3f4","secondary-foreground":"#0f1419","muted":"#181818","muted-foreground":"#72767a","accent":"#061622","accent-foreground":"#1c9cf0","destructive":"#f4212e","destructive-foreground":"#ffffff","border":"#242628","input":"#22303c","ring":"#1da1f2","chart-1":"#1e9df1","chart-2":"#00b87a","chart-3":"#f7b928","chart-4":"#17bf63","chart-5":"#e0245e"},"fonts":{"sans":"Open Sans","serif":"Georgia"},"radius":2},"mocha-mousse":{"label":"Mocha Mousse","light":{"background":"#f1f0e5","foreground":"#56453f","card":"#f1f0e5","card-foreground":"#56453f","popover":"#ffffff","popover-foreground":"#56453f","primary":"#a37764","primary-foreground":"#ffffff","secondary":"#baab92","secondary-foreground":"#ffffff","muted":"#e4c7b8","muted-foreground":"#8a655a","accent":"#e4c7b8","accent-foreground":"#56453f","destructive":"#1f1a17","destructive-foreground":"#ffffff","border":"#baab92","input":"#baab92","ring":"#a37764","chart-1":"#a37764","chart-2":"#8a655a","chart-3":"#c39e88","chart-4":"#baab92","chart-5":"#a28777"},"dark":{"background":"#2d2521","foreground":"#f1f0e5","card":"#3c332e","card-foreground":"#f1f0e5","popover":"#3c332e","popover-foreground":"#f1f0e5","primary":"#c39e88","primary-foreground":"#2d2521","secondary":"#8a655a","secondary-foreground":"#f1f0e5","muted":"#56453f","muted-foreground":"#c5aa9b","accent":"#baab92","accent-foreground":"#2d2521","destructive":"#e57373","destructive-foreground":"#2d2521","border":"#56453f","input":"#56453f","ring":"#c39e88","chart-1":"#c39e88","chart-2":"#baab92","chart-3":"#a37764","chart-4":"#8a655a","chart-5":"#a28777"},"fonts":{"sans":"DM Sans","serif":"Georgia"},"radius":0.8},"bubblegum":{"label":"Bubblegum","light":{"background":"#f6e6ee","foreground":"#5b5b5b","card":"#fdedc9","card-foreground":"#5b5b5b","popover":"#ffffff","popover-foreground":"#5b5b5b","primary":"#d04f99","primary-foreground":"#ffffff","secondary":"#8acfd1","secondary-foreground":"#333333","muted":"#b2e1eb","muted-foreground":"#7a7a7a","accent":"#fbe2a7","accent-foreground":"#333333","destructive":"#f96f70","destructive-foreground":"#ffffff","border":"#d04f99","input":"#e4e4e4","ring":"#e670ab","chart-1":"#e670ab","chart-2":"#84d2e2","chart-3":"#fbe2a7","chart-4":"#f3a0ca","chart-5":"#d7488e"},"dark":{"background":"#12242e","foreground":"#f3e3ea","card":"#1c2e38","card-foreground":"#f3e3ea","popover":"#1c2e38","popover-foreground":"#f3e3ea","primary":"#fbe2a7","primary-foreground":"#12242e","secondary":"#e4a2b1","secondary-foreground":"#12242e","muted":"#24272b","muted-foreground":"#e4a2b1","accent":"#c67b96","accent-foreground":"#f3e3ea","destructive":"#e35ea4","destructive-foreground":"#12242e","border":"#324859","input":"#20333d","ring":"#50afb6","chart-1":"#50afb6","chart-2":"#e4a2b1","chart-3":"#c67b96","chart-4":"#175c6c","chart-5":"#24272b"},"fonts":{"sans":"Poppins","serif":"Lora"},"radius":0.64},"amethyst-haze":{"label":"Amethyst Haze","light":{"background":"#f8f7fa","foreground":"#3d3c4f","card":"#ffffff","card-foreground":"#3d3c4f","popover":"#ffffff","popover-foreground":"#3d3c4f","primary":"#8a79ab","primary-foreground":"#f8f7fa","secondary":"#dfd9ec","secondary-foreground":"#3d3c4f","muted":"#dcd9e3","muted-foreground":"#6b6880","accent":"#e6a5b8","accent-foreground":"#4b2e36","destructive":"#d95c5c","destructive-foreground":"#f8f7fa","border":"#cec9d9","input":"#eae7f0","ring":"#8a79ab","chart-1":"#8a79ab","chart-2":"#e6a5b8","chart-3":"#77b8a1","chart-4":"#f0c88d","chart-5":"#a0bbe3"},"dark":{"background":"#1a1823","foreground":"#e0ddef","card":"#232030","card-foreground":"#e0ddef","popover":"#232030","popover-foreground":"#e0ddef","primary":"#a995c9","primary-foreground":"#1a1823","secondary":"#5a5370","secondary-foreground":"#e0ddef","muted":"#242031","muted-foreground":"#a09aad","accent":"#372e3f","accent-foreground":"#f2b8c6","destructive":"#e57373","destructive-foreground":"#1a1823","border":"#302c40","input":"#2a273a","ring":"#a995c9","chart-1":"#a995c9","chart-2":"#f2b8c6","chart-3":"#77b8a1","chart-4":"#f0c88d","chart-5":"#a0bbe3"},"fonts":{"sans":"Geist","serif":"\"Lora\""},"radius":0.8},"notebook":{"label":"Notebook","light":{"background":"#f9f9f9","foreground":"#3a3a3a","card":"#ffffff","card-foreground":"#3a3a3a","popover":"#ffffff","popover-foreground":"#3a3a3a","primary":"#606060","primary-foreground":"#f0f0f0","secondary":"#dedede","secondary-foreground":"#3a3a3a","muted":"#e3e3e3","muted-foreground":"#505050","accent":"#f3eac8","accent-foreground":"#5d4037","destructive":"#c87a7a","destructive-foreground":"#ffffff","border":"#747272","input":"#ffffff","ring":"#a0a0a0","chart-1":"#333333","chart-2":"#555555","chart-3":"#777777","chart-4":"#999999","chart-5":"#bbbbbb"},"dark":{"background":"#2b2b2b","foreground":"#dcdcdc","card":"#333333","card-foreground":"#dcdcdc","popover":"#333333","popover-foreground":"#dcdcdc","primary":"#b0b0b0","primary-foreground":"#2b2b2b","secondary":"#5a5a5a","secondary-foreground":"#c0c0c0","muted":"#454545","muted-foreground":"#a0a0a0","accent":"#e0e0e0","accent-foreground":"#333333","destructive":"#d9afaf","destructive-foreground":"#2b2b2b","border":"#4f4f4f","input":"#333333","ring":"#c0c0c0","chart-1":"#efefef","chart-2":"#d0d0d0","chart-3":"#b0b0b0","chart-4":"#909090","chart-5":"#707070"},"fonts":{"sans":"Architects Daughter","serif":"\"Times New Roman\""},"radius":1},"doom-64":{"label":"Doom 64","light":{"background":"#cccccc","foreground":"#1f1f1f","card":"#b0b0b0","card-foreground":"#1f1f1f","popover":"#b0b0b0","popover-foreground":"#1f1f1f","primary":"#b71c1c","primary-foreground":"#ffffff","secondary":"#556b2f","secondary-foreground":"#ffffff","muted":"#b8b8b8","muted-foreground":"#4a4a4a","accent":"#4682b4","accent-foreground":"#ffffff","destructive":"#ff6f00","destructive-foreground":"#000000","border":"#505050","input":"#505050","ring":"#b71c1c","chart-1":"#b71c1c","chart-2":"#556b2f","chart-3":"#4682b4","chart-4":"#ff6f00","chart-5":"#8d6e63"},"dark":{"background":"#1a1a1a","foreground":"#e0e0e0","card":"#2a2a2a","card-foreground":"#e0e0e0","popover":"#2a2a2a","popover-foreground":"#e0e0e0","primary":"#e53935","primary-foreground":"#ffffff","secondary":"#689f38","secondary-foreground":"#000000","muted":"#252525","muted-foreground":"#a0a0a0","accent":"#64b5f6","accent-foreground":"#000000","destructive":"#ffa000","destructive-foreground":"#000000","border":"#4a4a4a","input":"#4a4a4a","ring":"#e53935","chart-1":"#e53935","chart-2":"#689f38","chart-3":"#64b5f6","chart-4":"#ffa000","chart-5":"#a1887f"},"fonts":{"sans":"\"Oxanium\"","serif":"ui-serif"},"radius":0},"catppuccin":{"label":"Catppuccin","light":{"background":"#eff1f5","foreground":"#4c4f69","card":"#ffffff","card-foreground":"#4c4f69","popover":"#ccd0da","popover-foreground":"#4c4f69","primary":"#8839ef","primary-foreground":"#ffffff","secondary":"#ccd0da","secondary-foreground":"#4c4f69","muted":"#dce0e8","muted-foreground":"#6c6f85","accent":"#04a5e5","accent-foreground":"#ffffff","destructive":"#d20f39","destructive-foreground":"#ffffff","border":"#bcc0cc","input":"#ccd0da","ring":"#8839ef","chart-1":"#8839ef","chart-2":"#04a5e5","chart-3":"#40a02b","chart-4":"#fe640b","chart-5":"#dc8a78"},"dark":{"background":"#181825","foreground":"#cdd6f4","card":"#1e1e2e","card-foreground":"#cdd6f4","popover":"#45475a","popover-foreground":"#cdd6f4","primary":"#cba6f7","primary-foreground":"#1e1e2e","secondary":"#585b70","secondary-foreground":"#cdd6f4","muted":"#292c3c","muted-foreground":"#a6adc8","accent":"#89dceb","accent-foreground":"#1e1e2e","destructive":"#f38ba8","destructive-foreground":"#1e1e2e","border":"#313244","input":"#313244","ring":"#cba6f7","chart-1":"#cba6f7","chart-2":"#89dceb","chart-3":"#a6e3a1","chart-4":"#fab387","chart-5":"#f5e0dc"},"fonts":{"sans":"Montserrat","serif":"Georgia"},"radius":0.5599999999999999},"graphite":{"label":"Graphite","light":{"background":"#f0f0f0","foreground":"#333333","card":"#f5f5f5","card-foreground":"#333333","popover":"#f5f5f5","popover-foreground":"#333333","primary":"#606060","primary-foreground":"#ffffff","secondary":"#e0e0e0","secondary-foreground":"#333333","muted":"#d9d9d9","muted-foreground":"#666666","accent":"#c0c0c0","accent-foreground":"#333333","destructive":"#cc3333","destructive-foreground":"#ffffff","border":"#d0d0d0","input":"#e0e0e0","ring":"#606060","chart-1":"#606060","chart-2":"#476666","chart-3":"#909090","chart-4":"#a8a8a8","chart-5":"#c0c0c0"},"dark":{"background":"#1a1a1a","foreground":"#d9d9d9","card":"#202020","card-foreground":"#d9d9d9","popover":"#202020","popover-foreground":"#d9d9d9","primary":"#a0a0a0","primary-foreground":"#1a1a1a","secondary":"#303030","secondary-foreground":"#d9d9d9","muted":"#2a2a2a","muted-foreground":"#808080","accent":"#404040","accent-foreground":"#d9d9d9","destructive":"#e06666","destructive-foreground":"#ffffff","border":"#353535","input":"#303030","ring":"#a0a0a0","chart-1":"#a0a0a0","chart-2":"#7e9ca0","chart-3":"#707070","chart-4":"#585858","chart-5":"#404040"},"fonts":{"sans":"Montserrat","serif":"Georgia"},"radius":0.5599999999999999},"perpetuity":{"label":"Perpetuity","light":{"background":"#e8f0f0","foreground":"#0a4a55","card":"#f2f7f7","card-foreground":"#0a4a55","popover":"#f2f7f7","popover-foreground":"#0a4a55","primary":"#06858e","primary-foreground":"#ffffff","secondary":"#d9eaea","secondary-foreground":"#0a4a55","muted":"#e0eaea","muted-foreground":"#427a7e","accent":"#c9e5e7","accent-foreground":"#0a4a55","destructive":"#d13838","destructive-foreground":"#ffffff","border":"#cde0e2","input":"#d9eaea","ring":"#06858e","chart-1":"#06858e","chart-2":"#1e9ea6","chart-3":"#37b6be","chart-4":"#5dc7ce","chart-5":"#8ad8dd"},"dark":{"background":"#0a1a20","foreground":"#4de8e8","card":"#0c2025","card-foreground":"#4de8e8","popover":"#0c2025","popover-foreground":"#4de8e8","primary":"#4de8e8","primary-foreground":"#0a1a20","secondary":"#164955","secondary-foreground":"#4de8e8","muted":"#0f3039","muted-foreground":"#36a5a5","accent":"#164955","accent-foreground":"#4de8e8","destructive":"#e83c3c","destructive-foreground":"#f2f2f2","border":"#164955","input":"#164955","ring":"#4de8e8","chart-1":"#4de8e8","chart-2":"#36a5a5","chart-3":"#2d8a8a","chart-4":"#19595e","chart-5":"#0e383c"},"fonts":{"sans":"Courier New","serif":"Courier New"},"radius":0.2},"kodama-grove":{"label":"Kodama Grove","light":{"background":"#e4d7b0","foreground":"#5c4b3e","card":"#e7dbbf","card-foreground":"#5c4b3e","popover":"#f3ead2","popover-foreground":"#5c4b3e","primary":"#8d9d4f","primary-foreground":"#fdfbf6","secondary":"#decea0","secondary-foreground":"#5c4b3e","muted":"#decea0","muted-foreground":"#85766a","accent":"#dbc894","accent-foreground":"#5c4b3e","destructive":"#d98b7e","destructive-foreground":"#faf8f2","border":"#b19681","input":"#dbc894","ring":"#9db18c","chart-1":"#9db18c","chart-2":"#8a9f7b","chart-3":"#bac9b4","chart-4":"#71856a","chart-5":"#5e6e58"},"dark":{"background":"#3a3529","foreground":"#ede4d4","card":"#413c33","card-foreground":"#ede4d4","popover":"#413c33","popover-foreground":"#ede4d4","primary":"#8a9f7b","primary-foreground":"#2a2521","secondary":"#5a5345","secondary-foreground":"#ede4d4","muted":"#4a4439","muted-foreground":"#a8a096","accent":"#a18f5c","accent-foreground":"#2a2521","destructive":"#b5766a","destructive-foreground":"#f0e9db","border":"#5a5345","input":"#5a5345","ring":"#8a9f7b","chart-1":"#8a9f7b","chart-2":"#9db18c","chart-3":"#71856a","chart-4":"#a18f5c","chart-5":"#5e6e58"},"fonts":{"sans":"Merriweather","serif":"Source Serif 4"},"radius":0.6799999999999999},"cosmic-night":{"label":"Cosmic Night","light":{"background":"#f5f5ff","foreground":"#2a2a4a","card":"#ffffff","card-foreground":"#2a2a4a","popover":"#ffffff","popover-foreground":"#2a2a4a","primary":"#6e56cf","primary-foreground":"#ffffff","secondary":"#e4dfff","secondary-foreground":"#4a4080","muted":"#f0f0fa","muted-foreground":"#6c6c8a","accent":"#d8e6ff","accent-foreground":"#2a2a4a","destructive":"#ff5470","destructive-foreground":"#ffffff","border":"#e0e0f0","input":"#e0e0f0","ring":"#6e56cf","chart-1":"#6e56cf","chart-2":"#9e8cfc","chart-3":"#5d5fef","chart-4":"#7c75fa","chart-5":"#4740b3"},"dark":{"background":"#0f0f1a","foreground":"#e2e2f5","card":"#1a1a2e","card-foreground":"#e2e2f5","popover":"#1a1a2e","popover-foreground":"#e2e2f5","primary":"#a48fff","primary-foreground":"#0f0f1a","secondary":"#2d2b55","secondary-foreground":"#c4c2ff","muted":"#222244","muted-foreground":"#a0a0c0","accent":"#303060","accent-foreground":"#e2e2f5","destructive":"#ff5470","destructive-foreground":"#ffffff","border":"#303052","input":"#303052","ring":"#a48fff","chart-1":"#a48fff","chart-2":"#7986cb","chart-3":"#64b5f6","chart-4":"#4db6ac","chart-5":"#ff79c6"},"fonts":{"sans":"Inter","serif":"Georgia"},"radius":0.8},"tangerine":{"label":"Tangerine","light":{"background":"#e8ebed","foreground":"#333333","card":"#ffffff","card-foreground":"#333333","popover":"#ffffff","popover-foreground":"#333333","primary":"#e05d38","primary-foreground":"#ffffff","secondary":"#f3f4f6","secondary-foreground":"#4b5563","muted":"#f9fafb","muted-foreground":"#6b7280","accent":"#d6e4f0","accent-foreground":"#1e3a8a","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#dcdfe2","input":"#f4f5f7","ring":"#e05d38","chart-1":"#86a7c8","chart-2":"#eea591","chart-3":"#5a7ca6","chart-4":"#466494","chart-5":"#334c82"},"dark":{"background":"#1c2433","foreground":"#e5e5e5","card":"#2a3040","card-foreground":"#e5e5e5","popover":"#262b38","popover-foreground":"#e5e5e5","primary":"#e05d38","primary-foreground":"#ffffff","secondary":"#2a303e","secondary-foreground":"#e5e5e5","muted":"#2a303e","muted-foreground":"#a3a3a3","accent":"#2a3656","accent-foreground":"#bfdbfe","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#3d4354","input":"#3d4354","ring":"#e05d38","chart-1":"#86a7c8","chart-2":"#e6a08f","chart-3":"#5a7ca6","chart-4":"#466494","chart-5":"#334c82"},"fonts":{"sans":"Inter","serif":"Source Serif 4"},"radius":1.2},"quantum-rose":{"label":"Quantum Rose","light":{"background":"#fff0f8","foreground":"#91185c","card":"#fff7fc","card-foreground":"#91185c","popover":"#fff7fc","popover-foreground":"#91185c","primary":"#e6067a","primary-foreground":"#ffffff","secondary":"#ffd6ff","secondary-foreground":"#91185c","muted":"#ffe3f2","muted-foreground":"#c04283","accent":"#ffc1e3","accent-foreground":"#91185c","destructive":"#d13869","destructive-foreground":"#ffffff","border":"#ffc7e6","input":"#ffd6ff","ring":"#e6067a","chart-1":"#e6067a","chart-2":"#c44b97","chart-3":"#9969b6","chart-4":"#7371bf","chart-5":"#5e84ff"},"dark":{"background":"#1a0922","foreground":"#ffb3ff","card":"#2a1435","card-foreground":"#ffb3ff","popover":"#2a1435","popover-foreground":"#ffb3ff","primary":"#ff6bef","primary-foreground":"#180518","secondary":"#46204f","secondary-foreground":"#ffb3ff","muted":"#331941","muted-foreground":"#d67ad6","accent":"#5a1f5d","accent-foreground":"#ffb3ff","destructive":"#ff2876","destructive-foreground":"#f9f9f9","border":"#4a1b5f","input":"#46204f","ring":"#ff6bef","chart-1":"#ff6bef","chart-2":"#c359e3","chart-3":"#9161ff","chart-4":"#6f73e2","chart-5":"#547aff"},"fonts":{"sans":"Poppins","serif":"Playfair Display"},"radius":0.8},"nature":{"label":"Nature","light":{"background":"#f8f5f0","foreground":"#3e2723","card":"#f8f5f0","card-foreground":"#3e2723","popover":"#f8f5f0","popover-foreground":"#3e2723","primary":"#2e7d32","primary-foreground":"#ffffff","secondary":"#e8f5e9","secondary-foreground":"#1b5e20","muted":"#f0e9e0","muted-foreground":"#6d4c41","accent":"#c8e6c9","accent-foreground":"#1b5e20","destructive":"#c62828","destructive-foreground":"#ffffff","border":"#e0d6c9","input":"#e0d6c9","ring":"#2e7d32","chart-1":"#4caf50","chart-2":"#388e3c","chart-3":"#2e7d32","chart-4":"#1b5e20","chart-5":"#0a1f0c"},"dark":{"background":"#1c2a1f","foreground":"#f0ebe5","card":"#2d3a2e","card-foreground":"#f0ebe5","popover":"#2d3a2e","popover-foreground":"#f0ebe5","primary":"#4caf50","primary-foreground":"#0a1f0c","secondary":"#3e4a3d","secondary-foreground":"#d7e0d6","muted":"#252f26","muted-foreground":"#d7cfc4","accent":"#388e3c","accent-foreground":"#f0ebe5","destructive":"#c62828","destructive-foreground":"#f0ebe5","border":"#3e4a3d","input":"#3e4a3d","ring":"#4caf50","chart-1":"#81c784","chart-2":"#66bb6a","chart-3":"#4caf50","chart-4":"#43a047","chart-5":"#388e3c"},"fonts":{"sans":"Montserrat","serif":"Merriweather"},"radius":0.8},"bold-tech":{"label":"Bold Tech","light":{"background":"#ffffff","foreground":"#312e81","card":"#ffffff","card-foreground":"#312e81","popover":"#ffffff","popover-foreground":"#312e81","primary":"#8b5cf6","primary-foreground":"#ffffff","secondary":"#f3f0ff","secondary-foreground":"#4338ca","muted":"#f5f3ff","muted-foreground":"#7c3aed","accent":"#dbeafe","accent-foreground":"#1e40af","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#e0e7ff","input":"#e0e7ff","ring":"#8b5cf6","chart-1":"#8b5cf6","chart-2":"#7c3aed","chart-3":"#6d28d9","chart-4":"#5b21b6","chart-5":"#4c1d95"},"dark":{"background":"#0f172a","foreground":"#e0e7ff","card":"#1e1b4b","card-foreground":"#e0e7ff","popover":"#1e1b4b","popover-foreground":"#e0e7ff","primary":"#8b5cf6","primary-foreground":"#ffffff","secondary":"#1e1b4b","secondary-foreground":"#e0e7ff","muted":"#171447","muted-foreground":"#c4b5fd","accent":"#4338ca","accent-foreground":"#e0e7ff","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#2e1065","input":"#2e1065","ring":"#8b5cf6","chart-1":"#a78bfa","chart-2":"#8b5cf6","chart-3":"#7c3aed","chart-4":"#6d28d9","chart-5":"#5b21b6"},"fonts":{"sans":"Roboto","serif":"Playfair Display"},"radius":1},"elegant-luxury":{"label":"Elegant Luxury","light":{"background":"#faf7f5","foreground":"#1a1a1a","card":"#faf7f5","card-foreground":"#1a1a1a","popover":"#faf7f5","popover-foreground":"#1a1a1a","primary":"#9b2c2c","primary-foreground":"#ffffff","secondary":"#fdf2d6","secondary-foreground":"#805500","muted":"#f0ebe8","muted-foreground":"#57534e","accent":"#fef3c7","accent-foreground":"#7f1d1d","destructive":"#991b1b","destructive-foreground":"#ffffff","border":"#f5e8d2","input":"#f5e8d2","ring":"#9b2c2c","chart-1":"#b91c1c","chart-2":"#9b2c2c","chart-3":"#7f1d1d","chart-4":"#b45309","chart-5":"#92400e"},"dark":{"background":"#1c1917","foreground":"#f5f5f4","card":"#292524","card-foreground":"#f5f5f4","popover":"#292524","popover-foreground":"#f5f5f4","primary":"#b91c1c","primary-foreground":"#faf7f5","secondary":"#92400e","secondary-foreground":"#fef3c7","muted":"#1f1c1a","muted-foreground":"#d6d3d1","accent":"#b45309","accent-foreground":"#fef3c7","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#44403c","input":"#44403c","ring":"#b91c1c","chart-1":"#f87171","chart-2":"#ef4444","chart-3":"#dc2626","chart-4":"#fbbf24","chart-5":"#f59e0b"},"fonts":{"sans":"Poppins","serif":"Libre Baskerville"},"radius":0.6},"amber-minimal":{"label":"Amber Minimal","light":{"background":"#ffffff","foreground":"#262626","card":"#ffffff","card-foreground":"#262626","popover":"#ffffff","popover-foreground":"#262626","primary":"#f59e0b","primary-foreground":"#000000","secondary":"#f3f4f6","secondary-foreground":"#4b5563","muted":"#f9fafb","muted-foreground":"#6b7280","accent":"#fffbeb","accent-foreground":"#92400e","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#e5e7eb","input":"#e5e7eb","ring":"#f59e0b","chart-1":"#f59e0b","chart-2":"#d97706","chart-3":"#b45309","chart-4":"#92400e","chart-5":"#78350f"},"dark":{"background":"#171717","foreground":"#e5e5e5","card":"#262626","card-foreground":"#e5e5e5","popover":"#262626","popover-foreground":"#e5e5e5","primary":"#f59e0b","primary-foreground":"#000000","secondary":"#262626","secondary-foreground":"#e5e5e5","muted":"#1f1f1f","muted-foreground":"#a3a3a3","accent":"#92400e","accent-foreground":"#fde68a","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#404040","input":"#404040","ring":"#f59e0b","chart-1":"#fbbf24","chart-2":"#d97706","chart-3":"#92400e","chart-4":"#b45309","chart-5":"#92400e"},"fonts":{"sans":"Inter","serif":"Source Serif 4"},"radius":0.6},"supabase":{"label":"Supabase","light":{"background":"#fcfcfc","foreground":"#171717","card":"#fcfcfc","card-foreground":"#171717","popover":"#fcfcfc","popover-foreground":"#525252","primary":"#72e3ad","primary-foreground":"#1e2723","secondary":"#fdfdfd","secondary-foreground":"#171717","muted":"#ededed","muted-foreground":"#202020","accent":"#ededed","accent-foreground":"#202020","destructive":"#ca3214","destructive-foreground":"#fffcfc","border":"#dfdfdf","input":"#f6f6f6","ring":"#72e3ad","chart-1":"#72e3ad","chart-2":"#3b82f6","chart-3":"#8b5cf6","chart-4":"#f59e0b","chart-5":"#10b981"},"dark":{"background":"#121212","foreground":"#e2e8f0","card":"#171717","card-foreground":"#e2e8f0","popover":"#242424","popover-foreground":"#a9a9a9","primary":"#006239","primary-foreground":"#dde8e3","secondary":"#242424","secondary-foreground":"#fafafa","muted":"#1f1f1f","muted-foreground":"#a2a2a2","accent":"#313131","accent-foreground":"#fafafa","destructive":"#541c15","destructive-foreground":"#ede9e8","border":"#292929","input":"#242424","ring":"#4ade80","chart-1":"#4ade80","chart-2":"#60a5fa","chart-3":"#a78bfa","chart-4":"#fbbf24","chart-5":"#2dd4bf"},"fonts":{"sans":"Outfit","serif":"ui-serif"},"radius":0.8},"neo-brutalism":{"label":"Neo Brutalism","light":{"background":"#ffffff","foreground":"#000000","card":"#ffffff","card-foreground":"#000000","popover":"#ffffff","popover-foreground":"#000000","primary":"#ff3333","primary-foreground":"#ffffff","secondary":"#ffff00","secondary-foreground":"#000000","muted":"#f0f0f0","muted-foreground":"#333333","accent":"#0066ff","accent-foreground":"#ffffff","destructive":"#000000","destructive-foreground":"#ffffff","border":"#000000","input":"#000000","ring":"#ff3333","chart-1":"#ff3333","chart-2":"#ffff00","chart-3":"#0066ff","chart-4":"#00cc00","chart-5":"#cc00cc"},"dark":{"background":"#000000","foreground":"#ffffff","card":"#333333","card-foreground":"#ffffff","popover":"#333333","popover-foreground":"#ffffff","primary":"#ff6666","primary-foreground":"#000000","secondary":"#ffff33","secondary-foreground":"#000000","muted":"#1a1a1a","muted-foreground":"#cccccc","accent":"#3399ff","accent-foreground":"#000000","destructive":"#ffffff","destructive-foreground":"#000000","border":"#ffffff","input":"#ffffff","ring":"#ff6666","chart-1":"#ff6666","chart-2":"#ffff33","chart-3":"#3399ff","chart-4":"#33cc33","chart-5":"#cc33cc"},"fonts":{"sans":"DM Sans","serif":""},"radius":0},"solar-dusk":{"label":"Solar Dusk","light":{"background":"#fdfbf7","foreground":"#4a3b33","card":"#f8f4ee","card-foreground":"#4a3b33","popover":"#f8f4ee","popover-foreground":"#4a3b33","primary":"#b45309","primary-foreground":"#ffffff","secondary":"#e4c090","secondary-foreground":"#57534e","muted":"#f1e9da","muted-foreground":"#78716c","accent":"#f2daba","accent-foreground":"#57534e","destructive":"#991b1b","destructive-foreground":"#ffffff","border":"#e4d9bc","input":"#e4d9bc","ring":"#b45309","chart-1":"#b45309","chart-2":"#78716c","chart-3":"#a16207","chart-4":"#78716c","chart-5":"#ca8a04"},"dark":{"background":"#1c1917","foreground":"#f5f5f4","card":"#292524","card-foreground":"#f5f5f4","popover":"#292524","popover-foreground":"#f5f5f4","primary":"#f97316","primary-foreground":"#ffffff","secondary":"#57534e","secondary-foreground":"#e7e5e4","muted":"#201d1a","muted-foreground":"#a8a29e","accent":"#1e4252","accent-foreground":"#e7e5e4","destructive":"#dc2626","destructive-foreground":"#ffffff","border":"#44403c","input":"#44403c","ring":"#f97316","chart-1":"#f97316","chart-2":"#0ea5e9","chart-3":"#eab308","chart-4":"#a8a29e","chart-5":"#78716c"},"fonts":{"sans":"Oxanium","serif":"Merriweather"},"radius":0.48},"claymorphism":{"label":"Claymorphism","light":{"background":"#e7e5e4","foreground":"#1e293b","card":"#f5f5f4","card-foreground":"#1e293b","popover":"#f5f5f4","popover-foreground":"#1e293b","primary":"#6366f1","primary-foreground":"#ffffff","secondary":"#d6d3d1","secondary-foreground":"#4b5563","muted":"#e7e5e4","muted-foreground":"#6b7280","accent":"#f3e5f5","accent-foreground":"#374151","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#d6d3d1","input":"#d6d3d1","ring":"#6366f1","chart-1":"#6366f1","chart-2":"#4f46e5","chart-3":"#4338ca","chart-4":"#3730a3","chart-5":"#312e81"},"dark":{"background":"#1e1b18","foreground":"#e2e8f0","card":"#2c2825","card-foreground":"#e2e8f0","popover":"#2c2825","popover-foreground":"#e2e8f0","primary":"#818cf8","primary-foreground":"#1e1b18","secondary":"#3a3633","secondary-foreground":"#d1d5db","muted":"#1f1c19","muted-foreground":"#9ca3af","accent":"#484441","accent-foreground":"#d1d5db","destructive":"#ef4444","destructive-foreground":"#1e1b18","border":"#3a3633","input":"#3a3633","ring":"#818cf8","chart-1":"#818cf8","chart-2":"#6366f1","chart-3":"#4f46e5","chart-4":"#4338ca","chart-5":"#3730a3"},"fonts":{"sans":"Plus Jakarta Sans","serif":"Lora"},"radius":2},"cyberpunk":{"label":"Cyberpunk","light":{"background":"#f8f9fa","foreground":"#0c0c1d","card":"#ffffff","card-foreground":"#0c0c1d","popover":"#ffffff","popover-foreground":"#0c0c1d","primary":"#ff00c8","primary-foreground":"#ffffff","secondary":"#f0f0ff","secondary-foreground":"#0c0c1d","muted":"#f0f0ff","muted-foreground":"#0c0c1d","accent":"#00ffcc","accent-foreground":"#0c0c1d","destructive":"#ff3d00","destructive-foreground":"#ffffff","border":"#dfe6e9","input":"#dfe6e9","ring":"#ff00c8","chart-1":"#ff00c8","chart-2":"#9000ff","chart-3":"#00e5ff","chart-4":"#00ffcc","chart-5":"#ffe600"},"dark":{"background":"#0c0c1d","foreground":"#eceff4","card":"#1e1e3f","card-foreground":"#eceff4","popover":"#1e1e3f","popover-foreground":"#eceff4","primary":"#ff00c8","primary-foreground":"#ffffff","secondary":"#1e1e3f","secondary-foreground":"#eceff4","muted":"#151530","muted-foreground":"#8085a6","accent":"#00ffcc","accent-foreground":"#0c0c1d","destructive":"#ff3d00","destructive-foreground":"#ffffff","border":"#2e2e5e","input":"#2e2e5e","ring":"#ff00c8","chart-1":"#ff00c8","chart-2":"#9000ff","chart-3":"#00e5ff","chart-4":"#00ffcc","chart-5":"#ffe600"},"fonts":{"sans":"Outfit","serif":""},"radius":0.8},"pastel-dreams":{"label":"Pastel Dreams","light":{"background":"#f7f3f9","foreground":"#374151","card":"#ffffff","card-foreground":"#374151","popover":"#ffffff","popover-foreground":"#374151","primary":"#a78bfa","primary-foreground":"#ffffff","secondary":"#e9d8fd","secondary-foreground":"#4b5563","muted":"#f3e8ff","muted-foreground":"#6b7280","accent":"#f3e5f5","accent-foreground":"#374151","destructive":"#fca5a5","destructive-foreground":"#ffffff","border":"#e9d8fd","input":"#e9d8fd","ring":"#a78bfa","chart-1":"#a78bfa","chart-2":"#8b5cf6","chart-3":"#7c3aed","chart-4":"#6d28d9","chart-5":"#5b21b6"},"dark":{"background":"#1c1917","foreground":"#e0e7ff","card":"#2d2535","card-foreground":"#e0e7ff","popover":"#2d2535","popover-foreground":"#e0e7ff","primary":"#c0aafd","primary-foreground":"#1c1917","secondary":"#3f324a","secondary-foreground":"#d1d5db","muted":"#20182b","muted-foreground":"#9ca3af","accent":"#4a3d5a","accent-foreground":"#d1d5db","destructive":"#fca5a5","destructive-foreground":"#1c1917","border":"#3f324a","input":"#3f324a","ring":"#c0aafd","chart-1":"#c0aafd","chart-2":"#a78bfa","chart-3":"#8b5cf6","chart-4":"#7c3aed","chart-5":"#6d28d9"},"fonts":{"sans":"Open Sans","serif":"Source Serif 4"},"radius":2},"clean-slate":{"label":"Clean Slate","light":{"background":"#f8fafc","foreground":"#1e293b","card":"#ffffff","card-foreground":"#1e293b","popover":"#ffffff","popover-foreground":"#1e293b","primary":"#6366f1","primary-foreground":"#ffffff","secondary":"#e5e7eb","secondary-foreground":"#374151","muted":"#f3f4f6","muted-foreground":"#6b7280","accent":"#e0e7ff","accent-foreground":"#374151","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#d1d5db","input":"#d1d5db","ring":"#6366f1","chart-1":"#6366f1","chart-2":"#4f46e5","chart-3":"#4338ca","chart-4":"#3730a3","chart-5":"#312e81"},"dark":{"background":"#0f172a","foreground":"#e2e8f0","card":"#1e293b","card-foreground":"#e2e8f0","popover":"#1e293b","popover-foreground":"#e2e8f0","primary":"#818cf8","primary-foreground":"#0f172a","secondary":"#2d3748","secondary-foreground":"#d1d5db","muted":"#152032","muted-foreground":"#9ca3af","accent":"#374151","accent-foreground":"#d1d5db","destructive":"#ef4444","destructive-foreground":"#0f172a","border":"#4b5563","input":"#4b5563","ring":"#818cf8","chart-1":"#818cf8","chart-2":"#6366f1","chart-3":"#4f46e5","chart-4":"#4338ca","chart-5":"#3730a3"},"fonts":{"sans":"Inter","serif":"Merriweather"},"radius":0.8},"caffeine":{"label":"Caffeine","light":{"background":"#f9f9f9","foreground":"#202020","card":"#fcfcfc","card-foreground":"#202020","popover":"#fcfcfc","popover-foreground":"#202020","primary":"#644a40","primary-foreground":"#ffffff","secondary":"#ffdfb5","secondary-foreground":"#582d1d","muted":"#efefef","muted-foreground":"#646464","accent":"#e8e8e8","accent-foreground":"#202020","destructive":"#e54d2e","destructive-foreground":"#ffffff","border":"#d8d8d8","input":"#d8d8d8","ring":"#644a40","chart-1":"#644a40","chart-2":"#ffdfb5","chart-3":"#e8e8e8","chart-4":"#ffe6c4","chart-5":"#66493e"},"dark":{"background":"#111111","foreground":"#eeeeee","card":"#191919","card-foreground":"#eeeeee","popover":"#191919","popover-foreground":"#eeeeee","primary":"#ffe0c2","primary-foreground":"#081a1b","secondary":"#393028","secondary-foreground":"#ffe0c2","muted":"#222222","muted-foreground":"#b4b4b4","accent":"#2a2a2a","accent-foreground":"#eeeeee","destructive":"#e54d2e","destructive-foreground":"#ffffff","border":"#201e18","input":"#484848","ring":"#ffe0c2","chart-1":"#ffe0c2","chart-2":"#393028","chart-3":"#2a2a2a","chart-4":"#42382e","chart-5":"#ffe0c1"},"fonts":{"sans":"","serif":""},"radius":0.8},"ocean-breeze":{"label":"Ocean Breeze","light":{"background":"#f0f8ff","foreground":"#374151","card":"#ffffff","card-foreground":"#374151","popover":"#ffffff","popover-foreground":"#374151","primary":"#22c55e","primary-foreground":"#ffffff","secondary":"#e0f2fe","secondary-foreground":"#4b5563","muted":"#f3f4f6","muted-foreground":"#6b7280","accent":"#d1fae5","accent-foreground":"#374151","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#e5e7eb","input":"#e5e7eb","ring":"#22c55e","chart-1":"#22c55e","chart-2":"#10b981","chart-3":"#059669","chart-4":"#047857","chart-5":"#065f46"},"dark":{"background":"#0f172a","foreground":"#d1d5db","card":"#1e293b","card-foreground":"#d1d5db","popover":"#1e293b","popover-foreground":"#d1d5db","primary":"#34d399","primary-foreground":"#0f172a","secondary":"#2d3748","secondary-foreground":"#a1a1aa","muted":"#19212e","muted-foreground":"#6b7280","accent":"#374151","accent-foreground":"#a1a1aa","destructive":"#ef4444","destructive-foreground":"#0f172a","border":"#4b5563","input":"#4b5563","ring":"#34d399","chart-1":"#34d399","chart-2":"#2dd4bf","chart-3":"#22c55e","chart-4":"#10b981","chart-5":"#059669"},"fonts":{"sans":"DM Sans","serif":"Lora"},"radius":0.8},"retro-arcade":{"label":"Retro Arcade","light":{"background":"#fdf6e3","foreground":"#073642","card":"#eee8d5","card-foreground":"#073642","popover":"#eee8d5","popover-foreground":"#073642","primary":"#d33682","primary-foreground":"#ffffff","secondary":"#2aa198","secondary-foreground":"#ffffff","muted":"#93a1a1","muted-foreground":"#073642","accent":"#cb4b16","accent-foreground":"#ffffff","destructive":"#dc322f","destructive-foreground":"#ffffff","border":"#839496","input":"#839496","ring":"#d33682","chart-1":"#268bd2","chart-2":"#2aa198","chart-3":"#d33682","chart-4":"#cb4b16","chart-5":"#dc322f"},"dark":{"background":"#002b36","foreground":"#93a1a1","card":"#073642","card-foreground":"#93a1a1","popover":"#073642","popover-foreground":"#93a1a1","primary":"#d33682","primary-foreground":"#ffffff","secondary":"#2aa198","secondary-foreground":"#ffffff","muted":"#586e75","muted-foreground":"#93a1a1","accent":"#cb4b16","accent-foreground":"#ffffff","destructive":"#dc322f","destructive-foreground":"#ffffff","border":"#586e75","input":"#586e75","ring":"#d33682","chart-1":"#268bd2","chart-2":"#2aa198","chart-3":"#d33682","chart-4":"#cb4b16","chart-5":"#dc322f"},"fonts":{"sans":"Outfit","serif":""},"radius":0.4},"midnight-bloom":{"label":"Midnight Bloom","light":{"background":"#f9f9f9","foreground":"#333333","card":"#ffffff","card-foreground":"#333333","popover":"#ffffff","popover-foreground":"#333333","primary":"#6c5ce7","primary-foreground":"#ffffff","secondary":"#a1c9f2","secondary-foreground":"#333333","muted":"#c9c4b5","muted-foreground":"#6e6e6e","accent":"#8b9467","accent-foreground":"#ffffff","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#d4d4d4","input":"#d4d4d4","ring":"#6c5ce7","chart-1":"#6c5ce7","chart-2":"#8e44ad","chart-3":"#4b0082","chart-4":"#6495ed","chart-5":"#4682b4"},"dark":{"background":"#1a1d23","foreground":"#e5e5e5","card":"#2f3436","card-foreground":"#e5e5e5","popover":"#2f3436","popover-foreground":"#e5e5e5","primary":"#6c5ce7","primary-foreground":"#ffffff","secondary":"#4b0082","secondary-foreground":"#e5e5e5","muted":"#444444","muted-foreground":"#a3a3a3","accent":"#6495ed","accent-foreground":"#e5e5e5","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#444444","input":"#444444","ring":"#6c5ce7","chart-1":"#6c5ce7","chart-2":"#8e44ad","chart-3":"#4b0082","chart-4":"#6495ed","chart-5":"#4682b4"},"fonts":{"sans":"Montserrat","serif":"Playfair Display"},"radius":0.8},"candyland":{"label":"Candyland","light":{"background":"#f7f9fa","foreground":"#333333","card":"#ffffff","card-foreground":"#333333","popover":"#ffffff","popover-foreground":"#333333","primary":"#ffc0cb","primary-foreground":"#000000","secondary":"#87ceeb","secondary-foreground":"#000000","muted":"#ddd9c4","muted-foreground":"#6e6e6e","accent":"#ffff00","accent-foreground":"#000000","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#d4d4d4","input":"#d4d4d4","ring":"#ffc0cb","chart-1":"#ffc0cb","chart-2":"#87ceeb","chart-3":"#ffff00","chart-4":"#ff99cc","chart-5":"#33cc33"},"dark":{"background":"#1a1d23","foreground":"#e5e5e5","card":"#2f3436","card-foreground":"#e5e5e5","popover":"#2f3436","popover-foreground":"#e5e5e5","primary":"#ff99cc","primary-foreground":"#000000","secondary":"#33cc33","secondary-foreground":"#000000","muted":"#444444","muted-foreground":"#a3a3a3","accent":"#87ceeb","accent-foreground":"#000000","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#444444","input":"#444444","ring":"#ff99cc","chart-1":"#ff99cc","chart-2":"#33cc33","chart-3":"#87ceeb","chart-4":"#ffff00","chart-5":"#ffcc00"},"fonts":{"sans":"Poppins","serif":""},"radius":0.8},"northern-lights":{"label":"Northern Lights","light":{"background":"#f9f9fa","foreground":"#333333","card":"#ffffff","card-foreground":"#333333","popover":"#ffffff","popover-foreground":"#333333","primary":"#34a85a","primary-foreground":"#ffffff","secondary":"#6495ed","secondary-foreground":"#ffffff","muted":"#ddd9c4","muted-foreground":"#6e6e6e","accent":"#66d9ef","accent-foreground":"#333333","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#d4d4d4","input":"#d4d4d4","ring":"#34a85a","chart-1":"#34a85a","chart-2":"#6495ed","chart-3":"#66d9ef","chart-4":"#4682b4","chart-5":"#1a9641"},"dark":{"background":"#1a1d23","foreground":"#e5e5e5","card":"#2f3436","card-foreground":"#e5e5e5","popover":"#2f3436","popover-foreground":"#e5e5e5","primary":"#34a85a","primary-foreground":"#ffffff","secondary":"#4682b4","secondary-foreground":"#e5e5e5","muted":"#444444","muted-foreground":"#a3a3a3","accent":"#6495ed","accent-foreground":"#e5e5e5","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#444444","input":"#444444","ring":"#34a85a","chart-1":"#34a85a","chart-2":"#4682b4","chart-3":"#6495ed","chart-4":"#66d9ef","chart-5":"#1a9641"},"fonts":{"sans":"Plus Jakarta Sans","serif":"Source Serif 4"},"radius":0.8},"vintage-paper":{"label":"Vintage Paper","light":{"background":"#f5f1e6","foreground":"#4a3f35","card":"#fffcf5","card-foreground":"#4a3f35","popover":"#fffcf5","popover-foreground":"#4a3f35","primary":"#a67c52","primary-foreground":"#ffffff","secondary":"#e2d8c3","secondary-foreground":"#5c4d3f","muted":"#ece5d8","muted-foreground":"#7d6b56","accent":"#d4c8aa","accent-foreground":"#4a3f35","destructive":"#b54a35","destructive-foreground":"#ffffff","border":"#dbd0ba","input":"#dbd0ba","ring":"#a67c52","chart-1":"#a67c52","chart-2":"#8d6e4c","chart-3":"#735a3a","chart-4":"#b3906f","chart-5":"#c0a080"},"dark":{"background":"#2d2621","foreground":"#ece5d8","card":"#3a322c","card-foreground":"#ece5d8","popover":"#3a322c","popover-foreground":"#ece5d8","primary":"#c0a080","primary-foreground":"#2d2621","secondary":"#4a4039","secondary-foreground":"#ece5d8","muted":"#312b26","muted-foreground":"#c5bcac","accent":"#59493e","accent-foreground":"#ece5d8","destructive":"#b54a35","destructive-foreground":"#ffffff","border":"#4a4039","input":"#4a4039","ring":"#c0a080","chart-1":"#c0a080","chart-2":"#b3906f","chart-3":"#a67c52","chart-4":"#8d6e4c","chart-5":"#735a3a"},"fonts":{"sans":"Libre Baskerville","serif":"Lora"},"radius":0.4},"sunset-horizon":{"label":"Sunset Horizon","light":{"background":"#fff9f5","foreground":"#3d3436","card":"#ffffff","card-foreground":"#3d3436","popover":"#ffffff","popover-foreground":"#3d3436","primary":"#ff7e5f","primary-foreground":"#ffffff","secondary":"#ffedea","secondary-foreground":"#b35340","muted":"#fff0eb","muted-foreground":"#78716c","accent":"#feb47b","accent-foreground":"#3d3436","destructive":"#e63946","destructive-foreground":"#ffffff","border":"#ffe0d6","input":"#ffe0d6","ring":"#ff7e5f","chart-1":"#ff7e5f","chart-2":"#feb47b","chart-3":"#ffcaa7","chart-4":"#ffad8f","chart-5":"#ce6a57"},"dark":{"background":"#2a2024","foreground":"#f2e9e4","card":"#392f35","card-foreground":"#f2e9e4","popover":"#392f35","popover-foreground":"#f2e9e4","primary":"#ff7e5f","primary-foreground":"#ffffff","secondary":"#463a41","secondary-foreground":"#f2e9e4","muted":"#30272c","muted-foreground":"#d7c6bc","accent":"#feb47b","accent-foreground":"#2a2024","destructive":"#e63946","destructive-foreground":"#ffffff","border":"#463a41","input":"#463a41","ring":"#ff7e5f","chart-1":"#ff7e5f","chart-2":"#feb47b","chart-3":"#ffcaa7","chart-4":"#ffad8f","chart-5":"#ce6a57"},"fonts":{"sans":"Montserrat","serif":"Merriweather"},"radius":1},"starry-night":{"label":"Starry Night","light":{"background":"#f5f7fa","foreground":"#1a2238","card":"#e3eaf2","card-foreground":"#1a2238","popover":"#fffbe6","popover-foreground":"#1a2238","primary":"#3a5ba0","primary-foreground":"#fffbe6","secondary":"#f7c873","secondary-foreground":"#1a2238","muted":"#e5e5df","muted-foreground":"#3a5ba0","accent":"#6ea3c1","accent-foreground":"#fffbe6","destructive":"#2d1e2f","destructive-foreground":"#fffbe6","border":"#b0b8c1","input":"#6ea3c1","ring":"#f7c873","chart-1":"#3a5ba0","chart-2":"#f7c873","chart-3":"#6ea3c1","chart-4":"#b0b8c1","chart-5":"#2d1e2f"},"dark":{"background":"#181a24","foreground":"#e6eaf3","card":"#23243a","card-foreground":"#e6eaf3","popover":"#23243a","popover-foreground":"#ffe066","primary":"#3a5ba0","primary-foreground":"#ffe066","secondary":"#ffe066","secondary-foreground":"#23243a","muted":"#1d1e2f","muted-foreground":"#7a88a1","accent":"#bccdf0","accent-foreground":"#181a24","destructive":"#a04a6c","destructive-foreground":"#ffe066","border":"#2d2e3e","input":"#3a5ba0","ring":"#ffe066","chart-1":"#3a5ba0","chart-2":"#ffe066","chart-3":"#6ea3c1","chart-4":"#7a88a1","chart-5":"#a04a6c"},"fonts":{"sans":"Libre Baskerville","serif":""},"radius":0.8},"claude":{"label":"Claude","light":{"background":"#faf9f5","foreground":"#3d3929","card":"#faf9f5","card-foreground":"#141413","popover":"#ffffff","popover-foreground":"#28261b","primary":"#c96442","primary-foreground":"#ffffff","secondary":"#e9e6dc","secondary-foreground":"#535146","muted":"#ede9de","muted-foreground":"#83827d","accent":"#e9e6dc","accent-foreground":"#28261b","destructive":"#141413","destructive-foreground":"#ffffff","border":"#dad9d4","input":"#b4b2a7","ring":"#c96442","chart-1":"#b05730","chart-2":"#9c87f5","chart-3":"#ded8c4","chart-4":"#dbd3f0","chart-5":"#b4552d"},"dark":{"background":"#262624","foreground":"#c3c0b6","card":"#262624","card-foreground":"#faf9f5","popover":"#30302e","popover-foreground":"#e5e5e2","primary":"#d97757","primary-foreground":"#ffffff","secondary":"#faf9f5","secondary-foreground":"#30302e","muted":"#1b1b19","muted-foreground":"#b7b5a9","accent":"#1a1915","accent-foreground":"#f5f4ee","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#3e3e38","input":"#52514a","ring":"#d97757","chart-1":"#b05730","chart-2":"#9c87f5","chart-3":"#1a1915","chart-4":"#2f2b48","chart-5":"#b4552d"},"fonts":{"sans":"","serif":""},"radius":0.8},"vercel":{"label":"Vercel","light":{"background":"#fcfcfc","foreground":"#000000","card":"#ffffff","card-foreground":"#000000","popover":"#fcfcfc","popover-foreground":"#000000","primary":"#000000","primary-foreground":"#ffffff","secondary":"#ebebeb","secondary-foreground":"#000000","muted":"#f5f5f5","muted-foreground":"#525252","accent":"#ebebeb","accent-foreground":"#000000","destructive":"#e54b4f","destructive-foreground":"#ffffff","border":"#e4e4e4","input":"#ebebeb","ring":"#000000","chart-1":"#f9b138","chart-2":"#2d62ef","chart-3":"#a4a4a4","chart-4":"#e4e4e4","chart-5":"#747474"},"dark":{"background":"#000000","foreground":"#ffffff","card":"#090909","card-foreground":"#ffffff","popover":"#121212","popover-foreground":"#ffffff","primary":"#ffffff","primary-foreground":"#000000","secondary":"#222222","secondary-foreground":"#ffffff","muted":"#1d1d1d","muted-foreground":"#a4a4a4","accent":"#333333","accent-foreground":"#ffffff","destructive":"#ff5b5b","destructive-foreground":"#000000","border":"#242424","input":"#333333","ring":"#a4a4a4","chart-1":"#f9b138","chart-2":"#2671f4","chart-3":"#747474","chart-4":"#525252","chart-5":"#e4e4e4"},"fonts":{"sans":"Geist","serif":"Georgia"},"radius":0.8},"darkmatter":{"label":"Darkmatter","light":{"background":"#ffffff","foreground":"#111827","card":"#ffffff","card-foreground":"#111827","popover":"#ffffff","popover-foreground":"#111827","primary":"#d87943","primary-foreground":"#ffffff","secondary":"#527575","secondary-foreground":"#ffffff","muted":"#f3f4f6","muted-foreground":"#6b7280","accent":"#eeeeee","accent-foreground":"#111827","destructive":"#ef4444","destructive-foreground":"#fafafa","border":"#e5e7eb","input":"#e5e7eb","ring":"#d87943","chart-1":"#5f8787","chart-2":"#e78a53","chart-3":"#fbcb97","chart-4":"#888888","chart-5":"#999999"},"dark":{"background":"#121113","foreground":"#c1c1c1","card":"#121212","card-foreground":"#c1c1c1","popover":"#121113","popover-foreground":"#c1c1c1","primary":"#e78a53","primary-foreground":"#121113","secondary":"#5f8787","secondary-foreground":"#121113","muted":"#222222","muted-foreground":"#888888","accent":"#333333","accent-foreground":"#c1c1c1","destructive":"#5f8787","destructive-foreground":"#121113","border":"#222222","input":"#222222","ring":"#e78a53","chart-1":"#5f8787","chart-2":"#e78a53","chart-3":"#fbcb97","chart-4":"#888888","chart-5":"#999999"},"fonts":{"sans":"Geist Mono","serif":"serif"},"radius":1.2},"mono":{"label":"Mono","light":{"background":"#ffffff","foreground":"#0a0a0a","card":"#ffffff","card-foreground":"#0a0a0a","popover":"#ffffff","popover-foreground":"#0a0a0a","primary":"#737373","primary-foreground":"#fafafa","secondary":"#f5f5f5","secondary-foreground":"#171717","muted":"#f5f5f5","muted-foreground":"#717171","accent":"#f5f5f5","accent-foreground":"#171717","destructive":"#e7000b","destructive-foreground":"#f5f5f5","border":"#e5e5e5","input":"#e5e5e5","ring":"#a1a1a1","chart-1":"#737373","chart-2":"#737373","chart-3":"#737373","chart-4":"#737373","chart-5":"#737373"},"dark":{"background":"#0a0a0a","foreground":"#fafafa","card":"#191919","card-foreground":"#fafafa","popover":"#262626","popover-foreground":"#fafafa","primary":"#737373","primary-foreground":"#fafafa","secondary":"#262626","secondary-foreground":"#fafafa","muted":"#262626","muted-foreground":"#a1a1a1","accent":"#404040","accent-foreground":"#fafafa","destructive":"#ff6467","destructive-foreground":"#262626","border":"#383838","input":"#525252","ring":"#737373","chart-1":"#737373","chart-2":"#737373","chart-3":"#737373","chart-4":"#737373","chart-5":"#737373"},"fonts":{"sans":"Geist Mono","serif":"Geist Mono"},"radius":0},"soft-pop":{"label":"Soft Pop","light":{"background":"#f7f9f3","foreground":"#000000","card":"#ffffff","card-foreground":"#000000","popover":"#ffffff","popover-foreground":"#000000","primary":"#4f46e5","primary-foreground":"#ffffff","secondary":"#14b8a6","secondary-foreground":"#ffffff","muted":"#f0f0f0","muted-foreground":"#333333","accent":"#f59e0b","accent-foreground":"#000000","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#000000","input":"#737373","ring":"#a5b4fc","chart-1":"#4f46e5","chart-2":"#14b8a6","chart-3":"#f59e0b","chart-4":"#ec4899","chart-5":"#22c55e"},"dark":{"background":"#000000","foreground":"#ffffff","card":"#1a212b","card-foreground":"#ffffff","popover":"#1a212b","popover-foreground":"#ffffff","primary":"#818cf8","primary-foreground":"#000000","secondary":"#2dd4bf","secondary-foreground":"#000000","muted":"#333333","muted-foreground":"#cccccc","accent":"#fcd34d","accent-foreground":"#000000","destructive":"#f87171","destructive-foreground":"#000000","border":"#545454","input":"#ffffff","ring":"#818cf8","chart-1":"#818cf8","chart-2":"#2dd4bf","chart-3":"#fcd34d","chart-4":"#f472b6","chart-5":"#4ade80"},"fonts":{"sans":"DM Sans","serif":"DM Sans"},"radius":1.6},"sage-garden":{"label":"Sage Garden","light":{"background":"#f8f7f4","foreground":"#1a1f2e","card":"#ffffff","card-foreground":"#1a1f2e","popover":"#ffffff","popover-foreground":"#1a1f2e","primary":"#7c9082","primary-foreground":"#ffffff","secondary":"#ced4bf","secondary-foreground":"#1a1f2e","muted":"#e8e6e1","muted-foreground":"#6b7280","accent":"#bfc9bb","accent-foreground":"#1a1f2e","destructive":"#c73e3a","destructive-foreground":"#ffffff","border":"#e8e6e1","input":"#ffffff","ring":"#7c9082","chart-1":"#7c9082","chart-2":"#a0aa88","chart-3":"#8b9d83","chart-4":"#6b7280","chart-5":"#e8e6e1"},"dark":{"background":"#0a0a0a","foreground":"#f5f5f5","card":"#121212","card-foreground":"#f5f5f5","popover":"#121212","popover-foreground":"#f5f5f5","primary":"#7c9082","primary-foreground":"#000000","secondary":"#1a1a1a","secondary-foreground":"#f5f5f5","muted":"#1a1a1a","muted-foreground":"#a0a0a0","accent":"#36443a","accent-foreground":"#f5f5f5","destructive":"#ef4444","destructive-foreground":"#ffffff","border":"#2a2a2a","input":"#121212","ring":"#7c9082","chart-1":"#7c9082","chart-2":"#a0aa88","chart-3":"#8b9d83","chart-4":"#6b7280","chart-5":"#5a6b5e"},"fonts":{"sans":"Antic","serif":"Signifier"},"radius":0.5599999999999999}};
   var OVERRIDE_KEYS = ['background','foreground','card','card-foreground','popover','popover-foreground','primary','primary-foreground','secondary','secondary-foreground','muted','muted-foreground','accent','accent-foreground','destructive','destructive-foreground','border','input','ring','chart-1','chart-2','chart-3','chart-4','chart-5'];
@@ -2370,46 +2602,243 @@
     }
   })();
 
+  /* ================= Variables panel =================
+     The old version of this was a three-column table of the thirty-one tokens
+     someone had thought to list. The system emits closer to a hundred and fifty,
+     and the interesting half of them are not chosen but derived, so a value on
+     its own is the least useful thing you can show. Each row here carries the
+     recipe as well, and says when the solver had to move off its nominal number,
+     because that is the moment a person needs to know the engine did something
+     they did not ask for. */
+
+  // Where a base token came from, so the panel can group thirty-four hand-picked
+  // values into something with shape rather than one long alphabetical run.
+  var VP_BASE_GROUPS = [
+    ['page',  'Page and ink',  ['background', 'foreground', 'card', 'card-foreground', 'popover', 'popover-foreground', 'sidebar', 'sidebar-foreground']],
+    ['role',  'Roles',         ['primary', 'secondary', 'tertiary', 'accent', 'muted', 'info', 'success', 'warning', 'error', 'destructive']],
+    ['line',  'Lines',         ['border', 'input', 'ring']],
+    ['chart', 'Charts',        []]
+  ];
+
+  // Which block a hand-picked token belongs in. Foregrounds follow their role, so
+  // primary-foreground sits with primary rather than in a bucket of its own.
+  function vpBaseGroup(name) {
+    if (/^chart-/.test(name)) return 'chart';
+    var stem = name.replace(/-foreground$/, '');
+    for (var i = 0; i < VP_BASE_GROUPS.length; i++) {
+      var g = VP_BASE_GROUPS[i];
+      if (g[2].indexOf(name) >= 0 || g[2].indexOf(stem) >= 0) return g[0];
+    }
+    if (/^sidebar-/.test(name)) return 'page';
+    return 'role';
+  }
+
+  var vpQuery = '';
+  var vpFilter = 'all';
+
+  /* Build the flat list once per render: every token the theme holds, in the order
+     a person would read it, tagged with where it came from. Anything the engine
+     starts emitting later still lands here, in the Roles block by default, so a
+     new token cannot go missing from the panel just because nobody updated a list. */
+  function vpRows() {
+    var v = vars || {};
+    var mine = v[mode] || {};
+    var recipes = mine.recipes || {};
+    var labels = mine.labels || {};
+    var css = mine.css || {};
+    var notes = mine.notes || {};
+    var baseNames = mine.base || [];
+    var light = (theme && theme.light) || {};
+    var dark = (theme && theme.dark) || {};
+    var out = [];
+    var seen = {};
+
+    var push = function (name, group) {
+      if (seen[name]) return;
+      if (light[name] == null && dark[name] == null) return;
+      seen[name] = 1;
+      var r = recipes[name];
+      out.push({
+        name: name,
+        group: group,
+        light: light[name],
+        dark: dark[name],
+        recipe: r || null,
+        // A base token has no recipe by definition, and the block it sits in
+        // already says Chosen, so it gets no second line at all. Thirty-four rows
+        // each repeating "chosen by hand" would spend a third of the panel's
+        // height saying nothing. A pinned derived token is the opposite case:
+        // there the missing recipe is the news, so it is spelled out.
+        label: r ? labels[name] : (group === 'base' ? null : 'Pinned by hand, so no recipe applies.'),
+        css: css[name] || null,
+        notes: notes[name] || []
+      });
+    };
+
+    // Base first, in TOKEN_ORDER where we have an opinion and emission order after,
+    // then the derived blocks in the order the recipes actually ran.
+    var basePool = baseNames.slice();
+    var ordered = TOKEN_ORDER.filter(function (n) { return basePool.indexOf(n) >= 0; })
+      .concat(basePool.filter(function (n) { return TOKEN_ORDER.indexOf(n) < 0; }));
+    VP_BASE_GROUPS.forEach(function (g) {
+      ordered.forEach(function (n) { if (vpBaseGroup(n) === g[0]) push(n, 'base'); });
+    });
+
+    var GROUP_ORDER = ['surface', 'border', 'field', 'state', 'soft'];
+    GROUP_ORDER.forEach(function (gk) {
+      Object.keys(recipes).forEach(function (n) {
+        if ((recipes[n].group || '') === gk) push(n, gk);
+      });
+    });
+    // Recipes in a group this panel has no heading for, then anything in the theme
+    // with no recipe and no place in base. Both are shown rather than dropped.
+    Object.keys(recipes).forEach(function (n) { push(n, recipes[n].group || 'other'); });
+    Object.keys(light).forEach(function (n) { push(n, 'other'); });
+    return out;
+  }
+
+  var VP_GROUP_LABELS = {
+    base: 'Chosen', surface: 'Surfaces', border: 'Borders',
+    field: 'Fields', state: 'States', soft: 'Soft variants', other: 'Other'
+  };
+
+  function vpMatches(row, q) {
+    if (!q) return true;
+    return (row.name + ' ' + (row.label || '') + ' ' + (row.light || '') + ' ' + (row.dark || ''))
+      .toLowerCase().indexOf(q) >= 0;
+  }
+
+  // Highlight the matched run in the token name. Built by node rather than by
+  // innerHTML so a search string full of angle brackets stays a search string.
+  function vpName(name, q) {
+    var span = el('span', 'vp-name');
+    var i = q ? name.toLowerCase().indexOf(q) : -1;
+    if (i < 0) { span.textContent = name; span.title = name; return span; }
+    span.appendChild(document.createTextNode(name.slice(0, i)));
+    span.appendChild(el('b', '', name.slice(i, i + q.length)));
+    span.appendChild(document.createTextNode(name.slice(i + q.length)));
+    span.title = name;
+    return span;
+  }
+
+  function vpRow(row, q) {
+    var node = el('div', 'vp-row');
+    node.setAttribute('role', 'button');
+    node.tabIndex = 0;
+
+    var sw = el('span', 'vp-sw');
+    var l = el('i'); l.style.background = row.light || 'transparent';
+    var d = el('i'); d.style.background = row.dark || 'transparent';
+    sw.appendChild(l); sw.appendChild(d);
+    sw.title = 'light ' + (row.light || '–') + ' · dark ' + (row.dark || '–');
+    node.appendChild(sw);
+
+    node.appendChild(vpName(row.name, q));
+    node.appendChild(el('span', 'vp-hex', (mode === 'dark' ? row.dark : row.light) || '–'));
+
+    // No label means a hand-picked colour, which the heading has already
+    // accounted for. The row collapses to one line and the swatch stops
+    // spanning a second that would not be there.
+    if (!row.label && !row.notes.length) {
+      node.className = 'vp-row solo';
+    } else {
+      var rec = el('span', 'vp-recipe');
+      rec.appendChild(el('span', 't', row.label || ''));
+      var r = row.recipe;
+      if (r) {
+        var flags = el('span', 'vp-flags');
+        // Only the two that mean the engine overruled its own defaults get the
+        // loud treatment. Everything else is the recipe working as designed.
+        if (r.nominal != null) flags.appendChild(el('span', 'vp-flag solved', 'solved'));
+        if (r.protected) flags.appendChild(el('span', 'vp-flag solved', 'AA held'));
+        if (r.verified) flags.appendChild(el('span', 'vp-flag', 'verified'));
+        if (flags.childNodes.length) rec.appendChild(flags);
+      }
+      // The full story goes in the tooltip: the live expression the web target
+      // emits, and whatever the solver had to say about this token.
+      rec.title = [row.label, row.css, row.notes.join(' ')].filter(Boolean).join('\n');
+      node.appendChild(rec);
+    }
+
+    var copy = function () {
+      var text = 'var(--' + row.name + ')';
+      var done = function () { toast('ok', 'Copied', text); };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function () { toast('note', 'Copy it by hand', text); });
+      } else done();
+    };
+    node.addEventListener('click', copy);
+    node.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copy(); }
+    });
+    return node;
+  }
+
   function renderTokenTable() {
-    var tbody = $('#token-tbody');
-    tbody.innerHTML = '';
+    var host = $('#vp-list');
+    var chipHost = $('#vp-chips');
+    var countHost = $('#vp-count');
+    if (!host) return;
+    host.innerHTML = '';
+    chipHost.innerHTML = '';
+
     if (!theme) {
-      var tr = document.createElement('tr');
-      var td = document.createElement('td');
-      td.colSpan = 3;
-      td.className = 'empty-note';
-      td.textContent = 'Waiting for the first preview from the engine.';
-      tr.appendChild(td);
-      tbody.appendChild(tr);
+      countHost.textContent = '';
+      host.appendChild(el('div', 'vp-empty', 'Waiting for the first preview from the engine.'));
       return;
     }
-    TOKEN_ORDER.forEach(function (name) {
-      var light = (theme.light || {})[name];
-      var dark = (theme.dark || {})[name];
-      if (light == null && dark == null) return;
-      var tr = document.createElement('tr');
-      var tdName = document.createElement('td');
-      tdName.appendChild(el('span', 'token-name', name));
-      tr.appendChild(tdName);
-      [light, dark].forEach(function (v) {
-        var td = document.createElement('td');
-        if (v != null) {
-          var wrap = el('span', 'token-val');
-          var sw = el('span', 'sw');
-          sw.style.background = v;
-          wrap.appendChild(sw);
-          var code = document.createElement('code');
-          code.textContent = v;
-          wrap.appendChild(code);
-          td.appendChild(wrap);
-        } else {
-          td.textContent = '–';
-        }
-        tr.appendChild(td);
+
+    var rows = vpRows();
+    var q = vpQuery.trim().toLowerCase();
+
+    // Chips count what search has left, not the whole system, so a chip reading
+    // zero tells you the filter and the search disagree rather than lying about
+    // what the system contains.
+    var searched = rows.filter(function (r) { return vpMatches(r, q); });
+    var order = ['base', 'surface', 'border', 'field', 'state', 'soft', 'other'];
+    var present = order.filter(function (g) { return rows.some(function (r) { return r.group === g; }); });
+
+    [['all', 'All']].concat(present.map(function (g) { return [g, VP_GROUP_LABELS[g] || g]; }))
+      .forEach(function (c) {
+        var n = c[0] === 'all' ? searched.length : searched.filter(function (r) { return r.group === c[0]; }).length;
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'vp-chip' + (vpFilter === c[0] ? ' on' : '');
+        b.textContent = c[1];
+        b.appendChild(el('span', 'n', String(n)));
+        b.addEventListener('click', function () {
+          vpFilter = vpFilter === c[0] ? 'all' : c[0];
+          renderTokenTable();
+        });
+        chipHost.appendChild(b);
       });
-      tbody.appendChild(tr);
+
+    var list = searched.filter(function (r) { return vpFilter === 'all' || r.group === vpFilter; });
+    var derived = rows.filter(function (r) { return r.group !== 'base'; }).length;
+    countHost.textContent = q || vpFilter !== 'all'
+      ? list.length + ' of ' + rows.length + ' tokens'
+      : rows.length + ' tokens, ' + derived + ' of them derived';
+
+    if (!list.length) {
+      host.appendChild(el('div', 'vp-empty', q ? 'Nothing matches “' + q + '”.' : 'Nothing in this group.'));
+      return;
+    }
+
+    order.forEach(function (g) {
+      var inGroup = list.filter(function (r) { return r.group === g; });
+      if (!inGroup.length) return;
+      var sec = el('div', 'vp-group');
+      sec.appendChild(el('div', 'vp-group-head', VP_GROUP_LABELS[g] || g));
+      inGroup.forEach(function (r) { sec.appendChild(vpRow(r, q)); });
+      host.appendChild(sec);
     });
   }
+
+  (function bindVariablesPanel() {
+    var s = document.getElementById('vp-search');
+    if (!s) return;
+    s.addEventListener('input', function () { vpQuery = s.value; renderTokenTable(); });
+  })();
 
   /* ================= Controls: Fonts ================= */
 
@@ -3002,8 +3431,17 @@
   }
   function applyThemeVars() {
     var tokens = moodTokens();
+    // The engine emits every derived token twice: a resolved hex for platforms
+    // that cannot mix, and a live color-mix() for the web, which is what
+    // theme.css actually ships. The hex is that colour already flattened against
+    // the page, so painting the preview with it turns a scrim into a grey box
+    // and a soft fill into a solid one. Prefer the live expression where there
+    // is one and the preview stops disagreeing with the stylesheet it generates.
+    // The audit panel deliberately keeps using the hexes, because a resolved
+    // value is what it grades.
+    var live = (vars && vars[mode] && vars[mode].css) || {};
     Object.keys(tokens).forEach(function (k) {
-      preview.style.setProperty('--' + k, tokens[k]);
+      preview.style.setProperty('--' + k, live[k] || tokens[k]);
     });
     // Theme the ENTIRE app chrome from the current mode's system tokens
     var bg = tokens.background || (mode === 'dark' ? '#0a0a0a' : '#ffffff');
@@ -3025,6 +3463,24 @@
     r.setProperty('--sp', ((brand.spacing || 1) * 4) + 'px');
     r.setProperty('--bw', (brand.borderWidth == null ? 1 : brand.borderWidth) + 'px');
     r.setProperty('--shadow', shadowCss(brand.shadow || { blur: 8, y: 2, op: 10 }));
+    // Behaviour, mirrored into the preview so the controls are not dead in the tool.
+    // The fallbacks resolve to the general settings, which is what a brand that has
+    // not split fields away from everything else should keep getting.
+    var gbw = brand.borderWidth == null ? 1 : brand.borderWidth;
+    preview.style.setProperty('--bw-field', (brand.fieldBorderWidth == null ? gbw : brand.fieldBorderWidth) + 'px');
+    preview.style.setProperty('--r-field', ((brand.radiusField == null ? brand.radius : brand.radiusField) * 8).toFixed(1) + 'px');
+    preview.style.setProperty('--disabled-opacity', ((brand.disabledOpacity == null ? 50 : brand.disabledOpacity) / 100).toFixed(3));
+    var SK = {
+      pulse:   { name: 'pv-skel-pulse',   dur: '2s',   ease: 'cubic-bezier(.4,0,.6,1)', sheen: 0 },
+      shimmer: { name: 'pv-skel-shimmer', dur: '1.6s', ease: 'linear',                  sheen: 12 },
+      none:    { name: 'none',            dur: '0s',   ease: 'linear',                  sheen: 0 }
+    };
+    var skv = SK[brand.skeleton || 'pulse'] || SK.pulse;
+    preview.style.setProperty('--skeleton-anim', skv.name);
+    preview.style.setProperty('--skeleton-duration', skv.dur);
+    preview.style.setProperty('--skeleton-easing', skv.ease);
+    preview.style.setProperty('--skeleton-sheen', String(skv.sheen));
+    preview.setAttribute('data-motion', brand.motion === false ? 'off' : 'on');
     // Material: translucency, blur, tint, page background (applies to preview surfaces)
     var mt = brand.material || {};
     var mop = (mt.opacity == null ? 100 : mt.opacity) / 100;
@@ -3086,34 +3542,109 @@
     });
   }
 
+  /* The audit covers every pairing the system can paint, not just the handful
+     someone picked. Sorting it into where each pairing came from is what keeps
+     fifty rows readable: the base block is a colour decision, the three derived
+     blocks are the recipe's work, and a failure means something different in each. */
+  var AUDIT_GROUPS = [
+    ['base',  'Page, surfaces and fields', 'Pairings chosen by hand.'],
+    ['rest',  'Roles at rest',             'The seed colour against its own foreground.'],
+    ['state', 'Hover and active',          'Derived. A state nobody can read is as broken as a rest colour nobody can read.'],
+    ['soft',  'Soft fills',                'Derived. Graded on the heavier hover fill as well as the rest fill.']
+  ];
+
   function renderAudits() {
     var host = $('#audit-list');
     host.innerHTML = '';
-    $('#audit-desc').textContent = 'Contrast audit for the ' + mode + ' theme.';
+    var desc = $('#audit-desc');
     var rows = (audits && audits[mode]) || [];
     if (!rows.length) {
-      host.appendChild(el('div', 'pv-card-desc', 'No audit results yet. Change a control or press Preview changes.'));
+      desc.textContent = 'Contrast audit for the ' + mode + ' theme.';
+      host.appendChild(el('div', 'audit-empty', 'No audit results yet. Change a control or press Preview changes.'));
       return;
     }
+
+    var fails = rows.filter(function (a) { return !a.aa; });
+    var regressions = fails.filter(function (a) { return a.regression; }).length;
+    // Say which half of the system is at fault, because the fix is different. A
+    // regression means a recipe made a readable colour unreadable and can be solved.
+    // An inherited failure was already there in the colour someone picked, and no
+    // amount of solving will move it: the seed has to change.
+    var line = rows.length + ' pairings checked for the ' + mode + ' theme, ' +
+      (rows.length - fails.length) + ' clear AA.';
+    if (!fails.length) line += ' Nothing fails.';
+    else if (regressions) line += ' ' + regressions + ' of the ' + fails.length +
+      ' failures are regressions the derivation layer introduced; the rest came in with the seed colours.';
+    else line += ' All ' + fails.length + ' failures came in with the seed colours, so no derived state made a readable pairing unreadable.';
+    desc.textContent = line;
+
+    var onlyFail = $('#audit-only-fail').checked;
     var tokens = moodTokens();
-    rows.forEach(function (a) {
-      var row = el('div', 'audit-row');
-      var sample = el('span', 'audit-sample', 'Aa');
-      sample.style.background = tokens[a.bg] || a.bg;
-      sample.style.color = tokens[a.fg] || a.fg;
-      var pair = el('span', 'audit-pair');
-      pair.appendChild(document.createTextNode(a.fg + ' '));
-      pair.appendChild(el('span', 'on', 'on'));
-      pair.appendChild(document.createTextNode(' ' + a.bg));
-      var ratio = el('span', 'audit-ratio', Number(a.ratio).toFixed(2));
-      var chip;
-      if (a.aa) chip = el('span', 'audit-chip pass', 'AA');
-      else if (a.aaLarge) chip = el('span', 'audit-chip large', 'AA LARGE');
-      else chip = el('span', 'audit-chip fail', 'FAIL');
-      row.appendChild(sample); row.appendChild(pair); row.appendChild(ratio); row.appendChild(chip);
-      host.appendChild(row);
+
+    AUDIT_GROUPS.forEach(function (g) {
+      var all = rows.filter(function (a) { return (a.group || 'base') === g[0]; });
+      if (!all.length) return;
+      var list = onlyFail ? all.filter(function (a) { return !a.aa; }) : all;
+      if (onlyFail && !list.length) return;
+
+      var sec = el('div', 'audit-group');
+      var head = el('div', 'audit-group-head');
+      head.appendChild(el('span', 'audit-group-name', g[1]));
+      head.appendChild(el('span', 'audit-group-note', g[2]));
+      var bad = all.filter(function (a) { return !a.aa; }).length;
+      head.appendChild(el('span', 'audit-group-count', bad ? bad + ' of ' + all.length + ' fail' : all.length + ' pass'));
+      sec.appendChild(head);
+
+      var grid = el('div', 'audit-rows');
+      list.forEach(function (a) { grid.appendChild(auditRow(a, tokens)); });
+      sec.appendChild(grid);
+      host.appendChild(sec);
     });
+
+    // Anything the engine adds later lands in a group this list has never heard of.
+    // Show it rather than drop it, so a new pairing cannot go unaudited in silence.
+    var rest = rows.filter(function (a) { return AUDIT_GROUPS.every(function (g) { return g[0] !== (a.group || 'base'); }); });
+    if (rest.length) {
+      var sec2 = el('div', 'audit-group');
+      var h2 = el('div', 'audit-group-head');
+      h2.appendChild(el('span', 'audit-group-name', 'Other'));
+      h2.appendChild(el('span', 'audit-group-note', 'Groups this panel does not have a heading for yet.'));
+      sec2.appendChild(h2);
+      var g2 = el('div', 'audit-rows');
+      rest.forEach(function (a) { if (!onlyFail || !a.aa) g2.appendChild(auditRow(a, tokens)); });
+      sec2.appendChild(g2);
+      host.appendChild(sec2);
+    }
+
+    if (onlyFail && !fails.length) host.appendChild(el('div', 'audit-empty', 'Every pairing clears AA.'));
   }
+
+  function auditRow(a, tokens) {
+    var row = el('div', 'audit-row');
+    var sample = el('span', 'audit-sample', 'Aa');
+    sample.style.background = tokens[a.bg] || a.bg;
+    sample.style.color = tokens[a.fg] || a.fg;
+    if (a.translucent) sample.title = 'Graded against this surface composited over the page, because it is translucent.';
+    var pair = el('span', 'audit-pair');
+    pair.appendChild(document.createTextNode(a.fg + ' '));
+    pair.appendChild(el('span', 'on', 'on'));
+    pair.appendChild(document.createTextNode(' ' + a.bg));
+    pair.title = a.fg + ' on ' + a.bg;
+    var ratio = el('span', 'audit-ratio', Number(a.ratio).toFixed(2));
+    row.appendChild(sample); row.appendChild(pair); row.appendChild(ratio);
+    if (a.regression) row.appendChild(el('span', 'audit-cause regression', 'REGRESSION'));
+    else if (a.inherited) row.appendChild(el('span', 'audit-cause inherited', 'FROM SEED'));
+    var chip;
+    if (a.aa) chip = el('span', 'audit-chip pass', 'AA');
+    else if (a.aaLarge) chip = el('span', 'audit-chip large', 'AA LARGE');
+    else chip = el('span', 'audit-chip fail', 'FAIL');
+    row.appendChild(chip);
+    return row;
+  }
+
+  // Filtering is a view concern, so it redraws from the audit data already in hand
+  // rather than asking the server to compute the system again.
+  $('#audit-only-fail').addEventListener('change', renderAudits);
 
   /* ================= Imagery ================= */
 
@@ -3465,7 +3996,7 @@
       var zero = ['adj-h','adj-s','adj-b'].every(function (i) { var e = document.getElementById(i); return e && e.value === '0'; });
       if (zero) captureAdjustBase();
     } catch (e) {}
-    try { syncTypeDd(); syncRadiusDd(); syncSpacingEffects(); syncMaterial(); } catch (e) {}
+    try { syncTypeDd(); syncRadiusDd(); syncRadiusFieldDd(); syncSpacingEffects(); syncBehaviour(); syncMaterial(); } catch (e) {}
     COLOUR_KEYS.forEach(function (c) {
       var v = normaliseHex(brand[c.key]) || CLIENT_DEFAULTS[c.key];
       brand[c.key] = v;
@@ -3544,6 +4075,7 @@
       theme = d.theme;
       ramps = d.ramps || ramps;
       audits = d.audits;
+      vars = d.vars || vars;
       renderThemeViews();
       if (manual === true) toast('ok', 'Preview refreshed', 'Tokens and audits recomputed from the current draft.');
     }).catch(function (e) {
@@ -3661,7 +4193,7 @@
       .then(function (d) {
         if (!d.restored) throw new Error(d.error || 'unknown error');
         brand = deepMergeDefaults(d.brand);
-        theme = d.theme; ramps = d.ramps || ramps; audits = d.audits;
+        theme = d.theme; ramps = d.ramps || ramps; audits = d.audits; vars = d.vars || vars;
         savedSnapshot = snapshot();
         syncControls(); syncIdentityInputs(); renderThemeViews(); renderDraftViews(); updateStatusChip(); updateSummary();
         toast(d.build && d.build.ok ? 'ok' : 'note', 'Restored ' + label,
@@ -3694,6 +4226,7 @@
     theme = s.theme || theme;
     ramps = s.ramps || ramps;
     audits = s.audits || audits;
+    vars = s.vars || vars;
     building = !!s.building;
     savedSnapshot = snapshot();
     syncControls();
