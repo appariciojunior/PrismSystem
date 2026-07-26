@@ -377,9 +377,12 @@
   .preview p, .preview input, .preview textarea, .preview select,
   .pv-card-desc, .mz-msg p, .mz-read p, .dz-lbl, .dz-camp span,
   .a-body, .stat-foot, .legend, .dz-axis { font-weight: var(--weight-body, 400); }
-  .pv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  /* minmax(0,…) rather than a bare 1fr: the preview column is narrower now that
+     the gallery sidebar sits beside it, and a bare 1fr floors at min-content,
+     which pushed the wider cards straight through the right edge. */
+  .pv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
   .pv-grid .span-2 { grid-column: 1 / -1; }
-  @media (max-width: 1060px) { .pv-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 1060px) { .pv-grid { grid-template-columns: minmax(0, 1fr); } }
   .pv-card {
     background: var(--card); color: var(--card-foreground);
     border: var(--bw) solid var(--border);
@@ -388,8 +391,8 @@
   }
   .pv-card-title { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: 15px; letter-spacing: -0.01em; margin-bottom: 3px; }
   .pv-card-desc { font-size: 13px; color: var(--muted-foreground); margin-bottom: 18px; }
-  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 22px; }
-  @media (max-width: 800px) { .stat-row { grid-template-columns: 1fr; } }
+  .stat-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; margin-bottom: 22px; }
+  @media (max-width: 800px) { .stat-row { grid-template-columns: minmax(0, 1fr); } }
   .stat-label { font-size: 13px; color: var(--muted-foreground); margin-bottom: 8px; }
   .stat-value { font-family: var(--font-heading); font-weight: var(--weight-heading); font-size: 30px; letter-spacing: -0.02em; line-height: 1.1; }
   .stat-foot { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
@@ -709,6 +712,7 @@
   #preview[data-material="glass"] .pv-card { border-top: 1px solid var(--surface-highlight, transparent); }
   #preview { transition: background .25s ease; }
 </style>
+<link rel="stylesheet" href="gallery.css">
 </head>
 <body>
 <div class="app">
@@ -842,14 +846,11 @@
 
     <!-- ============ UI PREVIEW ============ -->
     <section class="view" id="view-preview">
-      <div class="subtabs" id="subtabs">
-        <button type="button" data-sub="mood" class="active">Moodboard</button>
-        <button type="button" data-sub="dash">Dashboard</button>
-        <button type="button" data-sub="mail">Mail</button>
-        <button type="button" data-sub="components">Components</button>
-        <button type="button" data-sub="type">Type</button>
-        <button type="button" data-sub="colours">Colours</button>
-      </div>
+      <div class="gx-shell">
+      <aside class="gx-nav">
+        <input type="search" class="gx-search" id="gx-search" placeholder="Search screens and components" autocomplete="off" spellcheck="false">
+        <div class="gx-list" id="gx-list"></div>
+      </aside>
       <div class="preview" id="preview">
         <div class="pane active" id="pane-mood">
           <div class="mood-grid" id="mood-grid"></div>
@@ -1065,6 +1066,10 @@
           </div>
           <div id="colours-view"></div>
         </div>
+        <div class="pane" id="pane-gallery">
+          <div id="gx-canvas"></div>
+        </div>
+      </div>
       </div>
     </section>
 
@@ -1994,22 +1999,10 @@
       : (m.preset === 'outline' ? 'Hard edges. Pairs with a thicker border and no shadow.' : '');
   }
 
-  /* ================= Preview sub-tabs ================= */
-  (function buildSubtabs() {
-    var host = document.getElementById('subtabs');
-    if (!host) return;
-    host.querySelectorAll('button').forEach(function (b) {
-      b.addEventListener('click', function () {
-        host.querySelectorAll('button').forEach(function (x) { x.classList.toggle('active', x === b); });
-        var id = b.getAttribute('data-sub');
-        document.querySelectorAll('#preview .pane').forEach(function (p) {
-          p.classList.toggle('active', p.id === 'pane-' + id);
-        });
-        if (id === 'mood') renderMood();
-        if (id === 'colours') renderColours();
-      });
-    });
-  })();
+  /* ================= Preview navigation =================
+     The old sub-tab strip has been replaced by the gallery sidebar in
+     gallery.js, which owns #gx-list, #gx-search and #pane-gallery and drives
+     the same .pane show/hide contract. */
 
   /* ================= Colours tab: full ramps + resolved theme tokens ================= */
   function renderColours() {
@@ -2269,17 +2262,31 @@
       document.getElementById('view-' + v).classList.toggle('active', v === id);
     });
     if (pushHash !== false) {
-      try { history.replaceState(null, '', '#' + id); } catch (e) { location.hash = id; }
+      var h = '#' + id;
+      if (id === 'preview' && window.PrismGallery) h += '/' + window.PrismGallery.current();
+      try { history.replaceState(null, '', h); } catch (e) { location.hash = h; }
     }
-    if (id === 'preview') renderMood();
+    if (id === 'preview') {
+      if (window.PrismGallery) window.PrismGallery.refresh();
+      else renderMood();
+    }
   }
 
   document.querySelectorAll('.tab').forEach(function (t) {
     t.addEventListener('click', function () { setTab(t.getAttribute('data-tab')); });
   });
-  window.addEventListener('hashchange', function () {
-    setTab((location.hash || '#preview').slice(1), false);
-  });
+  /* Hashes are either "#tab" or, for the preview, "#preview/<slug>" where the
+     slug names a gallery screen or component. Deep links keep working after a
+     reload because the gallery resolves the slug itself. */
+  function routeFromHash() {
+    var raw = (location.hash || '#preview').slice(1);
+    var parts = raw.split('/');
+    setTab(parts[0] || 'preview', false);
+    if (parts[0] === 'preview' && window.PrismGallery) {
+      window.PrismGallery.select(parts[1] || 'brand', false);
+    }
+  }
+  window.addEventListener('hashchange', routeFromHash);
 
   /* ================= Fonts loading ================= */
 
@@ -3490,13 +3497,23 @@
     if (currentTab === 'preview') renderMood();
   }
 
+  /* The gallery lives in its own script and drives the hand-authored panes, so
+     it needs a way in to the two that paint themselves on demand. */
+  window.renderMood = renderMood;
+  window.renderColours = renderColours;
+
   /* Re-render everything that derives from the preview response. */
   function renderThemeViews() {
     applyThemeVars();
     renderTokenTable();
     renderChart();
     renderAudits();
-    if (currentTab === 'preview') renderMood();
+    /* The gallery reads resolved custom properties off the preview element, so
+       it has to redraw after the theme changes, not before. */
+    if (currentTab === 'preview') {
+      if (window.PrismGallery) window.PrismGallery.refresh();
+      else renderMood();
+    }
     var cp = document.getElementById('pane-colours');
     if (cp && cp.classList.contains('active')) renderColours();
   }
@@ -3716,18 +3733,19 @@
   updateStatusChip();
   renderDraftViews();
   renderThemeViews();
-  setTab((location.hash || '#preview').slice(1), false);
+  routeFromHash();
 
   fetch('/api/state').then(function (r) {
     if (!r.ok) throw new Error('HTTP ' + r.status);
     return r.json();
   }).then(function (s) {
     hydrate(s);
-    setTab((location.hash || '#preview').slice(1), false);
+    routeFromHash();
   }).catch(function (e) {
     toast('bad', 'Could not load the saved brand', e.message + '. Is the controller server running? Working from defaults for now.');
   });
 })();
 </script>
+<script src="gallery.js"></script>
 </body>
 </html>
